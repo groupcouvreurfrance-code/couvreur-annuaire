@@ -15,6 +15,5 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: "https://couvreursfrance.vercel.app/sitemap.xml",
-    host: "https://couvreursfrance.vercel.app",
   }
 }
