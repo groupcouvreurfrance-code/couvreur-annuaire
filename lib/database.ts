@@ -7,6 +7,8 @@ export type { Department, Commune, Artisan, ContactRequest }
 export const getAllDepartments = unstable_cache(
     async (page: number = 1, perPage: number = 20): Promise<{ departments: Department[], total: number }> => {
       const skip = (page - 1) * perPage
+      // Après avoir ajouté un département
+
       const [departments, total] = await Promise.all([
         prisma.department.findMany({
           orderBy: {

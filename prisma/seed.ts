@@ -33,6 +33,7 @@ const departments = [
   { code: '17', name: 'Charente-Maritime', slug: 'charente-maritime' },
   { code: '18', name: 'Cher', slug: 'cher' },
   { code: '19', name: 'Corrèze', slug: 'correze' },
+  { code: '20', name: 'Corse', slug: 'corse' },
   { code: '21', name: 'Côte-d\'Or', slug: 'cote-dor' },
   { code: '22', name: 'Côtes-d\'Armor', slug: 'cotes-darmor' },
   { code: '23', name: 'Creuse', slug: 'creuse' },
@@ -189,6 +190,18 @@ function getCityForDepartment(departmentCode: string): string {
 async function main() {
   console.log('Début du seeding des artisans...')
 
+  // Supprimer les anciens artisans
+  console.log('Suppression des anciens artisans...')
+  await prisma.artisan.deleteMany({})
+
+  // Réinitialiser la séquence d'ID des artisans pour repartir à 1
+  try {
+    await prisma.$executeRaw`SELECT setval(pg_get_serial_sequence('Artisan', 'id'), 1, false)`
+    console.log('Séquence des IDs artisans réinitialisée à 1')
+  } catch (error) {
+    console.log('Note: Impossible de réinitialiser la séquence des IDs (normal si table vide)')
+  }
+
   // 1. Récupérer les départements existants pour avoir les IDs
   console.log('Récupération des départements existants...')
   const existingDepartments = await prisma.department.findMany()
@@ -239,19 +252,12 @@ async function main() {
     artisans.push(artisan)
   }
 
-  // Insertion des artisans
-  for (const artisan of artisans) {
-    try {
-      await prisma.artisan.create({
-        data: artisan
-      })
-      console.log(`Artisan ${artisan.companyName} créé avec succès`)
-    } catch (error) {
-      console.error(`Erreur lors de la création de ${artisan.companyName}:`, error)
-    }
-  }
+  // Insertion des artisans en masse
+  const result = await prisma.artisan.createMany({
+    data: artisans
+  })
 
-  console.log(`Seeding terminé ! ${artisans.length} artisans créés (un par département).`)
+  console.log(`Seeding terminé ! ${result.count} artisans créés (un par département) avec IDs commençant à 1.`)
 }
 
 main()

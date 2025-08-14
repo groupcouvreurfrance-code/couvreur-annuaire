@@ -44,6 +44,7 @@ async function main() {
       { code: '17', name: 'Charente-Maritime', slug: 'charente-maritime' },
       { code: '18', name: 'Cher', slug: 'cher' },
       { code: '19', name: 'Corrèze', slug: 'correze' },
+      { code: '20', name: 'Corse', slug: 'corse' },
       { code: '21', name: 'Côte-d\'Or', slug: 'cote-dor' },
       { code: '22', name: 'Côtes-d\'Armor', slug: 'cotes-darmor' },
       { code: '23', name: 'Creuse', slug: 'creuse' },

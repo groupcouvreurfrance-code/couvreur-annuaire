@@ -5,7 +5,8 @@ import {CouvreurServicesSection} from "@/components/couvreur-services-section";
 import {CouvreurAdvantagesSection} from "@/components/couvreur-avantages-section";
 import {CouvreurHeroSection} from "@/components/hero-section";
 
-export default function HomePage() {
+export default async function HomePage() {
+    await fetch('/api/revalidate/departments', { method: 'POST' })
   return (
     <div className="min-h-screen">
       <Header />
