@@ -14,7 +14,7 @@ export function CouvreurHeroSection() {
 
     return (
         <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 lg:py-32 overflow-hidden">
-            <div className="absolute inset-0">
+            <div className="absolute inset-0 hidden md:block">
                 <div
                     className="absolute inset-0 bg-cover bg-center opacity-30"
                     style={{
@@ -34,7 +34,16 @@ export function CouvreurHeroSection() {
                         intervention rapide.
                     </p>
 
+                    <div className="block md:hidden mb-8">
+                        <img
+                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-08-14%20at%2012.36.46_0aeb4673.jpg-deqIqzW8CnWufRnvaFsJe2IrvGbNZ1.jpeg"
+                            alt="Couvreur installant des tuiles orange"
+                            className="w-full h-48 object-cover rounded-lg"
+                        />
+                    </div>
+
                     <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+
                         <Button
                             variant="outline"
                             size="lg"
