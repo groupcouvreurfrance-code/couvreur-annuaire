@@ -14,6 +14,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/admin/", "/api/", "/_next/", "/private/"],
       },
     ],
-    sitemap: "https://couvreurfrance.vercel.app/sitemap.xml",
+    sitemap: "https://www.couvreur-groupefrance.com/sitemap.xml",
   }
 }

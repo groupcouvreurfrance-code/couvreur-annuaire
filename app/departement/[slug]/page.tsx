@@ -84,7 +84,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
     "@type": "LocalBusiness",
     name: artisan ? artisan.companyName : `Couvreur ${department.name}`,
     description: `Service de couverture professionnel dans le ${department.name} (${department.code})`,
-    url: `https://couvreurfrance.vercel.app/departement/${department.slug}`,
+    url: `https://www.couvreur-groupefrance.com/departement/${department.slug}`,
     areaServed: {
       "@type": "AdministrativeArea",
       name: department.name,
@@ -96,19 +96,19 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
           "@type": "ListItem",
           position: 1,
           name: "Accueil",
-          item: "https://couvreurfrance.vercel.app",
+          item: "https://www.couvreur-groupefrance.com",
         },
         {
           "@type": "ListItem",
           position: 2,
           name: "Départements",
-          item: "https://couvreurfrance.vercel.app/departements",
+          item: "https://www.couvreur-groupefrance.com/departements",
         },
         {
           "@type": "ListItem",
           position: 3,
           name: department.name,
-          item: `https://couvreurfrance.vercel.app/departement/${department.slug}`,
+          item: `https://www.couvreur-groupefrance.com/departement/${department.slug}`,
         },
       ],
     },
@@ -154,7 +154,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                 </div>
 
                 <h1 className="font-serif font-bold text-3xl lg:text-4xl text-white mb-4">
-                  Couvreur dans le <span className="text-emerald-400">{department.name}</span>
+                  Couvreur à <span className="text-emerald-400">{department.name}</span>
                 </h1>
 
                 <p className="text-lg text-slate-200 mb-6 max-w-2xl mx-auto leading-relaxed">
@@ -501,7 +501,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                 <div className="container mx-auto px-4 text-center">
                   <div className="max-w-3xl mx-auto">
                     <h2 className="font-serif font-bold text-3xl text-white mb-4">
-                      Vous êtes couvreur dans le {department.name} ?
+                      Vous êtes couvreur à {department.name} ?
                     </h2>
                     <p className="text-emerald-100 text-lg mb-6 leading-relaxed">
                       Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans

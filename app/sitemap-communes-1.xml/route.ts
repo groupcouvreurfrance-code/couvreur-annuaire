@@ -2,7 +2,7 @@ import prisma from '@/lib/prisma'
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-    const baseUrl = 'https://couvreurfrance.vercel.app'
+    const baseUrl = 'https://www.couvreur-groupefrance.com'
 
     // Récupère les communes
     const communes = await prisma.commune.findMany({
