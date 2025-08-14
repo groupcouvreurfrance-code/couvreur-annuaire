@@ -8,6 +8,7 @@ import { notFound } from "next/navigation"
 import { MapPin, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
+import CarteCommune from "@/components/carte-commune";
 
 interface CommunePageProps {
   params: {
@@ -153,64 +154,89 @@ export default async function CommunePage({ params }: CommunePageProps) {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center">
               <Link
-                href={`/departement/${commune.department_slug}`}
-                className="inline-flex items-center text-emerald-600 hover:text-emerald-700 mb-6"
+                  href={`/departement/${commune.department_slug}`}
+                  className="inline-flex items-center text-emerald-600 hover:text-emerald-700 mb-6"
               >
-                <ArrowLeft className="h-4 w-4 mr-2" />
+                <ArrowLeft className="h-4 w-4 mr-2"/>
                 Retour au {commune.department_name}
               </Link>
 
               <h1 className="font-serif font-bold text-4xl lg:text-5xl text-slate-900 mb-4">
-                Couvreur à {commune.name}  - {commune.department_name}
+                Couvreur à {commune.name} - {commune.department_name}
               </h1>
               <p className="text-xl text-slate-600 mb-8">
                 {artisan ? `${artisan.companyName} intervient` : "Service professionnel disponible"} à {commune.name}{" "}
-                et dans tout le {commune.department_name}. Devis gratuit et intervention rapide.
+                et dans tout le {commune.department_name}. Devis et intervention rapide.
               </p>
 
-              <div className="flex items-center justify-center gap-6 text-slate-600">
-                <div className="flex items-center">
-                  <MapPin className="h-5 w-5 mr-2" />
-                  {commune.department_name}
+              <section className="py-16 bg-slate-50">
+                <div className="container mx-auto px-4">
+                  <div className="max-w-4xl mx-auto">
+                    <div className="text-center mb-8">
+                      <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
+                        Localisation à {commune.name}
+                      </h2>
+                      <p className="text-slate-600">
+                        Découvrez la position géographique de {commune.name} dans le {commune.department_name}
+                      </p>
+                    </div>
+
+                    <CarteCommune
+                        nomCommune={commune.name}
+                        departement={commune.department_name}
+                        artisanNom={artisan?.companyName}
+                    />
+
+                    {/* Informations complémentaires sous la carte */}
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                      <div className="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 className="font-semibold text-slate-900 mb-2">Commune</h3>
+                        <p className="text-slate-600">{commune.name}</p>
+                      </div>
+                      <div className="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 className="font-semibold text-slate-900 mb-2">Département</h3>
+                        <p className="text-slate-600">{commune.department_name}</p>
+                      </div>
+
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </section>
             </div>
           </div>
         </section>
 
 
-
         {/* Artisan Section */}
         {artisan ? (
-          <section className="py-16 bg-white">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
-                  Votre couvreur à {commune.name}
-                </h2>
-                <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-                  Contactez directement {artisan.companyName} pour obtenir votre devis gratuit
-                </p>
+            <section className="py-16 bg-white">
+              <div className="container mx-auto px-4">
+                <div className="max-w-4xl mx-auto">
+                  <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
+                    Votre couvreur à {commune.name}
+                  </h2>
+                  <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
+                    Contactez directement {artisan.companyName} pour obtenir votre devis
+                  </p>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  <ArtisanCard artisan={artisan} />
-                  <ContactForm artisan={artisan} />
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <ArtisanCard artisan={artisan}/>
+                    <ContactForm artisan={artisan}/>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
         ) : (
-          <section className="py-16 bg-white">
-            <div className="container mx-auto px-4 text-center">
-              <div className="max-w-2xl mx-auto">
-                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
-                  Service de couverture à {commune.name}
-                </h2>
-                <p className="text-slate-600 text-lg mb-8">
-                  Nous recherchons actuellement un couvreur qualifié pour desservir {commune.name} et le{" "}
-                  {commune.department_name}. Contactez-nous pour vos besoins en couverture.
+            <section className="py-16 bg-white">
+              <div className="container mx-auto px-4 text-center">
+                <div className="max-w-2xl mx-auto">
+                  <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
+                    Service de couverture à {commune.name}
+                  </h2>
+                  <p className="text-slate-600 text-lg mb-8">
+                    Nous recherchons actuellement un couvreur qualifié pour desservir {commune.name} et le{" "}
+                    {commune.department_name}.
                 </p>
-                <Button className="bg-emerald-600 hover:bg-emerald-700">Nous contacter</Button>
               </div>
             </div>
           </section>
@@ -222,7 +248,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
             <div className="container mx-auto px-4 text-center">
               <h2 className="font-serif font-bold text-3xl text-white mb-4">Vous êtes couvreur à {commune.name} ?</h2>
               <p className="text-emerald-100 text-lg mb-8 max-w-2xl mx-auto">
-                Rejoignez notre réseau d'artisans qualifiés et développez votre activité dans le {commune.department_name}
+                Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {commune.department_name}
               </p>
               <Link href={`/inscription-couvreur/${commune.department_slug}`}>
                 <Button size="lg" variant="secondary" className="bg-white text-emerald-600 hover:bg-emerald-50">

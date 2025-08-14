@@ -79,7 +79,7 @@ export function ArtisanRegistrationForm({ departmentId, departmentName }: Artisa
           </div>
           <h3 className="font-serif font-bold text-2xl text-slate-900 mb-2">Inscription reçue !</h3>
           <p className="text-slate-600">
-            Votre demande d'inscription pour le {departmentName} a été reçue. Nous vous recontacterons sous 48h pour
+            Votre demande d&apos;inscription pour le {departmentName} a été reçue. Nous vous recontacterons sous 48h pour
             valider votre profil.
           </p>
         </CardContent>

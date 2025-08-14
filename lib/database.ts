@@ -176,6 +176,11 @@ export async function getAllArtisans(
 }
 
 export async function updateArtisanStatus(artisanId: number, status: string) {
+  if(status==="rejected"){
+    return prisma.artisan.delete({
+        where: { id: artisanId }
+    })
+  }
   return prisma.artisan.update({
     where: { id: artisanId },
     data: {

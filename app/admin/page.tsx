@@ -26,7 +26,7 @@ export default async function ArtisansPage({ searchParams }: ArtisansPageProps) 
           <div className="flex justify-between items-center mb-8">
             <div>
               <h1 className="font-serif font-bold text-3xl text-slate-900 mb-2">Gestion des Artisans</h1>
-              <p className="text-slate-600">Approuvez, modifiez ou supprimez les profils d'artisans</p>
+              <p className="text-slate-600">Approuvez, modifiez ou supprimez les profils d&apos;artisans</p>
             </div>
             <SignOutButton>
               <button className="px-4 py-2 text-sm font-medium text-red-600 bg-white border border-red-300 rounded-md hover:bg-red-50">

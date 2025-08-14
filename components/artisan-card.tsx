@@ -1,8 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Star, Phone, Mail, MapPin, Shield, Award, ChevronRight, User } from "lucide-react"
+import {Star, Phone, Mail, MapPin, Shield, Award, ChevronRight, User, ComputerIcon, WorkflowIcon} from "lucide-react"
 import type { Artisan } from "@/lib/database"
+import {URL} from "next/dist/compiled/@edge-runtime/primitives";
 
 interface ArtisanCardProps {
   artisan: Artisan
@@ -51,14 +52,8 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                   {artisan.companyName}
                 </h3>
                 
-                {/* Rating */}
-                {artisan.rating > 0 && (
-                  <div className="flex items-center bg-white rounded-lg px-3 py-1.5 shadow-sm border flex-shrink-0">
-                    <Star className="h-4 w-4 text-amber-400 fill-current mr-1" />
-                    <span className="font-bold text-slate-900">{artisan.rating.toFixed(1)}</span>
-                    <span className="text-slate-500 text-sm ml-1">({artisan.reviewCount})</span>
-                  </div>
-                )}
+
+
               </div>
               
               {artisan.contactName && (
@@ -72,19 +67,21 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                     <span className="truncate">{artisan.city}</span>
                   </div>
                 )}
-                
-                {artisan.insuranceValid && (
-                  <div className="flex items-center text-emerald-600 bg-emerald-50 rounded-md px-2 py-1">
-                    <Shield className="h-4 w-4 mr-1" />
-                    <span className="text-xs font-medium">Assuré</span>
-                  </div>
-                )}
+
+
                 
                 {artisan.yearsExperience && (
                   <div className="px-2 py-1 bg-slate-200 rounded-md text-slate-600 font-medium text-xs">
-                    {artisan.yearsExperience} ans d'exp.
+                    {artisan.yearsExperience} ans d&apos;exp.
                   </div>
                 )}
+                {artisan.services && (
+                    <div className="flex items-center text-slate-500">
+                      <WorkflowIcon className="h-4 w-4 mr-1.5 text-slate-400" />
+                      <span className="truncate">{artisan.services}</span>
+                    </div>
+                )}
+
               </div>
             </div>
           </div>
@@ -106,8 +103,14 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                 <span className="truncate">{artisan.email}</span>
               </div>
             )}
+
           </div>
-          
+          {artisan.website && (
+              <div className="p-4  bg-slate-50 rounded-md text-slate-600 font-medium text-xs">
+                <ComputerIcon className={"h-4 w-4 mr-1 inline-block"} />
+                {artisan.website}
+              </div>
+          )}
           {/* Description */}
           {artisan.description && (
             <p className="text-slate-600 text-sm leading-relaxed mb-4 line-clamp-2">

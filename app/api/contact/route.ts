@@ -17,11 +17,10 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 })
     }
 
-    const result = await createContactRequest(data)
 
     // Envoyer les emails
     await sendContactEmail({
-      artisanEmail: result.artisan.email!,
+      artisanEmail: data.artisan.email!,
       clientName: data.client_name,
       clientEmail: data.client_email,
       clientPhone: data.client_phone,
@@ -32,7 +31,7 @@ export async function POST(request: NextRequest) {
       preferredContact: data.preferred_contact,
     })
 
-    return NextResponse.json({ success: true, id: result.id })
+    return NextResponse.json({ success: true, id: data.id })
   } catch (error) {
     console.error("Erreur lors de la création de la demande:", error)
     return NextResponse.json({ error: "Erreur serveur" }, { status: 500 })

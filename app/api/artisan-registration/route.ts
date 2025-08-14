@@ -45,13 +45,17 @@ export async function POST(request: NextRequest) {
         postalCode: data.postalCode || null,
         city: data.city || null,
         siret: data.siret || null,
-        yearsExperience: yearsExp,
-        services: Array.isArray(data.specialties) ? data.specialties : [],
+        yearsExperience: yearsExp,services: Array.isArray(data.specialties)
+            ? data.specialties
+            : typeof data.specialties === 'string' && data.specialties.trim() !== ''
+                ? data.specialties.split(',').map(s => s.trim())
+                : [],
+
         certifications: [],
         insuranceValid: false,
         description: data.description || null,
         website: data.website || null,
-        active: false,
+        active: true,
         status: "pending"
       }
     })

@@ -1,6 +1,37 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+/* À ajouter dans votre globals.css ou dans un fichier CSS dédié */
 
+/* Import des styles Leaflet */
+@import 'leaflet/dist/leaflet.css';
+
+/* Styles personnalisés pour les cartes */
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.leaflet-popup-tip {
+  background: white;
+}
+
+/* Fix pour les icônes de marqueurs manquantes */
+.leaflet-default-icon-path {
+  background-image: url('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png');
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .leaflet-container {
+    height: 300px;
+  }
+}
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
