@@ -47,8 +47,8 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-white font-medium mb-1">Téléphone:</p>
-                  <a href="tel:+33627464646" className="text-emerald-500 hover:text-emerald-400 font-medium text-lg">
-                    (33) 6 27 46 46 46
+                  <a href="tel:+3307 56 83 09 51" className="text-emerald-500 hover:text-emerald-400 font-medium text-lg">
+                    (33) 07 56 83 09 51
                   </a>
                 </div>
               </div>
@@ -67,41 +67,13 @@ export function Footer() {
                 </div>
                 <div>
                   <p className="text-white font-medium mb-1">Email:</p>
-                  <a href="mailto:contact@gmail.com" className="text-emerald-500 hover:text-emerald-400 font-medium">
+                  <a href="mailto:groupcouvreurfrance@gmail.com" className="text-emerald-500 hover:text-emerald-400 font-medium">
                     contact@gmail.com
                   </a>
                 </div>
               </div>
 
-              {/* Entreprise */}
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0 mt-1">
-                  <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-4m-5 0H3m2 0h4M9 7h6m-6 4h6m-6 4h6"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <p className="text-white font-medium mb-1">Une création</p>
-                  <p className="text-slate-300 mb-2">Web Leader Communication</p>
-                  <a
-                      href="https://www.w-l-c.fr"
-                      className="text-emerald-500 hover:text-emerald-400 font-medium block mb-1"
-                  >
-                    www.w-l-c.fr
-                  </a>
-                  <p className="text-slate-300">
-                    Tél :{" "}
-                    <a href="tel:+33777772525" className="text-emerald-500 hover:text-emerald-400">
-                      07 77 77 25 25
-                    </a>
-                  </p>
-                </div>
-              </div>
+
             </div>
           </div>
 
@@ -112,8 +84,8 @@ export function Footer() {
               Vous êtes artisan, professionnel du BTP expérimenté en couverture ? Vous pouvez nous contacter pour
               rejoindre notre réseau et savoir comment figurer sur ce site internet.
             </p>
-            <a href="mailto:contact@gmail.com" className="text-emerald-500 hover:text-emerald-400 font-medium">
-              contact@gmail.com
+            <a href="mailto:groupcouvreurfrance@gmail.com" className="text-emerald-500 hover:text-emerald-400 font-medium">
+              groupcouvreurfrance@gmail.com
             </a>
           </div>
 

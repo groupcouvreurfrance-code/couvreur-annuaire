@@ -54,11 +54,11 @@ export function Header() {
                 className="bg-emerald-600 hover:bg-emerald-700 text-white"
             >
               <a
-                  href="mailto:contact@couvreurFrance.vercel.app?subject=Demande de contact&body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant vos services de couverture.%0D%0A%0D%0ACordialement"
+                  href="mailto:groupcouvreurfrance@gmail.com?subject=Demande de contact&body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant vos services de couverture.%0D%0A%0D%0ACordialement"
                   className="flex items-center space-x-2"
               >
                 <Mail className="h-4 w-4" />
-               
+
               </a>
             </Button>
           </div>

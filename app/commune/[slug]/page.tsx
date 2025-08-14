@@ -398,41 +398,51 @@ export default async function CommunePage({ params }: CommunePageProps) {
                         </p>
                       </div>
 
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                      <div className="grid grid-cols-1  gap-8">
                         <MeteoCommune
                             nomCommune={commune.name}
                             departement={commune.department_name}
                         />
 
-                        <div className="bg-white rounded-2xl p-8 shadow-sm">
-                          <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">
-                            Travaux et météo
-                          </h3>
-                          <p className="text-slate-700 mb-4">
-                            À {commune.name}, les conditions météo idéales pour les travaux de couverture sont :
-                          </p>
-                          <ul className="space-y-2">
-                            <li className="flex items-start">
-                              <CheckCircle className="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0"/>
-                              <span className="text-slate-700">Température entre 5°C et 25°C</span>
-                            </li>
-                            <li className="flex items-start">
-                              <CheckCircle className="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0"/>
-                              <span className="text-slate-700">Peu ou pas de précipitations</span>
-                            </li>
-                            <li className="flex items-start">
-                              <CheckCircle className="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0"/>
-                              <span className="text-slate-700">Vent inférieur à 30 km/h</span>
-                            </li>
-                          </ul>
-                        </div>
                       </div>
                     </div>
                   </div>
                 </section>
 
-                {/* Informations en grille moderne */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="md:hidden space-y-4">
+                  <div className="flex items-center justify-between p-4 border-b border-slate-200">
+                    <div className="flex items-center space-x-3">
+                      <div className="flex items-center justify-center w-10 h-10 bg-emerald-100 rounded-lg">
+                        <MapPin className="h-5 w-5 text-emerald-600"/>
+                      </div>
+                      <span className="font-semibold text-slate-900">Commune</span>
+                    </div>
+                    <p className="text-slate-600 truncate font-medium">{commune.name}</p>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 border-b border-slate-200">
+                    <div className="flex items-center space-x-3">
+                      <div className="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-lg">
+                        <Shield className="h-5 w-5 text-blue-600"/>
+                      </div>
+                      <span className="font-semibold text-slate-900">Département</span>
+                    </div>
+                    <p className="text-slate-600 truncate font-medium">{commune.department_name}</p>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 border-b border-slate-200">
+                    <div className="flex items-center space-x-3">
+                      <div className="flex items-center justify-center w-10 h-10 bg-orange-100 rounded-lg">
+                        <Star className="h-5 w-5 text-orange-600"/>
+                      </div>
+                      <span className="font-semibold  text-slate-900">Zone</span>
+                    </div>
+                    <p className="text-slate-600 truncate font-medium">{commune.name} + 20km</p>
+                  </div>
+                </div>
+
+                {/* Version desktop originale (masquée sur mobile) */}
+                <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div
                       className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-lg mb-4 mx-auto">
