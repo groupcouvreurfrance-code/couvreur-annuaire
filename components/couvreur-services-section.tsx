@@ -43,11 +43,20 @@ const services = [
 
 export function CouvreurServicesSection() {
     return (
-        <section className="py-20 bg-slate-50">
-            <div className="container mx-auto px-4">
+        <section className="relative py-20 bg-slate-50">
+            <div className="absolute inset-0">
+                <div
+                    className="absolute inset-0 bg-cover bg-center "
+                    style={{
+                        backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-08-14%20at%2012.36.29_284bbe7b.jpg-wHVYXq6HcbrTlrU79t7zq5U2nMVtoJ.jpeg')`,
+                    }}
+                ></div>
+                <div className="absolute inset-0 bg-black/65"></div>
+            </div>
+            <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
-                    <h2 className="font-serif font-bold text-3xl lg:text-4xl text-slate-900 mb-4">Nos Services de Couverture</h2>
-                    <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                    <h2 className="font-serif font-bold text-3xl lg:text-4xl text-slate-400 mb-4">Nos Services de Couverture</h2>
+                    <p className="text-xl text-slate-200 max-w-3xl mx-auto">
                         Entreprise de couverture spécialisée dans tous types de <strong>travaux de couverture</strong>. Nos{" "}
                         <strong>couvreurs zingueurs</strong> interviennent sur toute la France.
                     </p>
@@ -55,7 +64,7 @@ export function CouvreurServicesSection() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                     {services.map((service, index) => (
-                        <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md">
+                        <Card key={index} className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md bg-white">
                             <CardHeader className="pb-4">
                                 <div className="flex items-center gap-4">
                                     <div className="p-3 bg-emerald-100 rounded-lg">
