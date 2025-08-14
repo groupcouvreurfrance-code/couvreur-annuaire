@@ -1,30 +1,174 @@
+import { unstable_cache } from 'next/cache'
 import prisma from './prisma'
 import type { Department, Commune, Artisan, ContactRequest } from './generated/prisma'
 export type { Department, Commune, Artisan, ContactRequest }
 
-export async function getAllDepartments(page: number = 1, perPage: number = 20): Promise<{ departments: Department[], total: number }> {
-  const skip = (page - 1) * perPage
-  const [departments, total] = await Promise.all([
-    prisma.department.findMany({
-      orderBy: {
-        name: 'asc'
-      },
-      skip,
-      take: perPage
-    }),
-    prisma.department.count()
-  ])
-  return { departments, total }
-}
-
-export async function getDepartmentBySlug(slug: string): Promise<Department | null> {
-  return prisma.department.findUnique({
-    where: {
-      slug: slug
+// Cache simple avec unstable_cache pour les fonctions de lecture
+export const getAllDepartments = unstable_cache(
+    async (page: number = 1, perPage: number = 20): Promise<{ departments: Department[], total: number }> => {
+      const skip = (page - 1) * perPage
+      const [departments, total] = await Promise.all([
+        prisma.department.findMany({
+          orderBy: {
+            name: 'asc'
+          },
+          skip,
+          take: perPage
+        }),
+        prisma.department.count()
+      ])
+      return { departments, total }
+    },
+    ['departments'],
+    {
+      revalidate: 60 * 60 * 24, // 24 heures
+      tags: ['departments']
     }
-  })
-}
+)
 
+export const getDepartmentBySlug = unstable_cache(
+    async (slug: string): Promise<Department | null> => {
+      return prisma.department.findUnique({
+        where: {
+          slug: slug
+        }
+      })
+    },
+    ['department-by-slug'],
+    {
+      revalidate: 60 * 60 * 24, // 24 heures
+      tags: ['departments']
+    }
+)
+
+export const getCommunesByDepartment = unstable_cache(
+    async (
+        departmentCode: string,
+        page: number = 1,
+        perPage: number = 20
+    ): Promise<{ communes: Commune[], total: number }> => {
+      const skip = (page - 1) * perPage
+      const [communes, total] = await Promise.all([
+        prisma.commune.findMany({
+          where: {
+            departmentCode: departmentCode
+          },
+          orderBy: {
+            name: 'asc'
+          },
+          skip,
+          take: perPage
+        }),
+        prisma.commune.count({
+          where: {
+            departmentCode: departmentCode
+          }
+        })
+      ])
+      return { communes, total }
+    },
+    ['communes-by-department'],
+    {
+      revalidate: 60 * 60 * 12, // 12 heures
+      tags: ['communes']
+    }
+)
+
+export const getCommuneBySlug = unstable_cache(
+    async (slug: string): Promise<(Commune & { department_name: string; department_slug: string }) | null> => {
+      const commune = await prisma.commune.findUnique({
+        where: {
+          slug: slug
+        },
+        include: {
+          department: true
+        }
+      })
+
+      if (!commune) return null
+
+      return {
+        ...commune,
+        department_name: commune.department.name,
+        department_slug: commune.department.slug
+      }
+    },
+    ['commune-by-slug'],
+    {
+      revalidate: 60 * 60 * 12, // 12 heures
+      tags: ['communes']
+    }
+)
+
+export const getDepartmentsWithStats = unstable_cache(
+    async (): Promise<(Department & { artisan_count: number; avg_rating: number })[]> => {
+      const departments = await prisma.department.findMany({
+        include: {
+          artisans: {
+            where: {
+              status: 'approved',
+              active: true
+            }
+          }
+        },
+        orderBy: {
+          name: 'asc'
+        }
+      })
+
+      return departments.map(dept => ({
+        ...dept,
+        artisan_count: dept.artisans.length,
+        avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1)
+      }))
+    },
+    ['departments-with-stats'],
+    {
+      revalidate: 60 * 30, // 30 minutes
+      tags: ['departments', 'artisans']
+    }
+)
+
+export const getMapData = unstable_cache(
+    async () => {
+      const departments = await prisma.department.findMany({
+        select: {
+          code: true,
+          name: true,
+          slug: true,
+          artisans: {
+            where: {
+              status: 'approved',
+              active: true
+            },
+            select: {
+              rating: true,
+              featured: true
+            }
+          }
+        },
+        orderBy: {
+          name: 'asc'
+        }
+      })
+
+      return departments.map(dept => ({
+        code: dept.code,
+        name: dept.name,
+        slug: dept.slug,
+        artisan_count: dept.artisans.length,
+        avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1),
+        featured_count: dept.artisans.filter(a => a.featured).length
+      }))
+    },
+    ['map-data'],
+    {
+      revalidate: 60 * 30, // 30 minutes
+      tags: ['departments', 'artisans']
+    }
+)
+
+// Fonctions sans cache (pour les données dynamiques ou les modifications)
 export async function getDepartmentArtisan(departmentId: number): Promise<Artisan | null> {
   return prisma.artisan.findFirst({
     where: {
@@ -33,32 +177,6 @@ export async function getDepartmentArtisan(departmentId: number): Promise<Artisa
       active: true
     }
   })
-}
-
-export async function getCommunesByDepartment(
-  departmentCode: string,
-  page: number = 1,
-  perPage: number = 20
-): Promise<{ communes: Commune[], total: number }> {
-  const skip = (page - 1) * perPage
-  const [communes, total] = await Promise.all([
-    prisma.commune.findMany({
-      where: {
-        departmentCode: departmentCode
-      },
-      orderBy: {
-        name: 'asc'
-      },
-      skip,
-      take: perPage
-    }),
-    prisma.commune.count({
-      where: {
-        departmentCode: departmentCode
-      }
-    })
-  ])
-  return { communes, total }
 }
 
 export async function getDepartmentStats(departmentId: number) {
@@ -81,25 +199,6 @@ export async function getDepartmentStats(departmentId: number) {
     has_artisan: stats._count._all,
     rating: stats._avg.rating || 0,
     insured: stats._count.insuranceValid
-  }
-}
-
-export async function getCommuneBySlug(slug: string): Promise<(Commune & { department_name: string; department_slug: string }) | null> {
-  const commune = await prisma.commune.findUnique({
-    where: {
-      slug: slug
-    },
-    include: {
-      department: true
-    }
-  })
-
-  if (!commune) return null
-
-  return {
-    ...commune,
-    department_name: commune.department.name,
-    department_slug: commune.department.slug
   }
 }
 
@@ -145,9 +244,9 @@ export async function createContactRequest(data: any) {
 }
 
 export async function getAllArtisans(
-  status?: string,
-  page: number = 1,
-  perPage: number = 10
+    status?: string,
+    page: number = 1,
+    perPage: number = 10
 ): Promise<{ artisans: (Artisan & { department_name?: string })[], total: number }> {
   const skip = (page - 1) * perPage
   const [rawArtisans, total] = await Promise.all([
@@ -178,7 +277,7 @@ export async function getAllArtisans(
 export async function updateArtisanStatus(artisanId: number, status: string) {
   if(status==="rejected"){
     return prisma.artisan.delete({
-        where: { id: artisanId }
+      where: { id: artisanId }
     })
   }
   return prisma.artisan.update({
@@ -324,58 +423,4 @@ export async function createArtisan(data: {
       active: data.active || false
     }
   })
-}
-
-export async function getDepartmentsWithStats(): Promise<(Department & { artisan_count: number; avg_rating: number })[]> {
-  const departments = await prisma.department.findMany({
-    include: {
-      artisans: {
-        where: {
-          status: 'approved',
-          active: true
-        }
-      }
-    },
-    orderBy: {
-      name: 'asc'
-    }
-  })
-
-  return departments.map(dept => ({
-    ...dept,
-    artisan_count: dept.artisans.length,
-    avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1)
-  }))
-}
-
-export async function getMapData() {
-  const departments = await prisma.department.findMany({
-    select: {
-      code: true,
-      name: true,
-      slug: true,
-      artisans: {
-        where: {
-          status: 'approved',
-          active: true
-        },
-        select: {
-          rating: true,
-          featured: true
-        }
-      }
-    },
-    orderBy: {
-      name: 'asc'
-    }
-  })
-
-  return departments.map(dept => ({
-    code: dept.code,
-    name: dept.name,
-    slug: dept.slug,
-    artisan_count: dept.artisans.length,
-    avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1),
-    featured_count: dept.artisans.filter(a => a.featured).length
-  }))
 }

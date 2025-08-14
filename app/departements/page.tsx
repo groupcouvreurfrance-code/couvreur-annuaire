@@ -2,7 +2,6 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { getAllDepartments } from "@/lib/database"
 import Link from "next/link"
-import { MapPin, ChevronRight } from "lucide-react"
 
 interface DepartementsPageProps {
   searchParams: { page?: string }
@@ -10,7 +9,7 @@ interface DepartementsPageProps {
 
 export default async function DepartementsPage({ searchParams }: DepartementsPageProps) {
   // On récupère TOUS les départements d'un coup (pas de pagination)
-  const { departments: allDepartments, total } = await getAllDepartments(1, 100) // ou une grande limite
+  const { departments: allDepartments, total } = await getAllDepartments(1, 100)
 
   // Grouper les départements par tranche
   const groupDepartmentsByRange = (depts: any[]) => {
@@ -46,69 +45,63 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
       <div className="min-h-screen">
         <Header />
         <main>
-          <section className="py-16 bg-slate-50">
+          <section className="py-6 bg-slate-50">
             <div className="container mx-auto px-4">
-              <div className="text-center mb-12">
-                <h1 className="font-serif font-bold text-4xl lg:text-5xl text-slate-900 mb-4">
-                  Tous les Départements
+              <div className="text-center mb-6">
+                <h1 className="font-serif font-bold text-2xl lg:text-3xl text-slate-900 mb-2">
+                  Départements de France
                 </h1>
-                <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-                  Trouvez des couvreurs qualifiés dans tous les départements de France
+                <p className="text-sm text-slate-600 mb-1">
+                  Couvreurs qualifiés par département
                 </p>
-                <div className="mt-6 text-sm text-slate-500">
-                  {total} départements disponibles
+                <div className="text-xs text-slate-500">
+                  {total} départements
                 </div>
               </div>
 
               <div className="max-w-6xl mx-auto">
-                {rangeOrder.map(range => {
-                  if (!groupedDepartments[range]) return null
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {rangeOrder.map(range => {
+                    if (!groupedDepartments[range]) return null
 
-                  return (
-                      <div key={range} className="mb-10">
-                        <div className="flex items-center mb-6">
-                          <h2 className="font-serif font-semibold text-2xl text-slate-800 mr-4">
-                            Départements {range}
-                          </h2>
-                          <div className="flex-1 h-px bg-slate-300"></div>
-                          <span className="ml-4 text-sm text-slate-500 bg-slate-200 px-3 py-1 rounded-full">
-                        {groupedDepartments[range].length} dép.
-                      </span>
-                        </div>
+                    return (
+                        <div key={range} className="bg-white rounded-lg shadow-sm border border-slate-200">
+                          <div className="bg-emerald-600 text-white px-3 py-2 rounded-t-lg">
+                            <div className="flex items-center justify-between">
+                              <h2 className="font-semibold text-sm">
+                                {range}
+                              </h2>
+                              <span className="text-emerald-100 text-xs">
+                            {groupedDepartments[range].length}
+                          </span>
+                            </div>
+                          </div>
 
-                        <div className="bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden">
-                          {groupedDepartments[range].map((dept, index) => (
-                              <Link key={dept.id} href={`/departement/${dept.slug}`}>
-                                <div className={`
-                            flex items-center justify-between p-4 hover:bg-slate-50 transition-colors duration-150
-                            ${index !== groupedDepartments[range].length - 1 ? 'border-b border-slate-100' : ''}
-                            group cursor-pointer
-                          `}>
-                                  <div className="flex items-center space-x-4">
-                                    <div className="flex items-center justify-center w-12 h-12 bg-emerald-50 rounded-lg group-hover:bg-emerald-100 transition-colors">
-                                <span className="text-emerald-700 font-mono font-semibold text-sm">
-                                  {dept.code}
-                                </span>
-                                    </div>
-                                    <div>
-                                      <h3 className="font-serif font-semibold text-lg text-slate-900 group-hover:text-emerald-700 transition-colors">
-                                        {dept.name}
-                                      </h3>
-                                      <div className="flex items-center text-slate-500 text-sm mt-1">
-                                        <MapPin className="h-3 w-3 mr-1" />
-                                        <span className="font-mono text-xs mr-2">/{dept.slug}</span>
+                          <div className="p-2">
+                            <div className="grid grid-cols-1 gap-px">
+                              {groupedDepartments[range].map((dept) => (
+                                  <Link key={dept.id} href={`/departement/${dept.slug}`}>
+                                    <div className="flex items-center justify-between px-2 py-1.5 hover:bg-slate-50 rounded transition-colors group cursor-pointer">
+                                      <div className="flex items-center space-x-2 min-w-0 flex-1">
+                                  <span className="flex-shrink-0 w-7 h-5 bg-emerald-50 rounded text-emerald-700 font-mono text-xs font-semibold flex items-center justify-center group-hover:bg-emerald-100">
+                                    {dept.code}
+                                  </span>
+                                        <span className="font-medium text-xs text-slate-900 group-hover:text-emerald-700 truncate">
+                                    {dept.name}
+                                  </span>
                                       </div>
+                                      <svg className="w-3 h-3 text-slate-400 group-hover:text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                      </svg>
                                     </div>
-                                  </div>
-
-                                  <ChevronRight className="h-5 w-5 text-slate-400 group-hover:text-emerald-600 transition-colors" />
-                                </div>
-                              </Link>
-                          ))}
+                                  </Link>
+                              ))}
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                  )
-                })}
+                    )
+                  })}
+                </div>
               </div>
             </div>
           </section>

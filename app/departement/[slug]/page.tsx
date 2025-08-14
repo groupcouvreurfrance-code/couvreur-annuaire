@@ -62,26 +62,22 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
     getDepartmentArtisan(department.id),
   ])
 
-  // Grouper les communes par première lettre
-  const groupCommunesByLetter = (communes: any[]) => {
-    const groups: { [key: string]: any[] } = {}
+  // Diviser les communes en tranches de 60
+  const createCommuneChunks = (communes: any[], chunkSize: number = 60) => {
+    const chunks: any[][] = []
 
-    communes.forEach(commune => {
-      const firstLetter = commune.name.charAt(0).toUpperCase()
-      if (!groups[firstLetter]) groups[firstLetter] = []
-      groups[firstLetter].push(commune)
-    })
+    // Trier toutes les communes alphabétiquement d'abord
+    const sortedCommunes = [...communes].sort((a, b) => a.name.localeCompare(b.name))
 
-    // Trier chaque groupe alphabétiquement
-    Object.keys(groups).forEach(key => {
-      groups[key].sort((a, b) => a.name.localeCompare(b.name))
-    })
+    // Diviser en tranches de 60
+    for (let i = 0; i < sortedCommunes.length; i += chunkSize) {
+      chunks.push(sortedCommunes.slice(i, i + chunkSize))
+    }
 
-    return groups
+    return chunks
   }
 
-  const groupedCommunes = groupCommunesByLetter(allCommunes)
-  const letters = Object.keys(groupedCommunes).sort()
+  const communeChunks = createCommuneChunks(allCommunes, 60)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -123,7 +119,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
         <Header />
         <main>
           {/* Breadcrumb */}
-          <section className="py-3 bg-white border-b border-slate-200">
+          <section className="py-2 bg-white border-b border-slate-200">
             <div className="container mx-auto px-4">
               <div className="flex items-center text-sm">
                 <Link href="/" className="text-slate-500 hover:text-emerald-600 transition-colors">
@@ -139,63 +135,63 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
             </div>
           </section>
 
-          {/* Hero Section */}
-          <section className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
-            <div className="absolute inset-0 bg-black/20"></div>
+          {/* Hero Section - Plus compact */}
+          <section className="py-12 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
+
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-4xl mx-auto text-center">
                 <Link
                     href="/departements"
-                    className="inline-flex items-center text-emerald-400 hover:text-emerald-300 mb-8 transition-colors"
+                    className="inline-flex items-center text-emerald-400 hover:text-emerald-300 mb-4 transition-colors text-sm"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Tous les départements
                 </Link>
 
-                <div className="flex items-center justify-center mb-6">
-                  <Building className="h-6 w-6 text-emerald-400 mr-3" />
-                  <span className="text-emerald-100 font-medium">Département {department.code}</span>
+                <div className="flex items-center justify-center mb-3">
+                  <Building className="h-5 w-5 text-emerald-400 mr-2" />
+                  <span className="text-emerald-100 font-medium text-sm">Département {department.code}</span>
                 </div>
 
-                <h1 className="font-serif font-bold text-4xl lg:text-6xl text-white mb-6">
+                <h1 className="font-serif font-bold text-3xl lg:text-4xl text-white mb-4">
                   Couvreur dans le <span className="text-emerald-400">{department.name}</span>
                 </h1>
 
-                <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-lg text-slate-200 mb-6 max-w-2xl mx-auto leading-relaxed">
                   {artisan
                       ? `${artisan.companyName} intervient dans toutes les communes`
                       : "Service professionnel disponible dans toutes les communes"
                   } du département {department.name}.
                 </p>
 
-                {/* Stats modernes */}
-                <div className="grid grid-cols-2 gap-8 max-w-lg mx-auto mb-8">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                    <div className="text-3xl font-bold text-white mb-2">{total}</div>
-                    <div className="text-emerald-100 text-sm">Communes desservies</div>
+                {/* Stats compacts */}
+                <div className="grid grid-cols-2 gap-4 max-w-md mx-auto mb-6">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <div className="text-2xl font-bold text-white mb-1">{total}</div>
+                    <div className="text-emerald-100 text-xs">Communes</div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-                    <div className="text-3xl font-bold text-white mb-2">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <div className="text-2xl font-bold text-white mb-1">
                       {artisan ? artisan.yearsExperience || "10+" : "10+"}
                     </div>
-                    <div className="text-emerald-100 text-sm">Années d'expérience</div>
+                    <div className="text-emerald-100 text-xs">Années</div>
                   </div>
                 </div>
 
                 {artisan && (
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a
                           href={`tel:${artisan.phone}`}
-                          className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                          className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl text-sm"
                       >
-                        <Building className="h-5 w-5 mr-3" />
+                        <Building className="h-4 w-4 mr-2" />
                         Contacter {artisan.companyName}
                       </a>
                       <a
                           href="#communes"
-                          className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 border border-white/20"
+                          className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 border border-white/20 text-sm"
                       >
-                        <Users className="h-5 w-5 mr-3" />
+                        <Users className="h-4 w-4 mr-2" />
                         Voir les communes
                       </a>
                     </div>
@@ -204,29 +200,29 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
             </div>
           </section>
 
-          {/* Artisan Section */}
+          {/* Artisan Section - Plus compact */}
           {artisan ? (
-              <section className="py-20 bg-white">
+              <section className="py-12 bg-white">
                 <div className="container mx-auto px-4">
                   <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-16">
-                      <h2 className="font-serif font-bold text-4xl text-slate-900 mb-6">
+                    <div className="text-center mb-8">
+                      <h2 className="font-serif font-bold text-3xl text-slate-900 mb-3">
                         Votre expert couverture dans le {department.name}
                       </h2>
-                      <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                      <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                         {artisan.companyName} vous propose une expertise reconnue dans tout le département {department.name}.
                       </p>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                       <ArtisanCard artisan={artisan} />
-                      <div className="lg:sticky lg:top-8">
-                        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8">
-                          <div className="text-center mb-6">
-                            <h3 className="font-serif font-bold text-2xl text-slate-900 mb-2">
+                      <div className="lg:sticky lg:top-4">
+                        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl p-6">
+                          <div className="text-center mb-4">
+                            <h3 className="font-serif font-bold text-xl text-slate-900 mb-2">
                               Demandez votre devis
                             </h3>
-                            <p className="text-slate-600">
+                            <p className="text-slate-600 text-sm">
                               Gratuit et sans engagement
                             </p>
                           </div>
@@ -238,26 +234,26 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                 </div>
               </section>
           ) : (
-              <section className="py-20 bg-white">
+              <section className="py-12 bg-white">
                 <div className="container mx-auto px-4 text-center">
-                  <div className="max-w-3xl mx-auto">
-                    <div className="bg-slate-50 rounded-2xl p-12">
-                      <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <Building className="h-8 w-8 text-slate-500" />
+                  <div className="max-w-2xl mx-auto">
+                    <div className="bg-slate-50 rounded-xl p-8">
+                      <div className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Building className="h-6 w-6 text-slate-500" />
                       </div>
-                      <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
+                      <h2 className="font-serif font-bold text-2xl text-slate-900 mb-3">
                         Service de couverture dans le {department.name}
                       </h2>
-                      <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                      <p className="text-slate-600 mb-6 leading-relaxed">
                         Nous recherchons actuellement un couvreur qualifié pour desservir le {department.name}.
                         En attendant, nous pouvons vous orienter vers des professionnels des départements voisins.
                       </p>
-                      <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <Button className="bg-emerald-600 hover:bg-emerald-700 px-8 py-3">
+                      <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+                        <Button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-2">
                           Nous contacter
                         </Button>
                         <Link href={`/inscription-couvreur/${department.slug}`}>
-                          <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-3">
+                          <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-6 py-2">
                             Vous êtes couvreur ?
                           </Button>
                         </Link>
@@ -268,73 +264,75 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
               </section>
           )}
 
-          {/* Liste des Communes */}
-          <section id="communes" className="py-20 bg-slate-50">
+          {/* Liste des Communes par tranches de 60 */}
+          <section id="communes" className="py-12 bg-slate-50">
             <div className="container mx-auto px-4">
-              <div className="text-center mb-16">
-                <h2 className="font-serif font-bold text-4xl text-slate-900 mb-6">
+              <div className="text-center mb-8">
+                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-3">
                   Toutes les communes du {department.name}
                 </h2>
-                <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                   {artisan ? `${artisan.companyName} intervient` : "Service disponible"} dans les {total} communes du département
                 </p>
               </div>
 
               {allCommunes.length > 0 ? (
-                  <div className="max-w-7xl mx-auto">
-                    {letters.map(letter => (
-                        <div key={letter} className="mb-12">
-                          <div className="flex items-center mb-6">
-                            <div className="flex items-center justify-center w-12 h-12 bg-emerald-600 text-white rounded-xl font-bold text-xl mr-4">
-                              {letter}
-                            </div>
-                            <div className="flex-1 h-px bg-slate-300"></div>
-                            <span className="ml-4 text-sm text-slate-500 bg-slate-200 px-3 py-1 rounded-full">
-                        {groupedCommunes[letter].length} commune{groupedCommunes[letter].length > 1 ? 's' : ''}
-                      </span>
-                          </div>
+                  <div className="max-w-6xl mx-auto">
+                    {/* Affichage par tranches de 60 communes */}
+                    <div className="space-y-8">
+                      {communeChunks.map((chunk, index) => {
+                        const firstCommune = chunk[0]?.name || ""
+                        const lastCommune = chunk[chunk.length - 1]?.name || ""
+                        const firstLetter = firstCommune.charAt(0).toUpperCase()
+                        const lastLetter = lastCommune.charAt(0).toUpperCase()
 
-                          <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-                            {groupedCommunes[letter].map((commune, index) => (
-                                <Link key={commune.id} href={`/commune/${commune.slug}`}>
-                                  <div className={`
-                            flex items-center justify-between p-4 hover:bg-slate-50 transition-colors duration-150
-                            ${index !== groupedCommunes[letter].length - 1 ? 'border-b border-slate-100' : ''}
-                            group cursor-pointer
-                          `}>
-                                    <div className="flex items-center space-x-4">
-                                      <div className="flex items-center justify-center w-10 h-10 bg-slate-100 rounded-lg group-hover:bg-emerald-100 transition-colors">
-                                        <MapPin className="h-4 w-4 text-slate-600 group-hover:text-emerald-600" />
-                                      </div>
-                                      <div>
-                                        <h3 className="font-semibold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                                          {commune.name}
-                                        </h3>
-                                        <div className="text-slate-500 text-sm">
-                                          <span className="font-mono text-xs">/{commune.slug}</span>
-                                        </div>
-                                      </div>
-                                    </div>
-
-                                    <div className="flex items-center text-slate-400">
-                              <span className="text-sm mr-2 group-hover:text-emerald-600 transition-colors">
-                                Voir les services
-                              </span>
-                                      <ChevronRight className="h-4 w-4 group-hover:text-emerald-600 transition-colors" />
-                                    </div>
+                        return (
+                            <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                              <div className="bg-emerald-600 text-white p-4">
+                                <div className="flex items-center justify-between">
+                                  <div className="font-bold text-lg">
+                                    {firstLetter === lastLetter
+                                        ? `${firstLetter}`
+                                        : `${firstLetter} - ${lastLetter}`
+                                    }
                                   </div>
-                                </Link>
-                            ))}
-                          </div>
-                        </div>
-                    ))}
+                                  <span className="text-emerald-100 text-sm">
+                                  {chunk.length} commune{chunk.length > 1 ? 's' : ''}
+                                    {firstCommune && lastCommune && firstCommune !== lastCommune &&
+                                        ` • ${firstCommune} → ${lastCommune}`
+                                    }
+                                </span>
+                                </div>
+                              </div>
+
+                              <div className="p-4">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                                  {chunk.map((commune) => (
+                                      <Link key={commune.id} href={`/commune/${commune.slug}`}>
+                                        <div className="flex items-center justify-between p-3 hover:bg-slate-50 rounded-lg transition-colors duration-150 group cursor-pointer">
+                                          <div className="flex items-center space-x-3">
+                                            <MapPin className="h-4 w-4 text-slate-400 group-hover:text-emerald-600 flex-shrink-0" />
+                                            <span className="font-medium text-slate-900 group-hover:text-emerald-700 transition-colors text-sm">
+                                            {commune.name}
+                                          </span>
+                                          </div>
+                                          <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-emerald-600 transition-colors flex-shrink-0" />
+                                        </div>
+                                      </Link>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                        )
+                      })}
+                    </div>
                   </div>
               ) : (
-                  <div className="text-center py-16">
-                    <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <MapPin className="h-8 w-8 text-slate-500" />
+                  <div className="text-center py-12">
+                    <div className="w-12 h-12 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <MapPin className="h-6 w-6 text-slate-500" />
                     </div>
-                    <p className="text-slate-600 text-lg">
+                    <p className="text-slate-600">
                       Aucune commune disponible pour le moment dans ce département.
                     </p>
                   </div>
@@ -342,26 +340,23 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
             </div>
           </section>
 
-          {/* CTA Section pour les artisans */}
+          {/* CTA Section pour les artisans - Plus compact */}
           {!artisan && (
-              <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
+              <section className="py-12 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
                 <div className="container mx-auto px-4 text-center">
-                  <div className="max-w-4xl mx-auto">
-                    <h2 className="font-serif font-bold text-4xl text-white mb-6">
+                  <div className="max-w-3xl mx-auto">
+                    <h2 className="font-serif font-bold text-3xl text-white mb-4">
                       Vous êtes couvreur dans le {department.name} ?
                     </h2>
-                    <p className="text-emerald-100 text-xl mb-8 leading-relaxed">
+                    <p className="text-emerald-100 text-lg mb-6 leading-relaxed">
                       Rejoignez notre réseau d'artisans qualifiés et développez votre activité dans le {department.name}.
                       Inscription gratuite et sans engagement.
                     </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                      <Link href={`/inscription-couvreur/${department.slug}`}>
-                        <Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4">
-                          Inscription gratuite
-                        </Button>
-                      </Link>
-
-                    </div>
+                    <Link href={`/inscription-couvreur/${department.slug}`}>
+                      <Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-emerald-50 px-6 py-3">
+                        Inscription gratuite
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </section>

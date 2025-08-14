@@ -23,26 +23,6 @@ export function DepartmentsPreview() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {popularDepartments.map((dept) => (
-            <Link key={dept.code} href={`/departement/${dept.slug}`}>
-              <Card className="hover:shadow-lg transition-shadow cursor-pointer border-slate-200 hover:border-emerald-200">
-                <CardContent className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="font-serif font-semibold text-lg text-slate-900">{dept.name}</h3>
-                    <span className="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded">{dept.code}</span>
-                  </div>
-
-                  <div className="flex items-center text-emerald-600 font-medium">
-                    Voir les artisans
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </div>
-                </CardContent>
-              </Card>
-            </Link>
-          ))}
-        </div>
-
         <div className="text-center">
           <Link href="/departements">
             <Button
