@@ -1,6 +1,6 @@
 export const siteConfig = {
-  name: "CouvreursFrance",
-  url: "https://couvreurs-france.fr", // À changer avec votre vrai domaine
+  name: "CouvreurFrance",
+  url: "https://couvreurfrance.com", // À changer avec votre vrai domaine
   description: "Trouvez un artisan couvreur qualifié près de chez vous. Devis gratuits pour vos travaux de toiture, réparation, et entretien.",
   keywords: [
     "couvreur",
@@ -14,11 +14,11 @@ export const siteConfig = {
     "réparation",
     "zinguerie",
   ],
-  creator: "CouvreursFrance",
+  creator: "couvreurFrance",
   themeColor: "#059669", // Couleur emerald-600
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "CouvreursFrance",
+    siteName: "couvreurFrance",
   },
 }

@@ -11,7 +11,7 @@ export function Header() {
             <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-700 flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-lg">C</span>
             </div>
-            <span className="font-bold text-xl text-slate-900">CouvreursFrance</span>
+            <span className="font-bold text-xl text-slate-900">couvreurFrance</span>
           </Link>
 
           {/* Navigation principale */}
@@ -54,7 +54,7 @@ export function Header() {
                 className="bg-emerald-600 hover:bg-emerald-700 text-white"
             >
               <a
-                  href="mailto:contact@couvreursfrance.vercel.app?subject=Demande de contact&body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant vos services de couverture.%0D%0A%0D%0ACordialement"
+                  href="mailto:contact@couvreurFrance.vercel.app?subject=Demande de contact&body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant vos services de couverture.%0D%0A%0D%0ACordialement"
                   className="flex items-center space-x-2"
               >
                 <Mail className="h-4 w-4" />

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 
 export async function GET() {
-    const baseUrl = 'https://couvreursfrance.vercel.app'
+    const baseUrl = 'https://couvreurfrance.vercel.app'
 
     // Google recommande max 50k URLs par sitemap
     // On fait 4 sitemaps de ~9k communes chacun

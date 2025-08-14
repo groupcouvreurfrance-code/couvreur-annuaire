@@ -2,7 +2,7 @@ import {getAllDepartments} from "@/lib/database";
 import {NextResponse} from "next/server";
 
 export async function GET() {
-    const baseUrl = 'https://couvreursfrance.vercel.app'
+    const baseUrl = 'https://couvreurfrance.vercel.app'
     const { departments } = await getAllDepartments(1, 100)
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

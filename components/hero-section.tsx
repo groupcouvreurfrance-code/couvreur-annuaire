@@ -1,40 +1,60 @@
-"use client"
-
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Search, MapPin, Shield, Users, Star } from "lucide-react"
+import { Card, CardContent } from "@/components/ui/card"
+import { Shield, Clock, Award, Phone } from "lucide-react"
 
-export function HeroSection() {
-  return (
-      <section className="relative bg-gradient-to-br from-slate-50 via-white to-emerald-50 py-24 lg:py-32 overflow-hidden">
-        {/* Subtle background pattern */}
-        <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-            }}
-        ></div>
+export function CouvreurHeroSection() {
+    return (
+        <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-20 lg:py-32">
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="container mx-auto px-4 relative z-10">
+                <div className="max-w-4xl mx-auto text-center">
+                    <h1 className="font-serif font-bold text-4xl lg:text-6xl mb-6 leading-tight">
+                        Couvreur Professionnel
+                        <span className="block text-emerald-400">Partout en France</span>
+                    </h1>
+                    <p className="text-xl lg:text-2xl text-slate-200 mb-8 leading-relaxed">
+                        Trouvez votre <strong>artisan couvreur qualifié</strong> près de chez vous. Devis gratuit, travaux garantis,
+                        intervention rapide.
+                    </p>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
 
-            {/* Main heading */}
-            <h1 className="font-serif font-bold text-5xl lg:text-7xl text-slate-900 mb-8 leading-tight">
-              Trouvez le{" "}
-              <span className="text-emerald-600">Couvreur</span>{" "}
-              de Confiance
-              <br />
-              <span className="text-4xl lg:text-5xl text-slate-600">près de chez vous</span>
-            </h1>
+                        <Button
+                            variant="outline"
+                            size="lg"
+                            className="border-white text-white hover:bg-white hover:text-slate-900 px-8 py-4 text-lg bg-transparent"
+                        >
+                            Trouver un Couvreur
+                        </Button>
+                    </div>
 
-            <p className="text-xl text-slate-600 mb-16 max-w-3xl mx-auto leading-relaxed">
-              Votre expert en couverture, pour des toits solides et durables.
-              Découvrez les meilleurs artisans couvreurs de votre région.
-            </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                        <Card className="bg-white backdrop-blur-sm border-white/20">
+                            <CardContent className="p-6 text-center">
+                                <Shield className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
+                                <h3 className="font-semibold text-lg mb-2">Garantie Décennale</h3>
+                                <p className="text-slate-800">Tous nos couvreurs sont assurés</p>
+                            </CardContent>
+                        </Card>
 
+                        <Card className="bg-white backdrop-blur-sm border-white/20">
+                            <CardContent className="p-6 text-center">
+                                <Clock className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
+                                <h3 className="font-semibold text-lg mb-2">Intervention Rapide</h3>
+                                <p className="text-slate-800">Devis sous 24h, urgences 7j/7</p>
+                            </CardContent>
+                        </Card>
 
-          </div>
-        </div>
-      </section>
-  )
+                        <Card className="bg-white backdrop-blur-sm border-white/20">
+                            <CardContent className="p-6 text-center">
+                                <Award className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
+                                <h3 className="font-semibold text-lg mb-2">Artisans Certifiés</h3>
+                                <p className="text-slate-800">Couvreurs expérimentés et qualifiés</p>
+                            </CardContent>
+                        </Card>
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
 }
