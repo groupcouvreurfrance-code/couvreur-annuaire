@@ -496,7 +496,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
           </section>
 
           {/* CTA Section pour les artisans - Plus compact */}
-          {!artisan && (
+
               <section className="py-12 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
                 <div className="container mx-auto px-4 text-center">
                   <div className="max-w-3xl mx-auto">
@@ -504,22 +504,24 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                       Vous êtes couvreur dans le {department.name} ?
                     </h2>
                     <p className="text-emerald-100 text-lg mb-6 leading-relaxed">
-                      Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {department.name}.
+                      Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans
+                      le {department.name}.
                       Inscription gratuite et sans engagement.
                     </p>
-                    <Link href={`/inscription-couvreur/${department.slug}`}>
-                      <Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-emerald-50 px-6 py-3">
-                        Inscription gratuite
-                      </Button>
-                    </Link>
+                    <a
+                        href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
+                        className="flex items-center space-x-2 bg-white text-emerald-700 hover:bg-emerald-50 px-6 py-3 text-lg font-medium rounded-md"
+                    >
+                      Inscription gratuite
+                    </a>
                   </div>
                 </div>
               </section>
-          )}
-        </main>
-        <Footer />
 
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+        </main>
+        <Footer/>
+
+        <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}/>
       </div>
   )
 }

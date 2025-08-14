@@ -285,7 +285,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
           )}
 
           {/* CTA Section pour les artisans */}
-          {!artisan && (
+
               <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
                 <div className="container mx-auto px-4 text-center">
                   <div className="max-w-4xl mx-auto">
@@ -297,16 +297,17 @@ export default async function CommunePage({ params }: CommunePageProps) {
                       Inscription gratuite et sans engagement.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                      <Link href={`/inscription-couvreur/${commune.department_slug}`}>
-                        <Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4">
-                          Inscription gratuite
-                        </Button>
-                      </Link>
+                      <a
+                          href="mailto:groupcouvreurfrance@gmail.com?subject=Demande de contact&body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant vos services de couverture.%0D%0A%0D%0ACordialement"
+                          className="flex items-center space-x-2 bg-white text-emerald-700 hover:bg-emerald-50 px-6 py-3 text-lg font-medium rounded-md"
+                      >
+                        Inscription gratuite
+                      </a>
                     </div>
                   </div>
                 </div>
               </section>
-          )}
+
 
           {/* Contenu informatif rotatif */}
           <section className="py-16 bg-white">
