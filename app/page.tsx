@@ -11,9 +11,10 @@ export default function HomePage() {
       <Header />
       <main>
           <CouvreurHeroSection />
+          <DepartmentsPreview />
           <CouvreurServicesSection />
           <CouvreurAdvantagesSection />
-          <DepartmentsPreview />
+
       </main>
       <Footer />
     </div>
