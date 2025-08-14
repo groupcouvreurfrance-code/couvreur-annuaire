@@ -52,7 +52,7 @@ export default async function ArtisansPage({ searchParams }: ArtisansPageProps) 
             </span>
             {page < Math.ceil(total / 10) && (
               <a
-                href={`/admin/artisans?page=${page + 1}${searchParams.status ? `&status=${searchParams.status}` : ""}`}
+                href={`/admin?page=${page + 1}${searchParams.status ? `&status=${searchParams.status}` : ""}`}
                 className="px-4 py-2 text-sm font-medium text-emerald-600 bg-white border border-emerald-300 rounded-md hover:bg-emerald-50"
               >
                 Suivant

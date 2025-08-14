@@ -94,13 +94,8 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
               En attente
             </Badge>
         )
-      case "rejected":
-        return (
-            <Badge className="bg-red-50 text-red-700 border-red-200 text-xs">
-              <XCircle className="h-3 w-3 mr-1" />
-              Rejeté
-            </Badge>
-        )
+
+
       default:
         return (
             <Badge variant="secondary" className="text-xs">
@@ -138,7 +133,7 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
           </div>
 
           {/* Statistiques compactes */}
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             <div className="text-center p-3 bg-emerald-50 rounded-lg border border-emerald-200">
               <p className="text-lg font-bold text-emerald-900">{stats.approved}</p>
               <p className="text-xs text-emerald-600">Approuvés</p>
@@ -146,10 +141,6 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
             <div className="text-center p-3 bg-amber-50 rounded-lg border border-amber-200">
               <p className="text-lg font-bold text-amber-900">{stats.pending}</p>
               <p className="text-xs text-amber-600">En attente</p>
-            </div>
-            <div className="text-center p-3 bg-red-50 rounded-lg border border-red-200">
-              <p className="text-lg font-bold text-red-900">{stats.rejected}</p>
-              <p className="text-xs text-red-600">Rejetés</p>
             </div>
           </div>
         </div>
@@ -174,7 +165,6 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
                 <SelectItem value="all">Tous les statuts</SelectItem>
                 <SelectItem value="pending">En attente</SelectItem>
                 <SelectItem value="approved">Approuvés</SelectItem>
-                <SelectItem value="rejected">Rejetés</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -275,15 +265,7 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
                                     <Check className="h-3 w-3" />
                                 )}
                               </Button>
-                              <Button
-                                  size="sm"
-                                  variant="outline"
-                                  onClick={() => handleStatusUpdate(artisan.id, "rejected")}
-                                  disabled={isLoading === artisan.id}
-                                  className="h-8 px-3 border-red-200 text-red-600 hover:bg-red-50"
-                              >
-                                <X className="h-3 w-3" />
-                              </Button>
+
                             </>
                         )}
 
