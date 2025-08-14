@@ -42,7 +42,7 @@ model Artisan {
   id              Int              @id @default(autoincrement())
   companyName     String           @map("company_name")
   contactName     String?          @map("contact_name")
-  email           String?          @unique
+  email           String?
   profileImage    String?          @default("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-08-14%20at%2012.36.29_284bbe7b.jpg-wHVYXq6HcbrTlrU79t7zq5U2nMVtoJ.jpeg") @map("profile_image")
   phone           String?
   address         String?

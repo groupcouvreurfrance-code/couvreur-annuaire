@@ -68,7 +68,7 @@ export function Footer() {
                 <div>
                   <p className="text-white font-medium mb-1">Email:</p>
                   <a href="mailto:groupcouvreurfrance@gmail.com" className="text-emerald-500 hover:text-emerald-400 font-medium">
-                    contact@gmail.com
+                    groupcouvreurfrance@gmail.com
                   </a>
                 </div>
               </div>

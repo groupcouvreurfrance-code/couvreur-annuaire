@@ -417,3 +417,50 @@ export async function createArtisan(data: {
     }
   })
 }
+
+
+export async function updateArtisanInfo(artisanId: number, data: {
+  companyName?: string
+  contactName?: string
+  email?: string
+  phone?: string
+  address?: string
+  city?: string
+  profileImage?: string
+}) {
+  // Préparation des données à mettre à jour
+  const updateData: any = {
+    updatedAt: new Date()
+  }
+
+  // Ajout des champs seulement s'ils sont fournis
+  if (data.companyName !== undefined) {
+    updateData.companyName = data.companyName
+  }
+  if (data.contactName !== undefined) {
+    updateData.contactName = data.contactName
+  }
+  if (data.email !== undefined) {
+    updateData.email = data.email
+  }
+  if (data.phone !== undefined) {
+    updateData.phone = data.phone
+  }
+  if (data.address !== undefined) {
+    updateData.address = data.address
+  }
+  if (data.city !== undefined) {
+    updateData.city = data.city
+  }
+  if (data.profileImage !== undefined) {
+    updateData.profileImage = data.profileImage
+  }
+
+  return prisma.artisan.update({
+    where: { id: artisanId },
+    data: updateData,
+    include: {
+      department: true
+    }
+  })
+}
