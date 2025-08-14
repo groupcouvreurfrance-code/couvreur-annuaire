@@ -2,11 +2,11 @@ import prisma from '@/lib/prisma'
 import {NextResponse} from "next/server";
 
 export async function GET() {
-    const baseUrl = 'https://couvreursfrance.fr'
+    const baseUrl = 'https://couvreursfrance.vercel.app'
 
     const communes = await prisma.commune.findMany({
         select: { slug: true, createdAt: true },
-        skip: 18000,
+        skip: 27000,
         take: 9000,
         orderBy: { slug: 'asc' }
     })
