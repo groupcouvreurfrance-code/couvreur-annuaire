@@ -10,6 +10,7 @@ import Link from "next/link"
 import type { Metadata } from "next"
 import CarteCommune from "@/components/carte-commune"
 import {getProfessionalServices, getRotatingContent} from "@/lib/content-rotation";
+import MeteoCommune from "@/components/meteo-commune";
 
 interface CommunePageProps {
   params: {
@@ -385,27 +386,75 @@ export default async function CommunePage({ params }: CommunePageProps) {
                   />
                 </div>
 
+                <section className="py-16 bg-slate-50">
+                  <div className="container mx-auto px-4">
+                    <div className="max-w-6xl mx-auto">
+                      <div className="text-center mb-12">
+                        <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
+                          Météo à {commune.name}
+                        </h2>
+                        <p className="text-slate-600 max-w-2xl mx-auto">
+                          Consultez les prévisions pour planifier vos travaux de couverture
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <MeteoCommune
+                            nomCommune={commune.name}
+                            departement={commune.department_name}
+                        />
+
+                        <div className="bg-white rounded-2xl p-8 shadow-sm">
+                          <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">
+                            Travaux et météo
+                          </h3>
+                          <p className="text-slate-700 mb-4">
+                            À {commune.name}, les conditions météo idéales pour les travaux de couverture sont :
+                          </p>
+                          <ul className="space-y-2">
+                            <li className="flex items-start">
+                              <CheckCircle className="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0"/>
+                              <span className="text-slate-700">Température entre 5°C et 25°C</span>
+                            </li>
+                            <li className="flex items-start">
+                              <CheckCircle className="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0"/>
+                              <span className="text-slate-700">Peu ou pas de précipitations</span>
+                            </li>
+                            <li className="flex items-start">
+                              <CheckCircle className="h-5 w-5 text-emerald-500 mr-2 mt-0.5 flex-shrink-0"/>
+                              <span className="text-slate-700">Vent inférieur à 30 km/h</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
                 {/* Informations en grille moderne */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                  <div
+                      className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-lg mb-4 mx-auto">
-                      <MapPin className="h-6 w-6 text-emerald-600" />
+                      <MapPin className="h-6 w-6 text-emerald-600"/>
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2 text-center">Commune</h3>
                     <p className="text-slate-600 text-center text-lg font-medium">{commune.name}</p>
                   </div>
 
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                  <div
+                      className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4 mx-auto">
-                      <Shield className="h-6 w-6 text-blue-600" />
+                      <Shield className="h-6 w-6 text-blue-600"/>
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2 text-center">Département</h3>
                     <p className="text-slate-600 text-center text-lg font-medium">{commune.department_name}</p>
                   </div>
 
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
+                  <div
+                      className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
                     <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4 mx-auto">
-                      <Star className="h-6 w-6 text-orange-600" />
+                      <Star className="h-6 w-6 text-orange-600"/>
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2 text-center">Zone d'intervention</h3>
                     <p className="text-slate-600 text-center text-lg font-medium">
@@ -418,10 +467,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
           </section>
 
 
-
-
         </main>
-        <Footer />
+        <Footer/>
       </div>
   )
 }
