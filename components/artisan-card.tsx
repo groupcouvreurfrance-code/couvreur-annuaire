@@ -32,7 +32,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                 <img 
                   src={artisan.profileImage} 
                   alt={artisan.companyName}
-                  className="w-16 h-16 rounded-xl object-cover border-2 border-white shadow-md"
+                  className="w-50 h-50 rounded-xl object-cover border-2 border-white shadow-md"
                 />
               ) : (
                 <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-100 to-emerald-200 border-2 border-white shadow-md flex items-center justify-center">

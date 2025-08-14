@@ -263,7 +263,162 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                 </div>
               </section>
           )}
+          {/* Contenu informatif */}
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
+                  Réfection de toitue à  {department.name}
+                </h2>
 
+                <div className="space-y-6">
+                  <div className="rounded-xl p-6 md:p-8 bg-slate-50">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">1 - Couvreur {department.name}</h3>
+                    <p className="text-slate-700 mb-4">
+                      Besoin d&apos;un couvreur fiable à {department.name} ? Notre équipe intervient pour tous types de travaux de toiture : création, rénovation ou réparation d&apos;urgence. Nous maîtrisons la pose et l&apos;entretien de différentes couvertures, qu&apos;elles soient en tuiles, en zinc, en ardoise ou en bac acier. Nos interventions, réalisées dans le respect des règles de l'art, assurent une toiture résistante, parfaitement étanche et adaptée aux conditions climatiques locales.
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl p-6 md:p-8 bg-emerald-50">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">2 - Entreprise de couverture {department.name}</h3>
+                    <p className="text-slate-700 mb-4">
+                      Notre société de couverture à {department.name} prend en charge vos projets du début à la fin. De l&apos;installation à l&apos;entretien, en passant par les réparations et dépannages, nous proposons des prestations complètes sur mesure. Nous combinons des matériaux robustes à des techniques de pose modernes pour offrir un résultat à la fois durable et esthétique.
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl p-6 md:p-8 bg-slate-50">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">3 - Artisan couvreur {department.name}</h3>
+                    <p className="text-slate-700 mb-4">
+                      En tant qu&apos;artisan couvreur à {department.name}, nous privilégions la précision et la qualité dans chacun de nos chantiers. Que ce soit pour changer quelques tuiles, restaurer une charpente ou poser une nouvelle couverture, nous travaillons avec le souci du détail et dans le respect des délais convenus.
+                    </p>
+                  </div>
+
+                  {/* Continuez avec les autres sections de la même manière */}
+                  <div className="rounded-xl p-6 md:p-8 bg-emerald-50">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">4 - Travaux de zinguerie {department.name}</h3>
+                    <p className="text-slate-700 mb-4">
+                      Nous réalisons tous vos travaux de zinguerie à {department.name} : fabrication, pose et réparation de gouttières, noues, rives et abergements. Chaque élément est conçu pour favoriser l'évacuation de l'eau et protéger durablement vos murs et fondations.
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl p-6 md:p-8 bg-slate-50">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">5 - Travaux de couverture {department.name}</h3>
+                    <p className="text-slate-700 mb-4">
+                      Notre équipe réalise vos travaux de couverture à {department.name} avec professionnalisme. Nous intervenons sur tous types de matériaux, en neuf comme en rénovation, pour assurer une protection optimale contre les intempéries.
+                    </p>
+                  </div>
+
+                  {/* Ajoutez les autres points de la même manière en alternant les classes bg-slate-50 et bg-emerald-50 */}
+
+                </div>
+              </div>
+            </div>
+          </section>
+          {/* Services et prestations */}
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
+                  Nos services de couverture à {department.name}
+                </h2>
+
+                <div className="space-y-8">
+
+
+                  {/* Types de travaux */}
+                  <div className="bg-emerald-50 rounded-xl p-6 md:p-8">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">1. Types de travaux</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {[
+                        `Rénovation de toiture ${department.name}`,
+                        `Réparation de toiture ${department.name}`,
+                        `Pose de toiture ${department.name}`,
+                        `Remplacement toiture ${department.name}`,
+                        `Nettoyage de toiture ${department.name}`,
+                        `Démoussage de toiture ${department.name}`,
+                        `Étanchéité toiture ${department.name}`,
+                        `Isolation toiture ${department.name}`,
+                        `Traitement de toiture ${department.name}`,
+                        `Entretien toiture ${department.name}`
+                      ].map((service, index) => (
+                          <div key={index} className="flex items-center py-2">
+                            <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3 flex-shrink-0"></div>
+                            <span className="text-slate-700">{service}</span>
+                          </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Types de toits et matériaux */}
+                  <div className="bg-slate-50 rounded-xl p-6 md:p-8">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">2. Types de toits et matériaux</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {[
+                        `Toiture en tuiles ${department.name}`,
+                        `Toiture en ardoise ${department.name}`,
+                        `Toiture zinc ${department.name}`,
+                        `Toiture bac acier ${department.name}`,
+                        `Toiture plate ${department.name}`,
+                        `Toiture en pente ${department.name}`,
+                        `Charpente bois ${department.name}`,
+                        `Charpente traditionnelle ${department.name}`,
+                        `Couverture métallique ${department.name}`,
+                        `Couverture en lauze ${department.name}`,
+                        `Bardage toiture ${department.name}`
+                      ].map((service, index) => (
+                          <div key={index} className="flex items-center py-2">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 flex-shrink-0"></div>
+                            <span className="text-slate-700">{service}</span>
+                          </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Zinguerie et éléments associés */}
+                  <div className="bg-emerald-50 rounded-xl p-6 md:p-8">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">3. Zinguerie et éléments associés</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {[
+                        `Zinguerie ${department.name}`,
+                        `Pose de gouttières ${department.name}`,
+                        `Réparation gouttières ${department.name}`,
+                        `Habillage de rive ${department.name}`,
+                        `Noues toiture ${department.name}`,
+                        `Chéneaux ${department.name}`,
+                        `Solins ${department.name}`,
+                        `Habillage cheminée ${department.name}`
+                      ].map((service, index) => (
+                          <div key={index} className="flex items-center py-2">
+                            <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3 flex-shrink-0"></div>
+                            <span className="text-slate-700">{service}</span>
+                          </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Urgences et interventions rapides */}
+                  <div className="bg-slate-50 rounded-xl p-6 md:p-8">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">4. Urgences et interventions rapides</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                      {[
+                        `Dépannage toiture ${department.name}`,
+                        `Urgence couvreur ${department.name}`,
+                        `Fuite toiture ${department.name}`,
+                        `Réparation fuite toit ${department.name}`,
+                        `Bâchage toiture ${department.name}`,
+                        `Intervention rapide couvreur ${department.name}`
+                      ].map((service, index) => (
+                          <div key={index} className="flex items-center py-2">
+                            <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 flex-shrink-0"></div>
+                            <span className="text-slate-700">{service}</span>
+                          </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
           {/* Liste des Communes par tranches de 60 */}
           <section id="communes" className="py-12 bg-slate-50">
             <div className="container mx-auto px-4">
@@ -349,7 +504,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                       Vous êtes couvreur dans le {department.name} ?
                     </h2>
                     <p className="text-emerald-100 text-lg mb-6 leading-relaxed">
-                      Rejoignez notre réseau d'artisans qualifiés et développez votre activité dans le {department.name}.
+                      Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {department.name}.
                       Inscription gratuite et sans engagement.
                     </p>
                     <Link href={`/inscription-couvreur/${department.slug}`}>

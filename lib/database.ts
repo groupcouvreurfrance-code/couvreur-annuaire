@@ -40,7 +40,7 @@ export const getDepartmentBySlug = unstable_cache(
       tags: ['departments']
     }
 )
-
+let code="";
 export const getCommunesByDepartment = unstable_cache(
     async (
         departmentCode: string,
@@ -48,29 +48,22 @@ export const getCommunesByDepartment = unstable_cache(
         perPage: number = 20
     ): Promise<{ communes: Commune[], total: number }> => {
       const skip = (page - 1) * perPage
+      code=departmentCode;
       const [communes, total] = await Promise.all([
         prisma.commune.findMany({
-          where: {
-            departmentCode: departmentCode
-          },
-          orderBy: {
-            name: 'asc'
-          },
+          where: { departmentCode },
+          orderBy: { name: 'asc' },
           skip,
           take: perPage
         }),
-        prisma.commune.count({
-          where: {
-            departmentCode: departmentCode
-          }
-        })
+        prisma.commune.count({ where: { departmentCode } })
       ])
       return { communes, total }
     },
-    ['communes-by-department'],
+    ['communes-by-department'], // clé de cache générique
     {
       revalidate: 60 * 60 * 12, // 12 heures
-      tags: ['communes']
+      tags: ['communes', `communes-${code}`] // tag spécifique au département
     }
 )
 

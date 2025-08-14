@@ -5,10 +5,11 @@ import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
 import { getCommuneBySlug, getCommuneArtisan } from "@/lib/database"
 import { notFound } from "next/navigation"
-import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award } from "lucide-react"
+import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award, CheckCircle } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
 import CarteCommune from "@/components/carte-commune"
+import {getProfessionalServices, getRotatingContent} from "@/lib/content-rotation";
 
 interface CommunePageProps {
   params: {
@@ -66,6 +67,10 @@ export default async function CommunePage({ params }: CommunePageProps) {
   }
 
   const artisan = await getCommuneArtisan(commune.id)
+
+  // Contenu rotatif basé sur la première lettre de la commune
+  const rotatingContent = getRotatingContent(commune.name)
+  const professionalServices = getProfessionalServices(commune.name)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -220,6 +225,144 @@ export default async function CommunePage({ params }: CommunePageProps) {
             </div>
           </section>
 
+          {/* Artisan Section - Design moderne */}
+          {artisan ? (
+              <section id="contact" className="py-20 bg-white">
+                <div className="container mx-auto px-4">
+                  <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-16">
+                      <h2 className="font-serif font-bold text-4xl text-slate-900 mb-6">
+                        Votre expert couverture à {commune.name}
+                      </h2>
+                      <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                        {artisan.companyName} vous propose une expertise reconnue et un service de qualité
+                        pour tous vos projets de couverture dans le {commune.department_name}.
+                      </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                      <div className="space-y-8">
+                        <ArtisanCard artisan={artisan} />
+                      </div>
+
+                      <div className="lg:sticky lg:top-8">
+                        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8">
+                          <div className="text-center mb-6">
+                            <h3 className="font-serif font-bold text-2xl text-slate-900 mb-2">
+                              Demandez votre devis
+                            </h3>
+                            <p className="text-slate-600">
+                              Gratuit et sans engagement
+                            </p>
+                          </div>
+                          <ContactForm artisan={artisan} />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          ) : (
+              <section className="py-20 bg-white">
+                <div className="container mx-auto px-4 text-center">
+                  <div className="max-w-3xl mx-auto">
+                    <div className="bg-slate-50 rounded-2xl p-12">
+                      <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <MapPin className="h-8 w-8 text-slate-500" />
+                      </div>
+                      <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
+                        Service de couverture à {commune.name}
+                      </h2>
+                      <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                        Nous recherchons actuellement un couvreur qualifié pour desservir {commune.name} et le{" "}
+                        {commune.department_name}. En attendant, nous pouvons vous mettre en relation avec des professionnels des communes voisines.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          )}
+
+          {/* CTA Section pour les artisans */}
+          {!artisan && (
+              <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
+                <div className="container mx-auto px-4 text-center">
+                  <div className="max-w-4xl mx-auto">
+                    <h2 className="font-serif font-bold text-4xl text-white mb-6">
+                      Vous êtes couvreur à {commune.name} ?
+                    </h2>
+                    <p className="text-emerald-100 text-xl mb-8 leading-relaxed">
+                      Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {commune.department_name}.
+                      Inscription gratuite et sans engagement.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <Link href={`/inscription-couvreur/${commune.department_slug}`}>
+                        <Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4">
+                          Inscription gratuite
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          )}
+
+          {/* Contenu informatif rotatif */}
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
+                  {rotatingContent.title}
+                </h2>
+
+                <div className="space-y-12">
+                  {rotatingContent.sections.map((section, index) => (
+                      <div key={index} className={`rounded-xl p-6 md:p-8 ${index % 2 === 0 ? 'bg-slate-50' : 'bg-emerald-50'}`}>
+                        <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">
+                          {section.title}
+                        </h3>
+                        <p className="text-slate-700 mb-4">
+                          {section.content}
+                        </p>
+                      </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Services proposés */}
+          <div className="bg-slate-50 rounded-xl p-8">
+            <h3 className="font-serif font-bold text-2xl text-center text-slate-900 mb-6">
+              Services de couverture à {commune.name}
+            </h3>
+            <div className="grid grid-cols-1 gap-3">
+              {[
+                `Couvreur ${commune.name}`,
+                `Artisan couvreur ${commune.name}`,
+                `Entreprise de couverture ${commune.name}`,
+                `Travaux de couverture ${commune.name}`,
+                `Travaux de zinguerie ${commune.name}`,
+                `SOS fuite toiture ${commune.name}`,
+                `Rénovation de toiture zinc ${commune.name}`,
+                `Isolation de toiture ${commune.name}`,
+                `Démoussage de toiture ${commune.name}`,
+                `Réparation de toiture zinc ${commune.name}`,
+                `Réfection de toiture zinc ${commune.name}`,
+                `Remplacement d'éléments en zinc ${commune.name}`,
+                `Étanchéité toiture zinc ${commune.name}`,
+                `Pose de couverture zinc ${commune.name}`,
+                `Pose de gouttière en zinc ${commune.name}`,
+                `Remplacement de gouttière zinc ${commune.name}`
+              ].map((service) => (
+                  <div key={service} className="flex items-center py-2 border-b border-slate-200 last:border-b-0">
+                    <div className="w-2 h-2 bg-emerald-500 rounded-full mr-4 flex-shrink-0"></div>
+                    <span className="text-slate-700 font-medium">{service}</span>
+                  </div>
+              ))}
+            </div>
+          </div>
+
           {/* Localisation Section - Design épuré */}
           <section className="py-16 bg-slate-50">
             <div className="container mx-auto px-4">
@@ -274,121 +417,9 @@ export default async function CommunePage({ params }: CommunePageProps) {
             </div>
           </section>
 
-          {/* Artisan Section - Design moderne */}
-          {artisan ? (
-              <section id="contact" className="py-20 bg-white">
-                <div className="container mx-auto px-4">
-                  <div className="max-w-6xl mx-auto">
-                    <div className="text-center mb-16">
-                      <h2 className="font-serif font-bold text-4xl text-slate-900 mb-6">
-                        Votre expert couverture à {commune.name}
-                      </h2>
-                      <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                        {artisan.companyName} vous propose une expertise reconnue et un service de qualité
-                        pour tous vos projets de couverture dans le {commune.department_name}.
-                      </p>
-                    </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                      <div className="space-y-8">
-                        <ArtisanCard artisan={artisan} />
 
-                        {/* Services proposés */}
-                        <div className="bg-slate-50 rounded-xl p-8">
-                          <h3 className="font-serif font-bold text-2xl text-slate-900 mb-6">
-                            Services de couverture à {commune.name}
-                          </h3>
-                          <div className="grid grid-cols-1 gap-3">
-                            {[
-                              `Couvreur ${commune.name}`,
-                              `Artisan couvreur ${commune.name}`,
-                              `Entreprise de couverture ${commune.name}`,
-                              `Travaux de couverture ${commune.name}`,
-                              `Travaux de zinguerie ${commune.name}`,
-                              `SOS fuite toiture ${commune.name}`,
-                              `Rénovation de toiture zinc ${commune.name}`,
-                              `Isolation de toiture ${commune.name}`,
-                              `Démoussage de toiture ${commune.name}`,
-                              `Réparation de toiture zinc ${commune.name}`,
-                              `Réfection de toiture zinc ${commune.name}`,
-                              `Remplacement d'éléments en zinc ${commune.name}`,
-                              `Étanchéité toiture zinc ${commune.name}`,
-                              `Pose de couverture zinc ${commune.name}`,
-                              `Pose de gouttière en zinc ${commune.name}`,
-                              `Remplacement de gouttière zinc ${commune.name}`
-                            ].map((service) => (
-                                <div key={service} className="flex items-center py-2 border-b border-slate-200 last:border-b-0">
-                                  <div className="w-2 h-2 bg-emerald-500 rounded-full mr-4 flex-shrink-0"></div>
-                                  <span className="text-slate-700 font-medium">{service}</span>
-                                </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
 
-                      <div className="lg:sticky lg:top-8">
-                        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8">
-                          <div className="text-center mb-6">
-                            <h3 className="font-serif font-bold text-2xl text-slate-900 mb-2">
-                              Demandez votre devis
-                            </h3>
-                            <p className="text-slate-600">
-                              Gratuit et sans engagement
-                            </p>
-                          </div>
-                          <ContactForm artisan={artisan} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-          ) : (
-              <section className="py-20 bg-white">
-                <div className="container mx-auto px-4 text-center">
-                  <div className="max-w-3xl mx-auto">
-                    <div className="bg-slate-50 rounded-2xl p-12">
-                      <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <MapPin className="h-8 w-8 text-slate-500" />
-                      </div>
-                      <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
-                        Service de couverture à {commune.name}
-                      </h2>
-                      <p className="text-slate-600 text-lg mb-8 leading-relaxed">
-                        Nous recherchons actuellement un couvreur qualifié pour desservir {commune.name} et le{" "}
-                        {commune.department_name}. En attendant, nous pouvons vous mettre en relation avec des professionnels des communes voisines.
-                      </p>
-
-                    </div>
-                  </div>
-                </div>
-              </section>
-          )}
-
-          {/* CTA Section pour les artisans */}
-          {!artisan && (
-              <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
-                <div className="container mx-auto px-4 text-center">
-                  <div className="max-w-4xl mx-auto">
-                    <h2 className="font-serif font-bold text-4xl text-white mb-6">
-                      Vous êtes couvreur à {commune.name} ?
-                    </h2>
-                    <p className="text-emerald-100 text-xl mb-8 leading-relaxed">
-                      Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {commune.department_name}.
-                      Inscription gratuite et sans engagement.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                      <Link href={`/inscription-couvreur/${commune.department_slug}`}>
-                        <Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4">
-                          Inscription gratuite
-                        </Button>
-                      </Link>
-
-                    </div>
-                  </div>
-                </div>
-              </section>
-          )}
         </main>
         <Footer />
       </div>

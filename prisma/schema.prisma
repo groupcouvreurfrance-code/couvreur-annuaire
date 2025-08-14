@@ -15,73 +15,74 @@ datasource db {
 }
 
 model Department {
-  id         Int       @id @default(autoincrement())
-  code       String    @unique
-  name       String
-  slug       String    @unique
-  createdAt  DateTime  @default(now()) @map("created_at")
-  communes   Commune[]
-  artisans   Artisan[]
+  id        Int       @id @default(autoincrement())
+  code      String    @unique
+  name      String
+  slug      String    @unique
+  createdAt DateTime  @default(now()) @map("created_at")
+  communes  Commune[]
+  artisans  Artisan[]
 
   @@map("departments")
 }
 
 model Commune {
-  id           Int        @id @default(autoincrement())
-  name         String
-  slug         String     @unique
-  postalCode   String     @map("postal_code")
-  departmentCode String   @map("department_code")
-  createdAt    DateTime   @default(now()) @map("created_at")
-  department   Department @relation(fields: [departmentCode], references: [code])
+  id             Int        @id @default(autoincrement())
+  name           String
+  slug           String     @unique
+  postalCode     String     @map("postal_code")
+  departmentCode String     @map("department_code")
+  createdAt      DateTime   @default(now()) @map("created_at")
+  department     Department @relation(fields: [departmentCode], references: [code])
 
   @@map("communes")
 }
 
 model Artisan {
-  id              Int       @id @default(autoincrement())
-  companyName     String    @map("company_name")
-  contactName     String?   @map("contact_name")
-  email          String?   @unique
-  phone          String?
-  address        String?
-  postalCode     String?   @map("postal_code")
-  city           String?
-  departmentId   Int?      @map("department_id")
-  website        String?
-  description    String?
-  services       String[]
-  yearsExperience Int?     @map("years_experience")
-  certifications String[]
-  insuranceValid Boolean   @map("insurance_valid")
-  siret          String?   @unique
-  status         String    @default("pending")
-  featured       Boolean   @default(false)
-  rating         Float     @default(0)
-  reviewCount    Int       @default(0) @map("review_count")
-  active         Boolean   @default(true)
-  createdAt      DateTime  @default(now()) @map("created_at")
-  updatedAt      DateTime  @updatedAt @map("updated_at")
-  department     Department? @relation(fields: [departmentId], references: [id])
+  id              Int              @id @default(autoincrement())
+  companyName     String           @map("company_name")
+  contactName     String?          @map("contact_name")
+  email           String?          @unique
+  profileImage    String?          @default("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-08-14%20at%2012.36.29_284bbe7b.jpg-wHVYXq6HcbrTlrU79t7zq5U2nMVtoJ.jpeg") @map("profile_image")
+  phone           String?
+  address         String?
+  postalCode      String?          @map("postal_code")
+  city            String?
+  departmentId    Int?             @map("department_id")
+  website         String?
+  description     String?
+  services        String[]
+  yearsExperience Int?             @map("years_experience")
+  certifications  String[]
+  insuranceValid  Boolean          @map("insurance_valid")
+  siret           String?          @unique
+  status          String           @default("pending")
+  featured        Boolean          @default(false)
+  rating          Float            @default(0)
+  reviewCount     Int              @default(0) @map("review_count")
+  active          Boolean          @default(true)
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
+  department      Department?      @relation(fields: [departmentId], references: [id])
   contactRequests ContactRequest[]
 
   @@map("artisans")
 }
 
 model ContactRequest {
-  id                Int      @id @default(autoincrement())
-  artisanId         Int      @map("artisan_id")
-  clientName        String   @map("client_name")
-  clientEmail       String   @map("client_email")
-  clientPhone       String?  @map("client_phone")
-  projectType       String?  @map("project_type")
-  projectDescription String? @map("project_description")
-  budgetRange       String?  @map("budget_range")
-  urgency           String   @default("no_rush")
-  preferredContact  String   @default("email") @map("preferred_contact")
-  status            String   @default("new")
-  createdAt         DateTime @default(now()) @map("created_at")
-  artisan           Artisan  @relation(fields: [artisanId], references: [id])
+  id                 Int      @id @default(autoincrement())
+  artisanId          Int      @map("artisan_id")
+  clientName         String   @map("client_name")
+  clientEmail        String   @map("client_email")
+  clientPhone        String?  @map("client_phone")
+  projectType        String?  @map("project_type")
+  projectDescription String?  @map("project_description")
+  budgetRange        String?  @map("budget_range")
+  urgency            String   @default("no_rush")
+  preferredContact   String   @default("email") @map("preferred_contact")
+  status             String   @default("new")
+  createdAt          DateTime @default(now()) @map("created_at")
+  artisan            Artisan  @relation(fields: [artisanId], references: [id])
 
   @@map("contact_requests")
 }
