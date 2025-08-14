@@ -124,17 +124,14 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
       <CardHeader className="bg-gradient-to-r from-slate-50 to-slate-100 border-b p-6">
         <div className="flex items-center justify-between">
           <div>
-            <CardTitle className="font-bold text-2xl text-slate-900 mb-2">
+            <CardTitle className="font-bold md:text-2xl text-slate-900 mb-2">
               Demande de devis
             </CardTitle>
-            <p className="text-slate-600 flex items-center gap-2">
+            <p className=" hidden md:block text-slate-600 truncate flex items-center gap-2">
               <MessageSquare className="h-4 w-4" />
               Recevez un devis personnalisé de <span className="font-semibold text-emerald-700">{artisan.companyName}</span>
             </p>
           </div>
-          <Badge className="bg-emerald-100 text-emerald-700 px-3 py-1">
-           
-          </Badge>
         </div>
         
         {/*/!* Indicateur de progression *!/*/}
