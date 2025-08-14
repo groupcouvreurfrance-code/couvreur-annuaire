@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: '/og-image.jpg', // ou .png selon votre image
+        url: '/og-image.png', // ou .png selon votre image
         width: 1200,
         height: 630,
         alt: siteConfig.name,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ['/og-image.jpg'], // même image que Open Graph
+    images: ['/og-image.png'], // même image que Open Graph
     creator: `@${siteConfig.creator}`, // si vous avez un compte Twitter
   },
 
