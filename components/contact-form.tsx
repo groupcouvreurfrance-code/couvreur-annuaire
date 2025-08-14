@@ -18,8 +18,7 @@ import {
   CheckCircle, 
   User, 
   FileText, 
-  Euro, 
-  Calendar,
+  Euro,
   MessageSquare,
   Send,
   Sparkles
@@ -95,7 +94,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                 Demande envoyée avec succès !
               </h3>
               <p className="text-emerald-700 text-lg leading-relaxed">
-                Votre demande de devis a été transmise à <span className="font-semibold">{artisan.company_name}</span>.
+                Votre demande de devis a été transmise à <span className="font-semibold">{artisan.companyName}</span>.
                 <br />
                 <span className="text-emerald-600">Vous recevrez une réponse sous 24h.</span>
               </p>
@@ -130,7 +129,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
             </CardTitle>
             <p className="text-slate-600 flex items-center gap-2">
               <MessageSquare className="h-4 w-4" />
-              Recevez un devis personnalisé de <span className="font-semibold text-emerald-700">{artisan.company_name}</span>
+              Recevez un devis personnalisé de <span className="font-semibold text-emerald-700">{artisan.companyName}</span>
             </p>
           </div>
           <Badge className="bg-emerald-100 text-emerald-700 px-3 py-1">
@@ -138,34 +137,34 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
           </Badge>
         </div>
         
-        {/* Indicateur de progression */}
-        <div className="flex items-center justify-between mt-6">
-          {steps.map((step, index) => (
-            <div key={step.number} className="flex items-center">
-              <div className="flex items-center">
-                <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${
-                  currentStep >= step.number
-                    ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'bg-slate-200 text-slate-500'
-                }`}>
-                  <step.icon className="h-5 w-5" />
-                </div>
-                <div className="ml-3 hidden sm:block">
-                  <p className={`text-sm font-medium ${
-                    currentStep >= step.number ? 'text-emerald-700' : 'text-slate-500'
-                  }`}>
-                    {step.title}
-                  </p>
-                </div>
-              </div>
-              {index < steps.length - 1 && (
-                <div className={`w-12 h-0.5 mx-4 transition-all ${
-                  currentStep > step.number ? 'bg-emerald-600' : 'bg-slate-200'
-                }`}></div>
-              )}
-            </div>
-          ))}
-        </div>
+        {/*/!* Indicateur de progression *!/*/}
+        {/*<div className="flex items-center justify-between mt-6 ">*/}
+        {/*  {steps.map((step, index) => (*/}
+        {/*    <div key={step.number} className="flex items-center">*/}
+        {/*      <div className="flex items-center">*/}
+        {/*        <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${*/}
+        {/*          currentStep >= step.number*/}
+        {/*            ? 'bg-emerald-600 text-white shadow-lg'*/}
+        {/*            : 'bg-slate-200 text-slate-500'*/}
+        {/*        }`}>*/}
+        {/*          <step.icon className="h-5 w-5" />*/}
+        {/*        </div>*/}
+        {/*        <div className="ml-3 hidden sm:block">*/}
+        {/*          <p className={`text-sm font-medium ${*/}
+        {/*            currentStep >= step.number ? 'text-emerald-700' : 'text-slate-500'*/}
+        {/*          }`}>*/}
+        {/*            {step.title}*/}
+        {/*          </p>*/}
+        {/*        </div>*/}
+        {/*      </div>*/}
+        {/*      {index < steps.length - 1 && (*/}
+        {/*        <div className={`w-12 h-0.5 mx-4 transition-all ${*/}
+        {/*          currentStep > step.number ? 'bg-emerald-600' : 'bg-slate-200'*/}
+        {/*        }`}></div>*/}
+        {/*      )}*/}
+        {/*    </div>*/}
+        {/*  ))}*/}
+        {/*</div>*/}
       </CardHeader>
       
       <CardContent className="p-6">
@@ -369,7 +368,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                       <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
                       <div>
                         <p className="font-medium">Pas pressé</p>
-                        <p className="text-xs text-slate-500">Quand c'est possible</p>
+                        <p className="text-xs text-slate-500">Quand c&apos;est possible</p>
                       </div>
                     </Label>
                   </div>

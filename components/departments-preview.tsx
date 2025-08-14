@@ -32,7 +32,7 @@ export function DepartmentsPreview() {
                     <h3 className="font-serif font-semibold text-lg text-slate-900">{dept.name}</h3>
                     <span className="text-sm text-slate-500 bg-slate-100 px-2 py-1 rounded">{dept.code}</span>
                   </div>
-                  <p className="text-slate-600 mb-4">{dept.artisanCount} couvreurs disponibles</p>
+
                   <div className="flex items-center text-emerald-600 font-medium">
                     Voir les artisans
                     <ArrowRight className="ml-2 h-4 w-4" />

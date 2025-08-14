@@ -5,10 +5,10 @@ import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
 import { getCommuneBySlug, getCommuneArtisan } from "@/lib/database"
 import { notFound } from "next/navigation"
-import { MapPin, ArrowLeft } from "lucide-react"
+import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
-import CarteCommune from "@/components/carte-commune";
+import CarteCommune from "@/components/carte-commune"
 
 interface CommunePageProps {
   params: {
@@ -123,143 +123,274 @@ export default async function CommunePage({ params }: CommunePageProps) {
   }
 
   return (
-    <div className="min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="min-h-screen">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <Header />
-      <main>
-        {/* Breadcrumb */}
-        <section className="py-4 bg-slate-50 border-b">
-          <div className="container mx-auto px-4">
-            <div className="flex items-center text-sm text-slate-600">
-              <Link href="/" className="hover:text-emerald-600">
-                Accueil
-              </Link>
-              <span className="mx-2">/</span>
-              <Link href="/departements" className="hover:text-emerald-600">
-                Départements
-              </Link>
-              <span className="mx-2">/</span>
-              <Link href={`/departement/${commune.department_slug}`} className="hover:text-emerald-600">
-                {commune.department_name}
-              </Link>
-              <span className="mx-2">/</span>
-              <span className="text-slate-900">{commune.name}</span>
+        <Header />
+        <main>
+          {/* Breadcrumb - Version améliorée */}
+          <section className="py-3 bg-white border-b border-slate-200">
+            <div className="container mx-auto px-4">
+              <div className="flex items-center text-sm">
+                <Link href="/" className="text-slate-500 hover:text-emerald-600 transition-colors">
+                  Accueil
+                </Link>
+                <span className="mx-2 text-slate-400">/</span>
+                <Link href="/departements" className="text-slate-500 hover:text-emerald-600 transition-colors">
+                  Départements
+                </Link>
+                <span className="mx-2 text-slate-400">/</span>
+                <Link href={`/departement/${commune.department_slug}`} className="text-slate-500 hover:text-emerald-600 transition-colors">
+                  {commune.department_name}
+                </Link>
+                <span className="mx-2 text-slate-400">/</span>
+                <span className="text-slate-900 font-medium">{commune.name}</span>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Hero Section */}
-        <section className="py-16 bg-gradient-to-b from-slate-50 to-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <Link
-                  href={`/departement/${commune.department_slug}`}
-                  className="inline-flex items-center text-emerald-600 hover:text-emerald-700 mb-6"
-              >
-                <ArrowLeft className="h-4 w-4 mr-2"/>
-                Retour au {commune.department_name}
-              </Link>
+          {/* Hero Section - Design moderne */}
+          <section className="relative py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="container mx-auto px-4 relative z-10">
+              <div className="max-w-4xl mx-auto text-center">
+                <Link
+                    href={`/departement/${commune.department_slug}`}
+                    className="inline-flex items-center text-emerald-400 hover:text-emerald-300 mb-8 transition-colors"
+                >
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Retour au {commune.department_name}
+                </Link>
 
-              <h1 className="font-serif font-bold text-4xl lg:text-5xl text-slate-900 mb-4">
-                Couvreur à {commune.name} - {commune.department_name}
-              </h1>
-              <p className="text-xl text-slate-600 mb-8">
-                {artisan ? `${artisan.companyName} intervient` : "Service professionnel disponible"} à {commune.name}{" "}
-                et dans tout le {commune.department_name}. Devis et intervention rapide.
-              </p>
+                <div className="flex items-center justify-center mb-6">
+                  <MapPin className="h-6 w-6 text-emerald-400 mr-3" />
+                  <span className="text-emerald-100 font-medium">{commune.department_name}</span>
+                </div>
 
-              <section className="py-16 bg-slate-50">
+                <h1 className="font-serif font-bold text-4xl lg:text-6xl text-white mb-6">
+                  Couvreur à <span className="text-emerald-400">{commune.name}</span>
+                </h1>
+
+                <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+                  {artisan
+                      ? `${artisan.companyName} vous accompagne pour tous vos travaux de couverture`
+                      : "Trouvez rapidement un couvreur professionnel"
+                  } à {commune.name} et dans tout le {commune.department_name}.
+                </p>
+
+                {artisan && (
+                    <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
+                      <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                        <Shield className="h-4 w-4 text-emerald-400 mr-2" />
+                        <span className="text-white text-sm">Certifié RGE</span>
+                      </div>
+                      <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                        <Clock className="h-4 w-4 text-emerald-400 mr-2" />
+                        <span className="text-white text-sm">Intervention 24h</span>
+                      </div>
+                      <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
+                        <Award className="h-4 w-4 text-emerald-400 mr-2" />
+                        <span className="text-white text-sm">Devis gratuit</span>
+                      </div>
+                    </div>
+                )}
+
+                {artisan ? (
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <a
+                          href={`tel:${artisan.phone}`}
+                          className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                      >
+                        <Phone className="h-5 w-5 mr-3" />
+                        Appeler maintenant
+                      </a>
+                      <a
+                          href="#contact"
+                          className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 border border-white/20"
+                      >
+                        <Mail className="h-5 w-5 mr-3" />
+                        Demander un devis
+                      </a>
+                    </div>
+                ) : (
+                    <>
+                    </>
+                )}
+              </div>
+            </div>
+          </section>
+
+          {/* Localisation Section - Design épuré */}
+          <section className="py-16 bg-slate-50">
+            <div className="container mx-auto px-4">
+              <div className="max-w-6xl mx-auto">
+                <div className="text-center mb-12">
+                  <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
+                    Localisation à {commune.name}
+                  </h2>
+                  <p className="text-slate-600 max-w-2xl mx-auto">
+                    Découvrez la position géographique de {commune.name} dans le {commune.department_name}
+                  </p>
+                </div>
+
+                {/* Carte avec bordure moderne */}
+                <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                  <CarteCommune
+                      nomCommune={commune.name}
+                      departement={commune.department_name}
+                      artisanNom={artisan?.companyName}
+                  />
+                </div>
+
+                {/* Informations en grille moderne */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-lg mb-4 mx-auto">
+                      <MapPin className="h-6 w-6 text-emerald-600" />
+                    </div>
+                    <h3 className="font-semibold text-slate-900 mb-2 text-center">Commune</h3>
+                    <p className="text-slate-600 text-center text-lg font-medium">{commune.name}</p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4 mx-auto">
+                      <Shield className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h3 className="font-semibold text-slate-900 mb-2 text-center">Département</h3>
+                    <p className="text-slate-600 text-center text-lg font-medium">{commune.department_name}</p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow md:col-span-2 lg:col-span-1">
+                    <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg mb-4 mx-auto">
+                      <Star className="h-6 w-6 text-orange-600" />
+                    </div>
+                    <h3 className="font-semibold text-slate-900 mb-2 text-center">Zone d'intervention</h3>
+                    <p className="text-slate-600 text-center text-lg font-medium">
+                      {commune.name} + 20km
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Artisan Section - Design moderne */}
+          {artisan ? (
+              <section id="contact" className="py-20 bg-white">
                 <div className="container mx-auto px-4">
-                  <div className="max-w-4xl mx-auto">
-                    <div className="text-center mb-8">
-                      <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
-                        Localisation à {commune.name}
+                  <div className="max-w-6xl mx-auto">
+                    <div className="text-center mb-16">
+                      <h2 className="font-serif font-bold text-4xl text-slate-900 mb-6">
+                        Votre expert couverture à {commune.name}
                       </h2>
-                      <p className="text-slate-600">
-                        Découvrez la position géographique de {commune.name} dans le {commune.department_name}
+                      <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+                        {artisan.companyName} vous propose une expertise reconnue et un service de qualité
+                        pour tous vos projets de couverture dans le {commune.department_name}.
                       </p>
                     </div>
 
-                    <CarteCommune
-                        nomCommune={commune.name}
-                        departement={commune.department_name}
-                        artisanNom={artisan?.companyName}
-                    />
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                      <div className="space-y-8">
+                        <ArtisanCard artisan={artisan} />
 
-                    {/* Informations complémentaires sous la carte */}
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                      <div className="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 className="font-semibold text-slate-900 mb-2">Commune</h3>
-                        <p className="text-slate-600">{commune.name}</p>
+                        {/* Services proposés */}
+                        <div className="bg-slate-50 rounded-xl p-8">
+                          <h3 className="font-serif font-bold text-2xl text-slate-900 mb-6">
+                            Services de couverture à {commune.name}
+                          </h3>
+                          <div className="grid grid-cols-1 gap-3">
+                            {[
+                              `Couvreur ${commune.name}`,
+                              `Artisan couvreur ${commune.name}`,
+                              `Entreprise de couverture ${commune.name}`,
+                              `Travaux de couverture ${commune.name}`,
+                              `Travaux de zinguerie ${commune.name}`,
+                              `SOS fuite toiture ${commune.name}`,
+                              `Rénovation de toiture zinc ${commune.name}`,
+                              `Isolation de toiture ${commune.name}`,
+                              `Démoussage de toiture ${commune.name}`,
+                              `Réparation de toiture zinc ${commune.name}`,
+                              `Réfection de toiture zinc ${commune.name}`,
+                              `Remplacement d'éléments en zinc ${commune.name}`,
+                              `Étanchéité toiture zinc ${commune.name}`,
+                              `Pose de couverture zinc ${commune.name}`,
+                              `Pose de gouttière en zinc ${commune.name}`,
+                              `Remplacement de gouttière zinc ${commune.name}`
+                            ].map((service) => (
+                                <div key={service} className="flex items-center py-2 border-b border-slate-200 last:border-b-0">
+                                  <div className="w-2 h-2 bg-emerald-500 rounded-full mr-4 flex-shrink-0"></div>
+                                  <span className="text-slate-700 font-medium">{service}</span>
+                                </div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                      <div className="bg-white p-6 rounded-lg shadow-sm">
-                        <h3 className="font-semibold text-slate-900 mb-2">Département</h3>
-                        <p className="text-slate-600">{commune.department_name}</p>
+
+                      <div className="lg:sticky lg:top-8">
+                        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8">
+                          <div className="text-center mb-6">
+                            <h3 className="font-serif font-bold text-2xl text-slate-900 mb-2">
+                              Demandez votre devis
+                            </h3>
+                            <p className="text-slate-600">
+                              Gratuit et sans engagement
+                            </p>
+                          </div>
+                          <ContactForm artisan={artisan} />
+                        </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+          ) : (
+              <section className="py-20 bg-white">
+                <div className="container mx-auto px-4 text-center">
+                  <div className="max-w-3xl mx-auto">
+                    <div className="bg-slate-50 rounded-2xl p-12">
+                      <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <MapPin className="h-8 w-8 text-slate-500" />
+                      </div>
+                      <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
+                        Service de couverture à {commune.name}
+                      </h2>
+                      <p className="text-slate-600 text-lg mb-8 leading-relaxed">
+                        Nous recherchons actuellement un couvreur qualifié pour desservir {commune.name} et le{" "}
+                        {commune.department_name}. En attendant, nous pouvons vous mettre en relation avec des professionnels des communes voisines.
+                      </p>
 
                     </div>
                   </div>
                 </div>
               </section>
-            </div>
-          </div>
-        </section>
+          )}
 
+          {/* CTA Section pour les artisans */}
+          {!artisan && (
+              <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
+                <div className="container mx-auto px-4 text-center">
+                  <div className="max-w-4xl mx-auto">
+                    <h2 className="font-serif font-bold text-4xl text-white mb-6">
+                      Vous êtes couvreur à {commune.name} ?
+                    </h2>
+                    <p className="text-emerald-100 text-xl mb-8 leading-relaxed">
+                      Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {commune.department_name}.
+                      Inscription gratuite et sans engagement.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <Link href={`/inscription-couvreur/${commune.department_slug}`}>
+                        <Button size="lg" variant="secondary" className="bg-white text-emerald-700 hover:bg-emerald-50 px-8 py-4">
+                          Inscription gratuite
+                        </Button>
+                      </Link>
 
-        {/* Artisan Section */}
-        {artisan ? (
-            <section className="py-16 bg-white">
-              <div className="container mx-auto px-4">
-                <div className="max-w-4xl mx-auto">
-                  <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
-                    Votre couvreur à {commune.name}
-                  </h2>
-                  <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">
-                    Contactez directement {artisan.companyName} pour obtenir votre devis
-                  </p>
-
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <ArtisanCard artisan={artisan}/>
-                    <ContactForm artisan={artisan}/>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </section>
-        ) : (
-            <section className="py-16 bg-white">
-              <div className="container mx-auto px-4 text-center">
-                <div className="max-w-2xl mx-auto">
-                  <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
-                    Service de couverture à {commune.name}
-                  </h2>
-                  <p className="text-slate-600 text-lg mb-8">
-                    Nous recherchons actuellement un couvreur qualifié pour desservir {commune.name} et le{" "}
-                    {commune.department_name}.
-                </p>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* CTA Section - Seulement affiché s'il n'y a pas d'artisan */}
-        {!artisan && (
-          <section className="py-16 bg-emerald-600">
-            <div className="container mx-auto px-4 text-center">
-              <h2 className="font-serif font-bold text-3xl text-white mb-4">Vous êtes couvreur à {commune.name} ?</h2>
-              <p className="text-emerald-100 text-lg mb-8 max-w-2xl mx-auto">
-                Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {commune.department_name}
-              </p>
-              <Link href={`/inscription-couvreur/${commune.department_slug}`}>
-                <Button size="lg" variant="secondary" className="bg-white text-emerald-600 hover:bg-emerald-50">
-                  Inscription gratuite
-                </Button>
-              </Link>
-            </div>
-          </section>
-        )}
-      </main>
-      <Footer />
-    </div>
+              </section>
+          )}
+        </main>
+        <Footer />
+      </div>
   )
 }
