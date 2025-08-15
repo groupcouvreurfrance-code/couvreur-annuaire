@@ -162,6 +162,10 @@ export async function updateArtisanInfo(artisanId: number, data: {
     address?: string
     city?: string
     profileImage?: string
+    website?: string
+    description?: string
+    yearsExperience?: number
+    services?: string[]
 }) {
     try {
         console.log(`🔄 Updating artisan ${artisanId} info`);
@@ -190,6 +194,18 @@ export async function updateArtisanInfo(artisanId: number, data: {
         }
         if (data.profileImage !== undefined) {
             updateData.profileImage = data.profileImage
+        }
+        if (data.website !== undefined) {
+            updateData.website = data.website
+        }
+        if (data.description !== undefined) {
+            updateData.description = data.description
+        }
+        if (data.yearsExperience !== undefined) {
+            updateData.yearsExperience = data.yearsExperience
+        }
+        if (data.services !== undefined) {
+            updateData.services = data.services
         }
 
         const result = await prisma.artisan.update({

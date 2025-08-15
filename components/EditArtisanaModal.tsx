@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-
+import { Textarea } from "@/components/ui/textarea"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import {
     RefreshCw,
@@ -26,6 +26,10 @@ interface Artisan {
     address?: string
     city?: string
     profileImage?: string
+    website?: string
+    description?: string
+    yearsExperience?: number
+    services?: string[]
     status: string
     createdAt: string
     department_name?: string
@@ -49,7 +53,11 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
         phone: artisan.phone || '',
         address: artisan.address || '',
         city: artisan.city || '',
-        profileImage: artisan.profileImage || ''
+        profileImage: artisan.profileImage || '',
+        website: artisan.website || '',
+        description: artisan.description || '',
+        yearsExperience: artisan.yearsExperience?.toString() || '',
+        services: artisan.services?.join(', ') || ''
     })
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -57,10 +65,19 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
         setIsLoading(true)
 
         try {
-            const response = await updateArtisanInfo(artisan.id, formData)
+            // Convertir yearsExperience en nombre si fourni et services en tableau
+            const dataToUpdate = {
+                ...formData,
+                yearsExperience: formData.yearsExperience ? parseInt(formData.yearsExperience) : undefined,
+                services: formData.services
+                    ? formData.services.split(',').map(s => s.trim()).filter(s => s.length > 0)
+                    : []
+            }
+
+            const response = await updateArtisanInfo(artisan.id, dataToUpdate)
 
             if (response) {
-                onUpdate(artisan.id, formData)
+                onUpdate(artisan.id, dataToUpdate)
                 setIsOpen(false)
             }
         } catch (error) {
@@ -85,7 +102,7 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
                     <Edit className="h-3 w-3" />
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-md">
+            <DialogContent className="sm:max-w-2xl max-h-[90vh] overflow-y-auto">
                 <DialogHeader>
                     <DialogTitle className="flex items-center gap-2">
                         <Edit className="h-5 w-5 text-blue-600" />
@@ -93,7 +110,7 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
                     </DialogTitle>
                 </DialogHeader>
 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-6">
                     {/* Image de profil */}
                     <div className="space-y-2">
                         <Label htmlFor="profileImage">Photo de profil</Label>
@@ -120,30 +137,44 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
                         </div>
                     </div>
 
-                    {/* Nom de l'entreprise */}
-                    <div className="space-y-2">
-                        <Label htmlFor="companyName">Nom de l&apos;entreprise *</Label>
-                        <Input
-                            id="companyName"
-                            value={formData.companyName}
-                            onChange={(e) => handleInputChange('companyName', e.target.value)}
-                            placeholder="Nom de l'entreprise"
-                            required
-                        />
-                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {/* Nom de l'entreprise */}
+                        <div className="space-y-2 md:col-span-2">
+                            <Label htmlFor="companyName">Nom de l&apos;entreprise *</Label>
+                            <Input
+                                id="companyName"
+                                value={formData.companyName}
+                                onChange={(e) => handleInputChange('companyName', e.target.value)}
+                                placeholder="Nom de l'entreprise"
+                                required
+                            />
+                        </div>
 
-                    {/* Nom du contact */}
-                    <div className="space-y-2">
-                        <Label htmlFor="contactName">Nom du contact</Label>
-                        <Input
-                            id="contactName"
-                            value={formData.contactName}
-                            onChange={(e) => handleInputChange('contactName', e.target.value)}
-                            placeholder="Nom du contact"
-                        />
-                    </div>
+                        {/* Nom du contact */}
+                        <div className="space-y-2">
+                            <Label htmlFor="contactName">Nom du contact</Label>
+                            <Input
+                                id="contactName"
+                                value={formData.contactName}
+                                onChange={(e) => handleInputChange('contactName', e.target.value)}
+                                placeholder="Nom du contact"
+                            />
+                        </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                        {/* Années d'expérience */}
+                        <div className="space-y-2">
+                            <Label htmlFor="yearsExperience">Années d&apos;expérience</Label>
+                            <Input
+                                id="yearsExperience"
+                                type="number"
+                                min="0"
+                                max="50"
+                                value={formData.yearsExperience}
+                                onChange={(e) => handleInputChange('yearsExperience', e.target.value)}
+                                placeholder="Ex: 5"
+                            />
+                        </div>
+
                         {/* Email */}
                         <div className="space-y-2">
                             <Label htmlFor="email">Email</Label>
@@ -167,31 +198,72 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
                                 placeholder="06 12 34 56 78"
                             />
                         </div>
+
+                        {/* Adresse */}
+                        <div className="space-y-2">
+                            <Label htmlFor="address">Adresse</Label>
+                            <Input
+                                id="address"
+                                value={formData.address}
+                                onChange={(e) => handleInputChange('address', e.target.value)}
+                                placeholder="Adresse complète"
+                            />
+                        </div>
+
+                        {/* Ville */}
+                        <div className="space-y-2">
+                            <Label htmlFor="city">Ville</Label>
+                            <Input
+                                id="city"
+                                value={formData.city}
+                                onChange={(e) => handleInputChange('city', e.target.value)}
+                                placeholder="Ville"
+                            />
+                        </div>
                     </div>
 
-                    {/* Adresse */}
+                    {/* Site web */}
                     <div className="space-y-2">
-                        <Label htmlFor="address">Adresse</Label>
+                        <Label htmlFor="website">Site web</Label>
                         <Input
-                            id="address"
-                            value={formData.address}
-                            onChange={(e) => handleInputChange('address', e.target.value)}
-                            placeholder="Adresse complète"
+                            id="website"
+                            type="url"
+                            value={formData.website}
+                            onChange={(e) => handleInputChange('website', e.target.value)}
+                            placeholder="https://www.exemple.com"
                         />
                     </div>
 
-                    {/* Ville */}
+                    {/* Description */}
                     <div className="space-y-2">
-                        <Label htmlFor="city">Ville</Label>
-                        <Input
-                            id="city"
-                            value={formData.city}
-                            onChange={(e) => handleInputChange('city', e.target.value)}
-                            placeholder="Ville"
+                        <Label htmlFor="description">Description</Label>
+                        <Textarea
+                            id="description"
+                            value={formData.description}
+                            onChange={(e) => handleInputChange('description', e.target.value)}
+                            placeholder="Décrivez l'activité, les spécialités, les services proposés..."
+                            rows={4}
+                            className="resize-none"
                         />
                     </div>
 
-                    <div className="flex justify-end gap-2 pt-4">
+                    {/* Services */}
+                    <div className="space-y-2">
+                        <Label htmlFor="services">Services proposés</Label>
+                        <Textarea
+                            id="services"
+                            value={formData.services}
+                            onChange={(e) => handleInputChange('services', e.target.value)}
+                            placeholder="Plomberie, Électricité, Chauffage, Climatisation (séparez par des virgules)"
+                            rows={3}
+                            className="resize-none"
+                        />
+                        <p className="text-xs text-gray-500">
+                            Séparez les services par des virgules. Ex: Plomberie, Électricité, Chauffage
+                        </p>
+                    </div>
+
+                    <div className="flex justify-end gap-2 pt-4 border-t">
                         <Button
                             type="button"
                             variant="outline"

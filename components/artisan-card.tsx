@@ -70,12 +70,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                         {artisan.yearsExperience} ans d&apos;exp.
                       </div>
                   )}
-                  {artisan.services && (
-                      <div className="flex items-center text-slate-500">
-                        <WorkflowIcon className="h-4 w-4 mr-1.5 text-slate-400" />
-                        <span className="truncate">{artisan.services}</span>
-                      </div>
-                  )}
+
                 </div>
               </div>
             </div>
