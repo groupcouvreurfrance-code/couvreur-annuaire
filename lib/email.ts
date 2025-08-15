@@ -21,7 +21,6 @@ export async function sendContactEmail({
   clientPhone,
   projectType,
   projectDescription,
-  budgetRange,
   urgency,
   preferredContact,
 }: {
@@ -31,7 +30,6 @@ export async function sendContactEmail({
   clientPhone?: string
   projectType?: string
   projectDescription?: string
-  budgetRange?: string
   urgency: string
   preferredContact: string
 }) {
@@ -42,14 +40,7 @@ export async function sendContactEmail({
     no_rush: "Pas pressé",
   }
 
-  const budgetMap = {
-    "moins-5000": "Moins de 5 000€",
-    "5000-10000": "5 000€ - 10 000€",
-    "10000-20000": "10 000€ - 20 000€",
-    "20000-50000": "20 000€ - 50 000€",
-    "plus-50000": "Plus de 50 000€",
-    "non-defini": "Non défini"
-  }
+
 
   // Extraire le nom du couvreur de son email et le formater
   const artisanName = artisanEmail.split('@')[0]
@@ -76,7 +67,6 @@ export async function sendContactEmail({
       <h2>Détails du projet</h2>
       <ul>
         ${projectType ? `<li><strong>Type de projet :</strong> ${projectType}</li>` : ""}
-        ${budgetRange ? `<li><strong>Budget :</strong> ${budgetMap[budgetRange as keyof typeof budgetMap]}</li>` : ""}
         <li><strong>Urgence :</strong> ${urgencyMap[urgency as keyof typeof urgencyMap]}</li>
         <li><strong>Contact préféré :</strong> ${preferredContact}</li>
       </ul>
@@ -103,7 +93,6 @@ export async function sendContactEmail({
       
       <h2>Récapitulatif de votre demande</h2>
       ${projectType ? `<p><strong>Type de projet :</strong> ${projectType}</p>` : ""}
-      ${budgetRange ? `<p><strong>Budget :</strong> ${budgetMap[budgetRange as keyof typeof budgetMap]}</p>` : ""}
       ${projectDescription ? `<p><strong>Description :</strong> ${projectDescription}</p>` : ""}
       
       <p>À très bientôt !</p>

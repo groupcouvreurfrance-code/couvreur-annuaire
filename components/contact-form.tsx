@@ -10,15 +10,14 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { Badge } from "@/components/ui/badge"
+
 import { 
   Phone, 
   Mail, 
   Clock, 
   CheckCircle, 
   User, 
-  FileText, 
-  Euro,
+  FileText,
   MessageSquare,
   Send,
   Sparkles
@@ -272,28 +271,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                 />
               </div>
 
-              <div className="space-y-2">
-                <Label className="text-sm font-medium text-slate-700 flex items-center gap-2">
-                  <Euro className="h-4 w-4" />
-                  Budget approximatif
-                </Label>
-                <Select
-                  value={formData.budget_range}
-                  onValueChange={(value) => setFormData({ ...formData, budget_range: value })}
-                >
-                  <SelectTrigger className="border-slate-200 focus:border-emerald-500 h-12">
-                    <SelectValue placeholder="Sélectionnez votre budget" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="moins-5000">💰 Moins de 5 000€</SelectItem>
-                    <SelectItem value="5000-10000">💰💰 5 000€ - 10 000€</SelectItem>
-                    <SelectItem value="10000-20000">💰💰💰 10 000€ - 20 000€</SelectItem>
-                    <SelectItem value="20000-50000">💰💰💰💰 20 000€ - 50 000€</SelectItem>
-                    <SelectItem value="plus-50000">💰💰💰💰💰 Plus de 50 000€</SelectItem>
-                    <SelectItem value="non-defini">❓ Non défini</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
+
 
               <div className="flex justify-between">
                 <Button

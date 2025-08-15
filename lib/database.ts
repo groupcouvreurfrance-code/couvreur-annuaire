@@ -3,11 +3,12 @@ import prisma from './prisma'
 import type { Department, Commune, Artisan, ContactRequest } from './generated/prisma'
 export type { Department, Commune, Artisan, ContactRequest }
 
-// Cache simple avec unstable_cache pour les fonctions de lecture
+// ===== FONCTIONS CACHÉES ===== //
+
 export const getAllDepartments = unstable_cache(
     async (page: number = 1, perPage: number = 20): Promise<{ departments: Department[], total: number }> => {
+      console.log(`🔍 Loading departments page ${page}`);
       const skip = (page - 1) * perPage
-      // Après avoir ajouté un département
 
       const [departments, total] = await Promise.all([
         prisma.department.findMany({
@@ -19,6 +20,8 @@ export const getAllDepartments = unstable_cache(
         }),
         prisma.department.count()
       ])
+
+      console.log(`✅ Loaded ${departments.length}/${total} departments (cached)`);
       return { departments, total }
     },
     ['departments'],
@@ -30,11 +33,16 @@ export const getAllDepartments = unstable_cache(
 
 export const getDepartmentBySlug = unstable_cache(
     async (slug: string): Promise<Department | null> => {
-      return prisma.department.findUnique({
+      console.log(`🔍 Loading department: ${slug}`);
+
+      const department = await prisma.department.findUnique({
         where: {
           slug: slug
         }
-      })
+      });
+
+      console.log(`✅ Loaded department: ${department?.name || 'not found'} (cached)`);
+      return department;
     },
     ['department-by-slug'],
     {
@@ -42,15 +50,13 @@ export const getDepartmentBySlug = unstable_cache(
       tags: ['departments']
     }
 )
-let code="";
+
 export const getCommunesByDepartment = unstable_cache(
-    async (
-        departmentCode: string,
-        page: number = 1,
-        perPage: number = 20
-    ): Promise<{ communes: Commune[], total: number }> => {
+    async (departmentCode: string, page: number = 1, perPage: number = 20): Promise<{ communes: Commune[], total: number }> => {
+      console.log(`🔍 Loading communes for ${departmentCode} (page ${page}/${perPage})`);
+
       const skip = (page - 1) * perPage
-      code=departmentCode;
+
       const [communes, total] = await Promise.all([
         prisma.commune.findMany({
           where: { departmentCode },
@@ -60,17 +66,21 @@ export const getCommunesByDepartment = unstable_cache(
         }),
         prisma.commune.count({ where: { departmentCode } })
       ])
+
+      console.log(`✅ Loaded ${communes.length}/${total} communes for ${departmentCode} (cached)`);
       return { communes, total }
     },
-    ['communes-by-department'], // clé de cache générique
+    ['communes-by-department-v2'],
     {
       revalidate: 60 * 60 * 12, // 12 heures
-      tags: ['communes', `communes-${code}`] // tag spécifique au département
+      tags: ['communes']
     }
-)
+);
 
 export const getCommuneBySlug = unstable_cache(
     async (slug: string): Promise<(Commune & { department_name: string; department_slug: string }) | null> => {
+      console.log(`🔍 Loading commune: ${slug}`);
+
       const commune = await prisma.commune.findUnique({
         where: {
           slug: slug
@@ -80,13 +90,19 @@ export const getCommuneBySlug = unstable_cache(
         }
       })
 
-      if (!commune) return null
+      if (!commune) {
+        console.log(`❌ Commune not found: ${slug}`);
+        return null;
+      }
 
-      return {
+      const result = {
         ...commune,
         department_name: commune.department.name,
         department_slug: commune.department.slug
-      }
+      };
+
+      console.log(`✅ Loaded commune: ${commune.name} in ${commune.department.name} (cached)`);
+      return result;
     },
     ['commune-by-slug'],
     {
@@ -95,8 +111,66 @@ export const getCommuneBySlug = unstable_cache(
     }
 )
 
+// ⭐ AJOUT DU CACHE POUR getDepartmentArtisan - C'EST LE PLUS IMPORTANT !
+export const getDepartmentArtisan = unstable_cache(
+    async (departmentId: number): Promise<Artisan | null> => {
+      console.log(`🔍 Loading artisan for department ID: ${departmentId}`);
+
+      const artisan = await prisma.artisan.findFirst({
+        where: {
+          departmentId: departmentId,
+          status: 'approved',
+          active: true
+        }
+      });
+
+      console.log(`✅ Loaded artisan: ${artisan?.companyName || 'none'} (cached)`);
+      return artisan;
+    },
+    ['department-artisan'],
+    {
+      revalidate: 60 * 60 * 6, // 6 heures (plus court car les artisans peuvent changer)
+      tags: ['artisans']
+    }
+);
+
+// ⭐ AJOUT DU CACHE POUR getCommuneArtisan - UTILISÉ DANS LES PAGES COMMUNE !
+export const getCommuneArtisan = unstable_cache(
+    async (communeId: number): Promise<Artisan | null> => {
+      console.log(`🔍 Loading artisan for commune ID: ${communeId}`);
+
+      const commune = await prisma.commune.findUnique({
+        where: { id: communeId },
+        include: {
+          department: {
+            include: {
+              artisans: {
+                where: {
+                  status: 'approved',
+                  active: true
+                },
+                take: 1
+              }
+            }
+          }
+        }
+      });
+
+      const artisan = commune?.department?.artisans[0] || null;
+      console.log(`✅ Loaded commune artisan: ${artisan?.companyName || 'none'} (cached)`);
+      return artisan;
+    },
+    ['commune-artisan'],
+    {
+      revalidate: 60 * 60 * 6, // 6 heures
+      tags: ['artisans']
+    }
+);
+
 export const getDepartmentsWithStats = unstable_cache(
     async (): Promise<(Department & { artisan_count: number; avg_rating: number })[]> => {
+      console.log(`🔍 Loading departments with stats`);
+
       const departments = await prisma.department.findMany({
         include: {
           artisans: {
@@ -111,11 +185,14 @@ export const getDepartmentsWithStats = unstable_cache(
         }
       })
 
-      return departments.map(dept => ({
+      const result = departments.map(dept => ({
         ...dept,
         artisan_count: dept.artisans.length,
         avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1)
-      }))
+      }));
+
+      console.log(`✅ Loaded ${result.length} departments with stats (cached)`);
+      return result;
     },
     ['departments-with-stats'],
     {
@@ -126,6 +203,8 @@ export const getDepartmentsWithStats = unstable_cache(
 
 export const getMapData = unstable_cache(
     async () => {
+      console.log(`🔍 Loading map data`);
+
       const departments = await prisma.department.findMany({
         select: {
           code: true,
@@ -147,14 +226,17 @@ export const getMapData = unstable_cache(
         }
       })
 
-      return departments.map(dept => ({
+      const result = departments.map(dept => ({
         code: dept.code,
         name: dept.name,
         slug: dept.slug,
         artisan_count: dept.artisans.length,
         avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1),
         featured_count: dept.artisans.filter(a => a.featured).length
-      }))
+      }));
+
+      console.log(`✅ Loaded map data for ${result.length} departments (cached)`);
+      return result;
     },
     ['map-data'],
     {
@@ -163,60 +245,43 @@ export const getMapData = unstable_cache(
     }
 )
 
-// Fonctions sans cache (pour les données dynamiques ou les modifications)
-export async function getDepartmentArtisan(departmentId: number): Promise<Artisan | null> {
-  return prisma.artisan.findFirst({
-    where: {
-      departmentId: departmentId,
-      status: 'approved',
-      active: true
-    }
-  })
-}
+// ⭐ BONUS - Cache pour les stats de département (si utilisé)
+export const getDepartmentStats = unstable_cache(
+    async (departmentId: number) => {
+      console.log(`🔍 Loading stats for department ID: ${departmentId}`);
 
-export async function getDepartmentStats(departmentId: number) {
-  const stats = await prisma.artisan.aggregate({
-    where: {
-      departmentId: departmentId,
-      status: 'approved',
-      active: true
-    },
-    _count: {
-      _all: true,
-      insuranceValid: true
-    },
-    _avg: {
-      rating: true
-    }
-  })
-
-  return {
-    has_artisan: stats._count._all,
-    rating: stats._avg.rating || 0,
-    insured: stats._count.insuranceValid
-  }
-}
-
-export async function getCommuneArtisan(communeId: number): Promise<Artisan | null> {
-  const commune = await prisma.commune.findUnique({
-    where: { id: communeId },
-    include: {
-      department: {
-        include: {
-          artisans: {
-            where: {
-              status: 'approved',
-              active: true
-            },
-            take: 1
-          }
+      const stats = await prisma.artisan.aggregate({
+        where: {
+          departmentId: departmentId,
+          status: 'approved',
+          active: true
+        },
+        _count: {
+          _all: true,
+          insuranceValid: true
+        },
+        _avg: {
+          rating: true
         }
-      }
-    }
-  })
+      });
 
-  return commune?.department?.artisans[0] || null
-}
+      const result = {
+        has_artisan: stats._count._all,
+        rating: stats._avg.rating || 0,
+        insured: stats._count.insuranceValid
+      };
+
+      console.log(`✅ Loaded department stats: ${result.has_artisan} artisans (cached)`);
+      return result;
+    },
+    ['department-stats'],
+    {
+      revalidate: 60 * 60 * 6, // 6 heures
+      tags: ['artisans']
+    }
+);
+
+// ===== FONCTIONS NON CACHÉES (ADMIN/MUTATIONS) ===== //
 
 export async function createContactRequest(data: any) {
   return prisma.contactRequest.create({
@@ -420,7 +485,6 @@ export async function createArtisan(data: {
   })
 }
 
-
 export async function updateArtisanInfo(artisanId: number, data: {
   companyName?: string
   contactName?: string
@@ -430,12 +494,10 @@ export async function updateArtisanInfo(artisanId: number, data: {
   city?: string
   profileImage?: string
 }) {
-  // Préparation des données à mettre à jour
   const updateData: any = {
     updatedAt: new Date()
   }
 
-  // Ajout des champs seulement s'ils sont fournis
   if (data.companyName !== undefined) {
     updateData.companyName = data.companyName
   }

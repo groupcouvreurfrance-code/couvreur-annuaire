@@ -1,6 +1,6 @@
 {
-  "name": "couvreurFrance - Annuaire des Couvreurs",
-  "short_name": "couvreurFrance",
+  "name": "couvreur-groupefrance - Annuaire des Couvreurs",
+  "short_name": "couvreur-groupefrance",
   "description": "Trouvez le couvreur de confiance près de chez vous",
   "start_url": "/",
   "display": "standalone",

@@ -11,7 +11,7 @@ export function Header() {
             <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-700 flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-lg">C</span>
             </div>
-            <span className="font-bold text-xl text-slate-900">couvreurFrance</span>
+            <span className="font-bold text-xl text-slate-900">couvreur-groupefrance</span>
           </Link>
 
           {/* Navigation principale */}

@@ -19,8 +19,8 @@ interface CommunePageProps {
 }
 
 export async function generateMetadata({ params }: CommunePageProps): Promise<Metadata> {
-  const commune = await getCommuneBySlug(params.slug)
-
+  const { slug } = await params
+  const commune = await getCommuneBySlug(slug)
   if (!commune) {
     return {
       title: "Commune non trouvée",

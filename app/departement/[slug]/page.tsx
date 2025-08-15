@@ -16,7 +16,9 @@ interface DepartmentPageProps {
 }
 
 export async function generateMetadata({ params }: DepartmentPageProps): Promise<Metadata> {
-  const department = await getDepartmentBySlug(params.slug)
+  const { slug } = await params
+  const department = await getDepartmentBySlug(slug)
+
 
   if (!department) {
     return {
@@ -50,15 +52,15 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
 }
 
 export default async function DepartmentPage({ params }: DepartmentPageProps) {
-  const department = await getDepartmentBySlug(params.slug)
+  const param = await params;
+  const department = await getDepartmentBySlug(param.slug)
 
   if (!department) {
     notFound()
   }
 
-  // Récupérer TOUTES les communes d'un coup
   const [{ communes: allCommunes, total }, artisan] = await Promise.all([
-    getCommunesByDepartment(department.code, 1, 9999), // Grande limite pour tout récupérer
+    getCommunesByDepartment(department.code, 1, 9999), // ✅ Ça va marcher maintenant
     getDepartmentArtisan(department.id),
   ])
 

@@ -6,9 +6,9 @@ export function Footer() {
         <div className="container mx-auto px-4 max-w-4xl">
           {/* Section À propos */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-white">Concernant couvreurFrance</h2>
+            <h2 className="text-2xl font-bold mb-6 text-white">Concernant couvreur-groupefrance</h2>
             <p className="text-slate-300 leading-relaxed mb-6">
-              couvreurFrance est un site internet national qui permet aux entreprises et aux particuliers de trouver
+              couvreur-groupefrance est un site internet national qui permet aux entreprises et aux particuliers de trouver
               facilement, à proximité du lieu de leurs travaux, un couvreur. Nous travaillons avec une sélection
               d'artisans choisis pour leur sérieux et leur expertise.
             </p>
@@ -79,7 +79,7 @@ export function Footer() {
 
           {/* Section Rejoindre */}
           <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-6 text-white">Rejoindre couvreurFrance</h2>
+            <h2 className="text-2xl font-bold mb-6 text-white">Rejoindre couvreur-groupefrance</h2>
             <p className="text-slate-300 leading-relaxed mb-4">
               Vous êtes artisan, professionnel du BTP expérimenté en couverture ? Vous pouvez nous contacter pour
               rejoindre notre réseau et savoir comment figurer sur ce site internet.
@@ -94,7 +94,7 @@ export function Footer() {
             <div className="flex flex-col space-y-6">
               {/* Copyright */}
               <div className="text-center">
-                <p className="text-slate-400 text-sm">Copyright © 2025 couvreurFrance - Tous droits réservés</p>
+                <p className="text-slate-400 text-sm">Copyright © 2025 couvreur-groupefrance - Tous droits réservés</p>
               </div>
 
               {/* Réseaux sociaux */}
