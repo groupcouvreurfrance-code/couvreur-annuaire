@@ -14,8 +14,9 @@ interface ArtisansPageProps {
 }
 
 export default async function ArtisansPage({ searchParams }: ArtisansPageProps) {
-  const page = Number(searchParams.page) || 1
-  const { artisans, total } = await getAllArtisans(searchParams.status, page)
+  const searchParam = await searchParams;
+  const page = Number(searchParam.page) || 1
+  const { artisans, total } = await getAllArtisans(searchParam.status, page)
 
   return (
     <div className="min-h-screen bg-slate-50">

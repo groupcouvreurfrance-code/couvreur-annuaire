@@ -34,7 +34,7 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            {/* Call to action */}
+            {/* Call to action.tsx */}
             <div className="hidden lg:flex items-center space-x-3 text-sm">
               <div className="flex items-center text-slate-600">
                 <Phone className="h-4 w-4 mr-1.5" />

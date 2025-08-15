@@ -1,7 +1,7 @@
 // app/api/admin/artisans/update/route.ts
 
 import { NextRequest, NextResponse } from 'next/server'
-import { updateArtisanInfo } from '@/lib/database'
+import { updateArtisanInfo } from '@/lib/action'
 
 export async function PUT(request: NextRequest) {
     try {

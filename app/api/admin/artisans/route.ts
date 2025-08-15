@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { updateArtisanStatus } from "@/lib/database"
+import {updateArtisanStatus} from "@/lib/action";
+
 
 export async function PATCH(request: NextRequest) {
   try {

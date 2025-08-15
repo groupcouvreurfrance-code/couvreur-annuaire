@@ -1,5 +1,4 @@
 import { type NextRequest, NextResponse } from "next/server"
-import { createContactRequest } from "@/lib/database"
 import { sendContactEmail } from "@/lib/email"
 
 export async function POST(request: NextRequest) {
@@ -26,7 +25,6 @@ export async function POST(request: NextRequest) {
       clientPhone: data.client_phone,
       projectType: data.project_type,
       projectDescription: data.project_description,
-      budgetRange: data.budget_range,
       urgency: data.urgency,
       preferredContact: data.preferred_contact,
     })

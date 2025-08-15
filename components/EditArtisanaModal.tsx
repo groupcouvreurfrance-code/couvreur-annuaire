@@ -13,6 +13,7 @@ import {
 } from "lucide-react"
 import { Label } from "./ui/label"
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
+import {updateArtisanInfo} from "@/lib/action";
 
 
 // Types simulés pour l'exemple
@@ -56,13 +57,9 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
         setIsLoading(true)
 
         try {
-            const response = await fetch("/api/admin/artisans/update", {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ id: artisan.id, ...formData }),
-            })
+            const response = await updateArtisanInfo(artisan.id, formData)
 
-            if (response.ok) {
+            if (response) {
                 onUpdate(artisan.id, formData)
                 setIsOpen(false)
             }

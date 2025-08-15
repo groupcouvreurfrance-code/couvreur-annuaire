@@ -1,9 +1,10 @@
+// lib/db.ts
 import { unstable_cache } from 'next/cache'
 import prisma from './prisma'
 import type { Department, Commune, Artisan, ContactRequest } from './generated/prisma'
 export type { Department, Commune, Artisan, ContactRequest }
 
-// ===== FONCTIONS CACHÉES ===== //
+// ===== FONCTIONS CACHÉES (DONNÉES STATIQUES) ===== //
 
 export const getAllDepartments = unstable_cache(
     async (page: number = 1, perPage: number = 20): Promise<{ departments: Department[], total: number }> => {
@@ -111,197 +112,141 @@ export const getCommuneBySlug = unstable_cache(
     }
 )
 
-// ⭐ AJOUT DU CACHE POUR getDepartmentArtisan - C'EST LE PLUS IMPORTANT !
-export const getDepartmentArtisan = unstable_cache(
-    async (departmentId: number): Promise<Artisan | null> => {
-      console.log(`🔍 Loading artisan for department ID: ${departmentId}`);
+// ===== FONCTIONS NON CACHÉES (DONNÉES DYNAMIQUES) ===== //
 
-      const artisan = await prisma.artisan.findFirst({
-        where: {
-          departmentId: departmentId,
-          status: 'approved',
-          active: true
-        }
-      });
+export async function getDepartmentArtisan(departmentId: number): Promise<Artisan | null> {
+  console.log(`🔍 Loading artisan for department ID: ${departmentId}`);
 
-      console.log(`✅ Loaded artisan: ${artisan?.companyName || 'none'} (cached)`);
-      return artisan;
-    },
-    ['department-artisan'],
-    {
-      revalidate: 60 * 60 * 6, // 6 heures (plus court car les artisans peuvent changer)
-      tags: ['artisans']
+  const artisan = await prisma.artisan.findFirst({
+    where: {
+      departmentId: departmentId,
+      status: 'approved',
+      active: true
     }
-);
+  });
 
-// ⭐ AJOUT DU CACHE POUR getCommuneArtisan - UTILISÉ DANS LES PAGES COMMUNE !
-export const getCommuneArtisan = unstable_cache(
-    async (communeId: number): Promise<Artisan | null> => {
-      console.log(`🔍 Loading artisan for commune ID: ${communeId}`);
+  console.log(`✅ Loaded artisan: ${artisan?.companyName || 'none'} (no cache)`);
+  return artisan;
+}
 
-      const commune = await prisma.commune.findUnique({
-        where: { id: communeId },
+export async function getCommuneArtisan(communeId: number): Promise<Artisan | null> {
+  console.log(`🔍 Loading artisan for commune ID: ${communeId}`);
+
+  const commune = await prisma.commune.findUnique({
+    where: { id: communeId },
+    include: {
+      department: {
         include: {
-          department: {
-            include: {
-              artisans: {
-                where: {
-                  status: 'approved',
-                  active: true
-                },
-                take: 1
-              }
-            }
-          }
-        }
-      });
-
-      const artisan = commune?.department?.artisans[0] || null;
-      console.log(`✅ Loaded commune artisan: ${artisan?.companyName || 'none'} (cached)`);
-      return artisan;
-    },
-    ['commune-artisan'],
-    {
-      revalidate: 60 * 60 * 6, // 6 heures
-      tags: ['artisans']
-    }
-);
-
-export const getDepartmentsWithStats = unstable_cache(
-    async (): Promise<(Department & { artisan_count: number; avg_rating: number })[]> => {
-      console.log(`🔍 Loading departments with stats`);
-
-      const departments = await prisma.department.findMany({
-        include: {
-          artisans: {
-            where: {
-              status: 'approved',
-              active: true
-            }
-          }
-        },
-        orderBy: {
-          name: 'asc'
-        }
-      })
-
-      const result = departments.map(dept => ({
-        ...dept,
-        artisan_count: dept.artisans.length,
-        avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1)
-      }));
-
-      console.log(`✅ Loaded ${result.length} departments with stats (cached)`);
-      return result;
-    },
-    ['departments-with-stats'],
-    {
-      revalidate: 60 * 30, // 30 minutes
-      tags: ['departments', 'artisans']
-    }
-)
-
-export const getMapData = unstable_cache(
-    async () => {
-      console.log(`🔍 Loading map data`);
-
-      const departments = await prisma.department.findMany({
-        select: {
-          code: true,
-          name: true,
-          slug: true,
           artisans: {
             where: {
               status: 'approved',
               active: true
             },
-            select: {
-              rating: true,
-              featured: true
-            }
+            take: 1
           }
-        },
-        orderBy: {
-          name: 'asc'
         }
-      })
-
-      const result = departments.map(dept => ({
-        code: dept.code,
-        name: dept.name,
-        slug: dept.slug,
-        artisan_count: dept.artisans.length,
-        avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1),
-        featured_count: dept.artisans.filter(a => a.featured).length
-      }));
-
-      console.log(`✅ Loaded map data for ${result.length} departments (cached)`);
-      return result;
-    },
-    ['map-data'],
-    {
-      revalidate: 60 * 30, // 30 minutes
-      tags: ['departments', 'artisans']
+      }
     }
-)
+  });
 
-// ⭐ BONUS - Cache pour les stats de département (si utilisé)
-export const getDepartmentStats = unstable_cache(
-    async (departmentId: number) => {
-      console.log(`🔍 Loading stats for department ID: ${departmentId}`);
+  const artisan = commune?.department?.artisans[0] || null;
+  console.log(`✅ Loaded commune artisan: ${artisan?.companyName || 'none'} (no cache)`);
+  return artisan;
+}
 
-      const stats = await prisma.artisan.aggregate({
+export async function getDepartmentsWithStats(): Promise<(Department & { artisan_count: number; avg_rating: number })[]> {
+  console.log(`🔍 Loading departments with stats`);
+
+  const departments = await prisma.department.findMany({
+    include: {
+      artisans: {
         where: {
-          departmentId: departmentId,
+          status: 'approved',
+          active: true
+        }
+      }
+    },
+    orderBy: {
+      name: 'asc'
+    }
+  })
+
+  const result = departments.map(dept => ({
+    ...dept,
+    artisan_count: dept.artisans.length,
+    avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1)
+  }));
+
+  console.log(`✅ Loaded ${result.length} departments with stats (no cache)`);
+  return result;
+}
+
+export async function getMapData() {
+  console.log(`🔍 Loading map data`);
+
+  const departments = await prisma.department.findMany({
+    select: {
+      code: true,
+      name: true,
+      slug: true,
+      artisans: {
+        where: {
           status: 'approved',
           active: true
         },
-        _count: {
-          _all: true,
-          insuranceValid: true
-        },
-        _avg: {
-          rating: true
+        select: {
+          rating: true,
+          featured: true
         }
-      });
-
-      const result = {
-        has_artisan: stats._count._all,
-        rating: stats._avg.rating || 0,
-        insured: stats._count.insuranceValid
-      };
-
-      console.log(`✅ Loaded department stats: ${result.has_artisan} artisans (cached)`);
-      return result;
+      }
     },
-    ['department-stats'],
-    {
-      revalidate: 60 * 60 * 6, // 6 heures
-      tags: ['artisans']
-    }
-);
-
-// ===== FONCTIONS NON CACHÉES (ADMIN/MUTATIONS) ===== //
-
-export async function createContactRequest(data: any) {
-  return prisma.contactRequest.create({
-    data: {
-      artisanId: data.artisan_id,
-      clientName: data.client_name,
-      clientEmail: data.client_email,
-      clientPhone: data.client_phone,
-      projectType: data.project_type,
-      projectDescription: data.project_description,
-      budgetRange: data.budget_range,
-      urgency: data.urgency,
-      preferredContact: data.preferred_contact,
-      status: "new"
-    },
-    include: {
-      artisan: true
+    orderBy: {
+      name: 'asc'
     }
   })
+
+  const result = departments.map(dept => ({
+    code: dept.code,
+    name: dept.name,
+    slug: dept.slug,
+    artisan_count: dept.artisans.length,
+    avg_rating: dept.artisans.reduce((sum, artisan) => sum + artisan.rating, 0) / (dept.artisans.length || 1),
+    featured_count: dept.artisans.filter(a => a.featured).length
+  }));
+
+  console.log(`✅ Loaded map data for ${result.length} departments (no cache)`);
+  return result;
 }
+
+export async function getDepartmentStats(departmentId: number) {
+  console.log(`🔍 Loading stats for department ID: ${departmentId}`);
+
+  const stats = await prisma.artisan.aggregate({
+    where: {
+      departmentId: departmentId,
+      status: 'approved',
+      active: true
+    },
+    _count: {
+      _all: true,
+      insuranceValid: true
+    },
+    _avg: {
+      rating: true
+    }
+  });
+
+  const result = {
+    has_artisan: stats._count._all,
+    rating: stats._avg.rating || 0,
+    insured: stats._count.insuranceValid
+  };
+
+  console.log(`✅ Loaded department stats: ${result.has_artisan} artisans (no cache)`);
+  return result;
+}
+
+// ===== FONCTIONS LECTURE SEULE ADMIN ===== //
 
 export async function getAllArtisans(
     status?: string,
@@ -316,7 +261,7 @@ export async function getAllArtisans(
         department: true
       },
       orderBy: {
-        createdAt: 'desc'
+        id: 'asc'
       },
       skip,
       take: perPage
@@ -334,31 +279,6 @@ export async function getAllArtisans(
   return { artisans, total }
 }
 
-export async function updateArtisanStatus(artisanId: number, status: string) {
-  if(status==="rejected"){
-    return prisma.artisan.delete({
-      where: { id: artisanId }
-    })
-  }
-  return prisma.artisan.update({
-    where: { id: artisanId },
-    data: {
-      status,
-      updatedAt: new Date()
-    }
-  })
-}
-
-export async function updateArtisanActiveStatus(artisanId: number, active: boolean) {
-  return prisma.artisan.update({
-    where: { id: artisanId },
-    data: {
-      active,
-      updatedAt: new Date()
-    }
-  })
-}
-
 export async function getAllContactRequests(status?: string): Promise<ContactRequest[]> {
   return prisma.contactRequest.findMany({
     where: status ? { status } : undefined,
@@ -373,13 +293,6 @@ export async function getAllContactRequests(status?: string): Promise<ContactReq
     orderBy: {
       createdAt: 'desc'
     }
-  })
-}
-
-export async function updateContactRequestStatus(requestId: number, status: string) {
-  return prisma.contactRequest.update({
-    where: { id: requestId },
-    data: { status }
   })
 }
 
@@ -435,96 +348,4 @@ export async function getAdminStats() {
   })
 
   return stats
-}
-
-export async function deleteArtisan(artisanId: number) {
-  return prisma.artisan.delete({
-    where: { id: artisanId }
-  })
-}
-
-export async function createArtisan(data: {
-  company_name: string
-  contact_name?: string
-  email?: string
-  phone?: string
-  address?: string
-  postal_code?: string
-  city?: string
-  department_id?: number
-  website?: string
-  description?: string
-  services?: string[]
-  years_experience?: number
-  certifications?: string[]
-  insurance_valid?: boolean
-  siret?: string
-  status?: string
-  active?: boolean
-}) {
-  return prisma.artisan.create({
-    data: {
-      companyName: data.company_name,
-      contactName: data.contact_name,
-      email: data.email,
-      phone: data.phone,
-      address: data.address,
-      postalCode: data.postal_code,
-      city: data.city,
-      departmentId: data.department_id,
-      website: data.website,
-      description: data.description,
-      services: data.services || [],
-      yearsExperience: data.years_experience,
-      certifications: data.certifications || [],
-      insuranceValid: data.insurance_valid || false,
-      siret: data.siret,
-      status: data.status || "pending",
-      active: data.active || false
-    }
-  })
-}
-
-export async function updateArtisanInfo(artisanId: number, data: {
-  companyName?: string
-  contactName?: string
-  email?: string
-  phone?: string
-  address?: string
-  city?: string
-  profileImage?: string
-}) {
-  const updateData: any = {
-    updatedAt: new Date()
-  }
-
-  if (data.companyName !== undefined) {
-    updateData.companyName = data.companyName
-  }
-  if (data.contactName !== undefined) {
-    updateData.contactName = data.contactName
-  }
-  if (data.email !== undefined) {
-    updateData.email = data.email
-  }
-  if (data.phone !== undefined) {
-    updateData.phone = data.phone
-  }
-  if (data.address !== undefined) {
-    updateData.address = data.address
-  }
-  if (data.city !== undefined) {
-    updateData.city = data.city
-  }
-  if (data.profileImage !== undefined) {
-    updateData.profileImage = data.profileImage
-  }
-
-  return prisma.artisan.update({
-    where: { id: artisanId },
-    data: updateData,
-    include: {
-      department: true
-    }
-  })
 }

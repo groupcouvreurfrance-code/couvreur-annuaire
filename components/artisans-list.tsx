@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import {
   Check,
-  X,
   Search,
   Mail,
   Phone,
@@ -15,14 +14,13 @@ import {
   Calendar,
   Building2,
   Clock,
-  Eye,
   CheckCircle,
-  XCircle,
   RefreshCw,
   Users,
 } from "lucide-react"
 import type { Artisan } from "@/lib/database"
 import {EditArtisanModal} from "@/components/EditArtisanaModal";
+import {updateArtisanStatus} from "@/lib/action";
 
 interface ArtisansListProps {
   initialArtisans: (Artisan & { department_name?: string })[]
@@ -51,12 +49,8 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
   const handleStatusUpdate = async (artisanId: number, newStatus: string) => {
     setIsLoading(artisanId)
     try {
-      const response = await fetch("/api/admin/artisans", {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ id: artisanId, status: newStatus }),
-      })
-      if (response.ok) {
+      const response = await  updateArtisanStatus(artisanId,newStatus);
+      if (response) {
         setArtisans((prev) =>
             prev.map((artisan) => (artisan.id === artisanId ? { ...artisan, status: newStatus } : artisan)),
         )
