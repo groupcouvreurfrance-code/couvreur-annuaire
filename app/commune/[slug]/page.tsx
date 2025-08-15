@@ -2,10 +2,9 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ArtisanCard } from "@/components/artisan-card"
 import { ContactForm } from "@/components/contact-form"
-import { Button } from "@/components/ui/button"
 import { getCommuneBySlug, getCommuneArtisan } from "@/lib/database"
 import { notFound } from "next/navigation"
-import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award, CheckCircle } from "lucide-react"
+import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award,  } from "lucide-react"
 import Link from "next/link"
 import type { Metadata } from "next"
 import CarteCommune from "@/components/carte-commune"
@@ -71,7 +70,6 @@ export default async function CommunePage({ params }: CommunePageProps) {
 
   // Contenu rotatif basé sur la première lettre de la commune
   const rotatingContent = getRotatingContent(commune.name)
-  const professionalServices = getProfessionalServices(commune.name)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -123,6 +121,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
       telephone: artisan.phone,
       email: artisan.email,
       url: artisan.website,
+      image:artisan.profileImage,
       priceRange: "€€",
       openingHours: "Mo-Fr 08:00-18:00",
     }),
