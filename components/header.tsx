@@ -7,11 +7,17 @@ export function Header() {
       <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white shadow-sm">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shadow-md">
-              <span className="text-white font-bold text-lg">C</span>
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shadow-md overflow-hidden transition-all duration-300 group-hover:shadow-lg group-hover:scale-105">
+              <img
+                  src="/og-image.png"
+                  alt="Couvreur Groupe France"
+                  className="w-10 h-10 object-cover rounded-lg transition-transform duration-300 group-hover:scale-110"
+              />
             </div>
-            <span className="font-bold text-xl text-slate-900">couvreur-groupefrance</span>
+            <span className="font-bold text-xl text-slate-900 transition-colors duration-300 group-hover:text-amber-600">
+    couvreur-groupefrance
+  </span>
           </Link>
 
           {/* Navigation principale */}
