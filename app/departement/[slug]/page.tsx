@@ -510,12 +510,14 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                       le {department.name}.
                       Inscription gratuite et sans engagement.
                     </p>
-                    <a
-                        href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
-                        className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
-                    >
-                      Inscription gratuite
-                    </a>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <a
+                          href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
+                          className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
+                      >
+                        Inscription gratuite
+                      </a>
+                    </div>
                   </div>
                 </div>
               </section>
