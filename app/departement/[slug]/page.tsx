@@ -208,7 +208,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                 <div className="container mx-auto px-4">
                   <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-8">
-                      <h2 className="font-serif font-bold text-3xl text-slate-900 mb-3">
+                      <h2 className="font-serif font-bold md:text-3xl text-slate-900 mb-3">
                         Votre expert en couverture et toiture, présent partout dans le département {department.name}, pour des travaux fiables et durables
                       </h2>
                       <p className="text-lg text-slate-600 max-w-2xl mx-auto">
