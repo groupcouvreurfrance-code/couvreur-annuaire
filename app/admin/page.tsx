@@ -43,7 +43,7 @@ export default async function ArtisansPage({ searchParams }: ArtisansPageProps) 
             {page > 1 && (
               <a
                 href={`/admin?page=${page - 1}${searchParams.status ? `&status=${searchParams.status}` : ""}`}
-                className="px-4 py-2 text-sm font-medium text-emerald-600 bg-white border border-emerald-300 rounded-md hover:bg-emerald-50"
+                className="px-4 py-2 text-sm font-medium text-amber-600 bg-white border border-amber-300 rounded-md hover:bg-amber-50"
               >
                 Précédent
               </a>
@@ -54,7 +54,7 @@ export default async function ArtisansPage({ searchParams }: ArtisansPageProps) 
             {page < Math.ceil(total / 10) && (
               <a
                 href={`/admin?page=${page + 1}${searchParams.status ? `&status=${searchParams.status}` : ""}`}
-                className="px-4 py-2 text-sm font-medium text-emerald-600 bg-white border border-emerald-300 rounded-md hover:bg-emerald-50"
+                className="px-4 py-2 text-sm font-medium text-amber-600 bg-white border border-amber-300 rounded-md hover:bg-amber-50"
               >
                 Suivant
               </a>

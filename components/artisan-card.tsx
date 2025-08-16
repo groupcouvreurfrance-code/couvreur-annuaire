@@ -35,20 +35,20 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                         className="w-16 h-16 md:w-20 md:h-20 rounded-xl object-cover border-2 border-white shadow-md"
                     />
                 ) : (
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-emerald-100 to-emerald-200 border-2 border-white shadow-md flex items-center justify-center">
-                      <User className="h-8 w-8 text-emerald-600" />
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-xl bg-gradient-to-br from-amber-100 to-amber-200 border-2 border-white shadow-md flex items-center justify-center">
+                      <User className="h-8 w-8 text-amber-600" />
                     </div>
                 )}
 
                 {/* Indicateur en ligne */}
-                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-white shadow-sm flex items-center justify-center">
+                <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-amber-500 rounded-full border-2 border-white shadow-sm flex items-center justify-center">
                   <div className="w-2 h-2 bg-white rounded-full"></div>
                 </div>
               </div>
 
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-bold text-lg md:text-xl text-slate-900 mb-1 group-hover:text-emerald-700 transition-colors truncate pr-2">
+                  <h3 className="font-bold text-lg md:text-xl text-slate-900 mb-1 group-hover:text-amber-700 transition-colors truncate pr-2">
                     {artisan.companyName}
                   </h3>
                 </div>
@@ -85,18 +85,18 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                 {artisan.phone && (
                     <a
                         href={`tel:${artisan.phone}`}
-                        className="flex items-center text-slate-600 bg-slate-50 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg px-3 py-2 text-sm flex-1 min-w-0 transition-colors group/contact"
+                        className="flex items-center text-slate-600 bg-slate-50 hover:bg-amber-50 hover:text-amber-700 rounded-lg px-3 py-2 text-sm flex-1 min-w-0 transition-colors group/contact"
                     >
-                      <Phone className="h-4 w-4 mr-2 text-slate-400 group-hover/contact:text-emerald-500 flex-shrink-0" />
+                      <Phone className="h-4 w-4 mr-2 text-slate-400 group-hover/contact:text-amber-500 flex-shrink-0" />
                       <span className="truncate">{artisan.phone}</span>
                     </a>
                 )}
                 {artisan.email && (
                     <a
                         href={`mailto:${artisan.email}`}
-                        className="flex items-center text-slate-600 bg-slate-50 hover:bg-emerald-50 hover:text-emerald-700 rounded-lg px-3 py-2 text-sm flex-1 min-w-0 transition-colors group/contact"
+                        className="flex items-center text-slate-600 bg-slate-50 hover:bg-amber-50 hover:text-amber-700 rounded-lg px-3 py-2 text-sm flex-1 min-w-0 transition-colors group/contact"
                     >
-                      <Mail className="h-4 w-4 mr-2 text-slate-400 group-hover/contact:text-emerald-500 flex-shrink-0" />
+                      <Mail className="h-4 w-4 mr-2 text-slate-400 group-hover/contact:text-amber-500 flex-shrink-0" />
                       <span className="truncate">{artisan.email}</span>
                     </a>
                 )}
@@ -107,7 +107,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                 {artisan.phone && (
                     <a
                         href={`tel:${artisan.phone}`}
-                        className="flex items-center justify-center text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg px-4 py-3 text-sm font-medium transition-colors w-full"
+                        className="flex items-center justify-center text-white bg-amber-600 hover:bg-amber-700 rounded-lg px-4 py-3 text-sm font-medium transition-colors w-full"
                     >
                       <Phone className="h-4 w-4 mr-2 flex-shrink-0" />
                       <span>Appeler : {artisan.phone}</span>
@@ -116,7 +116,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                 {artisan.email && (
                     <a
                         href={`mailto:${artisan.email}`}
-                        className="flex items-center justify-center text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-lg px-4 py-3 text-sm font-medium transition-colors w-full"
+                        className="flex items-center justify-center text-amber-700 bg-amber-50 hover:bg-amber-100 border border-amber-200 rounded-lg px-4 py-3 text-sm font-medium transition-colors w-full"
                     >
                       <Mail className="h-4 w-4 mr-2 flex-shrink-0" />
                       <span className="truncate">Email : {artisan.email}</span>

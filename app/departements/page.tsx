@@ -66,12 +66,12 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
 
                     return (
                         <div key={range} className="bg-white rounded-lg shadow-sm border border-slate-200">
-                          <div className="bg-emerald-600 text-white px-3 py-2 rounded-t-lg">
+                          <div className="bg-amber-600 text-white px-3 py-2 rounded-t-lg">
                             <div className="flex items-center justify-between">
                               <h2 className="font-semibold text-sm">
                                 {range}
                               </h2>
-                              <span className="text-emerald-100 text-xs">
+                              <span className="text-amber-100 text-xs">
                             {groupedDepartments[range].length}
                           </span>
                             </div>
@@ -83,14 +83,14 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
                                   <Link key={dept.id} href={`/departement/${dept.slug}`}>
                                     <div className="flex items-center justify-between px-2 py-1.5 hover:bg-slate-50 rounded transition-colors group cursor-pointer">
                                       <div className="flex items-center space-x-2 min-w-0 flex-1">
-                                  <span className="flex-shrink-0 w-7 h-5 bg-emerald-50 rounded text-emerald-700 font-mono text-xs font-semibold flex items-center justify-center group-hover:bg-emerald-100">
+                                  <span className="flex-shrink-0 w-7 h-5 bg-amber-50 rounded text-amber-700 font-mono text-xs font-semibold flex items-center justify-center group-hover:bg-amber-100">
                                     {dept.code}
                                   </span>
-                                        <span className="font-medium text-xs text-slate-900 group-hover:text-emerald-700 truncate">
+                                        <span className="font-medium text-xs text-slate-900 group-hover:text-amber-700 truncate">
                                     {dept.name}
                                   </span>
                                       </div>
-                                      <svg className="w-3 h-3 text-slate-400 group-hover:text-emerald-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <svg className="w-3 h-3 text-slate-400 group-hover:text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                       </svg>
                                     </div>

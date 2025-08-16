@@ -30,7 +30,7 @@ const ScrollToBottom = () => {
     return (
         <button
             onClick={scrollToBottom}
-            className="fixed bottom-20 right-6 z-40 bg-emerald-600 hover:bg-emerald-700 text-white p-4 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl"
+            className="fixed bottom-20 right-6 z-40 bg-amber-600 hover:bg-amber-700 text-white p-4 rounded-full shadow-lg transition-all duration-200 hover:shadow-xl"
             title="Aller en bas de page"
         >
             <ArrowDown className="h-6 w-6" />

@@ -26,7 +26,7 @@ export function AdminNavigation() {
                 variant={isActive ? "default" : "outline"}
                 className={cn(
                   "flex items-center gap-2",
-                  isActive ? "bg-emerald-600 hover:bg-emerald-700" : "bg-white hover:bg-slate-50",
+                  isActive ? "bg-amber-600 hover:bg-amber-700" : "bg-white hover:bg-slate-50",
                 )}
               >
                 <Icon className="h-4 w-4" />

@@ -43,11 +43,11 @@ export default async function RegistrationPage({ params }: RegistrationPageProps
         <section className="py-4 bg-slate-50 border-b">
           <div className="container mx-auto px-4">
             <div className="flex items-center text-sm text-slate-600">
-              <Link href="/" className="hover:text-emerald-600">
+              <Link href="/" className="hover:text-amber-600">
                 Accueil
               </Link>
               <span className="mx-2">/</span>
-              <Link href={`/departement/${department.slug}`} className="hover:text-emerald-600">
+              <Link href={`/departement/${department.slug}`} className="hover:text-amber-600">
                 {department.name}
               </Link>
               <span className="mx-2">/</span>

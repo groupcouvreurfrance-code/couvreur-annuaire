@@ -15,7 +15,7 @@ export const siteConfig = {
     "zinguerie",
   ],
   creator: "couvreur-groupefrance",
-  themeColor: "#059669", // Couleur emerald-600
+  themeColor: "#059669", // Couleur amber-600
   openGraph: {
     type: "website",
     locale: "fr_FR",

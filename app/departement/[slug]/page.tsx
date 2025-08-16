@@ -124,11 +124,11 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
           <section className="py-2 bg-white border-b border-slate-200">
             <div className="container mx-auto px-4">
               <div className="flex items-center text-sm">
-                <Link href="/" className="text-slate-500 hover:text-emerald-600 transition-colors">
+                <Link href="/" className="text-slate-500 hover:text-amber-600 transition-colors">
                   Accueil
                 </Link>
                 <span className="mx-2 text-slate-400">/</span>
-                <Link href="/departements" className="text-slate-500 hover:text-emerald-600 transition-colors">
+                <Link href="/departements" className="text-slate-500 hover:text-amber-600 transition-colors">
                   Départements
                 </Link>
                 <span className="mx-2 text-slate-400">/</span>
@@ -138,25 +138,25 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
           </section>
 
           {/* Hero Section - Plus compact */}
-          <section className="py-12 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
+          <section className="py-12 bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900">
 
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-4xl mx-auto text-center">
                 <Link
                     href="/departements"
-                    className="inline-flex items-center text-emerald-400 hover:text-emerald-300 mb-4 transition-colors text-sm"
+                    className="inline-flex items-center text-amber-400 hover:text-amber-300 mb-4 transition-colors text-sm"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Tous les départements
                 </Link>
 
                 <div className="flex items-center justify-center mb-3">
-                  <Building className="h-5 w-5 text-emerald-400 mr-2" />
-                  <span className="text-emerald-100 font-medium text-sm">Département {department.code}</span>
+                  <Building className="h-5 w-5 text-amber-400 mr-2" />
+                  <span className="text-amber-100 font-medium text-sm">Département {department.code}</span>
                 </div>
 
                 <h1 className="font-serif font-bold text-3xl lg:text-4xl text-white mb-4">
-                  Couvreur à <span className="text-emerald-400">{department.name}</span>
+                  Couvreur à <span className="text-amber-400">{department.name}</span>
                 </h1>
 
                 <p className="text-lg text-slate-200 mb-6 max-w-2xl mx-auto leading-relaxed">
@@ -170,13 +170,13 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                 <div className="grid grid-cols-2 gap-4 max-w-md mx-auto mb-6">
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                     <div className="text-2xl font-bold text-white mb-1">{total}</div>
-                    <div className="text-emerald-100 text-xs">Communes</div>
+                    <div className="text-amber-100 text-xs">Communes</div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
                     <div className="text-2xl font-bold text-white mb-1">
                       {artisan ? artisan.yearsExperience || "10+" : "10+"}
                     </div>
-                    <div className="text-emerald-100 text-xs">Années</div>
+                    <div className="text-amber-100 text-xs">Années</div>
                   </div>
                 </div>
 
@@ -184,7 +184,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                       <a
                           href={`tel:${artisan.phone}`}
-                          className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl text-sm"
+                          className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl text-sm"
                       >
                         <Building className="h-4 w-4 mr-2" />
                         Contacter {artisan.companyName}
@@ -219,7 +219,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
                       <ArtisanCard artisan={artisan} />
                       <div className="lg:sticky lg:top-4">
-                        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl p-6">
+                        <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-xl p-6">
                           <div className="text-center mb-4">
                             <h3 className="font-serif font-bold text-xl text-slate-900 mb-2">
                               Demandez votre devis
@@ -251,11 +251,11 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                         En attendant, nous pouvons vous orienter vers des professionnels des départements voisins.
                       </p>
                       <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                        <Button className="bg-emerald-600 hover:bg-emerald-700 px-6 py-2">
+                        <Button className="bg-amber-600 hover:bg-amber-700 px-6 py-2">
                           Nous contacter
                         </Button>
                         <Link href={`/inscription-couvreur/${department.slug}`}>
-                          <Button variant="outline" className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-6 py-2">
+                          <Button variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-50 px-6 py-2">
                             Vous êtes couvreur ?
                           </Button>
                         </Link>
@@ -270,7 +270,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
                 <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
-                  Réfection de toitue à  {department.name}
+                  Réfection de toiture à  {department.name}
                 </h2>
 
                 <div className="space-y-6">
@@ -281,7 +281,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                     </p>
                   </div>
 
-                  <div className="rounded-xl p-6 md:p-8 bg-emerald-50">
+                  <div className="rounded-xl p-6 md:p-8 bg-amber-50">
                     <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">2 - Entreprise de couverture {department.name}</h3>
                     <p className="text-slate-700 mb-4">
                       Notre société de couverture à {department.name} prend en charge vos projets du début à la fin. De l&apos;installation à l&apos;entretien, en passant par les réparations et dépannages, nous proposons des prestations complètes sur mesure. Nous combinons des matériaux robustes à des techniques de pose modernes pour offrir un résultat à la fois durable et esthétique.
@@ -296,10 +296,10 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                   </div>
 
                   {/* Continuez avec les autres sections de la même manière */}
-                  <div className="rounded-xl p-6 md:p-8 bg-emerald-50">
+                  <div className="rounded-xl p-6 md:p-8 bg-amber-50">
                     <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">4 - Travaux de zinguerie {department.name}</h3>
                     <p className="text-slate-700 mb-4">
-                      Nous réalisons tous vos travaux de zinguerie à {department.name} : fabrication, pose et réparation de gouttières, noues, rives et abergements. Chaque élément est conçu pour favoriser l'évacuation de l'eau et protéger durablement vos murs et fondations.
+                      Nous réalisons tous vos travaux de zinguerie à {department.name} : fabrication, pose et réparation de gouttières, noues, rives et abergements. Chaque élément est conçu pour favoriser l&apos;évacuation de l&apos;eau et protéger durablement vos murs et fondations.
                     </p>
                   </div>
 
@@ -310,7 +310,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                     </p>
                   </div>
 
-                  {/* Ajoutez les autres points de la même manière en alternant les classes bg-slate-50 et bg-emerald-50 */}
+                  {/* Ajoutez les autres points de la même manière en alternant les classes bg-slate-50 et bg-amber-50 */}
 
                 </div>
               </div>
@@ -328,7 +328,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
 
 
                   {/* Types de travaux */}
-                  <div className="bg-emerald-50 rounded-xl p-6 md:p-8">
+                  <div className="bg-amber-50 rounded-xl p-6 md:p-8">
                     <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">1. Types de travaux</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {[
@@ -344,7 +344,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                         `Entretien toiture ${department.name}`
                       ].map((service, index) => (
                           <div key={index} className="flex items-center py-2">
-                            <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-amber-600 rounded-full mr-3 flex-shrink-0"></div>
                             <span className="text-slate-700">{service}</span>
                           </div>
                       ))}
@@ -369,7 +369,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                         `Bardage toiture ${department.name}`
                       ].map((service, index) => (
                           <div key={index} className="flex items-center py-2">
-                            <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-amber-500 rounded-full mr-3 flex-shrink-0"></div>
                             <span className="text-slate-700">{service}</span>
                           </div>
                       ))}
@@ -377,7 +377,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                   </div>
 
                   {/* Zinguerie et éléments associés */}
-                  <div className="bg-emerald-50 rounded-xl p-6 md:p-8">
+                  <div className="bg-amber-50 rounded-xl p-6 md:p-8">
                     <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">3. Zinguerie et éléments associés</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {[
@@ -391,7 +391,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                         `Habillage cheminée ${department.name}`
                       ].map((service, index) => (
                           <div key={index} className="flex items-center py-2">
-                            <div className="w-2 h-2 bg-emerald-600 rounded-full mr-3 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-amber-600 rounded-full mr-3 flex-shrink-0"></div>
                             <span className="text-slate-700">{service}</span>
                           </div>
                       ))}
@@ -411,7 +411,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                         `Intervention rapide couvreur ${department.name}`
                       ].map((service, index) => (
                           <div key={index} className="flex items-center py-2">
-                            <div className="w-2 h-2 bg-emerald-500 rounded-full mr-3 flex-shrink-0"></div>
+                            <div className="w-2 h-2 bg-amber-500 rounded-full mr-3 flex-shrink-0"></div>
                             <span className="text-slate-700">{service}</span>
                           </div>
                       ))}
@@ -445,7 +445,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
 
                         return (
                             <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
-                              <div className="bg-emerald-600 text-white p-4">
+                              <div className="bg-amber-600 text-white p-4">
                                 <div className="flex items-center justify-between">
                                   <div className="font-bold text-lg">
                                     {firstLetter === lastLetter
@@ -453,7 +453,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                                         : `${firstLetter} - ${lastLetter}`
                                     }
                                   </div>
-                                  <span className="text-emerald-100 text-sm">
+                                  <span className="text-amber-100 text-sm">
                                   {chunk.length} commune{chunk.length > 1 ? 's' : ''}
                                     {firstCommune && lastCommune && firstCommune !== lastCommune &&
                                         ` • ${firstCommune} → ${lastCommune}`
@@ -468,12 +468,12 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                                       <Link key={commune.id} href={`/commune/${commune.slug}`}>
                                         <div className="flex items-center justify-between p-3 hover:bg-slate-50 rounded-lg transition-colors duration-150 group cursor-pointer">
                                           <div className="flex items-center space-x-3">
-                                            <MapPin className="h-4 w-4 text-slate-400 group-hover:text-emerald-600 flex-shrink-0" />
-                                            <span className="font-medium text-slate-900 group-hover:text-emerald-700 transition-colors text-sm">
+                                            <MapPin className="h-4 w-4 text-slate-400 group-hover:text-amber-600 flex-shrink-0" />
+                                            <span className="font-medium text-slate-900 group-hover:text-amber-700 transition-colors text-sm">
                                             {commune.name}
                                           </span>
                                           </div>
-                                          <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-emerald-600 transition-colors flex-shrink-0" />
+                                          <ChevronRight className="h-4 w-4 text-slate-400 group-hover:text-amber-600 transition-colors flex-shrink-0" />
                                         </div>
                                       </Link>
                                   ))}
@@ -499,20 +499,20 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
 
           {/* CTA Section pour les artisans - Plus compact */}
 
-              <section className="py-12 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
+              <section className="py-12 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800">
                 <div className="container mx-auto px-4 text-center">
                   <div className="max-w-3xl mx-auto">
                     <h2 className="font-serif font-bold text-3xl text-white mb-4">
                       Vous êtes couvreur à {department.name} ?
                     </h2>
-                    <p className="text-emerald-100 text-lg mb-6 leading-relaxed">
+                    <p className="text-amber-100 text-lg mb-6 leading-relaxed">
                       Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans
                       le {department.name}.
                       Inscription gratuite et sans engagement.
                     </p>
                     <a
                         href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
-                        className="flex items-center space-x-2 bg-white text-emerald-700 hover:bg-emerald-50 px-6 py-3 text-lg font-medium rounded-md"
+                        className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
                     >
                       Inscription gratuite
                     </a>

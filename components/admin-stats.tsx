@@ -34,8 +34,8 @@ export function AdminStats({ stats }: AdminStatsProps) {
       title: "Approuvés",
       value: stats.approved_artisans,
       icon: UserCheck,
-      color: "text-emerald-600",
-      bgColor: "bg-emerald-100",
+      color: "text-amber-600",
+      bgColor: "bg-amber-100",
     },
     {
       title: "Demandes Totales",

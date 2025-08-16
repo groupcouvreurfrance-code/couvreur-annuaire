@@ -54,7 +54,7 @@ export function ContactRequestsList({ initialRequests, currentStatus }: ContactR
       case "contacted":
         return <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100">Contacté</Badge>
       case "completed":
-        return <Badge className="bg-emerald-100 text-emerald-700 hover:bg-emerald-100">Terminé</Badge>
+        return <Badge className="bg-amber-100 text-amber-700 hover:bg-amber-100">Terminé</Badge>
       default:
         return <Badge variant="secondary">{status}</Badge>
     }

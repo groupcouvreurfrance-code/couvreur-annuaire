@@ -27,7 +27,7 @@ export function CouvreurHeroSection() {
                 <div className="max-w-4xl mx-auto text-center">
                     <h1 className="font-serif font-bold text-4xl lg:text-6xl mb-6 leading-tight">
                         Couvreur Professionnel
-                        <span className="block text-emerald-400">Partout en France</span>
+                        <span className="block text-amber-400">Partout en France</span>
                     </h1>
                     <p className="text-xl lg:text-2xl text-slate-200 mb-8 leading-relaxed">
                         Trouvez votre <strong>artisan couvreur qualifié</strong> près de chez vous. Devis gratuit,
@@ -58,19 +58,19 @@ export function CouvreurHeroSection() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3 max-w-3xl mx-auto">
                         {/* Mobile : version simplifiée - Desktop : version carte */}
                         <div className="md:hidden space-y-1 text-center">
-                            <Shield className="h-6 w-6 text-emerald-400 mx-auto"/>
+                            <Shield className="h-6 w-6 text-amber-400 mx-auto"/>
                             <h3 className="font-medium text-sm text-white">Garantie Décennale</h3>
                             <p className="text-slate-200 text-xs">Tous nos couvreurs sont assurés</p>
                         </div>
 
                         <div className="md:hidden space-y-1 text-center">
-                            <Clock className="h-6 w-6 text-emerald-400 mx-auto"/>
+                            <Clock className="h-6 w-6 text-amber-400 mx-auto"/>
                             <h3 className="font-medium text-sm text-white">Intervention Rapide</h3>
                             <p className="text-slate-200 text-xs">Devis sous 24h, urgences 7j/7</p>
                         </div>
 
                         <div className="md:hidden space-y-1 text-center">
-                            <Award className="h-6 w-6 text-emerald-400 mx-auto"/>
+                            <Award className="h-6 w-6 text-amber-400 mx-auto"/>
                             <h3 className="font-medium text-sm text-white">Artisans Certifiés</h3>
                             <p className="text-slate-200 text-xs">Couvreurs expérimentés et qualifiés</p>
                         </div>
@@ -78,7 +78,7 @@ export function CouvreurHeroSection() {
                         {/* Version carte pour desktop */}
                         <Card className="hidden md:block bg-white/15 backdrop-blur-sm border-white/30">
                             <CardContent className="p-4 text-center">
-                                <Shield className="h-10 w-10 text-emerald-400 mx-auto mb-2"/>
+                                <Shield className="h-10 w-10 text-amber-400 mx-auto mb-2"/>
                                 <h3 className="font-semibold text-lg mb-1 text-white">Garantie Décennale</h3>
                                 <p className="text-slate-200 text-sm">Tous nos couvreurs sont assurés</p>
                             </CardContent>
@@ -86,7 +86,7 @@ export function CouvreurHeroSection() {
 
                         <Card className="hidden md:block bg-white/15 backdrop-blur-sm border-white/30">
                             <CardContent className="p-4 text-center">
-                                <Clock className="h-10 w-10 text-emerald-400 mx-auto mb-2"/>
+                                <Clock className="h-10 w-10 text-amber-400 mx-auto mb-2"/>
                                 <h3 className="font-semibold text-lg mb-1 text-white">Intervention Rapide</h3>
                                 <p className="text-slate-200 text-sm">Devis sous 24h, urgences 7j/7</p>
                             </CardContent>
@@ -94,7 +94,7 @@ export function CouvreurHeroSection() {
 
                         <Card className="hidden md:block bg-white/15 backdrop-blur-sm border-white/30">
                             <CardContent className="p-4 text-center">
-                                <Award className="h-10 w-10 text-emerald-400 mx-auto mb-2"/>
+                                <Award className="h-10 w-10 text-amber-400 mx-auto mb-2"/>
                                 <h3 className="font-semibold text-lg mb-1 text-white">Artisans Certifiés</h3>
                                 <p className="text-slate-200 text-sm">Couvreurs expérimentés et qualifiés</p>
                             </CardContent>

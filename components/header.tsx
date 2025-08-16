@@ -8,7 +8,7 @@ export function Header() {
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-600 to-emerald-700 flex items-center justify-center shadow-md">
+            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-600 to-amber-700 flex items-center justify-center shadow-md">
               <span className="text-white font-bold text-lg">C</span>
             </div>
             <span className="font-bold text-xl text-slate-900">couvreur-groupefrance</span>
@@ -18,17 +18,17 @@ export function Header() {
           <nav className="hidden md:flex items-center space-x-8">
             <Link
                 href="/"
-                className="text-slate-700 hover:text-emerald-600 transition-colors font-medium py-2 px-1 relative group"
+                className="text-slate-700 hover:text-amber-600 transition-colors font-medium py-2 px-1 relative group"
             >
               Accueil
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all group-hover:w-full"></span>
             </Link>
             <Link
                 href="/departements"
-                className="text-slate-700 hover:text-emerald-600 transition-colors font-medium py-2 px-1 relative group"
+                className="text-slate-700 hover:text-amber-600 transition-colors font-medium py-2 px-1 relative group"
             >
               Départements
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-600 transition-all group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-600 transition-all group-hover:w-full"></span>
             </Link>
           </nav>
 
@@ -51,7 +51,7 @@ export function Header() {
             <Button
                 asChild
                 size="sm"
-                className="bg-emerald-600 hover:bg-emerald-700 text-white"
+                className="bg-amber-600 hover:bg-amber-700 text-white"
             >
               <a
                   href="mailto:groupcouvreurfrance@gmail.com?subject=Demande de contact&body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant vos services de couverture.%0D%0A%0D%0ACordialement"

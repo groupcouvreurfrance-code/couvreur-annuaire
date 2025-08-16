@@ -171,7 +171,7 @@ export default function MeteoCommune({ nomCommune, departement }: MeteoCommunePr
                         href={`https://www.meteoblue.com/fr/meteo/semaine/${nomCommune.toLowerCase()}_france_${departement.toLowerCase()}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-emerald-600 hover:text-emerald-800 text-sm font-medium"
+                        className="text-amber-600 hover:text-amber-800 text-sm font-medium"
                     >
                         Prévisions détaillées
                     </a>

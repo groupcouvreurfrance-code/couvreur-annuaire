@@ -57,7 +57,7 @@ export function CouvreurAdvantagesSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                     <div>
                         <h2 className="font-serif font-bold text-3xl lg:text-4xl text-slate-900 mb-6">
-                            Pourquoi Choisir Nos <span className="text-emerald-600">Couvreurs Professionnels</span> ?
+                            Pourquoi Choisir Nos <span className="text-amber-600">Couvreurs Professionnels</span> ?
                         </h2>
                         <p className="text-lg text-slate-600 mb-8">
                             Notre <strong>société de couverture</strong> vous garantit des travaux de qualité réalisés par des{" "}
@@ -67,14 +67,14 @@ export function CouvreurAdvantagesSection() {
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {avantages.map((avantage, index) => (
-                                <Card key={index} className="border-l-4 border-l-emerald-500 shadow-sm">
+                                <Card key={index} className="border-l-4 border-l-amber-500 shadow-sm">
                                     <CardContent className="p-4">
                                         <div className="flex items-start gap-3">
-                                            <avantage.icon className="h-5 w-5 text-emerald-600 mt-1 flex-shrink-0" />
+                                            <avantage.icon className="h-5 w-5 text-amber-600 mt-1 flex-shrink-0" />
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-2 mb-1">
                                                     <h3 className="font-semibold text-sm text-slate-900">{avantage.title}</h3>
-                                                    <Badge variant="secondary" className="text-xs bg-emerald-100 text-emerald-700">
+                                                    <Badge variant="secondary" className="text-xs bg-amber-100 text-amber-700">
                                                         {avantage.badge}
                                                     </Badge>
                                                 </div>
@@ -97,15 +97,15 @@ export function CouvreurAdvantagesSection() {
                         <div className="grid grid-cols-2 gap-3">
                             {materiaux.map((materiau, index) => (
                                 <div key={index} className="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm">
-                                    <CheckCircle className="h-4 w-4 text-emerald-600 flex-shrink-0" />
+                                    <CheckCircle className="h-4 w-4 text-amber-600 flex-shrink-0" />
                                     <span className="text-sm font-medium text-slate-700">{materiau}</span>
                                 </div>
                             ))}
                         </div>
 
-                        <div className="mt-6 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
-                            <h4 className="font-semibold text-emerald-800 mb-2">Traitement de Toiture Inclus</h4>
-                            <p className="text-sm text-emerald-700">
+                        <div className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200">
+                            <h4 className="font-semibold text-amber-800 mb-2">Traitement de Toiture Inclus</h4>
+                            <p className="text-sm text-amber-700">
                                 Hydrofuge, anti-mousse, et protection longue durée pour tous nos travaux.
                             </p>
                         </div>

@@ -77,30 +77,30 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
 
   if (isSuccess) {
     return (
-      <Card className="border-0 shadow-xl bg-gradient-to-br from-emerald-50 to-green-50 overflow-hidden">
+      <Card className="border-0 shadow-xl bg-gradient-to-br from-amber-50 to-green-50 overflow-hidden">
         <CardContent className="p-8 text-center relative">
           {/* Effet de brillance en arrière-plan */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-green-500"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-green-500"></div>
           
           <div className="relative">
-            <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
               <CheckCircle className="h-10 w-10 text-white" />
             </div>
             
             <div className="mb-6">
-              <h3 className="font-bold text-2xl text-emerald-900 mb-3 flex items-center justify-center gap-2">
-                <Sparkles className="h-6 w-6 text-emerald-600" />
+              <h3 className="font-bold text-2xl text-amber-900 mb-3 flex items-center justify-center gap-2">
+                <Sparkles className="h-6 w-6 text-amber-600" />
                 Demande envoyée avec succès !
               </h3>
-              <p className="text-emerald-700 text-lg leading-relaxed">
+              <p className="text-amber-700 text-lg leading-relaxed">
                 Votre demande de devis a été transmise à <span className="font-semibold">{artisan.companyName}</span>.
                 <br />
-                <span className="text-emerald-600">Vous recevrez une réponse sous 24h.</span>
+                <span className="text-amber-600">Vous recevrez une réponse sous 24h.</span>
               </p>
             </div>
             
             <div className="bg-white/60 rounded-xl p-4 mb-6 backdrop-blur-sm">
-              <p className="text-sm text-emerald-800">
+              <p className="text-sm text-amber-800">
                 📧 Un email de confirmation vous a été envoyé
               </p>
             </div>
@@ -108,7 +108,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
             <Button
               variant="outline"
               onClick={() => setIsSuccess(false)}
-              className="border-emerald-600 text-emerald-700 hover:bg-emerald-50 bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all"
+              className="border-amber-600 text-amber-700 hover:bg-amber-50 bg-white/80 backdrop-blur-sm shadow-md hover:shadow-lg transition-all"
             >
               Envoyer une nouvelle demande
             </Button>
@@ -128,7 +128,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
             </CardTitle>
             <p className=" hidden md:block text-slate-600 truncate flex items-center gap-2">
               <MessageSquare className="h-4 w-4" />
-              Recevez un devis personnalisé de <span className="font-semibold text-emerald-700">{artisan.companyName}</span>
+              Recevez un devis personnalisé de <span className="font-semibold text-amber-700">{artisan.companyName}</span>
             </p>
           </div>
         </div>
@@ -140,14 +140,14 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
         {/*      <div className="flex items-center">*/}
         {/*        <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${*/}
         {/*          currentStep >= step.number*/}
-        {/*            ? 'bg-emerald-600 text-white shadow-lg'*/}
+        {/*            ? 'bg-amber-600 text-white shadow-lg'*/}
         {/*            : 'bg-slate-200 text-slate-500'*/}
         {/*        }`}>*/}
         {/*          <step.icon className="h-5 w-5" />*/}
         {/*        </div>*/}
         {/*        <div className="ml-3 hidden sm:block">*/}
         {/*          <p className={`text-sm font-medium ${*/}
-        {/*            currentStep >= step.number ? 'text-emerald-700' : 'text-slate-500'*/}
+        {/*            currentStep >= step.number ? 'text-amber-700' : 'text-slate-500'*/}
         {/*          }`}>*/}
         {/*            {step.title}*/}
         {/*          </p>*/}
@@ -155,7 +155,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
         {/*      </div>*/}
         {/*      {index < steps.length - 1 && (*/}
         {/*        <div className={`w-12 h-0.5 mx-4 transition-all ${*/}
-        {/*          currentStep > step.number ? 'bg-emerald-600' : 'bg-slate-200'*/}
+        {/*          currentStep > step.number ? 'bg-amber-600' : 'bg-slate-200'*/}
         {/*        }`}></div>*/}
         {/*      )}*/}
         {/*    </div>*/}
@@ -180,7 +180,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                     value={formData.client_name}
                     onChange={(e) => setFormData({ ...formData, client_name: e.target.value })}
                     placeholder="Jean Dupont"
-                    className="border-slate-200 focus:border-emerald-500 focus:ring-emerald-500 h-12"
+                    className="border-slate-200 focus:border-amber-500 focus:ring-amber-500 h-12"
                   />
                 </div>
                 <div className="space-y-2">
@@ -195,7 +195,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                     value={formData.client_email}
                     onChange={(e) => setFormData({ ...formData, client_email: e.target.value })}
                     placeholder="jean@email.com"
-                    className="border-slate-200 focus:border-emerald-500 focus:ring-emerald-500 h-12"
+                    className="border-slate-200 focus:border-amber-500 focus:ring-amber-500 h-12"
                   />
                 </div>
               </div>
@@ -211,7 +211,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                   value={formData.client_phone}
                   onChange={(e) => setFormData({ ...formData, client_phone: e.target.value })}
                   placeholder="06 12 34 56 78"
-                  className="border-slate-200 focus:border-emerald-500 focus:ring-emerald-500 h-12"
+                  className="border-slate-200 focus:border-amber-500 focus:ring-amber-500 h-12"
                 />
               </div>
 
@@ -219,7 +219,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                 <Button
                   type="button"
                   onClick={() => setCurrentStep(2)}
-                  className="bg-emerald-600 hover:bg-emerald-700 px-8 h-12"
+                  className="bg-amber-600 hover:bg-amber-700 px-8 h-12"
                   disabled={!formData.client_name || !formData.client_email}
                 >
                   Continuer
@@ -241,7 +241,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                   value={formData.project_type}
                   onValueChange={(value) => setFormData({ ...formData, project_type: value })}
                 >
-                  <SelectTrigger className="border-slate-200 focus:border-emerald-500 h-12">
+                  <SelectTrigger className="border-slate-200 focus:border-amber-500 h-12">
                     <SelectValue placeholder="Sélectionnez le type de travaux" />
                   </SelectTrigger>
                   <SelectContent>
@@ -267,7 +267,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                   onChange={(e) => setFormData({ ...formData, project_description: e.target.value })}
                   placeholder="Décrivez votre projet en détail : surface, matériaux souhaités, contraintes particulières..."
                   rows={5}
-                  className="border-slate-200 focus:border-emerald-500 focus:ring-emerald-500 resize-none"
+                  className="border-slate-200 focus:border-amber-500 focus:ring-amber-500 resize-none"
                 />
               </div>
 
@@ -285,7 +285,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                 <Button
                   type="button"
                   onClick={() => setCurrentStep(3)}
-                  className="bg-emerald-600 hover:bg-emerald-700 px-8 h-12"
+                  className="bg-amber-600 hover:bg-amber-700 px-8 h-12"
                 >
                   Continuer
                   <Send className="h-4 w-4 ml-2" />
@@ -396,7 +396,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting} 
-                  className="bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700 px-8 h-12 shadow-lg hover:shadow-xl transition-all"
+                  className="bg-gradient-to-r from-amber-600 to-green-600 hover:from-amber-700 hover:to-green-700 px-8 h-12 shadow-lg hover:shadow-xl transition-all"
                 >
                   {isSubmitting ? (
                     <>

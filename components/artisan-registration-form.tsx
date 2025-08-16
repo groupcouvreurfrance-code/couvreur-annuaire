@@ -72,8 +72,8 @@ export function ArtisanRegistrationForm({ departmentId, departmentName }: Artisa
     return (
       <Card className="max-w-2xl mx-auto">
         <CardContent className="p-8 text-center">
-          <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg className="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
@@ -163,7 +163,7 @@ export function ArtisanRegistrationForm({ departmentId, departmentName }: Artisa
             <Input id="website" name="website" type="url" placeholder="https://" />
           </div>
 
-          <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700" disabled={isSubmitting}>
+          <Button type="submit" className="w-full bg-amber-600 hover:bg-amber-700" disabled={isSubmitting}>
             {isSubmitting ? "Inscription en cours..." : "S'inscrire"}
           </Button>
         </form>

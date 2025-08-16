@@ -114,7 +114,7 @@ export default function CarteCommune({ nomCommune, departement, artisanNom }: Ca
                             <h3 className="font-semibold text-slate-900">{nomCommune}</h3>
                             <p className="text-sm text-slate-600">{departement}</p>
                             {artisanNom && (
-                                <p className="text-sm text-emerald-600 mt-1">
+                                <p className="text-sm text-amber-600 mt-1">
                                     📍 {artisanNom}
                                 </p>
                             )}

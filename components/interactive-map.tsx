@@ -30,11 +30,11 @@ export function InteractiveMap({ mapData }: InteractiveMapProps) {
 
   const getColorIntensity = (count: number) => {
     if (count === 0) return "fill-slate-100 hover:fill-slate-200"
-    if (count <= 5) return "fill-emerald-100 hover:fill-emerald-200"
-    if (count <= 15) return "fill-emerald-200 hover:fill-emerald-300"
-    if (count <= 30) return "fill-emerald-300 hover:fill-emerald-400"
-    if (count <= 50) return "fill-emerald-400 hover:fill-emerald-500"
-    return "fill-emerald-500 hover:fill-emerald-600"
+    if (count <= 5) return "fill-amber-100 hover:fill-amber-200"
+    if (count <= 15) return "fill-amber-200 hover:fill-amber-300"
+    if (count <= 30) return "fill-amber-300 hover:fill-amber-400"
+    if (count <= 50) return "fill-amber-400 hover:fill-amber-500"
+    return "fill-amber-500 hover:fill-amber-600"
   }
 
   const handleDepartmentClick = (code: string) => {
@@ -239,23 +239,23 @@ export function InteractiveMap({ mapData }: InteractiveMapProps) {
                   <span className="text-slate-600">0 couvreur</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-emerald-100 rounded border"></div>
+                  <div className="w-4 h-4 bg-amber-100 rounded border"></div>
                   <span className="text-slate-600">1-5 couvreurs</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-emerald-200 rounded border"></div>
+                  <div className="w-4 h-4 bg-amber-200 rounded border"></div>
                   <span className="text-slate-600">6-15 couvreurs</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-emerald-300 rounded border"></div>
+                  <div className="w-4 h-4 bg-amber-300 rounded border"></div>
                   <span className="text-slate-600">16-30 couvreurs</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-emerald-400 rounded border"></div>
+                  <div className="w-4 h-4 bg-amber-400 rounded border"></div>
                   <span className="text-slate-600">31-50 couvreurs</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <div className="w-4 h-4 bg-emerald-500 rounded border"></div>
+                  <div className="w-4 h-4 bg-amber-500 rounded border"></div>
                   <span className="text-slate-600">50+ couvreurs</span>
                 </div>
               </div>
@@ -280,7 +280,7 @@ export function InteractiveMap({ mapData }: InteractiveMapProps) {
                     <Users className="h-4 w-4 text-slate-500" />
                     <span className="text-slate-600">Couvreurs</span>
                   </div>
-                  <Badge className="bg-emerald-100 text-emerald-700 hover:bg-emerald-100">
+                  <Badge className="bg-amber-100 text-amber-700 hover:bg-amber-100">
                     {selectedDepartment.artisan_count}
                   </Badge>
                 </div>
@@ -308,7 +308,7 @@ export function InteractiveMap({ mapData }: InteractiveMapProps) {
               </div>
 
               <Link href={`/departement/${selectedDepartment.slug}`}>
-                <Button className="w-full bg-emerald-600 hover:bg-emerald-700">
+                <Button className="w-full bg-amber-600 hover:bg-amber-700">
                   <MapPin className="h-4 w-4 mr-2" />
                   Voir les couvreurs
                 </Button>

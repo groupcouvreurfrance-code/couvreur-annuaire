@@ -77,8 +77,8 @@ export function CouvreurServicesSection() {
                               className="hover:shadow-lg transition-shadow duration-300 border-0 shadow-md bg-white">
                             <CardHeader className="pb-4">
                                 <div className="flex items-center gap-4">
-                                    <div className="p-3 bg-emerald-100 rounded-lg">
-                                        <service.icon className="h-6 w-6 text-emerald-600"/>
+                                    <div className="p-3 bg-amber-100 rounded-lg">
+                                        <service.icon className="h-6 w-6 text-amber-600"/>
                                     </div>
                                     <CardTitle className="text-xl text-slate-900">{service.title}</CardTitle>
                                 </div>
@@ -88,7 +88,7 @@ export function CouvreurServicesSection() {
                                 <div className="flex flex-wrap gap-2">
                                     {service.keywords.map((keyword, idx) => (
                                         <span key={idx}
-                                              className="text-xs bg-emerald-50 text-emerald-700 px-2 py-1 rounded-full">
+                                              className="text-xs bg-amber-50 text-amber-700 px-2 py-1 rounded-full">
                       {keyword}
                     </span>
                                     ))}

@@ -137,15 +137,15 @@ export default async function CommunePage({ params }: CommunePageProps) {
           <section className="py-3 bg-white border-b border-slate-200">
             <div className="container mx-auto px-4">
               <div className="flex items-center text-sm">
-                <Link href="/" className="text-slate-500 hover:text-emerald-600 transition-colors">
+                <Link href="/" className="text-slate-500 hover:text-amber-600 transition-colors">
                   Accueil
                 </Link>
                 <span className="mx-2 text-slate-400">/</span>
-                <Link href="/departements" className="text-slate-500 hover:text-emerald-600 transition-colors">
+                <Link href="/departements" className="text-slate-500 hover:text-amber-600 transition-colors">
                   Départements
                 </Link>
                 <span className="mx-2 text-slate-400">/</span>
-                <Link href={`/departement/${commune.department_slug}`} className="text-slate-500 hover:text-emerald-600 transition-colors">
+                <Link href={`/departement/${commune.department_slug}`} className="text-slate-500 hover:text-amber-600 transition-colors">
                   {commune.department_name}
                 </Link>
                 <span className="mx-2 text-slate-400">/</span>
@@ -155,25 +155,25 @@ export default async function CommunePage({ params }: CommunePageProps) {
           </section>
 
           {/* Hero Section - Design moderne */}
-          <section className="relative py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-emerald-900">
+          <section className="relative py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900">
             <div className="absolute inset-0 bg-black/20"></div>
             <div className="container mx-auto px-4 relative z-10">
               <div className="max-w-4xl mx-auto text-center">
                 <Link
                     href={`/departement/${commune.department_slug}`}
-                    className="inline-flex items-center text-emerald-400 hover:text-emerald-300 mb-8 transition-colors"
+                    className="inline-flex items-center text-amber-400 hover:text-amber-300 mb-8 transition-colors"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Retour au {commune.department_name}
                 </Link>
 
                 <div className="flex items-center justify-center mb-6">
-                  <MapPin className="h-6 w-6 text-emerald-400 mr-3" />
-                  <span className="text-emerald-100 font-medium">{commune.department_name}</span>
+                  <MapPin className="h-6 w-6 text-amber-400 mr-3" />
+                  <span className="text-amber-100 font-medium">{commune.department_name}</span>
                 </div>
 
                 <h1 className="font-serif font-bold text-4xl lg:text-6xl text-white mb-6">
-                  Couvreur à <span className="text-emerald-400">{commune.name}</span>
+                  Couvreur à <span className="text-amber-400">{commune.name}</span>
                 </h1>
 
                 <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
@@ -186,15 +186,15 @@ export default async function CommunePage({ params }: CommunePageProps) {
                 {artisan && (
                     <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
                       <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                        <Shield className="h-4 w-4 text-emerald-400 mr-2" />
+                        <Shield className="h-4 w-4 text-amber-400 mr-2" />
                         <span className="text-white text-sm">Certifié RGE</span>
                       </div>
                       <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                        <Clock className="h-4 w-4 text-emerald-400 mr-2" />
+                        <Clock className="h-4 w-4 text-amber-400 mr-2" />
                         <span className="text-white text-sm">Intervention 24h</span>
                       </div>
                       <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                        <Award className="h-4 w-4 text-emerald-400 mr-2" />
+                        <Award className="h-4 w-4 text-amber-400 mr-2" />
                         <span className="text-white text-sm">Devis gratuit</span>
                       </div>
                     </div>
@@ -204,7 +204,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                       <a
                           href={`tel:${artisan.phone}`}
-                          className="inline-flex items-center bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                          className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
                       >
                         <Phone className="h-5 w-5 mr-3" />
                         Appeler maintenant
@@ -232,7 +232,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                   <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16">
                       <h2 className="font-serif font-bold text-4xl text-slate-900 mb-6">
-                        Votre expert couverture à {commune.name}
+                        Votre couvreur de confiance à {commune.name}
                       </h2>
                       <p className="text-xl text-slate-600 max-w-3xl mx-auto">
                         {artisan.companyName} vous propose une expertise reconnue et un service de qualité
@@ -246,7 +246,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                       </div>
 
                       <div className="lg:sticky lg:top-8">
-                        <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8">
+                        <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8">
                           <div className="text-center mb-6">
                             <h3 className="font-serif font-bold text-2xl text-slate-900 mb-2">
                               Demandez votre devis
@@ -285,20 +285,20 @@ export default async function CommunePage({ params }: CommunePageProps) {
 
           {/* CTA Section pour les artisans */}
 
-              <section className="py-20 bg-gradient-to-r from-emerald-600 via-emerald-700 to-emerald-800">
+              <section className="py-20 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800">
                 <div className="container mx-auto px-4 text-center">
                   <div className="max-w-4xl mx-auto">
                     <h2 className="font-serif font-bold text-4xl text-white mb-6">
                       Vous êtes couvreur à {commune.name} ?
                     </h2>
-                    <p className="text-emerald-100 text-xl mb-8 leading-relaxed">
+                    <p className="text-amber-100 text-xl mb-8 leading-relaxed">
                       Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {commune.department_name}.
                       Inscription gratuite et sans engagement.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                       <a
                           href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
-                          className="flex items-center space-x-2 bg-white text-emerald-700 hover:bg-emerald-50 px-6 py-3 text-lg font-medium rounded-md"
+                          className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
                       >
                         Inscription gratuite
                       </a>
@@ -318,7 +318,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
 
                 <div className="space-y-12">
                   {rotatingContent.sections.map((section, index) => (
-                      <div key={index} className={`rounded-xl p-6 md:p-8 ${index % 2 === 0 ? 'bg-slate-50' : 'bg-emerald-50'}`}>
+                      <div key={index} className={`rounded-xl p-6 md:p-8 ${index % 2 === 0 ? 'bg-slate-50' : 'bg-amber-50'}`}>
                         <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">
                           {section.title}
                         </h3>
@@ -357,7 +357,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                 `Remplacement de gouttière zinc ${commune.name}`
               ].map((service) => (
                   <div key={service} className="flex items-center py-2 border-b border-slate-200 last:border-b-0">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full mr-4 flex-shrink-0"></div>
+                    <div className="w-2 h-2 bg-amber-500 rounded-full mr-4 flex-shrink-0"></div>
                     <span className="text-slate-700 font-medium">{service}</span>
                   </div>
               ))}
@@ -412,8 +412,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
                 <div className="md:hidden space-y-4">
                   <div className="flex items-center justify-between p-4 border-b border-slate-200">
                     <div className="flex items-center space-x-3">
-                      <div className="flex items-center justify-center w-10 h-10 bg-emerald-100 rounded-lg">
-                        <MapPin className="h-5 w-5 text-emerald-600"/>
+                      <div className="flex items-center justify-center w-10 h-10 bg-amber-100 rounded-lg">
+                        <MapPin className="h-5 w-5 text-amber-600"/>
                       </div>
                       <span className="font-semibold text-slate-900">Commune</span>
                     </div>
@@ -445,8 +445,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
                 <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div
                       className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
-                    <div className="flex items-center justify-center w-12 h-12 bg-emerald-100 rounded-lg mb-4 mx-auto">
-                      <MapPin className="h-6 w-6 text-emerald-600"/>
+                    <div className="flex items-center justify-center w-12 h-12 bg-amber-100 rounded-lg mb-4 mx-auto">
+                      <MapPin className="h-6 w-6 text-amber-600"/>
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2 text-center">Commune</h3>
                     <p className="text-slate-600 text-center text-lg font-medium">{commune.name}</p>

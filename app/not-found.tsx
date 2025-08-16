@@ -13,7 +13,7 @@ export default function NotFound() {
           <h2 className="font-serif font-semibold text-2xl text-slate-700 mb-4">Page non trouvée</h2>
           <p className="text-slate-600 mb-8 max-w-md">La page que vous recherchez n'existe pas ou a été déplacée.</p>
           <Link href="/">
-            <Button className="bg-emerald-600 hover:bg-emerald-700">Retour à l'accueil</Button>
+            <Button className="bg-amber-600 hover:bg-amber-700">Retour à l'accueil</Button>
           </Link>
         </div>
       </main>

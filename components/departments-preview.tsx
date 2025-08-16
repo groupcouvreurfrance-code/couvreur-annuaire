@@ -20,7 +20,7 @@ export function DepartmentsPreview() {
             <Button
               variant="outline"
               size="lg"
-              className="border-emerald-600 text-emerald-600 hover:bg-emerald-50 bg-transparent"
+              className="border-amber-600 text-amber-600 hover:bg-amber-50 bg-transparent"
             >
               Voir tous les départements
               <ArrowRight className="ml-2 h-4 w-4" />
