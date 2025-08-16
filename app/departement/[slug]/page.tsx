@@ -209,7 +209,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                   <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-8">
                       <h2 className="font-serif font-bold text-3xl text-slate-900 mb-3">
-                        Votre expert couverture dans le {department.name}
+                        Votre expert en couverture et toiture, présent partout dans le département {department.name}, pour des travaux fiables et durables
                       </h2>
                       <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                         {artisan.companyName} vous propose une expertise reconnue dans tout le département {department.name}.
