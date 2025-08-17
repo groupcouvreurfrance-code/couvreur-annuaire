@@ -3,17 +3,93 @@ import { Footer } from "@/components/footer"
 import { getAllDepartments } from "@/lib/database"
 import Link from "next/link"
 import {Metadata} from "next";
+import { MapPin, ArrowRight, Building, Users, Shield, Star } from "lucide-react"
 
 interface DepartementsPageProps {
   searchParams: { page?: string }
 }
+
 export const metadata: Metadata = {
-  title: "Départements de France - Couvreurs",
-  description: "Trouvez des couvreurs qualifiés par département partout en France.",
+  title: "Couvreurs par Département en France | Trouvez votre Artisan Local | Devis Gratuit",
+  description: "🏠 Trouvez un couvreur qualifié dans tous les départements français. ✅ Artisans certifiés ✅ Devis gratuit ✅ Intervention rapide. Plus de 95 départements couverts.",
+  keywords: [
+    "couvreur par département",
+    "artisan couvreur France",
+    "couverture toiture département",
+    "liste couvreurs France",
+    "trouvez couvreur local",
+    "entreprise couverture région",
+    "artisan toiture qualifié",
+    "devis couvreur gratuit",
+    "réparation toiture département",
+    "couvreurs certifiés France",
+  ],
+  authors: [{ name: "Couvreur Groupe France" }],
+  creator: "Couvreur Groupe France",
+  publisher: "Couvreur Groupe France",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://www.couvreur-groupefrance.com"),
   alternates: {
     canonical: "https://www.couvreur-groupefrance.com/departements",
   },
+  openGraph: {
+    title: "Couvreurs par Département | Artisans Qualifiés dans toute la France",
+    description: "Trouvez un couvreur professionnel près de chez vous. Plus de 95 départements couverts. Devis gratuit et intervention rapide.",
+    url: "https://www.couvreur-groupefrance.com/departements",
+    siteName: "Couvreur Groupe France",
+    type: "website",
+    locale: "fr_FR",
+    images: [
+      {
+        url: "https://www.couvreur-groupefrance.com/images/couvreurs-france-carte.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Carte des couvreurs par département en France",
+        type: "image/jpeg",
+      },
+      {
+        url: "https://www.couvreur-groupefrance.com/images/artisan-couvreur-france.jpg",
+        width: 1200,
+        height: 800,
+        alt: "Artisan couvreur professionnel travaillant sur une toiture",
+        type: "image/jpeg",
+      }
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Couvreurs par Département | Artisans Qualifiés France",
+    description: "Trouvez un couvreur professionnel dans votre département. Devis gratuit et intervention rapide.",
+    images: ["https://www.couvreur-groupefrance.com/images/couvreurs-france-carte.jpg"],
+    creator: "@CouvreurFrance",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  other: {
+    "geo.region": "FR",
+    "geo.country": "FR",
+    "geo.placename": "France",
+    "DC.title": "Couvreurs par Département en France",
+    "DC.description": "Annuaire des couvreurs professionnels par département français",
+    "DC.language": "fr",
+    "DC.coverage": "France",
+    "DC.subject": "Couverture, Toiture, Artisan, Bâtiment, Département",
+  },
 }
+
 export default async function DepartementsPage({ searchParams }: DepartementsPageProps) {
   // On récupère TOUS les départements d'un coup (pas de pagination)
   const { departments: allDepartments, total } = await getAllDepartments(1, 100)
@@ -48,58 +124,206 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
   const groupedDepartments = groupDepartmentsByRange(allDepartments)
   const rangeOrder = ['01-20', '21-40', '41-60', '61-80', '81-95', '96+']
 
+  // JSON-LD pour la page de liste des départements
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://www.couvreur-groupefrance.com/departements",
+    name: "Couvreurs par Département en France",
+    description: "Annuaire des couvreurs professionnels dans tous les départements français",
+    url: "https://www.couvreur-groupefrance.com/departements",
+    mainEntity: {
+      "@type": "ItemList",
+      name: "Liste des départements avec couvreurs",
+      numberOfItems: total,
+      itemListOrder: "Ascending",
+      itemListElement: allDepartments.map((dept, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: `${dept.name} (${dept.code})`,
+        url: `https://www.couvreur-groupefrance.com/departement/${dept.slug}`,
+        description: `Couvreur professionnel dans le ${dept.name}`,
+      }))
+    },
+    provider: {
+      "@type": "Organization",
+      name: "Couvreur Groupe France",
+      url: "https://www.couvreur-groupefrance.com",
+    },
+    about: {
+      "@type": "Service",
+      name: "Services de couverture et toiture",
+      serviceType: "Couvreur",
+      areaServed: {
+        "@type": "Country",
+        name: "France"
+      }
+    }
+  }
+
+  // BreadcrumbList JSON-LD
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: "https://www.couvreur-groupefrance.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Départements",
+        item: "https://www.couvreur-groupefrance.com/departements",
+      },
+    ],
+  }
+
   return (
       <div className="min-h-screen">
         <Header />
         <main>
-          <section className="py-6 bg-slate-50">
+          {/* Breadcrumb */}
+          <section className="py-2 bg-white border-b border-slate-200">
             <div className="container mx-auto px-4">
-              <div className="text-center mb-6">
-                <h1 className="font-serif font-bold text-2xl lg:text-3xl text-slate-900 mb-2">
-                  Départements de France
+              <div className="flex items-center text-sm">
+                <Link href="/" className="text-slate-500 hover:text-amber-600 transition-colors">
+                  Accueil
+                </Link>
+                <span className="mx-2 text-slate-400">/</span>
+                <span className="text-slate-900 font-medium">Départements</span>
+              </div>
+            </div>
+          </section>
+
+          {/* Hero Section optimisée */}
+          <section className="py-16 bg-gradient-to-br from-slate-900 via-slate-800 to-amber-900">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center mb-4">
+                  <MapPin className="h-6 w-6 text-amber-400 mr-2" />
+                  <span className="text-amber-100 font-medium">Couverture France</span>
+                </div>
+
+                <h1 className="font-serif font-bold text-4xl lg:text-5xl text-white mb-6">
+                  Trouvez votre <span className="text-amber-400">couvreur</span><br />
+                  par département
                 </h1>
-                <p className="text-sm text-slate-600 mb-1">
-                  Couvreurs qualifiés par département
+
+                <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+                  Découvrez notre réseau d'artisans couvreurs qualifiés dans tous les départements français.
+                  Devis gratuit, intervention rapide et savoir-faire local.
                 </p>
-                <div className="text-xs text-slate-500">
-                  {total} départements
+
+                {/* Points forts */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-8">
+                  <div className="flex items-center justify-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <Shield className="h-6 w-6 text-amber-400 flex-shrink-0" />
+                    <div className="text-white">
+                      <div className="font-semibold text-sm">Artisans Certifiés</div>
+                      <div className="text-amber-100 text-xs">Qualifiés et assurés</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <Star className="h-6 w-6 text-amber-400 flex-shrink-0" />
+                    <div className="text-white">
+                      <div className="font-semibold text-sm">Devis Gratuit</div>
+                      <div className="text-amber-100 text-xs">Sans engagement</div>
+                    </div>
+                  </div>
+                  <div className="flex items-center justify-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                    <Building className="h-6 w-6 text-amber-400 flex-shrink-0" />
+                    <div className="text-white">
+                      <div className="font-semibold text-sm">{total} Départements</div>
+                      <div className="text-amber-100 text-xs">Couverture nationale</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="text-amber-100 text-lg">
+                  Sélectionnez votre département ci-dessous
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section principale avec liste des départements */}
+          <section className="py-16 bg-slate-50">
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-12">
+                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
+                  Couvreurs par département français
+                </h2>
+                <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+                  Choisissez votre département pour découvrir nos artisans couvreurs locaux,
+                  leurs spécialités et obtenir un devis personnalisé.
+                </p>
+                <div className="text-amber-600 font-semibold mt-4">
+                  {total} départements disponibles
                 </div>
               </div>
 
               <div className="max-w-6xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {rangeOrder.map(range => {
                     if (!groupedDepartments[range]) return null
 
+                    const getRangeTitle = (range: string) => {
+                      switch(range) {
+                        case '01-20': return 'Nord & Île-de-France'
+                        case '21-40': return 'Nord-Est & Centre'
+                        case '41-60': return 'Centre & Nord'
+                        case '61-80': return 'Ouest & Nord-Ouest'
+                        case '81-95': return 'Sud & Sud-Ouest'
+                        case '96+': return 'Outre-Mer'
+                        default: return range
+                      }
+                    }
+
                     return (
-                        <div key={range} className="bg-white rounded-lg shadow-sm border border-slate-200">
-                          <div className="bg-amber-600 text-white px-3 py-2 rounded-t-lg">
+                        <div id={"departements"} key={range} className="bg-white rounded-xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+                          <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white px-6 py-4 rounded-t-xl">
                             <div className="flex items-center justify-between">
-                              <h2 className="font-semibold text-sm">
-                                {range}
-                              </h2>
-                              <span className="text-amber-100 text-xs">
-                            {groupedDepartments[range].length}
-                          </span>
+                              <div>
+                                <h3 className="font-bold text-lg mb-1">
+                                  {range}
+                                </h3>
+                                <div className="text-amber-100 text-sm">
+                                  {getRangeTitle(range)}
+                                </div>
+                              </div>
+                              <div className="text-right">
+                                <div className="text-2xl font-bold">
+                                  {groupedDepartments[range].length}
+                                </div>
+                                <div className="text-amber-100 text-xs">
+                                  département{groupedDepartments[range].length > 1 ? 's' : ''}
+                                </div>
+                              </div>
                             </div>
                           </div>
 
-                          <div className="p-2">
-                            <div className="grid grid-cols-1 gap-px">
+                          <div  className="p-4">
+                            <div className="grid grid-cols-1 gap-1">
                               {groupedDepartments[range].map((dept) => (
                                   <Link key={dept.id} href={`/departement/${dept.slug}`}>
-                                    <div className="flex items-center justify-between px-2 py-1.5 hover:bg-slate-50 rounded transition-colors group cursor-pointer">
-                                      <div className="flex items-center space-x-2 min-w-0 flex-1">
-                                  <span className="flex-shrink-0 w-7 h-5 bg-amber-50 rounded text-amber-700 font-mono text-xs font-semibold flex items-center justify-center group-hover:bg-amber-100">
-                                    {dept.code}
-                                  </span>
-                                        <span className="font-medium text-xs text-slate-900 group-hover:text-amber-700 truncate">
-                                    {dept.name}
-                                  </span>
+                                    <div className="flex items-center justify-between px-4 py-3 hover:bg-amber-50 rounded-lg transition-all duration-200 group cursor-pointer border border-transparent hover:border-amber-200">
+                                      <div className="flex items-center space-x-3 min-w-0 flex-1">
+                                        <span className="flex-shrink-0 w-10 h-7 bg-amber-100 rounded-md text-amber-700 font-mono text-sm font-bold flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                                          {dept.code}
+                                        </span>
+                                        <div className="min-w-0 flex-1">
+                                          <span className="font-semibold text-sm text-slate-900 group-hover:text-amber-700 block truncate transition-colors">
+                                            {dept.name}
+                                          </span>
+                                          <span className="text-xs text-slate-500 group-hover:text-amber-600">
+                                            Couvreur disponible
+                                          </span>
+                                        </div>
                                       </div>
-                                      <svg className="w-3 h-3 text-slate-400 group-hover:text-amber-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                      </svg>
+                                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0" />
                                     </div>
                                   </Link>
                               ))}
@@ -112,8 +336,203 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
               </div>
             </div>
           </section>
+
+          {/* Section informative SEO */}
+          <section className="py-16 bg-white">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
+                  Pourquoi choisir nos couvreurs départementaux ?
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                  <div className="bg-slate-50 rounded-xl p-6">
+                    <div className="flex items-center mb-4">
+                      <Shield className="h-8 w-8 text-amber-600 mr-3" />
+                      <h3 className="font-bold text-xl text-slate-900">Expertise Locale</h3>
+                    </div>
+                    <p className="text-slate-700">
+                      Nos artisans couvreurs connaissent parfaitement les spécificités climatiques et
+                      architecturales de leur département. Ils utilisent les matériaux et techniques
+                      les mieux adaptés à votre région.
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-50 rounded-xl p-6">
+                    <div className="flex items-center mb-4">
+                      <Star className="h-8 w-8 text-amber-600 mr-3" />
+                      <h3 className="font-bold text-xl text-slate-900">Qualité Garantie</h3>
+                    </div>
+                    <p className="text-slate-700">
+                      Tous nos partenaires couvreurs sont certifiés, assurés et régulièrement contrôlés.
+                      Ils respectent les normes en vigueur et offrent des garanties sur leurs interventions.
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-50 rounded-xl p-6">
+                    <div className="flex items-center mb-4">
+                      <Users className="h-8 w-8 text-amber-600 mr-3" />
+                      <h3 className="font-bold text-xl text-slate-900">Service Personnalisé</h3>
+                    </div>
+                    <p className="text-slate-700">
+                      Chaque projet de toiture est unique. Nos couvreurs établissent un diagnostic précis
+                      et vous proposent des solutions sur mesure adaptées à vos besoins et votre budget.
+                    </p>
+                  </div>
+
+                  <div className="bg-slate-50 rounded-xl p-6">
+                    <div className="flex items-center mb-4">
+                      <Building className="h-8 w-8 text-amber-600 mr-3" />
+                      <h3 className="font-bold text-xl text-slate-900">Proximité</h3>
+                    </div>
+                    <p className="text-slate-700">
+                      Avec des artisans dans chaque département, vous bénéficiez d'une intervention rapide,
+                      d'un suivi de qualité et d'un service après-vente de proximité.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Section services */}
+                <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8">
+                  <h3 className="font-serif font-bold text-2xl text-slate-900 mb-6 text-center">
+                    Services de couverture dans tous les départements
+                  </h3>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                      <h4 className="font-bold text-lg text-slate-900 mb-3">Toiture neuve</h4>
+                      <ul className="space-y-2 text-slate-700">
+                        <li>• Pose de toiture complète</li>
+                        <li>• Charpente traditionnelle</li>
+                        <li>• Isolation thermique</li>
+                        <li>• Étanchéité</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-lg text-slate-900 mb-3">Rénovation</h4>
+                      <ul className="space-y-2 text-slate-700">
+                        <li>• Réfection de toiture</li>
+                        <li>• Remplacement de tuiles</li>
+                        <li>• Traitement anti-mousse</li>
+                        <li>• Nettoyage de toiture</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h4 className="font-bold text-lg text-slate-900 mb-3">Urgences</h4>
+                      <ul className="space-y-2 text-slate-700">
+                        <li>• Réparation de fuite</li>
+                        <li>• Bâchage d'urgence</li>
+                        <li>• Dépannage rapide</li>
+                        <li>• Intervention 7j/7</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ Section */}
+          <section className="py-16 bg-slate-50">
+            <div className="container mx-auto px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-12 text-center">
+                  Questions fréquentes
+                </h2>
+
+                <div className="space-y-6">
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-bold text-lg text-slate-900 mb-3">
+                      Comment choisir un couvreur dans mon département ?
+                    </h3>
+                    <p className="text-slate-700">
+                      Sélectionnez votre département dans la liste ci-dessus. Vous découvrirez les couvreurs
+                      disponibles dans votre zone, leurs spécialités et pourrez demander un devis gratuit.
+                      Tous nos partenaires sont certifiés et disposent des assurances nécessaires.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-bold text-lg text-slate-900 mb-3">
+                      Les devis sont-ils vraiment gratuits ?
+                    </h3>
+                    <p className="text-slate-700">
+                      Oui, tous nos partenaires couvreurs proposent des devis entièrement gratuits et sans
+                      engagement. Le devis détaille les travaux nécessaires, les matériaux utilisés et
+                      les délais d'intervention.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-bold text-lg text-slate-900 mb-3">
+                      Quels types de toitures nos couvreurs traitent-ils ?
+                    </h3>
+                    <p className="text-slate-700">
+                      Nos artisans couvreurs interviennent sur tous types de toitures : tuiles, ardoises,
+                      zinc, bac acier, toitures plates, chaume... Ils maîtrisent aussi bien les techniques
+                      traditionnelles que les innovations modernes.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 className="font-bold text-lg text-slate-900 mb-3">
+                      En cas d'urgence, quel est le délai d'intervention ?
+                    </h3>
+                    <p className="text-slate-700">
+                      En cas de fuite ou de dégât urgent, nos couvreurs s'efforcent d'intervenir dans les
+                      24-48h selon la disponibilité et la localisation. Un bâchage d'urgence peut souvent
+                      être réalisé le jour même pour sécuriser votre toiture.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* CTA final */}
+          <section className="py-16 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800">
+            <div className="container mx-auto px-4 text-center">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="font-serif font-bold text-3xl lg:text-4xl text-white mb-6">
+                  Trouvez votre couvreur dès maintenant
+                </h2>
+                <p className="text-amber-100 text-xl mb-8 leading-relaxed">
+                  Sélectionnez votre département et obtenez un devis gratuit
+                  pour vos travaux de toiture
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a
+                      href="#departements"
+                      className="inline-flex items-center bg-white text-amber-700 hover:bg-amber-50 px-8 py-4 text-lg font-semibold rounded-lg transition-colors"
+                  >
+                    <MapPin className="h-5 w-5 mr-2" />
+                    Choisir mon département
+                  </a>
+                  <a
+                      href="tel:+33123456789"
+                      className="inline-flex items-center bg-transparent border-2 border-white text-white hover:bg-white hover:text-amber-700 px-8 py-4 text-lg font-semibold rounded-lg transition-colors"
+                  >
+                    Appeler directement
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
+
         <Footer />
+
+        {/* JSON-LD Scripts */}
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{__html: JSON.stringify(breadcrumbJsonLd)}}
+        />
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+        />
       </div>
   )
 }
