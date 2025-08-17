@@ -10,7 +10,7 @@ interface DepartementsPageProps {
 }
 
 export const metadata: Metadata = {
-  title: "Couvreurs par Département en France | Trouvez votre Artisan Local | Devis Gratuit",
+  title: "Couvreurs par Département France ",
   description: "🏠 Trouvez un couvreur qualifié dans tous les départements français. ✅ Artisans certifiés ✅ Devis gratuit ✅ Intervention rapide. Plus de 95 départements couverts.",
   keywords: [
     "couvreur par département",
