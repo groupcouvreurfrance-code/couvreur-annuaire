@@ -17,6 +17,7 @@ import {
   CheckCircle,
   RefreshCw,
   Users,
+  Star,
 } from "lucide-react"
 import type { Artisan } from "@/lib/database"
 import {EditArtisanModal} from "@/components/EditArtisanaModal";
@@ -103,7 +104,8 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
     const approved = artisans.filter((a) => a.status === "approved").length
     const pending = artisans.filter((a) => a.status === "pending").length
     const rejected = artisans.filter((a) => a.status === "rejected").length
-    return { approved, pending, rejected }
+    const featured = artisans.filter((a) => a.featured === true).length
+    return { approved, pending, rejected, featured }
   }
 
   const stats = getStatusStats()
@@ -127,7 +129,7 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
           </div>
 
           {/* Statistiques compactes */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-3 gap-4">
             <div className="text-center p-3 bg-amber-50 rounded-lg border border-amber-200">
               <p className="text-lg font-bold text-amber-900">{stats.approved}</p>
               <p className="text-xs text-amber-600">Approuvés</p>
@@ -135,6 +137,13 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
             <div className="text-center p-3 bg-amber-50 rounded-lg border border-amber-200">
               <p className="text-lg font-bold text-amber-900">{stats.pending}</p>
               <p className="text-xs text-amber-600">En attente</p>
+            </div>
+            <div className="text-center p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+              <p className="text-lg font-bold text-yellow-900 flex items-center justify-center gap-1">
+                <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                {stats.featured}
+              </p>
+              <p className="text-xs text-yellow-600">Premium</p>
             </div>
           </div>
         </div>
@@ -180,22 +189,42 @@ export default function ArtisansList({ initialArtisans, initialTotal, currentSta
               </thead>
               <tbody>
               {filteredArtisans.map((artisan) => (
-                  <tr key={artisan.id} className="border-b hover:bg-slate-50 transition-colors">
+                  <tr key={artisan.id} className={`border-b hover:bg-slate-50 transition-colors ${artisan.featured ? 'bg-gradient-to-r from-yellow-50 to-transparent' : ''}`}>
                     <td className="p-4">
                       <div className="flex items-center gap-3">
                         {artisan.profileImage ? (
-                            <img
-                                src={artisan.profileImage}
-                                alt={artisan.companyName}
-                                className="w-10 h-10 rounded-lg object-cover border"
-                            />
+                            <div className="relative">
+                              <img
+                                  src={artisan.profileImage}
+                                  alt={artisan.companyName}
+                                  className="w-10 h-10 rounded-lg object-cover border"
+                              />
+                              {artisan.featured && (
+                                  <div className="absolute -top-1 -right-1">
+                                    <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 drop-shadow-sm" />
+                                  </div>
+                              )}
+                            </div>
                         ) : (
-                            <div className="w-10 h-10 rounded-lg bg-slate-100 border flex items-center justify-center">
+                            <div className="relative w-10 h-10 rounded-lg bg-slate-100 border flex items-center justify-center">
                               <Building2 className="h-5 w-5 text-slate-500" />
+                              {artisan.featured && (
+                                  <div className="absolute -top-1 -right-1">
+                                    <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 drop-shadow-sm" />
+                                  </div>
+                              )}
                             </div>
                         )}
                         <div className="min-w-0">
-                          <p className="font-medium text-slate-900 truncate">{artisan.companyName}</p>
+                          <div className="flex items-center gap-2">
+                            <p className="font-medium text-slate-900 truncate">{artisan.companyName}</p>
+                            {artisan.featured && (
+                                <Badge className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 border-0 text-xs px-2 py-0.5 h-5">
+                                  <Star className="h-2.5 w-2.5 mr-1 fill-current" />
+                                  Premium
+                                </Badge>
+                            )}
+                          </div>
                           {artisan.contactName && (
                               <p className="text-sm text-slate-500 truncate">{artisan.contactName}</p>
                           )}
