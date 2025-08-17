@@ -1,6 +1,6 @@
 import {Resend} from "resend";
-import {QuoteRequestEmailTemplate} from "@/app/mail/demande-devis";
-import {ClientConfirmationEmailTemplate} from "@/app/mail/client-confirmation";
+import {QuoteRequestEmailTemplate} from "@/components/mail/demande-devis";
+import {ClientConfirmationEmailTemplate} from "@/components/mail/client-confirmation";
 
 // Initialiser Resend
 const resend = new Resend(process.env.RESEND_API_KEY || "");
