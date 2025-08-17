@@ -1,5 +1,6 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { sendContactEmail } from "@/lib/email"
+import  prisma  from "@/lib/prisma" // Assurez-vous d'avoir votre instance Prisma
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,10 +17,23 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 })
     }
 
+    // Récupérer l'artisan à partir de son ID
+    const artisan = await prisma.artisan.findUnique({
+      where: {
+        id: data.artisan_id
+      },
+      select: {
+        email: true,
+      }
+    })
+
+    if (!artisan) {
+      return NextResponse.json({ error: "Artisan non trouvé" }, { status: 404 })
+    }
 
     // Envoyer les emails
     await sendContactEmail({
-      artisanEmail: data.artisan.email!,
+      artisanEmail: artisan.email ?? "",
       clientName: data.client_name,
       clientEmail: data.client_email,
       clientPhone: data.client_phone,
@@ -29,7 +43,7 @@ export async function POST(request: NextRequest) {
       preferredContact: data.preferred_contact,
     })
 
-    return NextResponse.json({ success: true, id: data.id })
+    return NextResponse.json({ success: true })
   } catch (error) {
     console.error("Erreur lors de la création de la demande:", error)
     return NextResponse.json({ error: "Erreur serveur" }, { status: 500 })
