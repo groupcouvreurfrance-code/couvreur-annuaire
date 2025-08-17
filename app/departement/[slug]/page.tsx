@@ -254,11 +254,19 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                         <Button className="bg-amber-600 hover:bg-amber-700 px-6 py-2">
                           Nous contacter
                         </Button>
-                        <Link href={`/inscription-couvreur/${department.slug}`}>
-                          <Button variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-50 px-6 py-2">
+                        {/*<Link href={`/inscription-couvreur/${department.slug}`}>*/}
+                        {/*  <Button variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-50 px-6 py-2">*/}
+                        {/*    Vous êtes couvreur ?*/}
+                        {/*  </Button>*/}
+                        {/*</Link>*/}
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                          <a
+                              href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
+                              className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
+                          >
                             Vous êtes couvreur ?
-                          </Button>
-                        </Link>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -270,12 +278,12 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
                 <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
-                  Réfection de toiture à  {department.name}
+                  Réfection de toiture à {department.name}
                 </h2>
 
                 <div className="space-y-6">
                   <div className="rounded-xl p-6 md:p-8 bg-slate-50">
-                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">1 - Couvreur {department.name}</h3>
+                  <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">1 - Couvreur {department.name}</h3>
                     <p className="text-slate-700 mb-4">
                       Besoin d&apos;un couvreur fiable à {department.name} ? Notre équipe intervient pour tous types de travaux de toiture : création, rénovation ou réparation d&apos;urgence. Nous maîtrisons la pose et l&apos;entretien de différentes couvertures, qu&apos;elles soient en tuiles, en zinc, en ardoise ou en bac acier. Nos interventions, réalisées dans le respect des règles de l'art, assurent une toiture résistante, parfaitement étanche et adaptée aux conditions climatiques locales.
                     </p>
