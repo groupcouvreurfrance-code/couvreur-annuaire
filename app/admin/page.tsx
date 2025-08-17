@@ -19,9 +19,9 @@ function Pagination({ currentPage, totalPages, status }: {
 }) {
   const statusParam = status ? `&status=${status}` : "";
 
-  // Générer les numéros de pages à afficher
-  const getVisiblePages = () => {
-    const delta = 2; // Nombre de pages de chaque côté de la page courante
+  // Générer les numéros de pages à afficher (adapté pour mobile)
+  const getVisiblePages = (isMobile: boolean = false) => {
+    const delta = isMobile ? 1 : 2; // Moins de pages sur mobile
     const range = [];
     const rangeWithDots = [];
 
@@ -53,93 +53,181 @@ function Pagination({ currentPage, totalPages, status }: {
   };
 
   const visiblePages = getVisiblePages();
+  const visiblePagesMobile = getVisiblePages(true);
 
   if (totalPages <= 1) return null;
 
   return (
-      <div className="flex items-center justify-center space-x-2 mt-8">
-        {/* Aller au début */}
-        <a
-            href={`/admin?page=1${statusParam}`}
-            className={`p-2 rounded-md border ${
-                currentPage === 1
-                    ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                    : 'text-amber-600 border-amber-300 hover:bg-amber-50'
-            }`}
-            aria-disabled={currentPage === 1}
-        >
-          <ChevronsLeft className="h-4 w-4" />
-          <span className="sr-only">Première page</span>
-        </a>
+      <div className="mt-8">
+        {/* Version mobile */}
+        <div className="flex sm:hidden flex-col space-y-4">
+          {/* Navigation simplifiée pour mobile */}
+          <div className="flex items-center justify-between">
+            <a
+                href={`/admin?page=${Math.max(1, currentPage - 1)}${statusParam}`}
+                className={`flex items-center px-4 py-2 text-sm font-medium rounded-md border ${
+                    currentPage === 1
+                        ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                        : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+                }`}
+                aria-disabled={currentPage === 1}
+            >
+              <ChevronLeft className="h-4 w-4 mr-1" />
+              Précédent
+            </a>
 
-        {/* Page précédente */}
-        <a
-            href={`/admin?page=${Math.max(1, currentPage - 1)}${statusParam}`}
-            className={`p-2 rounded-md border ${
-                currentPage === 1
-                    ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                    : 'text-amber-600 border-amber-300 hover:bg-amber-50'
-            }`}
-            aria-disabled={currentPage === 1}
-        >
-          <ChevronLeft className="h-4 w-4" />
-          <span className="sr-only">Page précédente</span>
-        </a>
+            <span className="text-sm text-gray-600 px-4">
+            {currentPage} / {totalPages}
+          </span>
 
-        {/* Numéros de pages */}
-        <div className="flex items-center space-x-1">
-          {visiblePages.map((page, index) => (
-              page === '...' ? (
-                  <span key={`dots-${index}`} className="px-3 py-2 text-gray-500">
-              ...
-            </span>
-              ) : (
-                  <a
-                      key={page}
-                      href={`/admin?page=${page}${statusParam}`}
-                      className={`min-w-[40px] h-10 px-3 py-2 text-sm font-medium rounded-md border text-center ${
-                          currentPage === page
-                              ? 'bg-amber-600 text-white border-amber-600'
-                              : 'text-amber-600 border-amber-300 hover:bg-amber-50'
-                      }`}
-                  >
-                    {page}
-                  </a>
-              )
-          ))}
+            <a
+                href={`/admin?page=${Math.min(totalPages, currentPage + 1)}${statusParam}`}
+                className={`flex items-center px-4 py-2 text-sm font-medium rounded-md border ${
+                    currentPage === totalPages
+                        ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                        : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+                }`}
+                aria-disabled={currentPage === totalPages}
+            >
+              Suivant
+              <ChevronRight className="h-4 w-4 ml-1" />
+            </a>
+          </div>
+
+          {/* Pages rapides pour mobile */}
+          <div className="flex items-center justify-center space-x-1 overflow-x-auto">
+            {/* Première page */}
+            <a
+                href={`/admin?page=1${statusParam}`}
+                className={`flex-shrink-0 p-2 rounded-md border ${
+                    currentPage === 1
+                        ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                        : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+                }`}
+            >
+              <ChevronsLeft className="h-4 w-4" />
+            </a>
+
+            {/* Numéros de pages mobiles */}
+            {visiblePagesMobile.map((page, index) => (
+                page === '...' ? (
+                    <span key={`dots-${index}`} className="px-2 py-1 text-gray-500 text-sm">
+                ...
+              </span>
+                ) : (
+                    <a
+                        key={page}
+                        href={`/admin?page=${page}${statusParam}`}
+                        className={`flex-shrink-0 min-w-[36px] h-9 px-2 py-1 text-sm font-medium rounded-md border text-center flex items-center justify-center ${
+                            currentPage === page
+                                ? 'bg-amber-600 text-white border-amber-600'
+                                : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+                        }`}
+                    >
+                      {page}
+                    </a>
+                )
+            ))}
+
+            {/* Dernière page */}
+            <a
+                href={`/admin?page=${totalPages}${statusParam}`}
+                className={`flex-shrink-0 p-2 rounded-md border ${
+                    currentPage === totalPages
+                        ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                        : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+                }`}
+            >
+              <ChevronsRight className="h-4 w-4" />
+            </a>
+          </div>
         </div>
 
-        {/* Page suivante */}
-        <a
-            href={`/admin?page=${Math.min(totalPages, currentPage + 1)}${statusParam}`}
-            className={`p-2 rounded-md border ${
-                currentPage === totalPages
-                    ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                    : 'text-amber-600 border-amber-300 hover:bg-amber-50'
-            }`}
-            aria-disabled={currentPage === totalPages}
-        >
-          <ChevronRight className="h-4 w-4" />
-          <span className="sr-only">Page suivante</span>
-        </a>
+        {/* Version desktop */}
+        <div className="hidden sm:flex items-center justify-center space-x-2">
+          {/* Aller au début */}
+          <a
+              href={`/admin?page=1${statusParam}`}
+              className={`p-2 rounded-md border ${
+                  currentPage === 1
+                      ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                      : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+              }`}
+              aria-disabled={currentPage === 1}
+          >
+            <ChevronsLeft className="h-4 w-4" />
+            <span className="sr-only">Première page</span>
+          </a>
 
-        {/* Aller à la fin */}
-        <a
-            href={`/admin?page=${totalPages}${statusParam}`}
-            className={`p-2 rounded-md border ${
-                currentPage === totalPages
-                    ? 'text-gray-400 border-gray-200 cursor-not-allowed'
-                    : 'text-amber-600 border-amber-300 hover:bg-amber-50'
-            }`}
-            aria-disabled={currentPage === totalPages}
-        >
-          <ChevronsRight className="h-4 w-4" />
-          <span className="sr-only">Dernière page</span>
-        </a>
+          {/* Page précédente */}
+          <a
+              href={`/admin?page=${Math.max(1, currentPage - 1)}${statusParam}`}
+              className={`p-2 rounded-md border ${
+                  currentPage === 1
+                      ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                      : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+              }`}
+              aria-disabled={currentPage === 1}
+          >
+            <ChevronLeft className="h-4 w-4" />
+            <span className="sr-only">Page précédente</span>
+          </a>
 
-        {/* Informations de pagination */}
-        <div className="ml-4 text-sm text-gray-600">
-          Page {currentPage} sur {totalPages}
+          {/* Numéros de pages */}
+          <div className="flex items-center space-x-1">
+            {visiblePages.map((page, index) => (
+                page === '...' ? (
+                    <span key={`dots-${index}`} className="px-3 py-2 text-gray-500">
+                ...
+              </span>
+                ) : (
+                    <a
+                        key={page}
+                        href={`/admin?page=${page}${statusParam}`}
+                        className={`min-w-[40px] h-10 px-3 py-2 text-sm font-medium rounded-md border text-center ${
+                            currentPage === page
+                                ? 'bg-amber-600 text-white border-amber-600'
+                                : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+                        }`}
+                    >
+                      {page}
+                    </a>
+                )
+            ))}
+          </div>
+
+          {/* Page suivante */}
+          <a
+              href={`/admin?page=${Math.min(totalPages, currentPage + 1)}${statusParam}`}
+              className={`p-2 rounded-md border ${
+                  currentPage === totalPages
+                      ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                      : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+              }`}
+              aria-disabled={currentPage === totalPages}
+          >
+            <ChevronRight className="h-4 w-4" />
+            <span className="sr-only">Page suivante</span>
+          </a>
+
+          {/* Aller à la fin */}
+          <a
+              href={`/admin?page=${totalPages}${statusParam}`}
+              className={`p-2 rounded-md border ${
+                  currentPage === totalPages
+                      ? 'text-gray-400 border-gray-200 cursor-not-allowed'
+                      : 'text-amber-600 border-amber-300 hover:bg-amber-50'
+              }`}
+              aria-disabled={currentPage === totalPages}
+          >
+            <ChevronsRight className="h-4 w-4" />
+            <span className="sr-only">Dernière page</span>
+          </a>
+
+          {/* Informations de pagination */}
+          <div className="ml-4 text-sm text-gray-600">
+            Page {currentPage} sur {totalPages}
+          </div>
         </div>
       </div>
   );
