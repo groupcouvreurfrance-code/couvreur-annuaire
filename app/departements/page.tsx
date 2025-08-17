@@ -2,11 +2,18 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { getAllDepartments } from "@/lib/database"
 import Link from "next/link"
+import {Metadata} from "next";
 
 interface DepartementsPageProps {
   searchParams: { page?: string }
 }
-
+export const metadata: Metadata = {
+  title: "Départements de France - Couvreurs",
+  description: "Trouvez des couvreurs qualifiés par département partout en France.",
+  alternates: {
+    canonical: "https://www.couvreur-groupefrance.com/departements",
+  },
+}
 export default async function DepartementsPage({ searchParams }: DepartementsPageProps) {
   // On récupère TOUS les départements d'un coup (pas de pagination)
   const { departments: allDepartments, total } = await getAllDepartments(1, 100)
