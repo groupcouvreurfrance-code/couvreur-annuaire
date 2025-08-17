@@ -19,7 +19,6 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
   const { slug } = await params
   const department = await getDepartmentBySlug(slug)
 
-
   if (!department) {
     return {
       title: "Département non trouvé",
@@ -60,7 +59,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
   }
 
   const [{ communes: allCommunes, total }, artisan] = await Promise.all([
-    getCommunesByDepartment(department.code, 1, 9999), // ✅ Ça va marcher maintenant
+    getCommunesByDepartment(department.code, 1, 9999),
     getDepartmentArtisan(department.id),
   ])
 
@@ -81,39 +80,65 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
 
   const communeChunks = createCommuneChunks(allCommunes, 60)
 
+  // Fixed JSON-LD structure
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: artisan ? artisan.companyName : `Couvreur ${department.name}`,
     description: `Service de couverture professionnel dans le ${department.name} (${department.code})`,
     url: `https://www.couvreur-groupefrance.com/departement/${department.slug}`,
+    // Add proper address if artisan exists
+    ...(artisan && artisan.address && {
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: department.name,
+        addressRegion: department.name,
+        postalCode: department.code,
+        addressCountry: "FR"
+      }
+    }),
+    // Add phone if available
+    ...(artisan && artisan.phone && {
+      telephone: artisan.phone
+    }),
     areaServed: {
       "@type": "AdministrativeArea",
       name: department.name,
     },
-    breadcrumb: {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Accueil",
-          item: "https://www.couvreur-groupefrance.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Départements",
-          item: "https://www.couvreur-groupefrance.com/departements",
-        },
-        {
-          "@type": "ListItem",
-          position: 3,
-          name: department.name,
-          item: `https://www.couvreur-groupefrance.com/departement/${department.slug}`,
-        },
-      ],
-    },
+    // Add opening hours if available
+    ...(artisan && {
+      openingHours: "Mo-Fr 08:00-18:00"
+    }),
+    // Add service type
+    "@id": `https://www.couvreur-groupefrance.com/departement/${department.slug}`,
+    serviceType: "Couverture et toiture",
+    priceRange: "$$"
+  }
+
+  // Separate BreadcrumbList schema
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Accueil",
+        item: "https://www.couvreur-groupefrance.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Départements",
+        item: "https://www.couvreur-groupefrance.com/departements",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: department.name,
+        item: `https://www.couvreur-groupefrance.com/departement/${department.slug}`,
+      },
+    ],
   }
 
   return (
@@ -254,11 +279,6 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                         <Button className="bg-amber-600 hover:bg-amber-700 px-6 py-2">
                           Nous contacter
                         </Button>
-                        {/*<Link href={`/inscription-couvreur/${department.slug}`}>*/}
-                        {/*  <Button variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-50 px-6 py-2">*/}
-                        {/*    Vous êtes couvreur ?*/}
-                        {/*  </Button>*/}
-                        {/*</Link>*/}
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                           <a
                               href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
@@ -283,7 +303,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
 
                 <div className="space-y-6">
                   <div className="rounded-xl p-6 md:p-8 bg-slate-50">
-                  <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">1 - Couvreur {department.name}</h3>
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">1 - Couvreur {department.name}</h3>
                     <p className="text-slate-700 mb-4">
                       Besoin d&apos;un couvreur fiable à {department.name} ? Notre équipe intervient pour tous types de travaux de toiture : création, rénovation ou réparation d&apos;urgence. Nous maîtrisons la pose et l&apos;entretien de différentes couvertures, qu&apos;elles soient en tuiles, en zinc, en ardoise ou en bac acier. Nos interventions, réalisées dans le respect des règles de l'art, assurent une toiture résistante, parfaitement étanche et adaptée aux conditions climatiques locales.
                     </p>
@@ -303,7 +323,6 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                     </p>
                   </div>
 
-                  {/* Continuez avec les autres sections de la même manière */}
                   <div className="rounded-xl p-6 md:p-8 bg-amber-50">
                     <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">4 - Travaux de zinguerie {department.name}</h3>
                     <p className="text-slate-700 mb-4">
@@ -317,13 +336,11 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                       Notre équipe réalise vos travaux de couverture à {department.name} avec professionnalisme. Nous intervenons sur tous types de matériaux, en neuf comme en rénovation, pour assurer une protection optimale contre les intempéries.
                     </p>
                   </div>
-
-                  {/* Ajoutez les autres points de la même manière en alternant les classes bg-slate-50 et bg-amber-50 */}
-
                 </div>
               </div>
             </div>
           </section>
+
           {/* Services et prestations */}
           <section className="py-16 bg-white">
             <div className="container mx-auto px-4">
@@ -333,8 +350,6 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                 </h2>
 
                 <div className="space-y-8">
-
-
                   {/* Types de travaux */}
                   <div className="bg-amber-50 rounded-xl p-6 md:p-8">
                     <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">1. Types de travaux</h3>
@@ -429,6 +444,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
               </div>
             </div>
           </section>
+
           {/* Liste des Communes par tranches de 60 */}
           <section id="communes" className="py-12 bg-slate-50">
             <div className="container mx-auto px-4">
@@ -506,34 +522,41 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
           </section>
 
           {/* CTA Section pour les artisans - Plus compact */}
-
-              <section className="py-12 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800">
-                <div className="container mx-auto px-4 text-center">
-                  <div className="max-w-3xl mx-auto">
-                    <h2 className="font-serif font-bold text-3xl text-white mb-4">
-                      Vous êtes couvreur à {department.name} ?
-                    </h2>
-                    <p className="text-amber-100 text-lg mb-6 leading-relaxed">
-                      Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans
-                      le {department.name}.
-                      Inscription gratuite et sans engagement.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                      <a
-                          href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
-                          className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
-                      >
-                        Inscription gratuite
-                      </a>
-                    </div>
-                  </div>
+          <section className="py-12 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800">
+            <div className="container mx-auto px-4 text-center">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="font-serif font-bold text-3xl text-white mb-4">
+                  Vous êtes couvreur à {department.name} ?
+                </h2>
+                <p className="text-amber-100 text-lg mb-6 leading-relaxed">
+                  Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans
+                  le {department.name}.
+                  Inscription gratuite et sans engagement.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a
+                      href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
+                      className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
+                  >
+                    Inscription gratuite
+                  </a>
                 </div>
-              </section>
+              </div>
+            </div>
+          </section>
 
         </main>
         <Footer/>
 
-        <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}/>
-      </div>
-  )
+        {/* Fixed JSON-LD scripts - separate for better validation */}
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{__html: JSON.stringify(breadcrumbJsonLd)}}
+        />
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+      />
+        </div>
+    )
 }
