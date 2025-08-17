@@ -44,7 +44,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
         {/* Bandeau premium en bas du badge */}
         {isPremium && (
             <div className="absolute top-12 right-0 bg-gradient-to-l from-amber-400 to-transparent text-amber-900 px-6 py-1 text-xs font-semibold rounded-l-full shadow-sm z-10">
-              ⭐ PROFESSIONNEL CERTIFIÉ
+               PROFESSIONNEL CERTIFIÉ
             </div>
         )}
 
