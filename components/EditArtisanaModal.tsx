@@ -10,10 +10,12 @@ import {
     Edit,
     Save,
     Camera,
+    Star,
 } from "lucide-react"
 import { Label } from "./ui/label"
 import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog";
 import {updateArtisanInfo} from "@/lib/action";
+import { Checkbox } from "@/components/ui/checkbox"
 
 
 // Types simulés pour l'exemple
@@ -31,6 +33,7 @@ interface Artisan {
     yearsExperience?: number
     services?: string[]
     status: string
+    featured?: boolean
     createdAt: string
     department_name?: string
 }
@@ -57,7 +60,8 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
         website: artisan.website || '',
         description: artisan.description || '',
         yearsExperience: artisan.yearsExperience?.toString() || '',
-        services: artisan.services?.join(', ') || ''
+        services: artisan.services?.join(', ') || '',
+        featured: artisan.featured || false
     })
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -87,7 +91,7 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
         }
     }
 
-    const handleInputChange = (field: string, value: string) => {
+    const handleInputChange = (field: string, value: string | boolean) => {
         setFormData(prev => ({ ...prev, [field]: value }))
     }
 
@@ -260,6 +264,24 @@ export function EditArtisanModal({ artisan, onUpdate }: { artisan: Artisan, onUp
                         />
                         <p className="text-xs text-gray-500">
                             Séparez les services par des virgules. Ex: Plomberie, Électricité, Chauffage
+                        </p>
+                    </div>
+
+                    {/* Featured checkbox */}
+                    <div className="space-y-2">
+                        <div className="flex items-center space-x-2">
+                            <Checkbox
+                                id="featured"
+                                checked={formData.featured}
+                                onCheckedChange={(checked) => handleInputChange('featured', checked as boolean)}
+                            />
+                            <Label htmlFor="featured" className="flex items-center gap-2 text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                                <Star className="h-4 w-4 text-yellow-500" />
+                                Artisan mis en avant
+                            </Label>
+                        </div>
+                        <p className="text-xs text-gray-500">
+                            Les artisans mis en avant apparaîtront en priorité dans les résultats de recherche
                         </p>
                     </div>
 

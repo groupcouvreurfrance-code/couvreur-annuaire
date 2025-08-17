@@ -372,7 +372,7 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
                     </Label>
                   </div>
                   <div className="flex items-center space-x-3 border border-slate-200 rounded-lg p-4 hover:bg-slate-50 transition-colors">
-                    <RadioGroupItem value="both" id="both" />
+                    <RadioGroupItem value="telephone ou mail" id="both" />
                     <Label htmlFor="both" className="flex items-center cursor-pointer">
                       <div className="flex -space-x-1 mr-2">
                         <Mail className="h-4 w-4 text-blue-600" />

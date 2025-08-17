@@ -111,6 +111,7 @@ export async function createArtisan(data: {
     insurance_valid?: boolean
     siret?: string
     status?: string
+    featured?: boolean
     active?: boolean
 }) {
     try {
@@ -134,6 +135,7 @@ export async function createArtisan(data: {
                 insuranceValid: data.insurance_valid || false,
                 siret: data.siret,
                 status: data.status || "pending",
+                featured: data.featured || false,
                 active: data.active || false
             }
         })
@@ -166,6 +168,7 @@ export async function updateArtisanInfo(artisanId: number, data: {
     description?: string
     yearsExperience?: number
     services?: string[]
+    featured?: boolean
 }) {
     try {
         console.log(`🔄 Updating artisan ${artisanId} info`);
@@ -207,6 +210,9 @@ export async function updateArtisanInfo(artisanId: number, data: {
         if (data.services !== undefined) {
             updateData.services = data.services
         }
+        if (data.featured !== undefined) {
+            updateData.featured = data.featured
+        }
 
         const result = await prisma.artisan.update({
             where: { id: artisanId },
@@ -225,6 +231,35 @@ export async function updateArtisanInfo(artisanId: number, data: {
 
     } catch (error) {
         console.error(`❌ Error updating artisan info:`, error);
+        return {
+            success: false,
+            error: error instanceof Error ? error.message : 'Unknown error'
+        }
+    }
+}
+
+// Action spécifique pour mettre à jour uniquement le statut "featured"
+export async function updateArtisanFeaturedStatus(artisanId: number, featured: boolean) {
+    try {
+        console.log(`🔄 Updating artisan ${artisanId} featured status to: ${featured}`);
+
+        const result = await prisma.artisan.update({
+            where: { id: artisanId },
+            data: {
+                featured,
+                updatedAt: new Date()
+            }
+        })
+
+        // 🔄 Revalidate admin pages
+        revalidatePath('/admin')
+        revalidatePath('/admin/artisans')
+
+        console.log(`✅ Artisan ${artisanId} featured status updated successfully`);
+        return { success: true, data: result }
+
+    } catch (error) {
+        console.error(`❌ Error updating artisan featured status:`, error);
         return {
             success: false,
             error: error instanceof Error ? error.message : 'Unknown error'
