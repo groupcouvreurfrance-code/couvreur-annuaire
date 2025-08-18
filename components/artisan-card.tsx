@@ -128,7 +128,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                 )}
 
                 {artisan.contactName && (
-                    <p className="text-slate-600 font-medium mb-2 sm:mb-3 text-sm sm:text-base break-words">{artisan.contactName}</p>
+                    <p className="text-slate-600 font-medium mb-2 sm:mb-3 text-sm sm:text-base break-words">société : {artisan.contactName}</p>
                 )}
 
                 <div className="flex items-center flex-wrap gap-1.5 sm:gap-2 text-sm">
@@ -152,9 +152,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                   {/* Badge "Choix recommandé" - Version mobile optimisée */}
                   {isPremium && (
                       <div className="px-2 py-1 bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 rounded-md font-medium text-xs flex items-center">
-                        <span className="mr-1">✨</span>
                         <span className="hidden sm:inline">Choix recommandé</span>
-                        <span className="sm:hidden">Top</span>
                       </div>
                   )}
                 </div>
