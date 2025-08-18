@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: CommunePageProps): Promise<Me
   const artisan = await getCommuneArtisan(commune.id)
 
   return {
-    title: `Couvreur ${commune.name}  - ${commune.department_name} | Devis Gratuit`,
+    title: `Couvreur ${commune.name} - ${commune.department_name}`,
     description: `Trouvez votre couvreur à ${commune.name} . ${artisan ? `${artisan.companyName} intervient` : "Service professionnel"} dans tout le ${commune.department_name}. Devis gratuit et rapide.`,
     keywords: [
       `couvreur ${commune.name}`,
