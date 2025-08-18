@@ -103,12 +103,94 @@ export default async function CommunePage({ params }: CommunePageProps) {
       url: artisan.website,
       image: artisan.profileImage,
       openingHours: "Mo-Fr 08:00-18:00",
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.8",
-        reviewCount: "25"
-      }
     }),
+  }
+
+  // Person Schema pour mettre en évidence l'artisan
+  const personJsonLd = artisan ? {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: artisan.contactName || artisan.companyName,
+    jobTitle: "Couvreur professionnel",
+    description: `Couvreur expert à ${commune.name}, spécialisé dans tous travaux de couverture et toiture`,
+    image: artisan.profileImage,
+    telephone: artisan.phone,
+    email: artisan.email,
+    url: artisan.website,
+    worksFor: {
+      "@type": "LocalBusiness",
+      name: artisan.companyName,
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: commune.name,
+        addressRegion: commune.department_name,
+        addressCountry: "FR"
+      }
+    },
+    hasCredential: [
+      {
+        "@type": "EducationalOccupationalCredential",
+        name: "Certification RGE",
+        description: "Reconnu Garant de l'Environnement"
+      }
+    ],
+    knowsAbout: [
+      "Réparation de toiture",
+      "Rénovation de toiture",
+      "Travaux de zinguerie",
+      "Pose de gouttières",
+      "Étanchéité",
+      "Isolation de toiture",
+      "Démoussage"
+    ]
+  } : null
+
+  // FAQ Schema pour répondre aux questions courantes
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: `Comment trouver un bon couvreur à ${commune.name} ?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Pour trouver un couvreur qualifié à ${commune.name}, vérifiez ses certifications (RGE), consultez les avis clients, demandez plusieurs devis gratuits et assurez-vous qu'il soit assuré. ${artisan ? `${artisan.companyName} répond à tous ces critères et intervient dans tout le ${commune.department_name}.` : `Nous pouvons vous mettre en relation avec des professionnels qualifiés dans le ${commune.department_name}.`}`
+        }
+      },
+      {
+        "@type": "Question",
+        name: `Quels sont les tarifs d'un couvreur à ${commune.name} ?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Les tarifs d'un couvreur à ${commune.name} varient selon le type de travaux : réparation de tuiles (150-300€), réfection complète (80-150€/m²), zinguerie (50-100€/m²). Demandez toujours un devis gratuit pour une estimation précise adaptée à votre projet.`
+        }
+      },
+      {
+        "@type": "Question",
+        name: `Quand faire appel à un couvreur à ${commune.name} ?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Contactez un couvreur à ${commune.name} dès les premiers signes : fuites, tuiles cassées, gouttières bouchées, mousse importante. Une intervention rapide évite des dégâts plus importants et coûteux. Les urgences sont traitées 24h/24.`
+        }
+      },
+      {
+        "@type": "Question",
+        name: `Un couvreur à ${commune.name} peut-il intervenir en urgence ?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Oui, ${artisan ? `${artisan.companyName} propose un service d'urgence 24h/24 et 7j/7` : 'les couvreurs professionnels proposent des interventions d\'urgence'} pour les fuites et dégâts importants à ${commune.name}. En cas d'urgence, contactez rapidement un professionnel pour limiter les dégâts.`
+        }
+      },
+      {
+        "@type": "Question",
+        name: `Quelles assurances vérifier chez un couvreur à ${commune.name} ?`,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: `Vérifiez que votre couvreur à ${commune.name} possède une assurance responsabilité civile professionnelle et une garantie décennale. Ces assurances vous protègent en cas de dommages et couvrent les travaux pendant 10 ans.`
+        }
+      }
+    ]
   }
 
   // Separate BreadcrumbList schema
@@ -196,10 +278,9 @@ export default async function CommunePage({ params }: CommunePageProps) {
       ],
     },
   }
-
   return (
       <div className="min-h-screen">
-        <Header />
+        <Header/>
         <main>
           {/* Breadcrumb - Version améliorée */}
           <section className="py-3 bg-white border-b border-slate-200">
@@ -213,7 +294,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
                   Départements
                 </Link>
                 <span className="mx-2 text-slate-400">/</span>
-                <Link href={`/departement/${commune.department_slug}`} className="text-slate-500 hover:text-amber-600 transition-colors">
+                <Link href={`/departement/${commune.department_slug}`}
+                      className="text-slate-500 hover:text-amber-600 transition-colors">
                   {commune.department_name}
                 </Link>
                 <span className="mx-2 text-slate-400">/</span>
@@ -231,12 +313,12 @@ export default async function CommunePage({ params }: CommunePageProps) {
                     href={`/departement/${commune.department_slug}`}
                     className="inline-flex items-center text-amber-400 hover:text-amber-300 mb-8 transition-colors"
                 >
-                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  <ArrowLeft className="h-4 w-4 mr-2"/>
                   Retour au {commune.department_name}
                 </Link>
 
                 <div className="flex items-center justify-center mb-6">
-                  <MapPin className="h-6 w-6 text-amber-400 mr-3" />
+                  <MapPin className="h-6 w-6 text-amber-400 mr-3"/>
                   <span className="text-amber-100 font-medium">{commune.department_name}</span>
                 </div>
 
@@ -254,15 +336,15 @@ export default async function CommunePage({ params }: CommunePageProps) {
                 {artisan && (
                     <div className="flex flex-wrap items-center justify-center gap-4 mb-8">
                       <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                        <Shield className="h-4 w-4 text-amber-400 mr-2" />
+                        <Shield className="h-4 w-4 text-amber-400 mr-2"/>
                         <span className="text-white text-sm">Certifié RGE</span>
                       </div>
                       <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                        <Clock className="h-4 w-4 text-amber-400 mr-2" />
+                        <Clock className="h-4 w-4 text-amber-400 mr-2"/>
                         <span className="text-white text-sm">Intervention 24h</span>
                       </div>
                       <div className="flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
-                        <Award className="h-4 w-4 text-amber-400 mr-2" />
+                        <Award className="h-4 w-4 text-amber-400 mr-2"/>
                         <span className="text-white text-sm">Devis gratuit</span>
                       </div>
                     </div>
@@ -274,14 +356,14 @@ export default async function CommunePage({ params }: CommunePageProps) {
                           href={`tel:${artisan.phone}`}
                           className="inline-flex items-center bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
                       >
-                        <Phone className="h-5 w-5 mr-3" />
+                        <Phone className="h-5 w-5 mr-3"/>
                         Appeler maintenant
                       </a>
                       <a
                           href="#contact"
                           className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-200 border border-white/20"
                       >
-                        <Mail className="h-5 w-5 mr-3" />
+                        <Mail className="h-5 w-5 mr-3"/>
                         Demander un devis
                       </a>
                     </div>
@@ -300,7 +382,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
                   <div className="max-w-6xl mx-auto">
                     <div className="text-center mb-16">
                       <h2 className="font-serif font-bold md:text-4xl text-slate-900 mb-6">
-                        Votre couvreur de confiance, intervenant dans toute la commune de {commune.name}, pour vos travaux de toiture.
+                        Votre couvreur de confiance, intervenant dans toute la commune de {commune.name}, pour vos
+                        travaux de toiture.
                       </h2>
                       <p className="text-xl text-slate-600 max-w-3xl mx-auto">
                         {artisan.companyName} vous propose une expertise reconnue et un service de qualité
@@ -310,7 +393,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                       <div className="space-y-8">
-                        <ArtisanCard artisan={artisan} />
+                        <ArtisanCard artisan={artisan}/>
                       </div>
 
                       <div className="lg:sticky lg:top-8">
@@ -323,7 +406,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                               Gratuit et sans engagement
                             </p>
                           </div>
-                          <ContactForm artisan={artisan} />
+                          <ContactForm artisan={artisan}/>
                         </div>
                       </div>
                     </div>
@@ -335,15 +418,17 @@ export default async function CommunePage({ params }: CommunePageProps) {
                 <div className="container mx-auto px-4 text-center">
                   <div className="max-w-3xl mx-auto">
                     <div className="bg-slate-50 rounded-2xl p-12">
-                      <div className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <MapPin className="h-8 w-8 text-slate-500" />
+                      <div
+                          className="w-16 h-16 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <MapPin className="h-8 w-8 text-slate-500"/>
                       </div>
                       <h2 className="font-serif font-bold text-3xl text-slate-900 mb-4">
                         Service de couverture à {commune.name}
                       </h2>
                       <p className="text-slate-600 text-lg mb-8 leading-relaxed">
                         Nous recherchons actuellement un couvreur qualifié pour desservir {commune.name} et le{" "}
-                        {commune.department_name}. En attendant, nous pouvons vous mettre en relation avec des professionnels des communes voisines.
+                        {commune.department_name}. En attendant, nous pouvons vous mettre en relation avec des
+                        professionnels des communes voisines.
                       </p>
                     </div>
                   </div>
@@ -359,7 +444,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
                   Vous êtes couvreur à {commune.name} ?
                 </h2>
                 <p className="text-amber-100 text-xl mb-8 leading-relaxed">
-                  Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans le {commune.department_name}.
+                  Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans
+                  le {commune.department_name}.
                   Inscription gratuite et sans engagement.
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -384,7 +470,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
 
                 <div className="space-y-12">
                   {rotatingContent.sections.map((section, index) => (
-                      <div key={index} className={`rounded-xl p-6 md:p-8 ${index % 2 === 0 ? 'bg-slate-50' : 'bg-amber-50'}`}>
+                      <div key={index}
+                           className={`rounded-xl p-6 md:p-8 ${index % 2 === 0 ? 'bg-slate-50' : 'bg-amber-50'}`}>
                         <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">
                           {section.title}
                         </h3>
@@ -557,6 +644,14 @@ export default async function CommunePage({ params }: CommunePageProps) {
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{__html: JSON.stringify(serviceJsonLd)}}
+        />
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{__html: JSON.stringify(faqJsonLd)}}
+        />
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{__html: JSON.stringify(personJsonLd)}}
         />
       </div>
   )
