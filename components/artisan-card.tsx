@@ -165,13 +165,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
               <div className="px-4 sm:px-6 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 border-y border-blue-100">
                 <div className="flex items-center justify-center text-center">
                   <div className="flex items-center text-blue-800 text-xs sm:text-sm font-medium">
-                    <div className="flex -space-x-1 mr-2 sm:mr-3">
-                      {[1,2,3,4,5].map(i => (
-                          <div key={i} className="w-3 h-3 sm:w-4 sm:h-4 bg-yellow-400 rounded-full border border-white flex items-center justify-center">
-                            <span className="text-xs text-white">★</span>
-                          </div>
-                      ))}
-                    </div>
+
                     <span className="hidden sm:inline">Satisfaction client garantie • Devis gratuit • Intervention rapide</span>
                     <span className="sm:hidden">Satisfaction garantie • Devis gratuit</span>
                   </div>
@@ -274,7 +268,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                     <ComputerIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
                     <span className="truncate font-medium">
                       <span className="hidden sm:inline">{isPremium ? '🌐 Site professionnel' : artisan.website}</span>
-                      <span className="sm:hidden">🌐 Site web</span>
+                      <span className="sm:hidden">🌐 Site web: {artisan.website}</span>
                     </span>
                     <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 ml-auto flex-shrink-0" />
                   </a>
