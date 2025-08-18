@@ -309,21 +309,21 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
                             <div className="grid grid-cols-1 gap-1">
                               {groupedDepartments[range].map((dept) => (
                                   <Link key={dept.id} href={`/departement/${dept.slug}`}>
-                                    <div className="flex items-center justify-between px-4 py-3 hover:bg-amber-50 rounded-lg transition-all duration-200 group cursor-pointer border border-transparent hover:border-amber-200">
-                                      <div className="flex items-center space-x-3 min-w-0 flex-1">
-                                        <span className="flex-shrink-0 w-10 h-7 bg-amber-100 rounded-md text-amber-700 font-mono text-sm font-bold flex items-center justify-center group-hover:bg-amber-200 transition-colors">
+                                    <div className="flex items-center justify-between px-3 py-2 md:px-4 md:py-3 hover:bg-amber-50 rounded-lg transition-all duration-200 group cursor-pointer border border-transparent hover:border-amber-200">
+                                      <div className="flex items-center space-x-2 md:space-x-3 min-w-0 flex-1">
+                                        <span className="flex-shrink-0 w-8 h-6 md:w-10 md:h-7 bg-amber-100 rounded text-amber-700 font-mono text-xs md:text-sm font-bold flex items-center justify-center group-hover:bg-amber-200 transition-colors">
                                           {dept.code}
                                         </span>
                                         <div className="min-w-0 flex-1">
-                                          <span className="font-semibold text-sm text-slate-900 group-hover:text-amber-700 block truncate transition-colors">
+                                          <span className="font-semibold text-xs md:text-sm text-slate-900 group-hover:text-amber-700 block truncate transition-colors">
                                             {dept.name}
                                           </span>
-                                          <span className="text-xs text-slate-500 group-hover:text-amber-600">
+                                          <span className="text-xs md:text-xs text-slate-500 group-hover:text-amber-600">
                                             Couvreur disponible
                                           </span>
                                         </div>
                                       </div>
-                                      <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-amber-600 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0" />
+                                      <ArrowRight className="w-3 h-3 md:w-4 md:h-4 text-slate-400 group-hover:text-amber-600 group-hover:translate-x-1 transition-all duration-200 flex-shrink-0" />
                                     </div>
                                   </Link>
                               ))}
