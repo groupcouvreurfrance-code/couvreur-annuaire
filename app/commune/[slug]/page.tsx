@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: CommunePageProps): Promise<Me
 
   return {
     title: `Couvreur ${commune.name} - ${commune.department_name}`,
-    description: `Trouvez votre couvreur à ${commune.name} . ${artisan ? `${artisan.companyName} intervient` : "Service professionnel"} dans tout le ${commune.department_name}. Devis gratuit et rapide.`,
+    description: `Trouvez votre couvreur à ${commune.name} . ${artisan ? `${artisan.companyName} intervient` : "Service professionnel"} dans tout le ${commune.department_name}. `,
     keywords: [
       `couvreur ${commune.name}`,
       `toiture ${commune.name}`,
