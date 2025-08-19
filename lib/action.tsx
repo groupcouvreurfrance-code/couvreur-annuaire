@@ -1,7 +1,7 @@
 // lib/actions/admin.ts
 'use server'
 
-import { revalidatePath } from 'next/cache'
+import {revalidatePath, revalidateTag} from 'next/cache'
 import prisma from '@/lib/prisma'
 import {invalidateArtisanCache} from "@/lib/database";
 
@@ -30,7 +30,8 @@ export async function updateArtisanStatus(artisanId: number, status: string) {
 
         // 🔄 Revalidate admin pages
         revalidatePath('/admin')
-        invalidateArtisanCache()
+        revalidateTag('artisan');
+        revalidateTag('department');
 
         console.log(`✅ Artisan ${artisanId} status updated successfully`);
         return { success: true, data: result }
@@ -227,7 +228,8 @@ export async function updateArtisanInfo(artisanId: number, data: {
         // 🔄 Revalidate admin pages
         revalidatePath('/admin')
         revalidatePath('/admin/artisans')
-        invalidateArtisanCache()
+        revalidateTag('artisan');
+        revalidateTag('department');
 
         console.log(`✅ Artisan ${artisanId} info updated successfully`);
         return { success: true, data: result }

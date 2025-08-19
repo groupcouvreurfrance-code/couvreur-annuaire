@@ -128,7 +128,6 @@ export async function getCommuneBySlug(
 }
 
 // ===== FONCTIONS POUR LES ARTISANS ===== //
-
 export const getDepartmentArtisan = unstable_cache(
     async (departmentId: number): Promise<Artisan | null> => {
       console.log(`🔍 [DB] Loading artisan for department ID: ${departmentId} - CACHE MISS`);
@@ -151,12 +150,35 @@ export const getDepartmentArtisan = unstable_cache(
     }
 );
 
-// Wrapper pour ajouter les logs de cache
+// Wrapper pour ajouter les logs de cache - AVEC ID dans la clé
 export async function getDepartmentArtisanWithLogs(departmentId: number): Promise<Artisan | null> {
   console.log(`🔍 [CACHE] Checking cache for department ID: ${departmentId}`);
 
+  // Créer une fonction cachée avec l'ID spécifique
+  const cachedFunction = unstable_cache(
+      async (deptId: number): Promise<Artisan | null> => {
+        console.log(`🔍 [DB] Loading artisan for department ID: ${deptId} - CACHE MISS`);
+
+        const artisan = await prisma.artisan.findFirst({
+          where: {
+            departmentId: deptId,
+            status: 'approved',
+            active: true
+          }
+        });
+
+        console.log(`✅ [DB] Loaded artisan from database: ${artisan?.companyName || 'none'}`);
+        return artisan;
+      },
+      [`department-artisan-${departmentId}`], // clé unique par département
+      {
+        revalidate: 30 * 60,
+        tags: ['artisan', `department-${departmentId}`]
+      }
+  );
+
   const startTime = Date.now();
-  const artisan = await getDepartmentArtisan(departmentId);
+  const artisan = await cachedFunction(departmentId);
   const duration = Date.now() - startTime;
 
   if (duration < 10) {
@@ -201,12 +223,45 @@ export const getCommuneArtisan = unstable_cache(
     }
 );
 
-// Wrapper pour ajouter les logs de cache
+// Wrapper pour ajouter les logs de cache - AVEC ID dans la clé
 export async function getCommuneArtisanWithLogs(communeId: number): Promise<Artisan | null> {
   console.log(`🔍 [CACHE] Checking cache for commune ID: ${communeId}`);
 
+  // Créer une fonction cachée avec l'ID spécifique
+  const cachedFunction = unstable_cache(
+      async (commId: number): Promise<Artisan | null> => {
+        console.log(`🔍 [DB] Loading artisan for commune ID: ${commId} - CACHE MISS`);
+
+        const commune = await prisma.commune.findUnique({
+          where: { id: commId },
+          include: {
+            department: {
+              include: {
+                artisans: {
+                  where: {
+                    status: 'approved',
+                    active: true
+                  },
+                  take: 1
+                }
+              }
+            }
+          }
+        });
+
+        const artisan = commune?.department?.artisans[0] || null;
+        console.log(`✅ [DB] Loaded artisan from database: ${artisan?.companyName || 'none'}`);
+        return artisan;
+      },
+      [`commune-artisan-${communeId}`], // clé unique par commune
+      {
+        revalidate: 30 * 60,
+        tags: ['artisan', `commune-${communeId}`]
+      }
+  );
+
   const startTime = Date.now();
-  const artisan = await getCommuneArtisan(communeId);
+  const artisan = await cachedFunction(communeId);
   const duration = Date.now() - startTime;
 
   if (duration < 10) {
@@ -217,6 +272,7 @@ export async function getCommuneArtisanWithLogs(communeId: number): Promise<Arti
 
   return artisan;
 }
+
 // Fonction pour invalider le cache quand un artisan est modifié
 export function invalidateArtisanCache() {
   revalidateTag('artisan');
