@@ -3,6 +3,7 @@ import { Footer } from "@/components/footer"
 import { ArtisanCard } from "@/components/artisan-card"
 import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
+import departmentData from "@/prisma/data/departments-data.json"
 import {
   getDepartmentBySlug,
   getCommunesByDepartment,
@@ -63,6 +64,11 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
     notFound()
   }
 
+  // Trouve les données spécifiques au département actuel
+  const currentDepartmentData = departmentData.find(
+      (dept: any) => dept.code === department.code || dept.slug === department.slug
+  );
+
   const [{ communes: allCommunes, total }, artisan] = await Promise.all([
     getCommunesByDepartment(department.code),
     getDepartmentArtisanWithLogs(department.id),
@@ -81,24 +87,6 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
   }
 
   const communeChunks = createCommuneChunks(allCommunes, 60)
-
-  // Services simplifiés
-  const mainServices = [
-    "Rénovation de toiture", "Réparation de toiture", "Pose de toiture",
-    "Nettoyage de toiture", "Étanchéité toiture", "Isolation toiture"
-  ]
-
-  const materials = [
-    "Tuiles", "Ardoise", "Zinc", "Bac acier", "Toiture plate", "Charpente bois"
-  ]
-
-  const zinguerie = [
-    "Gouttières", "Noues", "Chéneaux", "Habillage cheminée"
-  ]
-
-  const urgences = [
-    "Dépannage toiture", "Fuite toiture", "Bâchage", "Intervention rapide"
-  ]
 
   // JSON-LD optimisé
   const jsonLd = {
@@ -155,6 +143,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
       },
     ],
   }
+
   // Person Schema pour mettre en évidence l'artisan
   const personJsonLd = artisan ? {
     "@context": "https://schema.org",
@@ -192,6 +181,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
       "Démoussage"
     ]
   } : null
+
   return (
       <div className="min-h-screen">
         <Header/>
@@ -343,101 +333,62 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
               </section>
           )}
 
-          {/* Contenu informatif condensé */}
-          <section className="py-16 bg-white">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
-                  Services de couverture à {department.name}
-                </h2>
+          {/* Section expertise spécifique - utilise les données du département actuel */}
+          {currentDepartmentData && (
+              <section className="py-16 bg-white">
+                <div className="container mx-auto px-4">
+                  <div className="max-w-4xl mx-auto">
+                    <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
+                      Couvreur spécialisé {department.name}
+                    </h2>
 
-                <div className="space-y-6">
-                  <div className="rounded-xl p-6 md:p-8 bg-slate-50">
-                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">Couvreur professionnel</h3>
-                    <p className="text-slate-700">
-                      Notre équipe intervient pour tous travaux de toiture à {department.name} : création, rénovation,
-                      réparation d'urgence.
-                      Maîtrise de tous matériaux (tuiles, zinc, ardoise, bac acier) avec garantie d'étanchéité et
-                      résistance.
-                    </p>
-                  </div>
-
-                  <div className="rounded-xl p-6 md:p-8 bg-amber-50">
-                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">Entreprise de couverture</h3>
-                    <p className="text-slate-700">
-                      Prestations complètes de l'installation à l'entretien. Matériaux robustes et techniques modernes
-                      pour un résultat durable et esthétique à {department.name}.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          {/* Services condensés */}
-          <section className="py-16 bg-white">
-            <div className="container mx-auto px-4">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
-                  Nos prestations
-                </h2>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Services principaux */}
-                  <div className="bg-amber-50 rounded-xl p-6">
-                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">Services principaux</h3>
-                    <div className="space-y-2">
-                      {mainServices.map((service, index) => (
-                          <div key={index} className="flex items-center">
-                            <div className="w-2 h-2 bg-amber-600 rounded-full mr-3"></div>
-                            <span className="text-slate-700">{service} {department.name}</span>
-                          </div>
-                      ))}
+                    <div className="bg-slate-50 rounded-xl p-6 md:p-8 mb-8">
+                      <p className="text-slate-700 leading-relaxed text-lg">
+                        {currentDepartmentData.description}
+                      </p>
                     </div>
-                  </div>
 
-                  {/* Matériaux */}
-                  <div className="bg-slate-50 rounded-xl p-6">
-                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">Matériaux</h3>
-                    <div className="space-y-2">
-                      {materials.map((material, index) => (
-                          <div key={index} className="flex items-center">
-                            <div className="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
-                            <span className="text-slate-700">{material} {department.name}</span>
-                          </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Zinguerie */}
-                  <div className="bg-amber-50 rounded-xl p-6">
-                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">Zinguerie</h3>
-                    <div className="space-y-2">
-                      {zinguerie.map((service, index) => (
-                          <div key={index} className="flex items-center">
-                            <div className="w-2 h-2 bg-amber-600 rounded-full mr-3"></div>
-                            <span className="text-slate-700">{service} {department.name}</span>
-                          </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Urgences */}
-                  <div className="bg-slate-50 rounded-xl p-6">
-                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">Urgences</h3>
-                    <div className="space-y-2">
-                      {urgences.map((service, index) => (
-                          <div key={index} className="flex items-center">
-                            <div className="w-2 h-2 bg-amber-500 rounded-full mr-3"></div>
-                            <span className="text-slate-700">{service} {department.name}</span>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {currentDepartmentData.specialites.map((specialite: string, index: number) => (
+                          <div key={index} className="bg-amber-50 rounded-xl p-6">
+                            <h3 className="font-serif font-bold text-lg text-slate-900 mb-3">
+                              {specialite}
+                            </h3>
+                            <div className="w-12 h-1 bg-amber-600 rounded"></div>
                           </div>
                       ))}
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </section>
+              </section>
+          )}
+
+          {/* Villes d'intervention - utilise les mots-clés du département actuel */}
+          {currentDepartmentData && (
+              <section className="py-16 bg-gray-50">
+                <div className="container mx-auto px-4">
+                  <div className="max-w-4xl mx-auto">
+                    <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
+                      Interventions {department.name}
+                    </h2>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                      {currentDepartmentData.keywords
+                          .map((keyword: string, index: number) => {
+                            const ville = keyword.replace('couvreur ', '');
+                            return (
+                                <div key={index} className="bg-white rounded-lg p-4 text-center shadow-sm">
+                                  <h3 className="font-semibold text-slate-900 capitalize">
+                                    Couvreur {ville}
+                                  </h3>
+                                </div>
+                            );
+                          })}
+                    </div>
+                  </div>
+                </div>
+              </section>
+          )}
 
           {/* Liste des Communes */}
           <section id="communes" className="py-12 bg-slate-50">
@@ -540,10 +491,12 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
             dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
         />
 
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{__html: JSON.stringify(personJsonLd)}}
-        />
+        {personJsonLd && (
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{__html: JSON.stringify(personJsonLd)}}
+            />
+        )}
       </div>
   )
 }
