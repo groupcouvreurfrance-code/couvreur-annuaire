@@ -3,7 +3,7 @@ import {NextResponse} from "next/server";
 
 export async function GET() {
     const baseUrl = 'https://www.couvreur-groupefrance.com'
-    const { departments } = await getAllDepartments(1, 100)
+    const { departments } = await getAllDepartments()
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
