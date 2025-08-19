@@ -77,10 +77,10 @@ export function ContactForm({ artisan, onSuccess }: ContactFormProps) {
 
   if (isSuccess) {
     return (
-      <Card className="border-0 shadow-xl bg-gradient-to-br from-amber-50 to-green-50 overflow-hidden">
+      <Card  className="border-0 shadow-xl bg-gradient-to-br from-amber-50 to-green-50 overflow-hidden">
         <CardContent className="p-8 text-center relative">
           {/* Effet de brillance en arrière-plan */}
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-green-500"></div>
+          <div  className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-400 to-green-500"></div>
           
           <div className="relative">
             <div className="w-20 h-20 bg-gradient-to-br from-amber-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">

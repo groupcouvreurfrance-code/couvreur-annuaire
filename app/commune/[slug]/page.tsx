@@ -8,7 +8,15 @@ import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award,  } from "lu
 import Link from "next/link"
 import type { Metadata } from "next"
 import CarteCommune from "@/components/carte-commune"
-import {getProfessionalServices, getRotatingContent} from "@/lib/content-rotation";
+import {
+  getConclusionText,
+  getConclusionTitle,
+  getIntroText,
+  getKeyPoints,
+  getProfessionalServices,
+  getRotatingContent,
+  getSectionIcon
+} from "@/lib/content-rotation";
 import MeteoCommune from "@/components/meteo-commune";
 
 interface CommunePageProps {
@@ -396,7 +404,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                         <ArtisanCard artisan={artisan}/>
                       </div>
 
-                      <div className="lg:sticky lg:top-8">
+                      <div id={"devis"} className="lg:sticky lg:top-8">
                         <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8">
                           <div className="text-center mb-6">
                             <h3 className="font-serif font-bold text-2xl text-slate-900 mb-2">
@@ -436,86 +444,150 @@ export default async function CommunePage({ params }: CommunePageProps) {
               </section>
           )}
 
-          {/* CTA Section pour les artisans */}
-          <section className="py-20 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800">
-            <div className="container mx-auto px-4 text-center">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="font-serif font-bold text-4xl text-white mb-6">
-                  Vous êtes couvreur à {commune.name} ?
-                </h2>
-                <p className="text-amber-100 text-xl mb-8 leading-relaxed">
-                  Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans
-                  le {commune.department_name}.
-                  Inscription gratuite et sans engagement.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a
-                      href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
-                      className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
-                  >
-                    Inscription gratuite
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
+
 
           {/* Contenu informatif rotatif */}
-          <section className="py-16 bg-white">
+          <section className="py-16 bg-white" itemScope itemType="https://schema.org/Service">
             <div className="container mx-auto px-4">
               <div className="max-w-4xl mx-auto">
-                <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
-                  {rotatingContent.title}
-                </h2>
+                {/* Title avec structure SEO optimisée */}
+                <header className="text-center mb-12">
+                  <h2 className="font-serif font-bold text-3xl lg:text-4xl text-slate-900 mb-4" itemProp="name">
+                    {rotatingContent.title}
+                  </h2>
+                  <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full"></div>
+                  <p className="text-slate-600 mt-6 text-lg leading-relaxed max-w-2xl mx-auto" itemProp="description">
+                    {getIntroText(commune.name, rotatingContent.sections.length)}
+                  </p>
+                </header>
 
-                <div className="space-y-12">
-                  {rotatingContent.sections.map((section, index) => (
-                      <div key={index}
-                           className={`rounded-xl p-6 md:p-8 ${index % 2 === 0 ? 'bg-slate-50' : 'bg-amber-50'}`}>
-                        <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">
-                          {section.title}
-                        </h3>
-                        <p className="text-slate-700 mb-4">
-                          {section.content}
-                        </p>
-                      </div>
-                  ))}
+                {/* Sections avec structure enrichie */}
+                <div className="space-y-8 lg:space-y-12">
+                  {rotatingContent.sections.map((section, index) => {
+                    const isEven = index % 2 === 0;
+                    const IconComponent = getSectionIcon(section.title, index);
+
+                    return (
+                        <article
+                            key={index}
+                            className={`group relative overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-xl ${
+                                isEven
+                                    ? 'bg-gradient-to-br from-slate-50 to-slate-100 hover:from-slate-100 hover:to-slate-150'
+                                    : 'bg-gradient-to-br from-amber-50 to-orange-50 hover:from-amber-100 hover:to-orange-100'
+                            }`}
+                            itemScope
+                            itemType="https://schema.org/Article"
+                        >
+                          {/* Décoration visuelle */}
+                          <div
+                              className={`absolute top-0 right-0 w-32 h-32 opacity-5 transform rotate-12 translate-x-8 -translate-y-8 ${
+                                  isEven ? 'text-slate-400' : 'text-amber-400'
+                              }`}>
+                            <IconComponent />
+                          </div>
+
+                          <div className="relative p-6 md:p-8 lg:p-10">
+                            <div className="flex items-start gap-4 mb-6">
+                              <div className={`flex-shrink-0 p-3 rounded-xl ${
+                                  isEven
+                                      ? 'bg-slate-200 text-slate-700'
+                                      : 'bg-amber-200 text-amber-700'
+                              }`}>
+                                <IconComponent />
+                              </div>
+
+                              <div className="flex-1">
+                                <h3 className="font-serif font-bold text-xl lg:text-2xl text-slate-900 mb-2 group-hover:text-amber-700 transition-colors"
+                                    itemProp="headline">
+                                  {section.title}
+                                </h3>
+                                <div className={`w-16 h-0.5 ${
+                                    isEven ? 'bg-slate-400' : 'bg-amber-400'
+                                } rounded-full`}></div>
+                              </div>
+                            </div>
+
+                            <div className="space-y-4">
+                              <p className="text-slate-700 leading-relaxed text-base lg:text-lg" itemProp="text">
+                                {section.content}
+                              </p>
+
+                              {/* Points clés dynamiques */}
+                              {getKeyPoints(section.title, index).length > 0 && (
+                                  <div className="mt-6 pt-6 border-t border-slate-200/50">
+                                    <h4 className="font-semibold text-slate-800 mb-3 text-sm uppercase tracking-wide">
+                                      Points essentiels :
+                                    </h4>
+                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                                      {getKeyPoints(section.title, index).map((point, pointIndex) => (
+                                          <li key={pointIndex}
+                                              className="flex items-center gap-2 text-sm text-slate-600">
+                                            <div className={`w-1.5 h-1.5 rounded-full ${
+                                                isEven ? 'bg-slate-400' : 'bg-amber-400'
+                                            }`}></div>
+                                            {point}
+                                          </li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                              )}
+
+                              {/* CTA contextuel */}
+                              {index === 0 && (
+                                  <div className="mt-8 p-4 bg-white/60 rounded-xl border border-slate-200/50">
+                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                      <div>
+                                        <p className="font-semibold text-slate-800 mb-1">
+                                          Besoin d'un devis personnalisé ?
+                                        </p>
+                                        <p className="text-sm text-slate-600">
+                                          Intervention rapide à {commune.name} et alentours
+                                        </p>
+                                      </div>
+                                      <button
+                                          className="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors whitespace-nowrap">
+                                        <a href={"#devis"}>Demander un devis</a>
+                                      </button>
+                                    </div>
+                                  </div>
+                              )}
+                            </div>
+                          </div>
+                        </article>
+                    );
+                  })}
                 </div>
+
+                {/* Section conclusion avec variations */}
+                <footer className="mt-16 text-center">
+                  <div className="bg-gradient-to-r from-slate-100 to-amber-50 rounded-2xl p-8">
+                    <h3 className="font-serif font-bold text-xl text-slate-900 mb-4">
+                      {getConclusionTitle(commune.name)}
+                    </h3>
+                    <p className="text-slate-700 leading-relaxed max-w-2xl mx-auto">
+                      {getConclusionText(commune.name, rotatingContent.sections.length)}
+                    </p>
+                    <div className="flex justify-center items-center gap-6 mt-6 text-sm text-slate-600">
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        Disponible 7j/7
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                        Devis gratuit
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                        Garantie décennale
+                      </div>
+                    </div>
+                  </div>
+                </footer>
               </div>
             </div>
           </section>
 
-          {/* Services proposés */}
-          <div className="bg-slate-50 rounded-xl p-8">
-            <h3 className="font-serif font-bold text-2xl text-center text-slate-900 mb-6">
-              Services de couverture à {commune.name}
-            </h3>
-            <div className="grid grid-cols-1 gap-3">
-              {[
-                `Couvreur ${commune.name}`,
-                `Artisan couvreur ${commune.name}`,
-                `Entreprise de couverture ${commune.name}`,
-                `Travaux de couverture ${commune.name}`,
-                `Travaux de zinguerie ${commune.name}`,
-                `SOS fuite toiture ${commune.name}`,
-                `Rénovation de toiture zinc ${commune.name}`,
-                `Isolation de toiture ${commune.name}`,
-                `Démoussage de toiture ${commune.name}`,
-                `Réparation de toiture zinc ${commune.name}`,
-                `Réfection de toiture zinc ${commune.name}`,
-                `Remplacement d'éléments en zinc ${commune.name}`,
-                `Étanchéité toiture zinc ${commune.name}`,
-                `Pose de couverture zinc ${commune.name}`,
-                `Pose de gouttière en zinc ${commune.name}`,
-                `Remplacement de gouttière zinc ${commune.name}`
-              ].map((service) => (
-                  <div key={service} className="flex items-center py-2 border-b border-slate-200 last:border-b-0">
-                    <div className="w-2 h-2 bg-amber-500 rounded-full mr-4 flex-shrink-0"></div>
-                    <span className="text-slate-700 font-medium">{service}</span>
-                  </div>
-              ))}
-            </div>
-          </div>
+
 
           {/* Localisation Section - Design épuré */}
           <section className="py-16 bg-slate-50">
@@ -608,7 +680,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                   <div
                       className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4 mx-auto">
-                      <Shield className="h-6 w-6 text-blue-600"/>
+                    <Shield className="h-6 w-6 text-blue-600"/>
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2 text-center">Département</h3>
                     <p className="text-slate-600 text-center text-lg font-medium">{commune.department_name}</p>
@@ -624,6 +696,30 @@ export default async function CommunePage({ params }: CommunePageProps) {
                       {commune.name} + 20km
                     </p>
                   </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* CTA Section pour les artisans */}
+          <section className="py-20 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800">
+            <div className="container mx-auto px-4 text-center">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-serif font-bold text-4xl text-white mb-6">
+                  Vous êtes couvreur à {commune.name} ?
+                </h2>
+                <p className="text-amber-100 text-xl mb-8 leading-relaxed">
+                  Rejoignez notre réseau d&apos;artisans qualifiés et développez votre activité dans
+                  le {commune.department_name}.
+                  Inscription gratuite et sans engagement.
+                </p>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a
+                      href="mailto:groupcouvreurfrance@gmail.com?subject=Inscription &body=Bonjour,%0D%0A%0D%0AJe souhaiterais obtenir des informations concernant l'inscription en tant que couvreur.%0D%0A%0D%0ACordialement"
+                      className="flex items-center space-x-2 bg-white text-amber-700 hover:bg-amber-50 px-6 py-3 text-lg font-medium rounded-md"
+                  >
+                    Inscription gratuite
+                  </a>
                 </div>
               </div>
             </div>
