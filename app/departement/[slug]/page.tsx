@@ -3,7 +3,12 @@ import { Footer } from "@/components/footer"
 import { ArtisanCard } from "@/components/artisan-card"
 import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
-import { getDepartmentBySlug, getCommunesByDepartment, getDepartmentArtisan } from "@/lib/database"
+import {
+  getDepartmentBySlug,
+  getCommunesByDepartment,
+  getDepartmentArtisan,
+  getDepartmentArtisanWithLogs
+} from "@/lib/database"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import type { Metadata } from "next"
@@ -25,7 +30,7 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
     }
   }
 
-  const artisan = await getDepartmentArtisan(department.id)
+  const artisan = await getDepartmentArtisanWithLogs(department.id)
 
   return {
     title: `Couvreur ${department.name} (${department.code}) - ${artisan ? artisan.companyName : "Service Professionnel"}`,
@@ -60,7 +65,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
 
   const [{ communes: allCommunes, total }, artisan] = await Promise.all([
     getCommunesByDepartment(department.code),
-    getDepartmentArtisan(department.id),
+    getDepartmentArtisanWithLogs(department.id),
   ])
 
   // Diviser les communes en tranches de 60

@@ -2,7 +2,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ArtisanCard } from "@/components/artisan-card"
 import { ContactForm } from "@/components/contact-form"
-import { getCommuneBySlug, getCommuneArtisan } from "@/lib/database"
+import {getCommuneBySlug, getCommuneArtisan, getCommuneArtisanWithLogs} from "@/lib/database"
 import { notFound } from "next/navigation"
 import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award,  } from "lucide-react"
 import Link from "next/link"
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: CommunePageProps): Promise<Me
     }
   }
 
-  const artisan = await getCommuneArtisan(commune.id)
+  const artisan = await getCommuneArtisanWithLogs(commune.id)
 
   return {
     title: `Couvreur ${commune.name} - ${commune.department_name}`,
@@ -66,7 +66,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
     notFound()
   }
 
-  const artisan = await getCommuneArtisan(commune.id)
+  const artisan = await getCommuneArtisanWithLogs(commune.id)
 
   // Contenu rotatif basé sur la première lettre de la commune
   const rotatingContent = getRotatingContent(commune.name)
