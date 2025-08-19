@@ -51,7 +51,7 @@ export function CouvreurServicesSection() {
                         backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202025-08-14%20at%2012.36.29_284bbe7b.jpg-wHVYXq6HcbrTlrU79t7zq5U2nMVtoJ.jpeg')`,
                     }}
                 ></div>
-                <div className="absolute inset-0 bg-black/65"></div>
+                <div className="absolute  inset-0 bg-gradient-to-br from-slate-900/80 via-slate-800 to-slate-900/50"></div>
             </div>
             <div className="container mx-auto px-4 relative z-10">
                 <div className="text-center mb-16">
