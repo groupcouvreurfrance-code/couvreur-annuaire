@@ -59,7 +59,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
   }
 
   const [{ communes: allCommunes, total }, artisan] = await Promise.all([
-    getCommunesByDepartment(department.code, 1, 9999),
+    getCommunesByDepartment(department.code),
     getDepartmentArtisan(department.id),
   ])
 

@@ -92,7 +92,7 @@ export const metadata: Metadata = {
 
 export default async function DepartementsPage({ searchParams }: DepartementsPageProps) {
   // On récupère TOUS les départements d'un coup (pas de pagination)
-  const { departments: allDepartments, total } = await getAllDepartments(1, 100)
+  const { departments: allDepartments, total } = await getAllDepartments()
 
   // Grouper les départements par tranche
   const groupDepartmentsByRange = (depts: any[]) => {
