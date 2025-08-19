@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
   const artisan = await getDepartmentArtisanWithLogs(department.id)
 
   return {
-    title: `Couvreur en France (${department.name} - ${department.code}) : Devis gratuit et artisans qualifiés`,
+    title: `Couvreur en France (${department.name} - ${department.code})`,
     description: `Trouvez le meilleur couvreur en ${department.name} (${department.code}) pour vos travaux de toiture. ${artisan ? `${artisan.companyName} vous accompagne avec des artisans qualifiés` : "Devis gratuits, artisans qualifiés partout dans le département"}. Rénovation, réparation, isolation : trouvez votre expert !`,
     keywords: [
       `couvreur ${department.name}`,
