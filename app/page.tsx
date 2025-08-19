@@ -1,9 +1,9 @@
 import { Header } from "@/components/header"
 import { DepartmentsPreview } from "@/components/departments-preview"
 import { Footer } from "@/components/footer"
-import {CouvreurServicesSection} from "@/components/couvreur-services-section";
-import {CouvreurAdvantagesSection} from "@/components/couvreur-avantages-section";
-import {CouvreurHeroSection} from "@/components/hero-section";
+import CouvreurServicesSection from "@/components/couvreur-services-section";
+import CouvreurAdvantagesSection from "@/components/couvreur-avantages-section";
+import CouvreurHeroSection from "@/components/hero-section";
 
 export default  function HomePage() {
 
@@ -30,7 +30,7 @@ export default  function HomePage() {
             <Header />
             <main>
                 <CouvreurHeroSection />
-                <DepartmentsPreview />
+                <DepartmentsPreview/>
                 <CouvreurAdvantagesSection />
                 <CouvreurServicesSection />
 

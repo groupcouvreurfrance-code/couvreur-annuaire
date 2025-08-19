@@ -404,7 +404,6 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
                       <ul className="space-y-2 text-slate-700">
                         <li>• Pose de toiture complète</li>
                         <li>• Charpente traditionnelle</li>
-                        <li>• Isolation thermique</li>
                         <li>• Étanchéité</li>
                       </ul>
                     </div>
