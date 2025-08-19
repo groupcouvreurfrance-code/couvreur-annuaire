@@ -267,7 +267,7 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                   >
                     <ComputerIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4 mr-2 flex-shrink-0" />
                     <span className="truncate font-medium">
-                      <span className="hidden sm:inline">{isPremium ? '🌐 Site professionnel' : artisan.website}</span>
+                      <span className="hidden sm:inline">{isPremium ? `🌐 Site professionnel : ${artisan.website}` : artisan.website}</span>
                       <span className="sm:hidden">🌐 Site web: {artisan.website}</span>
                     </span>
                     <ChevronRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 ml-auto flex-shrink-0" />
