@@ -1,6 +1,8 @@
 
 import {readFileSync} from "fs";
 import {join} from "path";
+import prisma from "@/lib/prisma";
+import type {Artisan  } from './generated/prisma'
 
 // Types basés sur vos structures JSON
 export interface Department {
@@ -20,32 +22,6 @@ export interface Commune {
   departmentCode: string
 }
 
-export interface Artisan {
-  id: number
-  companyName: string
-  contactName: string
-  email: string
-  phone: string
-  address: string
-  postalCode: string
-  city: string
-  departmentId: number
-  website: string
-  description: string
-  services: string[]
-  yearsExperience: number
-  certifications: string[]
-  insurance_valid: boolean
-  siret: string
-  status: string
-  featured: boolean
-  rating: number
-  reviewCount: number
-  active: boolean
-  created_at: string
-  updated_at: string
-  profileImage: string
-}
 
 export interface ContactRequest {
   // Ajoutez la structure si nécessaire
@@ -76,15 +52,7 @@ const getCommunes = (): Commune[] => {
   }
 }
 
-const getArtisans = (): Artisan[] => {
-  try {
-    const data = readFileSync(getDataPath('artisans.json'), 'utf8')
-    return JSON.parse(data)
-  } catch (error) {
-    console.error('Error reading artisans.json:', error)
-    return []
-  }
-}
+
 
 // ===== FONCTIONS POUR LES DÉPARTEMENTS ===== //
 
@@ -160,46 +128,45 @@ export async function getCommuneBySlug(
 
 // ===== FONCTIONS POUR LES ARTISANS ===== //
 
-export async function getDepartmentArtisan(departmentId: number): Promise<Artisan | null> {
-  console.log(`🔍 Loading artisan for department ID: ${departmentId}`)
-  const artisans = getArtisans()        // ← Lecture dynamique du fichier JSON
-  const artisan = artisans.find(a =>
-      a.departmentId === departmentId &&
-      a.status === 'approved' &&
-      a.active === true
-  ) || null
 
-  console.log(`✅ Loaded artisan: ${artisan?.companyName || 'none'} (JSON)`)
-  return artisan
+export async function getDepartmentArtisan(departmentId: number): Promise<Artisan | null> {
+  console.log(`🔍 Loading artisan for department ID: ${departmentId}`);
+
+  const artisan = await prisma.artisan.findFirst({
+    where: {
+      departmentId: departmentId,
+      status: 'approved',
+      active: true
+    }
+  });
+
+  console.log(`✅ Loaded artisan: ${artisan?.companyName || 'none'} (no cache)`);
+  return artisan;
 }
 
 export async function getCommuneArtisan(communeId: number): Promise<Artisan | null> {
-  console.log(`🔍 Loading artisan for commune ID: ${communeId}`)
-  const communes = getCommunes()        // ← Lecture dynamique du fichier JSON
-  const departments = getDepartments()  // ← Lecture dynamique du fichier JSON
-  const commune = communes.find(c => c.id === communeId)
+  console.log(`🔍 Loading artisan for commune ID: ${communeId}`);
 
-  if (!commune) {
-    console.log(`❌ Commune not found: ${communeId}`)
-    return null
-  }
+  const commune = await prisma.commune.findUnique({
+    where: { id: communeId },
+    include: {
+      department: {
+        include: {
+          artisans: {
+            where: {
+              status: 'approved',
+              active: true
+            },
+            take: 1
+          }
+        }
+      }
+    }
+  });
 
-  const department = departments.find(dept => dept.code === commune.departmentCode)
-
-  if (!department) {
-    console.log(`❌ Department not found for commune: ${communeId}`)
-    return null
-  }
-    const artisans = getArtisans()        // ← Lecture dynamique du fichier JSON
-
-  const artisan = artisans.find(a =>
-      a.departmentId === department.id &&
-      a.status === 'approved' &&
-      a.active === true
-  ) || null
-
-  console.log(`✅ Loaded commune artisan: ${artisan?.companyName || 'none'} (JSON)`)
-  return artisan
+  const artisan = commune?.department?.artisans[0] || null;
+  console.log(`✅ Loaded commune artisan: ${artisan?.companyName || 'none'} (no cache)`);
+  return artisan;
 }
 
 // ===== FONCTIONS ADMIN ===== //
@@ -209,30 +176,28 @@ export async function getAllArtisans(
     page: number = 1,
     perPage: number = 10
 ): Promise<{ artisans: (Artisan & { department_name?: string })[], total: number }> {
-  console.log(`🔍 Loading all artisans (status: ${status || 'all'}, page: ${page})`)
-  const  artisans = getArtisans()
-  let filteredArtisans = artisans
+  const skip = (page - 1) * perPage
+  const [rawArtisans, total] = await Promise.all([
+    prisma.artisan.findMany({
+      where: status ? { status } : undefined,
+      include: {
+        department: true
+      },
+      orderBy: {
+        id: 'asc'
+      },
+      skip,
+      take: perPage
+    }),
+    prisma.artisan.count({
+      where: status ? { status } : undefined
+    })
+  ])
 
-  if (status) {
-    filteredArtisans = artisans.filter(a => a.status === status)
-  }
+  const artisans = rawArtisans.map(artisan => ({
+    ...artisan,
+    department_name: artisan.department?.name
+  }))
 
-  const startIndex = (page - 1) * perPage
-  const paginatedArtisans = filteredArtisans.slice(startIndex, startIndex + perPage)
-  const departments = getDepartments()  // ← Lecture dynamique du fichier JSON
-  // Ajouter le nom du département
-  const artisansWithDepartment = paginatedArtisans.map(artisan => {
-    const department = departments.find(dept => dept.id === artisan.departmentId)
-    return {
-      ...artisan,
-      department_name: department?.name
-    }
-  })
-
-  console.log(`✅ Loaded ${paginatedArtisans.length}/${filteredArtisans.length} artisans (JSON)`)
-
-  return {
-    artisans: artisansWithDepartment,
-    total: filteredArtisans.length
-  }
+  return { artisans, total }
 }
