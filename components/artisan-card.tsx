@@ -62,19 +62,19 @@ export function ArtisanCard({ artisan }: ArtisanCardProps) {
                     <img
                         src={artisan.profileImage}
                         alt={artisan.companyName}
-                        className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl object-cover shadow-md transition-all duration-300 ${
+                        className={`w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl object-cover shadow-lg transition-all duration-300 ${
                             isPremium
                                 ? 'border-3 border-gradient-to-r from-amber-400 to-orange-400 ring-4 ring-amber-100 group-hover:ring-amber-200'
                                 : 'border-2 border-white'
                         }`}
                     />
                 ) : (
-                    <div className={`w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl shadow-md flex items-center justify-center transition-all duration-300 ${
+                    <div className={`w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-xl shadow-lg flex items-center justify-center transition-all duration-300 ${
                         isPremium
                             ? 'bg-gradient-to-br from-amber-200 via-orange-100 to-amber-100 border-3 border-amber-400 ring-4 ring-amber-100 group-hover:ring-amber-200'
                             : 'bg-gradient-to-br from-amber-100 to-amber-200 border-2 border-white'
                     }`}>
-                      <User className={`h-6 w-6 sm:h-8 sm:w-8 ${isPremium ? 'text-amber-700' : 'text-amber-600'}`} />
+                      <User className={`h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 ${isPremium ? 'text-amber-700' : 'text-amber-600'}`} />
                     </div>
                 )}
 
