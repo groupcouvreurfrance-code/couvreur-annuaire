@@ -51,8 +51,9 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
       url: `/departement/${department.slug}`,
     },
     alternates: {
-      canonical: `/departement/${department.slug}`,
+      canonical: `https://www.couvreur-groupefrance.com/departement/${department.slug}`,
     },
+
   }
 }
 

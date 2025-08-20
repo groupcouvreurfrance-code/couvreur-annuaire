@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: CommunePageProps): Promise<Me
       locale: "fr_FR",
     },
     alternates: {
-      canonical: `/commune/${params.slug}`,
+      canonical: `https://www.couvreur-groupefrance.com/commune/${params.slug}`,
     },
     other: {
       "geo.region": "FR",
