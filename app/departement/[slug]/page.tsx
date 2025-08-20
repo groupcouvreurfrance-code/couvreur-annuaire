@@ -348,9 +348,13 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                       </p>
                     </div>
 
+                    <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
+                      Prestations
+                    </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       {currentDepartmentData.specialites.map((specialite: string, index: number) => (
                           <div key={index} className="bg-amber-50 rounded-xl p-6">
+
                             <h3 className="font-serif font-bold text-lg text-slate-900 mb-3">
                               {specialite}
                             </h3>
@@ -363,32 +367,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
               </section>
           )}
 
-          {/* Villes d'intervention - utilise les mots-clés du département actuel */}
-          {currentDepartmentData && (
-              <section className="py-16 bg-gray-50">
-                <div className="container mx-auto px-4">
-                  <div className="max-w-4xl mx-auto">
-                    <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
-                      Interventions {department.name}
-                    </h2>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                      {currentDepartmentData.keywords
-                          .map((keyword: string, index: number) => {
-                            const ville = keyword.replace('couvreur ', '');
-                            return (
-                                <div key={index} className="bg-white rounded-lg p-4 text-center shadow-sm">
-                                  <h3 className="font-semibold text-slate-900 capitalize">
-                                    Couvreur {ville}
-                                  </h3>
-                                </div>
-                            );
-                          })}
-                    </div>
-                  </div>
-                </div>
-              </section>
-          )}
 
           {/* Liste des Communes */}
           <section id="communes" className="py-12 bg-slate-50">

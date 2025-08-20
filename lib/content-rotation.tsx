@@ -435,27 +435,7 @@ function getContentByVariant(variant: string, communeName: string) {
             ]
         },
 
-        variant20: {
-            title: `Couverture métallique à ${communeName} - Performance moderne`,
-            sections: [
-                {
-                    title: "Installation de bacs acier",
-                    content: `Le bac acier offre performance et économie. À ${communeName}, nous installons des couvertures métalliques adaptées aux bâtiments industriels, agricoles et résidentiels.`
-                },
-                {
-                    title: "Isolation et étanchéité",
-                    content: "Les couvertures métalliques nécessitent une isolation performante. Nous intégrons les systèmes d'isolation et de ventilation pour un confort optimal."
-                },
-                {
-                    title: "Finitions et accessoires",
-                    content: "Faîtages, rives, gouttières intégrées : nous soignons les finitions pour garantir l'étanchéité et l'esthétique de votre couverture métallique."
-                },
-                {
-                    title: "Maintenance préventive",
-                    content: "Un entretien régulier préserve les performances et la durabilité. Nous proposons des contrats de maintenance adaptés à vos couvertures métalliques."
-                }
-            ]
-        }
+
     };
 
     return contentVariants[variant] || contentVariants.variant1;

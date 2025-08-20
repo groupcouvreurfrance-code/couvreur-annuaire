@@ -3,271 +3,271 @@
     "code": "01",
     "name": "Ain",
     "slug": "ain",
-    "description": "Situé en Auvergne-Rhône-Alpes, l'Ain est réputé pour ses paysages variés, entre les étangs de la Dombes et les montagnes du Jura. Nos couvreurs à Bourg-en-Bresse et dans tout le département maîtrisent les toitures adaptées aux hivers rigoureux du Haut-Jura et aux toits en tuiles traditionnels de la Bresse, célèbre pour sa volaille. Que vous soyez à Oyonnax ou Gex, nous assurons des travaux durables avec des matériaux locaux comme l'ardoise du Jura.",
+    "description": "Situé en Auvergne-Rhône-Alpes, l'Ain présente des défis climatiques variés entre les étangs de la Dombes et les montagnes du Jura. Nos couvreurs à Bourg-en-Bresse, Oyonnax et dans tout le département maîtrisent l'isolation renforcée nécessaire aux hivers rigoureux du Haut-Jura et l'étanchéité adaptée aux zones humides de la Dombes. Nous privilégions les matériaux locaux comme l'ardoise du Jura pour nos travaux de couverture.",
     "specialites": [
-      "Toitures en tuiles pour les fermes bressanes",
-      "Étanchéité pour les maisons près des étangs de la Dombes",
-      "Réparations rapides après les tempêtes jurassiennes"
+      "Isolation renforcée pour climat montagnard",
+      "Étanchéité pour zones humides",
+      "Pose d'ardoise du Jura"
     ],
     "keywords": [
       "couvreur Ain",
-      "toiture Bresse",
-      "réparation toit Oyonnax",
-      "tuiles Gex"
+      "isolation Bourg-en-Bresse",
+      "étanchéité Dombes",
+      "ardoise Oyonnax"
     ]
   },
   {
     "code": "02",
     "name": "Aisne",
     "slug": "aisne",
-    "description": "Dans les Hauts-de-France, l'Aisne allie patrimoine historique et agriculture intensive. Nos couvreurs à Laon, Saint-Quentin et Soissons maîtrisent les toitures en ardoise typiques du Nord et l'entretien des charpentes anciennes des monuments historiques. Face aux vents du Nord et aux précipitations fréquentes, nous privilégions des solutions d'étanchéité robustes pour les maisons picardes.",
+    "description": "Dans les Hauts-de-France, l'Aisne subit un climat océanique dégradé avec des vents fréquents. Nos couvreurs à Laon, Saint-Quentin et Soissons excellent dans la pose d'ardoises résistantes aux intempéries et la rénovation de charpentes anciennes. Face aux précipitations importantes, nous privilégions l'étanchéité renforcée et l'isolation thermique performante.",
     "specialites": [
-      "Ardoises traditionnelles du Nord",
-      "Restauration de charpentes historiques",
-      "Étanchéité renforcée contre les intempéries"
+      "Pose d'ardoises traditionnelles",
+      "Rénovation de charpentes anciennes",
+      "Étanchéité renforcée"
     ],
     "keywords": [
       "couvreur Aisne",
       "ardoise Laon",
       "charpente Saint-Quentin",
-      "toiture Soissons"
+      "étanchéité Soissons"
     ]
   },
   {
     "code": "03",
     "name": "Allier",
     "slug": "allier",
-    "description": "Au cœur de l'Auvergne-Rhône-Alpes, l'Allier conjugue bocage bourbonnais et patrimoine thermal. Nos artisans couvreurs à Moulins, Montluçon et Vichy excellent dans la pose de tuiles plates bourguignonnes et l'isolation adaptée au climat continental. Nous restaurons également les toitures des châteaux bourbonnais avec des matériaux nobles respectant l'architecture locale.",
+    "description": "Au cœur de l'Auvergne-Rhône-Alpes, l'Allier bénéficie d'un climat continental modéré. Nos couvreurs à Moulins, Montluçon et Vichy maîtrisent la pose de tuiles plates traditionnelles et l'isolation adaptée aux variations thermiques. Nous intervenons également sur la restauration de toitures de châteaux avec des techniques respectueuses du patrimoine.",
     "specialites": [
-      "Tuiles plates bourguignonnes",
-      "Isolation pour climat continental",
-      "Restauration de châteaux bourbonnais"
+      "Pose de tuiles plates traditionnelles",
+      "Isolation thermique performante",
+      "Restauration de patrimoine"
     ],
     "keywords": [
       "couvreur Allier",
       "tuiles Moulins",
-      "toiture Montluçon",
-      "isolation Vichy"
+      "isolation Montluçon",
+      "patrimoine Vichy"
     ]
   },
   {
     "code": "04",
     "name": "Alpes-de-Haute-Provence",
     "slug": "alpes-de-haute-provence",
-    "description": "Entre Provence et Alpes, ce département offre des défis uniques avec ses variations d'altitude. Nos couvreurs à Digne-les-Bains, Manosque et Sisteron spécialisent dans les toitures provençales en tuiles canal et l'adaptation aux conditions de montagne. Face au mistral et aux écarts thermiques, nous proposons des solutions d'ancrage renforcé et d'isolation performante.",
+    "description": "Entre Provence et Alpes, ce département présente des variations climatiques importantes selon l'altitude. Nos couvreurs à Digne-les-Bains, Manosque et Sisteron spécialisent dans la pose de tuiles canal provençales et les systèmes d'ancrage renforcé contre le mistral. L'isolation est adaptée aux écarts thermiques jour/nuit.",
     "specialites": [
-      "Tuiles canal provençales",
-      "Ancrage renforcé contre le mistral",
-      "Isolation haute montagne"
+      "Pose de tuiles canal provençales",
+      "Ancrage renforcé anti-mistral",
+      "Isolation haute performance montagne"
     ],
     "keywords": [
       "couvreur Alpes-de-Haute-Provence",
-      "tuiles Digne",
-      "toiture Manosque",
-      "mistral Sisteron"
+      "tuiles canal Digne",
+      "mistral Manosque",
+      "montagne Sisteron"
     ]
   },
   {
     "code": "05",
     "name": "Hautes-Alpes",
     "slug": "hautes-alpes",
-    "description": "Dans les Alpes du Sud, les Hautes-Alpes présentent des conditions climatiques extrêmes. Nos couvreurs à Gap, Briançon et Embrun maîtrisent les toitures de montagne avec forte pente et les matériaux résistants aux cycles gel-dégel. L'enneigement important et l'exposition aux UV nécessitent des techniques spécialisées pour garantir la durabilité des couvertures alpines.",
+    "description": "Dans les Alpes du Sud, les Hautes-Alpes présentent des conditions climatiques extrêmes de haute montagne. Nos couvreurs à Gap, Briançon et Embrun maîtrisent les toitures à forte pente nécessaires à l'évacuation de la neige et utilisent des matériaux résistants aux cycles gel-dégel répétés. L'isolation haute performance est essentielle.",
     "specialites": [
-      "Toitures haute montagne",
-      "Résistance gel-dégel",
-      "Protection UV en altitude"
+      "Toitures à forte pente",
+      "Matériaux anti gel-dégel",
+      "Isolation haute montagne"
     ],
     "keywords": [
       "couvreur Hautes-Alpes",
-      "toiture Gap",
-      "montagne Briançon",
-      "neige Embrun"
+      "pente Gap",
+      "gel-dégel Briançon",
+      "isolation Embrun"
     ]
   },
   {
     "code": "06",
     "name": "Alpes-Maritimes",
     "slug": "alpes-maritimes",
-    "description": "Sur la Côte d'Azur, les Alpes-Maritimes combinent littoral méditerranéen et arrière-pays montagneux. Nos couvreurs à Nice, Cannes et Antibes excellent dans les toitures-terrasses modernes et les tuiles romanes traditionnelles. Face aux embruns marins et aux orages méditerranéens, nous proposons des solutions anticorrosion et d'évacuation d'eaux pluviales adaptées.",
+    "description": "Sur la Côte d'Azur, les Alpes-Maritimes combinent climat méditerranéen et embruns marins. Nos couvreurs à Nice, Cannes et Antibes excellent dans l'étanchéité de toitures-terrasses modernes et la pose de tuiles romanes. Les traitements anticorrosion sont essentiels face aux embruns, ainsi que les systèmes d'évacuation d'eaux pluviales pour les orages violents.",
     "specialites": [
-      "Toitures-terrasses contemporaines",
-      "Tuiles romanes traditionnelles",
-      "Protection anticorrosion marine"
+      "Étanchéité toitures-terrasses",
+      "Traitement anticorrosion marine",
+      "Évacuation eaux pluviales"
     ],
     "keywords": [
       "couvreur Alpes-Maritimes",
-      "terrasse Nice",
-      "tuiles Cannes",
-      "étanchéité Antibes"
+      "étanchéité Nice",
+      "anticorrosion Cannes",
+      "terrasse Antibes"
     ]
   },
   {
     "code": "07",
     "name": "Ardèche",
     "slug": "ardeche",
-    "description": "L'Ardèche, au cœur de l'Auvergne-Rhône-Alpes, offre un cadre sauvage avec ses gorges spectaculaires et ses villages de caractère. Nos artisans couvreurs à Privas, Annonay et dans tout le département spécialisent dans les toitures en lauze, typiques des maisons ardéchoises, et dans l'isolation adaptée aux variations climatiques de la région. Nous utilisons des matériaux locaux pour préserver le charme rustique des toits ardéchois.",
+    "description": "L'Ardèche, avec ses gorges et son relief accidenté, présente des défis d'accessibilité pour les travaux de couverture. Nos couvreurs à Privas, Annonay et Aubenas maîtrisent la pose de lauzes traditionnelles et l'étanchéité adaptée aux zones humides des gorges. L'isolation est renforcée pour faire face aux variations d'altitude.",
     "specialites": [
       "Pose de lauzes traditionnelles",
-      "Rénovation de toits en pierre pour les mas ardéchois",
-      "Étanchéité pour les zones humides des gorges"
+      "Étanchéité zones humides",
+      "Travaux en zones difficiles d'accès"
     ],
     "keywords": [
       "couvreur Ardèche",
-      "toiture lauze Privas",
-      "rénovation toit Annonay",
-      "isolation Ardèche"
+      "lauze Privas",
+      "étanchéité Annonay",
+      "accès Aubenas"
     ]
   },
   {
     "code": "08",
     "name": "Ardennes",
     "slug": "ardennes",
-    "description": "Aux frontières belge et luxembourgeoise, les Ardennes se caractérisent par leurs forêts denses et leur climat continental humide. Nos couvreurs à Charleville-Mézières, Sedan et Rethel maîtrisent les toitures en ardoise locale et les charpentes en bois des Ardennes. Face aux hivers rigoureux et aux précipitations importantes, nous privilégions l'isolation renforcée et l'étanchéité performante.",
+    "description": "Aux frontières belge et luxembourgeoise, les Ardennes subissent un climat continental humide rigoureux. Nos couvreurs à Charleville-Mézières, Sedan et Rethel excellent dans la pose d'ardoises locales et l'isolation renforcée contre le froid. Les charpentes en bois nécessitent des traitements spécifiques contre l'humidité.",
     "specialites": [
-      "Ardoise locale des Ardennes",
-      "Charpentes en bois régional",
-      "Isolation contre le froid continental"
+      "Pose d'ardoises locales",
+      "Isolation anti-froid",
+      "Traitement charpentes bois"
     ],
     "keywords": [
       "couvreur Ardennes",
       "ardoise Charleville-Mézières",
-      "charpente Sedan",
-      "isolation Rethel"
+      "isolation Sedan",
+      "charpente Rethel"
     ]
   },
   {
     "code": "09",
     "name": "Ariège",
     "slug": "ariege",
-    "description": "Nichée dans les Pyrénées, l'Ariège offre des paysages montagnards préservés. Nos couvreurs à Foix, Pamiers et Saint-Girons excellent dans les toitures de montagne avec forte pente et les matériaux pyrénéens traditionnels. L'enneigement et les vents de montagne exigent des techniques d'ancrage spécialisées et une isolation adaptée aux rigueurs pyrénéennes.",
+    "description": "Nichée dans les Pyrénées, l'Ariège présente des défis de haute montagne. Nos couvreurs à Foix, Pamiers et Saint-Girons maîtrisent les toitures à forte pente et les systèmes d'ancrage renforcé contre les vents de montagne. L'isolation haute performance est cruciale, ainsi que les pare-neige pour éviter les chutes dangereuses.",
     "specialites": [
-      "Toitures pyrénéennes traditionnelles",
-      "Ancrage contre les vents de montagne",
-      "Isolation haute performance montagnarde"
+      "Toitures forte pente montagne",
+      "Ancrage anti-vent",
+      "Pose de pare-neige"
     ],
     "keywords": [
       "couvreur Ariège",
-      "toiture Foix",
-      "montagne Pamiers",
-      "Pyrénées Saint-Girons"
+      "pente Foix",
+      "ancrage Pamiers",
+      "pare-neige Saint-Girons"
     ]
   },
   {
     "code": "10",
     "name": "Aube",
     "slug": "aube",
-    "description": "En Champagne-Ardenne, l'Aube allie vignobles champenois et plaines céréalières. Nos couvreurs à Troyes, Romilly-sur-Seine et Nogent-sur-Seine maîtrisent les toitures champenoises en tuiles plates et la restauration des colombages troyens. Le climat semi-continental nécessite des solutions d'isolation performantes et de gestion des eaux pluviales adaptées.",
+    "description": "En Champagne-Ardenne, l'Aube bénéficie d'un climat semi-continental. Nos couvreurs à Troyes, Romilly-sur-Seine et Nogent-sur-Seine spécialisent dans la pose de tuiles plates et la restauration de colombages. L'isolation thermique est adaptée aux variations saisonnières, et nous maîtrisons les techniques de zinguerie traditionnelle.",
     "specialites": [
-      "Tuiles plates champenoises",
+      "Pose de tuiles plates",
       "Restauration de colombages",
-      "Isolation semi-continentale"
+      "Zinguerie traditionnelle"
     ],
     "keywords": [
       "couvreur Aube",
       "tuiles Troyes",
       "colombage Romilly",
-      "toiture Nogent"
+      "zinguerie Nogent"
     ]
   },
   {
     "code": "11",
     "name": "Aude",
     "slug": "aude",
-    "description": "Entre Méditerranée et Pyrénées, l'Aude conjugue patrimoine cathare et vignobles. Nos couvreurs à Carcassonne, Narbonne et Limoux excellent dans les toitures méditerranéennes en tuiles canal et la restauration des monuments historiques. Face à la tramontane et aux orages cévenols, nous proposons des solutions d'ancrage renforcé et d'évacuation d'eaux pluviales optimisées.",
+    "description": "Entre Méditerranée et Pyrénées, l'Aude subit la tramontane et des orages violents. Nos couvreurs à Carcassonne, Narbonne et Limoux excellent dans la pose de tuiles canal et l'ancrage renforcé contre les vents. Nous maîtrisons également la restauration de patrimoine historique et les systèmes d'évacuation d'eaux pluviales pour les orages cévenols.",
     "specialites": [
-      "Tuiles canal méditerranéennes",
-      "Restauration patrimoine cathare",
-      "Protection contre la tramontane"
+      "Pose de tuiles canal",
+      "Ancrage anti-tramontane",
+      "Évacuation eaux pluviales renforcée"
     ],
     "keywords": [
       "couvreur Aude",
       "tuiles Carcassonne",
-      "patrimoine Narbonne",
-      "tramontane Limoux"
+      "tramontane Narbonne",
+      "évacuation Limoux"
     ]
   },
   {
     "code": "12",
     "name": "Aveyron",
     "slug": "aveyron",
-    "description": "Sur les causses et dans les vallées, l'Aveyron préserve son architecture rurale authentique. Nos couvreurs à Rodez, Millau et Villefranche-de-Rouergue maîtrisent les toitures en lauze du causse et les couvertures en ardoise des vallées. L'exposition aux vents et les variations thermiques nécessitent des techniques d'isolation et d'étanchéité adaptées au climat aveyronnais.",
+    "description": "Sur les causses aveyronnais, les conditions climatiques sont rudes avec des vents forts. Nos couvreurs à Rodez, Millau et Villefranche-de-Rouergue maîtrisent la pose de lauzes du causse et l'isolation adaptée aux variations thermiques importantes. L'étanchéité doit résister aux intempéries des plateaux calcaires.",
     "specialites": [
-      "Lauzes du causse aveyronnais",
-      "Ardoises des vallées",
-      "Isolation contre les vents du causse"
+      "Pose de lauzes du causse",
+      "Isolation anti-variations thermiques",
+      "Étanchéité plateaux"
     ],
     "keywords": [
       "couvreur Aveyron",
       "lauze Rodez",
-      "toiture Millau",
-      "causse Villefranche"
+      "causse Millau",
+      "isolation Villefranche"
     ]
   },
   {
     "code": "13",
     "name": "Bouches-du-Rhône",
     "slug": "bouches-du-rhone",
-    "description": "Entre Marseille et la Camargue, les Bouches-du-Rhône offrent une diversité méditerranéenne unique. Nos couvreurs à Marseille, Aix-en-Provence et Arles excellent dans les toitures provençales traditionnelles et les couvertures modernes urbaines. Face au mistral violent et aux embruns marins, nous proposons des solutions d'ancrage spécialisées et de protection anticorrosion.",
+    "description": "Entre Marseille et la Camargue, les Bouches-du-Rhône subissent le mistral violent et les embruns marins. Nos couvreurs à Marseille, Aix-en-Provence et Arles excellent dans l'ancrage renforcé contre le mistral et les traitements anticorrosion. Nous maîtrisons aussi bien les toitures urbaines modernes que les mas provençaux traditionnels.",
     "specialites": [
-      "Toitures provençales authentiques",
-      "Couvertures urbaines modernes",
-      "Ancrage renforcé contre le mistral"
+      "Ancrage renforcé anti-mistral",
+      "Traitement anticorrosion",
+      "Toitures urbaines et traditionnelles"
     ],
     "keywords": [
       "couvreur Bouches-du-Rhône",
-      "toiture Marseille",
-      "mistral Aix-en-Provence",
-      "Provence Arles"
+      "mistral Marseille",
+      "anticorrosion Aix-en-Provence",
+      "mas Arles"
     ]
   },
   {
     "code": "14",
     "name": "Calvados",
     "slug": "calvados",
-    "description": "Sur les côtes normandes, le Calvados allie patrimoine du Débarquement et bocage traditionnel. Nos couvreurs à Caen, Bayeux et Lisieux maîtrisent les toitures normandes en ardoise et les chaumières traditionnelles. Face aux vents marins et aux précipitations atlantiques, nous privilégions l'étanchéité renforcée et l'isolation adaptée au climat océanique.",
+    "description": "Sur les côtes normandes, le Calvados subit un climat océanique avec des vents marins constants. Nos couvreurs à Caen, Bayeux et Lisieux maîtrisent la pose d'ardoises normandes et la restauration de chaumières. L'étanchéité renforcée est essentielle face aux précipitations fréquentes et aux vents salés.",
     "specialites": [
-      "Ardoises normandes traditionnelles",
+      "Pose d'ardoises normandes",
       "Restauration de chaumières",
-      "Étanchéité contre les vents marins"
+      "Étanchéité renforcée maritime"
     ],
     "keywords": [
       "couvreur Calvados",
       "ardoise Caen",
       "chaume Bayeux",
-      "normandie Lisieux"
+      "étanchéité Lisieux"
     ]
   },
   {
     "code": "15",
     "name": "Cantal",
     "slug": "cantal",
-    "description": "Au cœur des volcans d'Auvergne, le Cantal présente des défis climatiques de montagne. Nos couvreurs à Aurillac, Saint-Flour et Mauriac excellent dans les toitures en lauze volcanique et les couvertures adaptées aux hivers rigoureux. L'altitude et l'exposition aux intempéries nécessitent des techniques d'isolation performantes et de résistance aux charges de neige.",
+    "description": "Au cœur des volcans d'Auvergne, le Cantal présente des conditions de moyenne montagne rigoureuses. Nos couvreurs à Aurillac, Saint-Flour et Mauriac excellent dans la pose de lauzes volcaniques et l'isolation haute performance. Les toitures doivent résister aux importantes charges de neige et aux vents d'altitude.",
     "specialites": [
-      "Lauzes volcaniques cantaliennes",
-      "Isolation haute performance montagnarde",
+      "Pose de lauzes volcaniques",
+      "Isolation haute performance",
       "Résistance aux charges de neige"
     ],
     "keywords": [
       "couvreur Cantal",
       "lauze Aurillac",
-      "volcans Saint-Flour",
-      "montagne Mauriac"
+      "isolation Saint-Flour",
+      "neige Mauriac"
     ]
   },
   {
     "code": "16",
     "name": "Charente",
     "slug": "charente",
-    "description": "Entre vignobles de Cognac et vallées paisibles, la Charente cultive son art de vivre. Nos couvreurs à Angoulême, Cognac et Confolens maîtrisent les toitures charentaises en tuiles canal et la restauration des logis anciens. Le climat océanique dégradé nécessite des solutions d'étanchéité adaptées et d'isolation contre l'humidité.",
+    "description": "En Charente, le climat océanique dégradé apporte une humidité constante. Nos couvreurs à Angoulême, Cognac et Confolens maîtrisent la pose de tuiles canal et l'étanchéité anti-humidité. La restauration de logis anciens nécessite des techniques traditionnelles préservées et des matériaux adaptés au patrimoine local.",
     "specialites": [
-      "Tuiles canal charentaises",
-      "Restauration de logis anciens",
-      "Protection contre l'humidité océanique"
+      "Pose de tuiles canal",
+      "Étanchéité anti-humidité",
+      "Restauration de logis anciens"
     ],
     "keywords": [
       "couvreur Charente",
       "tuiles Angoulême",
-      "cognac Cognac",
+      "humidité Cognac",
       "logis Confolens"
     ]
   },
@@ -275,16 +275,16 @@
     "code": "17",
     "name": "Charente-Maritime",
     "slug": "charente-maritime",
-    "description": "Sur la côte atlantique, la Charente-Maritime conjugue îles pittoresques et marais salants. Nos couvreurs à La Rochelle, Saintes et Rochefort maîtrisent les toitures marines résistantes aux embruns et les couvertures traditionnelles saintongeaises. L'exposition aux vents atlantiques et à la corrosion marine exige des matériaux et techniques spécialisés.",
+    "description": "Sur la côte atlantique, la Charente-Maritime subit les embruns marins et les tempêtes océaniques. Nos couvreurs à La Rochelle, Saintes et Rochefort excellent dans les traitements anticorrosion et l'étanchéité maritime. L'ancrage des toitures doit résister aux vents atlantiques violents.",
     "specialites": [
-      "Toitures marines anticorrosion",
-      "Couvertures saintongeaises traditionnelles",
-      "Résistance aux vents atlantiques"
+      "Traitement anticorrosion marine",
+      "Étanchéité maritime",
+      "Ancrage anti-vents atlantiques"
     ],
     "keywords": [
       "couvreur Charente-Maritime",
-      "marine La Rochelle",
-      "embruns Saintes",
+      "anticorrosion La Rochelle",
+      "maritime Saintes",
       "atlantique Rochefort"
     ]
   },
@@ -292,50 +292,50 @@
     "code": "18",
     "name": "Cher",
     "slug": "cher",
-    "description": "Au cœur de la France, le Cher allie châteaux de la Loire et vignobles de Sancerre. Nos couvreurs à Bourges, Vierzon et Saint-Amand-Montrond excellent dans la restauration de toitures de châteaux et les couvertures berrichonnes traditionnelles. Le climat continental nécessite une isolation performante et des solutions d'étanchéité adaptées aux variations thermiques.",
+    "description": "Au cœur de la France, le Cher bénéficie d'un climat continental modéré. Nos couvreurs à Bourges, Vierzon et Saint-Amand-Montrond maîtrisent la restauration de toitures de châteaux et la pose de couvertures traditionnelles berrichonnes. L'isolation thermique est adaptée aux variations saisonnières du climat continental.",
     "specialites": [
-      "Restauration de châteaux de la Loire",
-      "Toitures berrichonnes traditionnelles",
-      "Isolation contre les variations thermiques"
+      "Restauration toitures de châteaux",
+      "Couvertures berrichonnes",
+      "Isolation climat continental"
     ],
     "keywords": [
       "couvreur Cher",
       "châteaux Bourges",
-      "berry Vierzon",
-      "Loire Saint-Amand"
+      "berrichon Vierzon",
+      "continental Saint-Amand"
     ]
   },
   {
     "code": "19",
     "name": "Corrèze",
     "slug": "correze",
-    "description": "Entre plateaux limousins et vallées verdoyantes, la Corrèze préserve son patrimoine rural. Nos couvreurs à Tulle, Brive-la-Gaillarde et Ussel maîtrisent les toitures en ardoise limousine et les couvertures adaptées au climat montagnard du plateau de Millevaches. L'humidité et les variations d'altitude nécessitent des techniques d'isolation et d'étanchéité spécialisées.",
+    "description": "Entre plateaux limousins et vallées, la Corrèze présente un climat montagnard humide. Nos couvreurs à Tulle, Brive-la-Gaillarde et Ussel maîtrisent la pose d'ardoises limousines et l'étanchéité renforcée contre l'humidité. L'isolation doit être performante pour résister aux hivers rigoureux du plateau de Millevaches.",
     "specialites": [
-      "Ardoise limousine traditionnelle",
-      "Toitures du plateau de Millevaches",
-      "Isolation contre l'humidité montagnarde"
+      "Pose d'ardoises limousines",
+      "Étanchéité anti-humidité",
+      "Isolation montagnarde"
     ],
     "keywords": [
       "couvreur Corrèze",
       "ardoise Tulle",
-      "limousin Brive",
-      "plateau Ussel"
+      "humidité Brive",
+      "montagne Ussel"
     ]
   },
   {
     "code": "20",
     "name": "Corse",
     "slug": "corse",
-    "description": "Sur l'île de Beauté, la Corse offre des défis uniques entre maquis et montagne. Nos couvreurs à Ajaccio, Bastia et Corte maîtrisent les toitures méditerranéennes adaptées aux vents violents et les matériaux résistants aux embruns. Le climat insulaire, les tempêtes et la proximité marine nécessitent des techniques de fixation renforcées et de protection anticorrosion.",
+    "description": "Sur l'île de Beauté, la Corse présente des défis insulaires uniques avec des vents violents et des embruns constants. Nos couvreurs à Ajaccio, Bastia et Corte maîtrisent l'ancrage ultra-renforcé contre les tempêtes et les traitements anticorrosion marine. L'isolation doit s'adapter aux variations d'altitude entre littoral et montagne.",
     "specialites": [
-      "Toitures insulaires méditerranéennes",
-      "Fixation renforcée contre les tempêtes",
-      "Protection anticorrosion marine"
+      "Ancrage ultra-renforcé",
+      "Traitement anticorrosion",
+      "Isolation littoral-montagne"
     ],
     "keywords": [
       "couvreur Corse",
-      "insulaire Ajaccio",
-      "tempête Bastia",
+      "tempête Ajaccio",
+      "anticorrosion Bastia",
       "montagne Corte"
     ]
   },
@@ -343,96 +343,96 @@
     "code": "21",
     "name": "Côte-d'Or",
     "slug": "cote-dor",
-    "description": "Au cœur de la Bourgogne, la Côte-d'Or allie vignobles prestigieux et patrimoine dijonnais. Nos couvreurs à Dijon, Beaune et Montbard excellent dans les toitures bourguignonnes en tuiles vernissées et la restauration des domaines viticoles. Le climat semi-continental et la protection du patrimoine nécessitent des matériaux nobles et des techniques traditionnelles préservées.",
+    "description": "Au cœur de la Bourgogne, la Côte-d'Or bénéficie d'un climat semi-continental. Nos couvreurs à Dijon, Beaune et Montbard maîtrisent la pose de tuiles vernissées bourguignonnes et la restauration de patrimoine viticole. L'isolation thermique est adaptée aux variations saisonnières, et nous intervenons sur les chais et caves nécessitant une étanchéité spécifique.",
     "specialites": [
-      "Tuiles vernissées bourguignonnes",
-      "Restauration de domaines viticoles",
-      "Techniques traditionnelles bourguignonnes"
+      "Pose de tuiles vernissées",
+      "Restauration patrimoine viticole",
+      "Étanchéité caves et chais"
     ],
     "keywords": [
       "couvreur Côte-d'Or",
       "tuiles Dijon",
-      "vignobles Beaune",
-      "bourgogne Montbard"
+      "viticole Beaune",
+      "patrimoine Montbard"
     ]
   },
   {
     "code": "22",
     "name": "Côtes-d'Armor",
     "slug": "cotes-darmor",
-    "description": "Sur la côte bretonne, les Côtes-d'Armor affrontent les tempêtes atlantiques. Nos couvreurs à Saint-Brieuc, Lannion et Dinan maîtrisent les toitures bretonnes en ardoise et les couvertures résistantes aux vents marins. L'exposition aux embruns, aux pluies battantes et aux coups de vent nécessite des solutions d'étanchéité renforcées et d'ancrage spécialisé.",
+    "description": "Sur la côte bretonne, les Côtes-d'Armor affrontent les tempêtes atlantiques les plus violentes. Nos couvreurs à Saint-Brieuc, Lannion et Dinan maîtrisent l'ancrage ultra-renforcé contre les vents et la pose d'ardoises bretonnes. L'étanchéité doit résister aux pluies battantes et aux embruns constants.",
     "specialites": [
-      "Ardoises bretonnes traditionnelles",
-      "Ancrage renforcé contre les tempêtes",
-      "Étanchéité marine performante"
+      "Ancrage ultra-renforcé",
+      "Pose d'ardoises bretonnes",
+      "Étanchéité anti-tempêtes"
     ],
     "keywords": [
       "couvreur Côtes-d'Armor",
-      "ardoise Saint-Brieuc",
-      "tempête Lannion",
-      "bretagne Dinan"
+      "tempête Saint-Brieuc",
+      "ardoise Lannion",
+      "ancrage Dinan"
     ]
   },
   {
     "code": "23",
     "name": "Creuse",
     "slug": "creuse",
-    "description": "Sur le plateau limousin, la Creuse cultive l'authenticité rurale. Nos couvreurs à Guéret, Aubusson et La Souterraine maîtrisent les toitures en ardoise locale et les couvertures adaptées aux hivers rigoureux du plateau. L'isolement géographique et les conditions climatiques difficiles nécessitent des matériaux durables et des techniques d'isolation performantes.",
+    "description": "Sur le plateau limousin, la Creuse subit un climat rude avec des hivers rigoureux. Nos couvreurs à Guéret, Aubusson et La Souterraine excellent dans la pose d'ardoises locales et l'isolation haute performance. Les toitures doivent résister aux charges de neige importantes et aux vents du plateau.",
     "specialites": [
-      "Ardoise locale de la Creuse",
-      "Isolation contre les hivers rigoureux",
-      "Toitures rurales traditionnelles"
+      "Pose d'ardoises locales",
+      "Isolation haute performance",
+      "Résistance charges de neige"
     ],
     "keywords": [
       "couvreur Creuse",
       "ardoise Guéret",
-      "plateau Aubusson",
-      "rural La Souterraine"
+      "isolation Aubusson",
+      "plateau La Souterraine"
     ]
   },
   {
     "code": "24",
     "name": "Dordogne",
     "slug": "dordogne",
-    "description": "En Périgord, la Dordogne préserve son patrimoine architectural exceptionnel. Nos couvreurs à Périgueux, Bergerac et Sarlat-la-Canéda excellent dans les toitures en lauze périgordine et la restauration des châteaux et bastides. Le climat océanique dégradé et la protection du patrimoine historique nécessitent des matériaux nobles et des techniques traditionnelles maîtrisées.",
+    "description": "En Périgord, la Dordogne bénéficie d'un climat océanique dégradé avec une forte humidité. Nos couvreurs à Périgueux, Bergerac et Sarlat-la-Canéda maîtrisent la pose de lauzes périgordines et la restauration de patrimoine historique. L'étanchéité anti-humidité et l'isolation thermique sont essentielles.",
     "specialites": [
-      "Lauzes périgordines authentiques",
-      "Restauration de châteaux et bastides",
-      "Techniques traditionnelles du Périgord"
+      "Pose de lauzes périgordines",
+      "Restauration patrimoine historique",
+      "Étanchéité anti-humidité"
     ],
     "keywords": [
       "couvreur Dordogne",
       "lauze Périgueux",
-      "châteaux Bergerac",
-      "périgord Sarlat"
+      "patrimoine Bergerac",
+      "humidité Sarlat"
     ]
   },
   {
     "code": "25",
     "name": "Doubs",
     "slug": "doubs",
-    "description": "Dans le Jura franc-comtois, le Doubs affronte les rigueurs montagnardes. Nos couvreurs à Besançon, Montbéliard et Pontarlier maîtrisent les toitures jurassiennes traditionnelles et les couvertures adaptées aux fortes chutes de neige. Le climat montagnard continental nécessite des solutions d'isolation performantes et de résistance aux charges importantes.",
+    "description": "Dans le Jura franc-comtois, le Doubs subit des conditions montagnardes rigoureuses. Nos couvreurs à Besançon, Montbéliard et Pontarlier maîtrisent l'isolation haute performance et la résistance aux fortes charges de neige. Les toitures à forte pente et les systèmes de déneigement sont essentiels.",
     "specialites": [
-      "Toitures jurassiennes traditionnelles",
-      "Résistance aux fortes charges de neige",
-      "Isolation montagnarde performante"
+      "Isolation haute performance",
+      "Toitures forte pente",
+      "Systèmes de déneigement"
     ],
     "keywords": [
       "couvreur Doubs",
-      "jura Besançon",
+      "isolation Besançon",
       "neige Montbéliard",
-      "montagne Pontarlier"
+      "pente Pontarlier"
     ]
   },
   {
     "code": "26",
     "name": "Drôme",
     "slug": "drome",
-    "description": "Entre Vercors et Provence, la Drôme offre une diversité climatique remarquable. Nos couvreurs à Valence, Montélimar et Die maîtrisent les toitures provençales en tuiles canal et les couvertures de montagne. Face au mistral dans la vallée du Rhône et aux conditions alpines du Vercors, nous adaptons nos techniques selon les spécificités locales.",
+    "description": "Entre Vercors et Provence, la Drôme présente une grande diversité climatique. Nos couvreurs à Valence, Montélimar et Die maîtrisent la pose de tuiles canal et l'ancrage anti-mistral dans la vallée du Rhône, ainsi que l'isolation montagnarde pour les zones d'altitude du Vercors.",
     "specialites": [
-      "Tuiles canal drômoises",
-      "Toitures du Vercors",
-      "Protection contre le mistral rhodanien"
+      "Pose de tuiles canal",
+      "Ancrage anti-mistral",
+      "Isolation montagnarde"
     ],
     "keywords": [
       "couvreur Drôme",
@@ -445,203 +445,203 @@
     "code": "27",
     "name": "Eure",
     "slug": "eure",
-    "description": "Dans la campagne normande, l'Eure conjugue bocage et patrimoine architectural. Nos couvreurs à Évreux, Vernon et Louviers maîtrisent les toitures normandes traditionnelles et les chaumières du pays d'Ouche. Le climat océanique humide nécessite des solutions d'étanchéité performantes et d'isolation contre l'humidité persistante.",
+    "description": "Dans la campagne normande, l'Eure subit un climat océanique humide constant. Nos couvreurs à Évreux, Vernon et Louviers maîtrisent la restauration de chaumières et la pose de couvertures traditionnelles normandes. L'étanchéité anti-humidité est cruciale dans ce climat persistamment humide.",
     "specialites": [
-      "Chaumières du pays d'Ouche",
-      "Toitures normandes traditionnelles",
-      "Étanchéité contre l'humidité océanique"
+      "Restauration de chaumières",
+      "Couvertures normandes traditionnelles",
+      "Étanchéité anti-humidité"
     ],
     "keywords": [
       "couvreur Eure",
       "chaume Évreux",
       "normandie Vernon",
-      "bocage Louviers"
+      "humidité Louviers"
     ]
   },
   {
     "code": "28",
     "name": "Eure-et-Loir",
     "slug": "eure-et-loir",
-    "description": "Aux portes de l'Île-de-France, l'Eure-et-Loir cultive ses plaines céréalières. Nos couvreurs à Chartres, Dreux et Châteaudun excellent dans les toitures beauceronnes et la restauration du patrimoine religieux. Le climat océanique dégradé et les vents de plaine nécessitent des solutions d'ancrage adaptées et d'isolation performante.",
+    "description": "Aux portes de l'Île-de-France, l'Eure-et-Loir subit les vents de plaine et un climat océanique dégradé. Nos couvreurs à Chartres, Dreux et Châteaudun excellent dans l'ancrage adapté aux vents de plaine et la restauration de patrimoine religieux. L'isolation thermique performante est nécessaire.",
     "specialites": [
-      "Toitures beauceronnes traditionnelles",
-      "Restauration de patrimoine religieux",
-      "Ancrage adapté aux vents de plaine"
+      "Ancrage anti-vents de plaine",
+      "Restauration patrimoine religieux",
+      "Isolation thermique performante"
     ],
     "keywords": [
       "couvreur Eure-et-Loir",
-      "beauce Chartres",
-      "cathédrale Dreux",
-      "plaine Châteaudun"
+      "ancrage Chartres",
+      "patrimoine Dreux",
+      "isolation Châteaudun"
     ]
   },
   {
     "code": "29",
     "name": "Finistère",
     "slug": "finistere",
-    "description": "Au bout du monde breton, le Finistère affronte les tempêtes atlantiques les plus violentes. Nos couvreurs à Quimper, Brest et Morlaix maîtrisent les toitures bretonnes en ardoise et les couvertures ultra-résistantes aux intempéries. L'exposition extrême aux vents, embruns et pluies battantes nécessite des techniques d'ancrage et d'étanchéité exceptionnelles.",
+    "description": "Au bout du monde breton, le Finistère affronte les tempêtes atlantiques les plus violentes de France. Nos couvreurs à Quimper, Brest et Morlaix maîtrisent l'ancrage ultra-renforcé et l'étanchéité exceptionnelle. Les matériaux doivent résister aux embruns constants et aux vents extrêmes.",
     "specialites": [
-      "Toitures ultra-résistantes aux tempêtes",
-      "Ardoises bretonnes du Finistère",
-      "Ancrage exceptionnel contre les vents"
+      "Ancrage ultra-renforcé",
+      "Étanchéité exceptionnelle",
+      "Résistance embruns extrêmes"
     ],
     "keywords": [
       "couvreur Finistère",
       "tempête Quimper",
-      "atlantique Brest",
-      "ardoise Morlaix"
+      "embruns Brest",
+      "ancrage Morlaix"
     ]
   },
   {
     "code": "30",
     "name": "Gard",
     "slug": "gard",
-    "description": "Entre Cévennes et Camargue, le Gard allie patrimoine romain et nature sauvage. Nos couvreurs à Nîmes, Alès et Bagnols-sur-Cèze maîtrisent les toitures méditerranéennes en tuiles canal et les couvertures cévenoles. Face aux orages violents des Cévennes et au mistral camarguais, nous proposons des solutions d'évacuation d'eaux pluviales et d'ancrage adaptées.",
+    "description": "Entre Cévennes et Camargue, le Gard subit des orages violents et le mistral. Nos couvreurs à Nîmes, Alès et Bagnols-sur-Cèze maîtrisent l'évacuation d'eaux pluviales renforcée pour les orages cévenols et l'ancrage anti-mistral. La pose de tuiles canal résistantes aux intempéries est essentielle.",
     "specialites": [
-      "Tuiles canal gardoises",
-      "Toitures cévenoles traditionnelles",
-      "Évacuation d'eaux pluviales d'orage"
+      "Évacuation eaux pluviales renforcée",
+      "Ancrage anti-mistral",
+      "Pose tuiles canal résistantes"
     ],
     "keywords": [
       "couvreur Gard",
-      "tuiles Nîmes",
-      "cévennes Alès",
-      "mistral Bagnols"
+      "évacuation Nîmes",
+      "mistral Alès",
+      "orages Bagnols"
     ]
   },
   {
     "code": "31",
     "name": "Haute-Garonne",
     "slug": "haute-garonne",
-    "description": "Autour de Toulouse, la Haute-Garonne conjugue modernité urbaine et traditions pyrénéennes. Nos couvreurs à Toulouse, Muret et Saint-Gaudens excellent dans les toitures urbaines modernes et les couvertures toulousaines en tuiles canal. Le climat océanique dégradé et l'urbanisation croissante nécessitent des solutions d'isolation acoustique et thermique performantes.",
+    "description": "Autour de Toulouse, la Haute-Garonne bénéficie d'un climat océanique dégradé. Nos couvreurs à Toulouse, Muret et Saint-Gaudens maîtrisent les toitures urbaines modernes et l'isolation acoustique nécessaire en zone urbaine dense. La pose de tuiles canal et l'étanchéité de toitures-terrasses sont nos spécialités.",
     "specialites": [
-      "Toitures urbaines toulousaines",
-      "Tuiles canal haute-garonnaises",
-      "Isolation acoustique et thermique"
+      "Toitures urbaines modernes",
+      "Isolation acoustique",
+      "Étanchéité toitures-terrasses"
     ],
     "keywords": [
       "couvreur Haute-Garonne",
       "urbain Toulouse",
-      "tuiles Muret",
-      "moderne Saint-Gaudens"
+      "acoustique Muret",
+      "terrasse Saint-Gaudens"
     ]
   },
   {
     "code": "32",
     "name": "Gers",
     "slug": "gers",
-    "description": "Au cœur de la Gascogne, le Gers cultive l'art de vivre rural. Nos couvreurs à Auch, Condom et Mirande maîtrisent les toitures gasconnes traditionnelles et les fermes à colombages. Le climat océanique dégradé avec des étés chauds nécessite des solutions d'isolation thermique adaptées et de ventilation pour les combles des fermes gasconnes.",
+    "description": "Au cœur de la Gascogne, le Gers bénéficie d'un climat océanique dégradé avec des étés chauds. Nos couvreurs à Auch, Condom et Mirande maîtrisent la ventilation de combles et l'isolation thermique adaptée aux fortes chaleurs estivales. La restauration de fermes traditionnelles à colombages nécessite des techniques spécialisées.",
     "specialites": [
-      "Toitures gasconnes traditionnelles",
-      "Restauration de fermes à colombages",
-      "Ventilation des combles ruraux"
+      "Ventilation de combles",
+      "Isolation anti-chaleur",
+      "Restauration fermes colombages"
     ],
     "keywords": [
       "couvreur Gers",
-      "gascogne Auch",
-      "colombages Condom",
-      "ferme Mirande"
+      "ventilation Auch",
+      "chaleur Condom",
+      "colombages Mirande"
     ]
   },
   {
     "code": "33",
     "name": "Gironde",
     "slug": "gironde",
-    "description": "Autour de Bordeaux et ses vignobles, la Gironde allie patrimoine viticole et architecture bordelaise. Nos couvreurs à Bordeaux, Libourne et Arcachon maîtrisent les toitures girondines en tuiles canal et les couvertures des chais viticoles. Le climat océanique et la proximité du bassin d'Arcachon nécessitent des solutions d'étanchéité et de protection contre l'humidité marine.",
+    "description": "Autour de Bordeaux, la Gironde subit l'influence océanique et l'humidité du bassin d'Arcachon. Nos couvreurs à Bordeaux, Libourne et Arcachon maîtrisent l'étanchéité anti-humidité marine et la pose de tuiles canal. La restauration de chais viticoles nécessite une expertise particulière en ventilation.",
     "specialites": [
-      "Toitures de chais viticoles",
-      "Tuiles canal girondines",
-      "Protection contre l'humidité marine"
+      "Étanchéité anti-humidité marine",
+      "Restauration chais viticoles",
+      "Ventilation spécialisée"
     ],
     "keywords": [
       "couvreur Gironde",
-      "vignobles Bordeaux",
+      "humidité Bordeaux",
       "chais Libourne",
-      "bassin Arcachon"
+      "marine Arcachon"
     ]
   },
   {
     "code": "34",
     "name": "Hérault",
     "slug": "herault",
-    "description": "Entre mer et garrigue, l'Hérault conjugue modernité montpelliéraine et traditions languedociennes. Nos couvreurs à Montpellier, Béziers et Sète maîtrisent les toitures méditerranéennes modernes et les mas languedociens. Face aux orages cévenols et à la tramontane, nous proposons des solutions d'évacuation d'eaux pluviales renforcées et d'ancrage spécialisé.",
+    "description": "Entre mer et garrigue, l'Hérault subit la tramontane et des orages violents. Nos couvreurs à Montpellier, Béziers et Sète maîtrisent l'évacuation d'eaux pluviales pour les orages méditerranéens et l'ancrage anti-tramontane. L'étanchéité de toitures-terrasses modernes est une spécialité urbaine.",
     "specialites": [
-      "Toitures méditerranéennes modernes",
-      "Mas languedociens traditionnels",
-      "Évacuation d'eaux pluviales renforcée"
+      "Évacuation eaux pluviales méditerranéennes",
+      "Ancrage anti-tramontane",
+      "Étanchéité toitures-terrasses"
     ],
     "keywords": [
       "couvreur Hérault",
-      "moderne Montpellier",
-      "languedoc Béziers",
-      "méditerranée Sète"
+      "évacuation Montpellier",
+      "tramontane Béziers",
+      "terrasse Sète"
     ]
   },
   {
     "code": "35",
     "name": "Ille-et-Vilaine",
     "slug": "ille-et-vilaine",
-    "description": "Autour de Rennes, l'Ille-et-Vilaine allie dynamisme urbain et bocage traditionnel. Nos couvreurs à Rennes, Saint-Malo et Fougères maîtrisent les toitures bretonnes en ardoise et les couvertures résistantes aux tempêtes atlantiques. L'exposition aux vents marins et aux pluies fréquentes nécessite des solutions d'étanchéité performantes et d'isolation contre l'humidité.",
+    "description": "Autour de Rennes, l'Ille-et-Vilaine subit un climat océanique avec des tempêtes fréquentes. Nos couvreurs à Rennes, Saint-Malo et Fougères maîtrisent la pose d'ardoises bretonnes et l'étanchéité renforcée contre l'humidité persistante. L'ancrage doit résister aux vents marins violents sur la côte.",
     "specialites": [
-      "Ardoises bretonnes d'Ille-et-Vilaine",
-      "Résistance aux tempêtes atlantiques",
-      "Isolation contre l'humidité bretonne"
+      "Pose d'ardoises bretonnes",
+      "Étanchéité anti-humidité",
+      "Ancrage anti-vents marins"
     ],
     "keywords": [
       "couvreur Ille-et-Vilaine",
       "ardoise Rennes",
-      "corsaire Saint-Malo",
-      "bocage Fougères"
+      "humidité Saint-Malo",
+      "vents Fougères"
     ]
   },
   {
     "code": "36",
     "name": "Indre",
     "slug": "indre",
-    "description": "Au cœur du Berry, l'Indre préserve son patrimoine rural authentique. Nos couvreurs à Châteauroux, Issoudun et Le Blanc maîtrisent les toitures berrichonnes traditionnelles et les couvertures de fermes isolées. Le climat continental et l'isolement géographique nécessitent des matériaux durables et des techniques d'isolation adaptées aux variations thermiques importantes.",
+    "description": "Au cœur du Berry, l'Indre subit un climat continental avec des variations thermiques importantes. Nos couvreurs à Châteauroux, Issoudun et Le Blanc maîtrisent l'isolation adaptée aux écarts thermiques et la pose de couvertures traditionnelles berrichonnes. L'étanchéité doit résister aux cycles gel-dégel.",
     "specialites": [
-      "Toitures berrichonnes authentiques",
-      "Couvertures de fermes isolées",
-      "Isolation contre les variations thermiques"
+      "Isolation anti-variations thermiques",
+      "Couvertures berrichonnes",
+      "Étanchéité anti gel-dégel"
     ],
     "keywords": [
       "couvreur Indre",
-      "berry Châteauroux",
-      "rural Issoudun",
-      "ferme Le Blanc"
+      "isolation Châteauroux",
+      "berrichon Issoudun",
+      "gel-dégel Le Blanc"
     ]
   },
   {
     "code": "37",
     "name": "Indre-et-Loire",
     "slug": "indre-et-loire",
-    "description": "En Touraine, l'Indre-et-Loire cultive l'art de vivre des châteaux de la Loire. Nos couvreurs à Tours, Chinon et Amboise excellent dans la restauration de toitures de châteaux et les couvertures tourangelles en ardoise. Le patrimoine exceptionnel et le climat océanique dégradé nécessitent des matériaux nobles et des techniques traditionnelles préservées.",
+    "description": "En Touraine, l'Indre-et-Loire bénéficie d'un climat océanique dégradé doux. Nos couvreurs à Tours, Chinon et Amboise excellent dans la restauration de toitures de châteaux et la pose d'ardoises tourangelles. Les techniques patrimoniales et l'étanchéité respectueuse des monuments historiques sont nos spécialités.",
     "specialites": [
-      "Restauration de châteaux de la Loire",
-      "Ardoises tourangelles traditionnelles",
-      "Techniques patrimoniales de Touraine"
+      "Restauration toitures châteaux",
+      "Pose ardoises tourangelles",
+      "Techniques patrimoniales"
     ],
     "keywords": [
       "couvreur Indre-et-Loire",
       "châteaux Tours",
-      "touraine Chinon",
-      "loire Amboise"
+      "ardoise Chinon",
+      "patrimoine Amboise"
     ]
   },
   {
     "code": "38",
     "name": "Isère",
     "slug": "isere",
-    "description": "Entre Alpes et vallée du Rhône, l'Isère offre une diversité géographique exceptionnelle. Nos couvreurs à Grenoble, Vienne et Bourgoin-Jallieu maîtrisent les toitures alpines et les couvertures de plaine. L'altitude variable, de la vallée du Rhône aux sommets alpins, nécessite des techniques adaptées selon l'exposition et les conditions climatiques locales.",
+    "description": "Entre Alpes et vallée du Rhône, l'Isère présente une grande diversité d'altitude et de climat. Nos couvreurs à Grenoble, Vienne et Bourgoin-Jallieu maîtrisent l'isolation adaptée selon l'altitude et l'ancrage renforcé pour les zones montagnardes. Les toitures alpines nécessitent des techniques spécialisées.",
     "specialites": [
-      "Toitures alpines de montagne",
-      "Couvertures de vallée rhodanienne",
-      "Adaptation selon l'altitude"
+      "Isolation selon altitude",
+      "Toitures alpines spécialisées",
+      "Ancrage montagnard renforcé"
     ],
     "keywords": [
       "couvreur Isère",
-      "alpes Grenoble",
-      "rhône Vienne",
+      "altitude Grenoble",
+      "alpes Vienne",
       "montagne Bourgoin"
     ]
   },
@@ -649,169 +649,169 @@
     "code": "39",
     "name": "Jura",
     "slug": "jura",
-    "description": "Dans les montagnes du Jura, ce département affronte des conditions climatiques rigoureuses. Nos couvreurs à Lons-le-Saunier, Dole et Saint-Claude maîtrisent les toitures jurassiennes traditionnelles et les couvertures adaptées aux fortes chutes de neige. L'enneigement important et les gelées prolongées nécessitent des solutions de déneigement et d'isolation haute performance.",
+    "description": "Dans les montagnes du Jura, ce département subit des hivers rigoureux avec un enneigement important. Nos couvreurs à Lons-le-Saunier, Dole et Saint-Claude maîtrisent les toitures à forte pente pour l'évacuation de la neige et les systèmes de déneigement. L'isolation haute performance est cruciale.",
     "specialites": [
-      "Toitures jurassiennes à forte pente",
+      "Toitures forte pente",
       "Systèmes de déneigement",
-      "Isolation haute performance montagnarde"
+      "Isolation haute performance"
     ],
     "keywords": [
       "couvreur Jura",
-      "montagne Lons-le-Saunier",
+      "pente Lons-le-Saunier",
       "neige Dole",
-      "jurassien Saint-Claude"
+      "déneigement Saint-Claude"
     ]
   },
   {
     "code": "40",
     "name": "Landes",
     "slug": "landes",
-    "description": "Dans la forêt landaise et sur la côte atlantique, les Landes conjuguent pinèdes et stations balnéaires. Nos couvreurs à Mont-de-Marsan, Dax et Biscarrosse maîtrisent les toitures landaises adaptées au sable et aux embruns. L'exposition aux vents atlantiques et à la corrosion marine nécessite des matériaux résistants et des techniques d'ancrage spécialisées.",
+    "description": "Dans la forêt landaise et sur la côte atlantique, les Landes subissent les vents océaniques et les embruns. Nos couvreurs à Mont-de-Marsan, Dax et Biscarrosse maîtrisent l'ancrage en terrain sablonneux et les traitements anticorrosion contre les embruns. L'étanchéité doit résister à l'humidité maritime.",
     "specialites": [
-      "Toitures résistantes au sable",
-      "Protection contre les embruns atlantiques",
-      "Ancrage en terrain sablonneux"
+      "Ancrage terrain sablonneux",
+      "Traitement anticorrosion",
+      "Étanchéité anti-humidité maritime"
     ],
     "keywords": [
       "couvreur Landes",
-      "forêt Mont-de-Marsan",
-      "thermal Dax",
-      "côte Biscarrosse"
+      "sable Mont-de-Marsan",
+      "embruns Dax",
+      "maritime Biscarrosse"
     ]
   },
   {
     "code": "41",
     "name": "Loir-et-Cher",
     "slug": "loir-et-cher",
-    "description": "Au cœur des châteaux de la Loire, le Loir-et-Cher préserve un patrimoine architectural exceptionnel. Nos couvreurs à Blois, Romorantin-Lanthenay et Vendôme excellent dans la restauration de toitures de châteaux et les couvertures solognotes. Le patrimoine royal et le climat continental nécessitent des matériaux nobles et des techniques traditionnelles maîtrisées.",
+    "description": "Au cœur des châteaux de la Loire, le Loir-et-Cher bénéficie d'un climat continental modéré. Nos couvreurs à Blois, Romorantin-Lanthenay et Vendôme excellent dans la restauration de patrimoine royal et la pose de couvertures traditionnelles. Les techniques patrimoniales respectueuses sont essentielles.",
     "specialites": [
-      "Restauration de châteaux royaux",
-      "Toitures solognotes traditionnelles",
-      "Techniques patrimoniales de la Loire"
+      "Restauration patrimoine royal",
+      "Techniques patrimoniales",
+      "Couvertures traditionnelles"
     ],
     "keywords": [
       "couvreur Loir-et-Cher",
-      "châteaux Blois",
-      "sologne Romorantin",
-      "royal Vendôme"
+      "royal Blois",
+      "patrimoine Romorantin",
+      "châteaux Vendôme"
     ]
   },
   {
     "code": "42",
     "name": "Loire",
     "slug": "loire",
-    "description": "Entre monts du Forez et plaine stéphanoise, la Loire allie industrie et tradition. Nos couvreurs à Saint-Étienne, Roanne et Montbrison maîtrisent les toitures industrielles urbaines et les couvertures rurales foréziennnes. Le climat continental et l'héritage industriel nécessitent des solutions d'isolation acoustique et thermique adaptées aux zones urbaines denses.",
+    "description": "Entre monts du Forez et plaine stéphanoise, la Loire combine zones industrielles et rurales. Nos couvreurs à Saint-Étienne, Roanne et Montbrison maîtrisent l'isolation acoustique pour les zones industrielles et l'étanchéité adaptée à la pollution urbaine. Les toitures industrielles nécessitent des techniques spécialisées.",
     "specialites": [
-      "Toitures industrielles urbaines",
-      "Couvertures foréziennnes rurales",
-      "Isolation acoustique industrielle"
+      "Isolation acoustique industrielle",
+      "Étanchéité anti-pollution",
+      "Toitures industrielles"
     ],
     "keywords": [
       "couvreur Loire",
-      "industrie Saint-Étienne",
-      "forez Roanne",
-      "urbain Montbrison"
+      "acoustique Saint-Étienne",
+      "industriel Roanne",
+      "pollution Montbrison"
     ]
   },
   {
     "code": "43",
     "name": "Haute-Loire",
     "slug": "haute-loire",
-    "description": "Sur les hauts plateaux auvergnats, la Haute-Loire cultive l'authenticité montagnarde. Nos couvreurs au Puy-en-Velay, Monistrol-sur-Loire et Yssingeaux maîtrisent les toitures volcaniques en lauze et les couvertures adaptées aux hivers rigoureux du Velay. L'altitude et les conditions climatiques difficiles nécessitent des matériaux résistants et une isolation performante.",
+    "description": "Sur les hauts plateaux auvergnats, la Haute-Loire subit des conditions de haute altitude rigoureuses. Nos couvreurs au Puy-en-Velay, Monistrol-sur-Loire et Yssingeaux maîtrisent la pose de lauzes volcaniques et l'isolation haute performance. Les toitures doivent résister aux charges de neige importantes.",
     "specialites": [
-      "Lauzes volcaniques du Velay",
-      "Toitures de haute altitude",
-      "Isolation contre les hivers rigoureux"
+      "Pose lauzes volcaniques",
+      "Isolation haute altitude",
+      "Résistance charges neige"
     ],
     "keywords": [
       "couvreur Haute-Loire",
-      "volcans Le Puy",
-      "velay Monistrol",
-      "altitude Yssingeaux"
+      "lauze Le Puy",
+      "altitude Monistrol",
+      "neige Yssingeaux"
     ]
   },
   {
     "code": "44",
     "name": "Loire-Atlantique",
     "slug": "loire-atlantique",
-    "description": "Entre Nantes et la côte atlantique, la Loire-Atlantique conjugue dynamisme urbain et traditions maritimes. Nos couvreurs à Nantes, Saint-Nazaire et Châteaubriant maîtrisent les toitures urbaines modernes et les couvertures résistantes aux embruns. L'exposition maritime et l'urbanisation croissante nécessitent des solutions anticorrosion et d'isolation acoustique.",
+    "description": "Entre Nantes et la côte atlantique, la Loire-Atlantique subit l'influence maritime et l'urbanisation. Nos couvreurs à Nantes, Saint-Nazaire et Châteaubriant maîtrisent l'isolation acoustique urbaine et les traitements anticorrosion contre les embruns. L'étanchéité de toitures-terrasses modernes est courante.",
     "specialites": [
-      "Toitures urbaines nantaises",
-      "Couvertures résistantes aux embruns",
-      "Isolation acoustique urbaine"
+      "Isolation acoustique urbaine",
+      "Traitement anticorrosion",
+      "Étanchéité toitures-terrasses"
     ],
     "keywords": [
       "couvreur Loire-Atlantique",
-      "urbain Nantes",
-      "chantiers Saint-Nazaire",
-      "atlantique Châteaubriant"
+      "acoustique Nantes",
+      "embruns Saint-Nazaire",
+      "urbain Châteaubriant"
     ]
   },
   {
     "code": "45",
     "name": "Loiret",
     "slug": "loiret",
-    "description": "Autour d'Orléans et en Sologne, le Loiret cultive l'héritage royal et forestier. Nos couvreurs à Orléans, Montargis et Pithiviers excellent dans la restauration de patrimoine historique et les toitures solognotes. Le climat continental et la richesse patrimoniale nécessitent des matériaux nobles et des techniques traditionnelles préservées pour respecter l'architecture locale.",
+    "description": "Autour d'Orléans, le Loiret bénéficie d'un climat continental modéré. Nos couvreurs à Orléans, Montargis et Pithiviers maîtrisent la restauration de patrimoine historique et l'isolation thermique adaptée aux variations saisonnières. Les techniques traditionnelles orléanaises sont préservées.",
     "specialites": [
-      "Restauration de patrimoine royal",
-      "Toitures solognotes forestières",
-      "Techniques traditionnelles orléanaises"
+      "Restauration patrimoine historique",
+      "Isolation thermique",
+      "Techniques traditionnelles"
     ],
     "keywords": [
       "couvreur Loiret",
-      "royal Orléans",
-      "sologne Montargis",
-      "patrimoine Pithiviers"
+      "patrimoine Orléans",
+      "isolation Montargis",
+      "traditionnel Pithiviers"
     ]
   },
   {
     "code": "46",
     "name": "Lot",
     "slug": "lot",
-    "description": "Sur les causses du Quercy, le Lot préserve son architecture de pierre sèche. Nos couvreurs à Cahors, Figeac et Gourdon maîtrisent les toitures en lauze du causse et les couvertures quercynoises traditionnelles. Le climat continental et l'exposition aux vents du causse nécessitent des techniques d'ancrage adaptées et des matériaux résistants aux variations thermiques.",
+    "description": "Sur les causses du Quercy, le Lot subit des vents forts et des variations thermiques importantes. Nos couvreurs à Cahors, Figeac et Gourdon maîtrisent la pose de lauzes du causse et l'ancrage renforcé contre les vents. L'étanchéité doit résister aux conditions difficiles des plateaux calcaires.",
     "specialites": [
-      "Lauzes du causse du Quercy",
-      "Toitures quercynoises traditionnelles",
-      "Ancrage adapté aux vents du causse"
+      "Pose lauzes du causse",
+      "Ancrage anti-vents",
+      "Étanchéité plateaux calcaires"
     ],
     "keywords": [
       "couvreur Lot",
-      "causse Cahors",
-      "quercy Figeac",
-      "lauze Gourdon"
+      "lauze Cahors",
+      "vents Figeac",
+      "causse Gourdon"
     ]
   },
   {
     "code": "47",
     "name": "Lot-et-Garonne",
     "slug": "lot-et-garonne",
-    "description": "Entre coteaux d'Agen et vallées, le Lot-et-Garonne cultive ses traditions agricoles. Nos couvreurs à Agen, Marmande et Villeneuve-sur-Lot maîtrisent les toitures agenaises en tuiles canal et les couvertures des fermes fruitières. Le climat océanique dégradé et l'activité agricole nécessitent des solutions d'étanchéité adaptées et de ventilation pour les bâtiments agricoles.",
+    "description": "Entre coteaux et vallées, le Lot-et-Garonne bénéficie d'un climat océanique dégradé. Nos couvreurs à Agen, Marmande et Villeneuve-sur-Lot maîtrisent la pose de tuiles canal et la ventilation de bâtiments agricoles. L'étanchéité adaptée à l'activité fruitière est une spécialité.",
     "specialites": [
-      "Tuiles canal agenaises",
-      "Couvertures de fermes fruitières",
-      "Ventilation de bâtiments agricoles"
+      "Pose tuiles canal",
+      "Ventilation bâtiments agricoles",
+      "Étanchéité activité fruitière"
     ],
     "keywords": [
       "couvreur Lot-et-Garonne",
       "tuiles Agen",
       "agricole Marmande",
-      "ferme Villeneuve"
+      "ventilation Villeneuve"
     ]
   },
   {
     "code": "48",
     "name": "Lozère",
     "slug": "lozere",
-    "description": "Sur les hauts plateaux cévenols, la Lozère affronte des conditions climatiques extrêmes. Nos couvreurs à Mende, Florac et Marvejols maîtrisent les toitures cévenoles en schiste et les couvertures adaptées aux rigueurs montagnarde. L'altitude élevée et l'isolement géographique nécessitent des matériaux ultra-résistants et des techniques d'isolation haute performance.",
+    "description": "Sur les hauts plateaux cévenols, la Lozère subit des conditions climatiques extrêmes d'altitude. Nos couvreurs à Mende, Florac et Marvejols maîtrisent la pose de schiste cévenol et l'isolation ultra-performante. Les toitures doivent résister aux vents violents et aux charges de neige importantes.",
     "specialites": [
-      "Toitures cévenoles en schiste",
-      "Couvertures de haute altitude",
-      "Isolation ultra-performante"
+      "Pose schiste cévenol",
+      "Isolation ultra-performante",
+      "Résistance conditions extrêmes"
     ],
     "keywords": [
       "couvreur Lozère",
-      "cévennes Mende",
-      "schiste Florac",
+      "schiste Mende",
+      "extrême Florac",
       "altitude Marvejols"
     ]
   },
@@ -819,118 +819,118 @@
     "code": "49",
     "name": "Maine-et-Loire",
     "slug": "maine-et-loire",
-    "description": "En Anjou, le Maine-et-Loire conjugue douceur angevine et patrimoine ligérien. Nos couvreurs à Angers, Cholet et Saumur excellent dans les toitures angevines en ardoise et la restauration des châteaux de la Loire. Le climat océanique dégradé et la richesse patrimoniale nécessitent des matériaux nobles et des techniques traditionnelles angevines préservées.",
+    "description": "En Anjou, le Maine-et-Loire bénéficie d'un climat océanique dégradé doux. Nos couvreurs à Angers, Cholet et Saumur maîtrisent la pose d'ardoises angevines et la restauration de châteaux ligériens. Les techniques traditionnelles angevines et l'étanchéité patrimoniale sont nos spécialités.",
     "specialites": [
-      "Ardoises angevines traditionnelles",
-      "Restauration de châteaux ligériens",
-      "Techniques traditionnelles angevines"
+      "Pose ardoises angevines",
+      "Restauration châteaux",
+      "Techniques traditionnelles"
     ],
     "keywords": [
       "couvreur Maine-et-Loire",
       "ardoise Angers",
-      "anjou Cholet",
-      "châteaux Saumur"
+      "châteaux Cholet",
+      "angevin Saumur"
     ]
   },
   {
     "code": "50",
     "name": "Manche",
     "slug": "manche",
-    "description": "Sur la presqu'île du Cotentin, la Manche affronte les tempêtes de la mer du Nord. Nos couvreurs à Saint-Lô, Cherbourg-en-Cotentin et Avranches maîtrisent les toitures normandes résistantes aux intempéries et les couvertures du bocage cotentinais. L'exposition extrême aux vents marins et aux pluies battantes nécessite des solutions d'ancrage renforcé et d'étanchéité exceptionnelle.",
+    "description": "Sur la presqu'île du Cotentin, la Manche affronte les tempêtes les plus violentes de la façade atlantique. Nos couvreurs à Saint-Lô, Cherbourg-en-Cotentin et Avranches maîtrisent l'ancrage ultra-renforcé et l'étanchéité exceptionnelle. Les matériaux doivent résister aux conditions maritimes extrêmes.",
     "specialites": [
-      "Toitures ultra-résistantes aux tempêtes",
-      "Couvertures du bocage cotentinais",
-      "Ancrage renforcé contre les vents marins"
+      "Ancrage ultra-renforcé",
+      "Étanchéité exceptionnelle",
+      "Résistance maritime extrême"
     ],
     "keywords": [
       "couvreur Manche",
       "tempête Saint-Lô",
-      "cotentin Cherbourg",
-      "bocage Avranches"
+      "maritime Cherbourg",
+      "extrême Avranches"
     ]
   },
   {
     "code": "51",
     "name": "Marne",
     "slug": "marne",
-    "description": "En Champagne, la Marne allie vignobles prestigieux et plaines céréalières. Nos couvreurs à Reims, Châlons-en-Champagne et Épernay maîtrisent les toitures champenoises et la restauration des maisons de champagne. Le climat continental et le patrimoine viticole nécessitent des matériaux nobles adaptés aux caves et chais, avec une attention particulière à l'isolation thermique.",
+    "description": "En Champagne, la Marne bénéficie d'un climat continental avec des besoins spécifiques pour les caves viticoles. Nos couvreurs à Reims, Châlons-en-Champagne et Épernay maîtrisent l'isolation adaptée aux chais et caves, et la pose de couvertures traditionnelles champenoises.",
     "specialites": [
-      "Toitures de maisons de champagne",
-      "Couvertures champenoises traditionnelles",
-      "Isolation adaptée aux caves viticoles"
+      "Isolation chais et caves",
+      "Couvertures champenoises",
+      "Étanchéité viticole"
     ],
     "keywords": [
       "couvreur Marne",
-      "champagne Reims",
-      "vignobles Châlons",
-      "caves Épernay"
+      "caves Reims",
+      "champagne Châlons",
+      "viticole Épernay"
     ]
   },
   {
     "code": "52",
     "name": "Haute-Marne",
     "slug": "haute-marne",
-    "description": "Sur les plateaux de Langres, la Haute-Marne cultive l'authenticité rurale. Nos couvreurs à Chaumont, Saint-Dizier et Langres maîtrisent les toitures haut-marnaises traditionnelles et les couvertures adaptées aux hivers rigoureux des plateaux. L'altitude et le climat continental nécessitent des solutions d'isolation performantes et de résistance aux charges de neige.",
+    "description": "Sur les plateaux de Langres, la Haute-Marne subit un climat continental rigoureux avec des hivers difficiles. Nos couvreurs à Chaumont, Saint-Dizier et Langres maîtrisent l'isolation renforcée contre le froid et la résistance aux charges de neige importantes des plateaux.",
     "specialites": [
-      "Toitures des plateaux de Langres",
-      "Isolation contre les hivers rigoureux",
-      "Résistance aux charges de neige"
+      "Isolation anti-froid",
+      "Résistance charges neige",
+      "Toitures plateaux"
     ],
     "keywords": [
       "couvreur Haute-Marne",
-      "plateaux Chaumont",
-      "langres Saint-Dizier",
-      "rural Langres"
+      "froid Chaumont",
+      "neige Saint-Dizier",
+      "plateaux Langres"
     ]
   },
   {
     "code": "53",
     "name": "Mayenne",
     "slug": "mayenne",
-    "description": "Dans le bocage mayennais, ce département préserve ses traditions rurales. Nos couvreurs à Laval, Château-Gontier et Mayenne maîtrisent les toitures mayennaises en ardoise et les couvertures de fermes bocagères. Le climat océanique dégradé et l'habitat rural dispersé nécessitent des matériaux durables et des techniques d'isolation adaptées à l'habitat traditionnel.",
+    "description": "Dans le bocage mayennais, ce département subit un climat océanique dégradé humide. Nos couvreurs à Laval, Château-Gontier et Mayenne maîtrisent la pose d'ardoises mayennaises et l'étanchéité anti-humidité constante. L'isolation contre l'humidité persistante est essentielle.",
     "specialites": [
-      "Ardoises mayennaises traditionnelles",
-      "Couvertures de fermes bocagères",
-      "Isolation d'habitat rural traditionnel"
+      "Pose ardoises mayennaises",
+      "Étanchéité anti-humidité",
+      "Isolation anti-humidité"
     ],
     "keywords": [
       "couvreur Mayenne",
       "ardoise Laval",
-      "bocage Château-Gontier",
-      "rural Mayenne"
+      "humidité Château-Gontier",
+      "bocage Mayenne"
     ]
   },
   {
     "code": "54",
     "name": "Meurthe-et-Moselle",
     "slug": "meurthe-et-moselle",
-    "description": "Entre Nancy et les Vosges, la Meurthe-et-Moselle allie patrimoine ducal et traditions lorraines. Nos couvreurs à Nancy, Vandœuvre-lès-Nancy et Lunéville maîtrisent les toitures lorraines traditionnelles et la restauration du patrimoine Art nouveau. Le climat continental et la richesse architecturale nécessitent des matériaux nobles et des techniques adaptées au patrimoine lorrain.",
+    "description": "Entre Nancy et les Vosges, la Meurthe-et-Moselle subit un climat continental à influence montagnarde. Nos couvreurs à Nancy, Vandœuvre-lès-Nancy et Lunéville maîtrisent la restauration de patrimoine Art nouveau et l'isolation adaptée aux variations thermiques importantes du climat lorrain.",
     "specialites": [
-      "Restauration de patrimoine Art nouveau",
-      "Toitures lorraines traditionnelles",
-      "Techniques du patrimoine ducal"
+      "Restauration Art nouveau",
+      "Isolation climate continental",
+      "Techniques lorraines"
     ],
     "keywords": [
       "couvreur Meurthe-et-Moselle",
       "art nouveau Nancy",
-      "lorraine Vandœuvre",
-      "ducal Lunéville"
+      "continental Vandœuvre",
+      "lorrain Lunéville"
     ]
   },
   {
     "code": "55",
     "name": "Meuse",
     "slug": "meuse",
-    "description": "Entre Argonne et côtes de Meuse, ce département porte l'histoire de la Grande Guerre. Nos couvreurs à Bar-le-Duc, Verdun et Commercy maîtrisent les toitures meusiennes traditionnelles et la restauration du patrimoine historique. Le climat continental et l'héritage historique nécessitent des matériaux durables et des techniques respectueuses du patrimoine mémoriel.",
+    "description": "Entre Argonne et côtes de Meuse, ce département subit un climat continental rigoureux. Nos couvreurs à Bar-le-Duc, Verdun et Commercy maîtrisent la pose de tuiles plates traditionnelles et l'isolation renforcée contre les hivers froids. La restauration de patrimoine historique nécessite des techniques respectueuses et des matériaux durables adaptés au climat continental.",
     "specialites": [
-      "Toitures meusiennes traditionnelles",
-      "Restauration de patrimoine historique",
-      "Techniques respectueuses du patrimoine"
+      "Pose de tuiles plates",
+      "Isolation anti-froid",
+      "Restauration de patrimoine"
     ],
     "keywords": [
       "couvreur Meuse",
-      "histoire Bar-le-Duc",
-      "mémoire Verdun",
+      "tuiles Bar-le-Duc",
+      "isolation Verdun",
       "patrimoine Commercy"
     ]
   },
@@ -938,101 +938,101 @@
     "code": "56",
     "name": "Morbihan",
     "slug": "morbihan",
-    "description": "Entre golfe du Morbihan et landes bretonnes, ce département conjugue douceur maritime et traditions celtiques. Nos couvreurs à Vannes, Lorient et Pontivy maîtrisent les toitures bretonnes en ardoise et les couvertures résistantes aux tempêtes atlantiques. L'exposition aux embruns du golfe et aux vents marins nécessite des solutions anticorrosion et d'ancrage maritime spécialisé.",
+    "description": "Entre golfe du Morbihan et côtes atlantiques, ce département subit les embruns marins constants. Nos couvreurs à Vannes, Lorient et Pontivy excellent dans la pose d'ardoises bretonnes et les traitements anticorrosion. L'ancrage doit résister aux tempêtes atlantiques et l'étanchéité être renforcée face à l'humidité marine.",
     "specialites": [
-      "Toitures du golfe du Morbihan",
-      "Ardoises bretonnes traditionnelles",
-      "Ancrage maritime spécialisé"
+      "Pose d'ardoises bretonnes",
+      "Traitement anticorrosion marine",
+      "Ancrage anti-tempêtes"
     ],
     "keywords": [
       "couvreur Morbihan",
-      "golfe Vannes",
-      "maritime Lorient",
-      "bretagne Pontivy"
+      "ardoise Vannes",
+      "anticorrosion Lorient",
+      "tempête Pontivy"
     ]
   },
   {
     "code": "57",
     "name": "Moselle",
     "slug": "moselle",
-    "description": "Aux frontières allemande et luxembourgeoise, la Moselle cultive ses traditions transfrontalières. Nos couvreurs à Metz, Thionville et Forbach maîtrisent les toitures mosellanes et les techniques franco-allemandes. Le climat continental à influence rhénane nécessite des solutions d'isolation performantes et des matériaux adaptés aux variations thermiques importantes.",
+    "description": "Aux frontières allemande et luxembourgeoise, la Moselle subit un climat continental à influences rhénanes. Nos couvreurs à Metz, Thionville et Forbach maîtrisent l'isolation haute performance contre les variations thermiques importantes et la pose de matériaux adaptés aux hivers rigoureux. Les techniques de zinguerie sont essentielles pour l'évacuation des eaux.",
     "specialites": [
-      "Toitures mosellanes transfrontalières",
-      "Techniques franco-allemandes",
-      "Isolation à influence rhénane"
+      "Isolation haute performance",
+      "Zinguerie évacuation eaux",
+      "Matériaux anti-gel"
     ],
     "keywords": [
       "couvreur Moselle",
-      "transfrontalier Metz",
-      "rhénan Thionville",
-      "continental Forbach"
+      "isolation Metz",
+      "zinguerie Thionville",
+      "gel Forbach"
     ]
   },
   {
     "code": "58",
     "name": "Nièvre",
     "slug": "nievre",
-    "description": "Entre Loire et Morvan, la Nièvre préserve ses paysages sauvages et son patrimoine rural. Nos couvreurs à Nevers, Cosne-Cours-sur-Loire et Clamecy maîtrisent les toitures nivernaises traditionnelles et les couvertures adaptées au climat du Morvan. L'humidité du Morvan et les variations d'altitude nécessitent des solutions d'étanchéité adaptées et d'isolation contre l'humidité.",
+    "description": "Entre Loire et Morvan, la Nièvre présente des variations d'altitude et d'humidité importantes. Nos couvreurs à Nevers, Cosne-Cours-sur-Loire et Clamecy maîtrisent l'étanchéité adaptée aux zones humides du Morvan et l'isolation contre les variations thermiques. La pose de tuiles plates traditionnelles nécessite une expertise locale.",
     "specialites": [
-      "Toitures nivernaises traditionnelles",
-      "Couvertures adaptées au Morvan",
-      "Étanchéité contre l'humidité"
+      "Étanchéité zones humides",
+      "Isolation anti-variations",
+      "Pose de tuiles plates"
     ],
     "keywords": [
       "couvreur Nièvre",
-      "loire Nevers",
+      "humidité Nevers",
       "morvan Cosne",
-      "rural Clamecy"
+      "tuiles Clamecy"
     ]
   },
   {
     "code": "59",
     "name": "Nord",
     "slug": "nord",
-    "description": "Entre Flandres et Hainaut, le Nord cultive son héritage industriel et ses traditions flamandes. Nos couvreurs à Lille, Roubaix et Valenciennes maîtrisent les toitures nordistes en tuiles flamandes et les couvertures industrielles urbaines. Le climat océanique dégradé et l'urbanisation dense nécessitent des solutions d'isolation acoustique et thermique adaptées aux zones urbaines.",
+    "description": "En région des Hauts-de-France, le Nord subit un climat océanique dégradé avec des vents fréquents et une humidité constante. Nos couvreurs à Lille, Roubaix et Valenciennes excellent dans la pose de tuiles flamandes et l'isolation acoustique urbaine. L'étanchéité renforcée est cruciale face aux précipitations importantes.",
     "specialites": [
-      "Tuiles flamandes traditionnelles",
-      "Couvertures industrielles urbaines",
-      "Isolation acoustique dense"
+      "Pose de tuiles flamandes",
+      "Isolation acoustique urbaine",
+      "Étanchéité renforcée"
     ],
     "keywords": [
       "couvreur Nord",
       "flamand Lille",
-      "industriel Roubaix",
-      "urbain Valenciennes"
+      "acoustique Roubaix",
+      "étanchéité Valenciennes"
     ]
   },
   {
     "code": "60",
     "name": "Oise",
     "slug": "oise",
-    "description": "Aux portes de Paris, l'Oise conjugue patrimoine royal et modernité périurbaine. Nos couvreurs à Beauvais, Compiègne et Creil maîtrisent les toitures du Valois et la restauration de patrimoine royal. La proximité parisienne et le patrimoine historique nécessitent des matériaux nobles et des techniques adaptées à la fois au patrimoine et aux exigences modernes.",
+    "description": "Aux portes de Paris, l'Oise bénéficie d'un climat océanique dégradé. Nos couvreurs à Beauvais, Compiègne et Creil maîtrisent la restauration de patrimoine historique et les toitures résidentielles modernes. L'isolation thermique et acoustique doit répondre aux exigences de la proximité parisienne.",
     "specialites": [
-      "Toitures du Valois royal",
-      "Restauration de patrimoine royal",
-      "Techniques patrimoine-modernité"
+      "Restauration de patrimoine",
+      "Toitures résidentielles",
+      "Isolation thermique et acoustique"
     ],
     "keywords": [
       "couvreur Oise",
-      "royal Beauvais",
-      "valois Compiègne",
-      "périurbain Creil"
+      "patrimoine Beauvais",
+      "résidentiel Compiègne",
+      "isolation Creil"
     ]
   },
   {
     "code": "61",
     "name": "Orne",
     "slug": "orne",
-    "description": "Dans le bocage ornais, ce département cultive l'authenticité normande. Nos couvreurs à Alençon, Flers et Argentan maîtrisent les toitures ornaises traditionnelles et les couvertures du bocage normand. Le climat océanique et l'habitat rural dispersé nécessitent des matériaux résistants à l'humidité et des techniques d'isolation adaptées au patrimoine rural normand.",
+    "description": "Dans le bocage normand, l'Orne subit un climat océanique avec une humidité persistante. Nos couvreurs à Alençon, Flers et Argentan maîtrisent la pose d'ardoises normandes et l'étanchéité anti-humidité. La restauration de patrimoine rural nécessite des techniques traditionnelles préservées.",
     "specialites": [
-      "Toitures ornaises traditionnelles",
-      "Couvertures du bocage normand",
-      "Isolation patrimoine rural normand"
+      "Pose d'ardoises normandes",
+      "Étanchéité anti-humidité",
+      "Restauration patrimoine rural"
     ],
     "keywords": [
       "couvreur Orne",
-      "bocage Alençon",
-      "normandie Flers",
+      "ardoise Alençon",
+      "humidité Flers",
       "rural Argentan"
     ]
   },
@@ -1040,50 +1040,50 @@
     "code": "62",
     "name": "Pas-de-Calais",
     "slug": "pas-de-calais",
-    "description": "Face à l'Angleterre, le Pas-de-Calais affronte les tempêtes de la Manche. Nos couvreurs à Arras, Calais et Boulogne-sur-Mer maîtrisent les toitures nordistes résistantes aux intempéries et les couvertures du littoral. L'exposition extrême aux vents marins et la proximité de la Manche nécessitent des solutions d'ancrage ultra-renforcé et d'étanchéité maritime.",
+    "description": "Face à l'Angleterre, le Pas-de-Calais subit les tempêtes de la Manche avec des vents violents constants. Nos couvreurs à Arras, Calais et Boulogne-sur-Mer excellent dans l'ancrage ultra-renforcé et l'étanchéité maritime. Les traitements anticorrosion sont essentiels face aux embruns salés.",
     "specialites": [
-      "Toitures ultra-résistantes aux tempêtes",
-      "Couvertures de littoral",
-      "Ancrage ultra-renforcé maritime"
+      "Ancrage ultra-renforcé",
+      "Étanchéité maritime",
+      "Traitement anticorrosion"
     ],
     "keywords": [
       "couvreur Pas-de-Calais",
-      "tempête Arras",
-      "manche Calais",
-      "littoral Boulogne"
+      "ancrage Arras",
+      "maritime Calais",
+      "tempête Boulogne"
     ]
   },
   {
     "code": "63",
     "name": "Puy-de-Dôme",
     "slug": "puy-de-dome",
-    "description": "Au cœur des volcans d'Auvergne, le Puy-de-Dôme conjugue patrimoine volcanique et modernité clermontoise. Nos couvreurs à Clermont-Ferrand, Riom et Thiers maîtrisent les toitures volcaniques en lauze et les couvertures urbaines modernes. L'altitude variable et le climat montagnard nécessitent des solutions adaptées selon l'exposition et des matériaux résistants aux variations thermiques.",
+    "description": "Au cœur des volcans d'Auvergne, le Puy-de-Dôme présente des variations d'altitude importantes. Nos couvreurs à Clermont-Ferrand, Riom et Thiers maîtrisent la pose de lauzes volcaniques et l'isolation adaptée au climat montagnard. L'ancrage doit résister aux vents d'altitude et aux variations thermiques.",
     "specialites": [
-      "Lauzes volcaniques auvergnates",
-      "Toitures urbaines clermontoises",
-      "Adaptation selon l'altitude volcanique"
+      "Pose de lauzes volcaniques",
+      "Isolation montagnarde",
+      "Ancrage anti-vents d'altitude"
     ],
     "keywords": [
       "couvreur Puy-de-Dôme",
-      "volcans Clermont-Ferrand",
-      "lauze Riom",
-      "auvergne Thiers"
+      "lauze Clermont-Ferrand",
+      "montagne Riom",
+      "altitude Thiers"
     ]
   },
   {
     "code": "64",
     "name": "Pyrénées-Atlantiques",
     "slug": "pyrenees-atlantiques",
-    "description": "Entre océan et montagne, les Pyrénées-Atlantiques conjuguent traditions basques et béarnaises. Nos couvreurs à Pau, Bayonne et Biarritz maîtrisent les toitures basques traditionnelles et les couvertures béarnaises. L'exposition aux vents atlantiques et pyrénéens nécessite des solutions d'ancrage adaptées et des matériaux résistants aux conditions maritimes et montagnardes.",
+    "description": "Entre océan et montagne, les Pyrénées-Atlantiques combinent défis maritimes et montagnards. Nos couvreurs à Pau, Bayonne et Biarritz maîtrisent l'ancrage renforcé contre les vents atlantiques et pyrénéens, les traitements anticorrosion marine et l'isolation adaptée aux variations d'altitude.",
     "specialites": [
-      "Toitures basques traditionnelles",
-      "Couvertures béarnaises de montagne",
-      "Ancrage maritime et montagnard"
+      "Ancrage renforcé mixte",
+      "Traitement anticorrosion",
+      "Isolation multi-altitude"
     ],
     "keywords": [
       "couvreur Pyrénées-Atlantiques",
-      "basque Pau",
-      "océan Bayonne",
+      "ancrage Pau",
+      "anticorrosion Bayonne",
       "montagne Biarritz"
     ]
   },
@@ -1091,135 +1091,135 @@
     "code": "65",
     "name": "Hautes-Pyrénées",
     "slug": "hautes-pyrenees",
-    "description": "Dans les hautes vallées pyrénéennes, ce département affronte des conditions de haute montagne. Nos couvreurs à Tarbes, Lourdes et Bagnères-de-Bigorre maîtrisent les toitures pyrénéennes traditionnelles et les couvertures de haute altitude. L'enneigement important et l'exposition aux vents de montagne nécessitent des techniques spécialisées et des matériaux ultra-résistants.",
+    "description": "Dans les hautes vallées pyrénéennes, ce département affronte des conditions de haute montagne extrêmes. Nos couvreurs à Tarbes, Lourdes et Bagnères-de-Bigorre maîtrisent les toitures à très forte pente, l'isolation haute performance et les systèmes de pare-neige. L'ancrage doit résister aux avalanches et aux vents violents.",
     "specialites": [
-      "Toitures de haute montagne pyrénéenne",
-      "Résistance aux vents de montagne",
-      "Isolation haute altitude"
+      "Toitures très forte pente",
+      "Isolation haute performance",
+      "Systèmes pare-neige"
     ],
     "keywords": [
       "couvreur Hautes-Pyrénées",
-      "montagne Tarbes",
-      "pyrénées Lourdes",
-      "altitude Bagnères"
+      "pente Tarbes",
+      "isolation Lourdes",
+      "pare-neige Bagnères"
     ]
   },
   {
     "code": "66",
     "name": "Pyrénées-Orientales",
     "slug": "pyrenees-orientales",
-    "description": "Entre Méditerranée et Pyrénées catalanes, ce département conjugue soleil et montagne. Nos couvreurs à Perpignan, Canet-en-Roussillon et Prades maîtrisent les toitures catalanes en tuiles canal et les couvertures de montagne. La tramontane violente et l'exposition méditerranéenne nécessitent des solutions d'ancrage renforcé et de protection solaire.",
+    "description": "Entre Méditerranée et Pyrénées catalanes, ce département subit la tramontane violente et une forte exposition solaire. Nos couvreurs à Perpignan, Canet-en-Roussillon et Prades maîtrisent l'ancrage ultra-renforcé contre la tramontane, la pose de tuiles canal et l'isolation thermique renforcée contre la chaleur.",
     "specialites": [
-      "Tuiles catalanes traditionnelles",
-      "Ancrage renforcé contre la tramontane",
-      "Protection solaire méditerranéenne"
+      "Ancrage anti-tramontane",
+      "Pose tuiles canal",
+      "Isolation thermique renforcée"
     ],
     "keywords": [
       "couvreur Pyrénées-Orientales",
-      "catalan Perpignan",
-      "méditerranée Canet",
-      "tramontane Prades"
+      "tramontane Perpignan",
+      "tuiles Canet",
+      "isolation Prades"
     ]
   },
   {
     "code": "67",
     "name": "Bas-Rhin",
     "slug": "bas-rhin",
-    "description": "Au cœur de l'Alsace, le Bas-Rhin cultive ses traditions rhénanes et son patrimoine architectural unique. Nos couvreurs à Strasbourg, Haguenau et Sélestat maîtrisent les toitures alsaciennes traditionnelles et les techniques franco-allemandes. Le climat continental rhénan nécessite des solutions d'isolation performantes et des matériaux adaptés aux variations thermiques importantes.",
+    "description": "Au cœur de l'Alsace, le Bas-Rhin subit un climat continental rhénan avec des variations thermiques importantes. Nos couvreurs à Strasbourg, Haguenau et Sélestat maîtrisent l'isolation haute performance contre le froid et la pose de matériaux traditionnels alsaciens. La zinguerie doit résister aux cycles gel-dégel.",
     "specialites": [
-      "Toitures alsaciennes traditionnelles",
-      "Techniques franco-allemandes",
-      "Isolation continentale rhénane"
+      "Isolation haute performance",
+      "Matériaux alsaciens",
+      "Zinguerie anti gel-dégel"
     ],
     "keywords": [
       "couvreur Bas-Rhin",
-      "alsace Strasbourg",
-      "rhénan Haguenau",
-      "traditionnel Sélestat"
+      "isolation Strasbourg",
+      "alsacien Haguenau",
+      "gel-dégel Sélestat"
     ]
   },
   {
     "code": "68",
     "name": "Haut-Rhin",
     "slug": "haut-rhin",
-    "description": "Entre Vosges et Rhin, le Haut-Rhin allie montagne vosgienne et plaine alsacienne. Nos couvreurs à Mulhouse, Colmar et Saint-Louis maîtrisent les toitures vosgiennes de montagne et les couvertures alsaciennes de plaine. La diversité géographique nécessite des techniques adaptées selon l'altitude et l'exposition, du vignoble aux sommets vosgiens.",
+    "description": "Entre Vosges et Rhin, le Haut-Rhin présente des variations d'altitude importantes du vignoble aux sommets vosgiens. Nos couvreurs à Mulhouse, Colmar et Saint-Louis maîtrisent l'isolation adaptée selon l'altitude et la pose de matériaux montagnards. L'étanchéité doit résister aux précipitations vosgiennes.",
     "specialites": [
-      "Toitures vosgiennes de montagne",
-      "Couvertures de vignobles alsaciens",
-      "Adaptation montagne-plaine"
+      "Isolation selon altitude",
+      "Matériaux montagnards",
+      "Étanchéité vosgienne"
     ],
     "keywords": [
       "couvreur Haut-Rhin",
-      "vosges Mulhouse",
-      "vignoble Colmar",
-      "alsace Saint-Louis"
+      "altitude Mulhouse",
+      "montagne Colmar",
+      "vosges Saint-Louis"
     ]
   },
   {
     "code": "69",
     "name": "Rhône",
     "slug": "rhone",
-    "description": "Le Rhône, dominé par la métropole de Lyon, combine des toits urbains modernes et des couvertures traditionnelles du Beaujolais. Nos couvreurs à Lyon, Villefranche-sur-Saône et dans tout le département excellent dans la pose de tuiles canal pour les domaines viticoles et l'isolation des immeubles lyonnais. Nous intégrons des solutions éco-responsables, inspirées par l'esprit innovant de la capitale des Gaules.",
+    "description": "Autour de Lyon, le Rhône combine urbanisation dense et coteaux viticoles. Nos couvreurs à Lyon, Villefranche-sur-Saône et dans tout le département maîtrisent l'isolation acoustique urbaine, la pose de tuiles canal pour les vignobles et l'étanchéité de toitures-terrasses modernes. Les solutions éco-responsables sont privilégiées.",
     "specialites": [
-      "Toitures modernes pour les immeubles lyonnais",
-      "Tuiles canal pour les vignobles du Beaujolais",
-      "Solutions éco-responsables urbaines"
+      "Isolation acoustique urbaine",
+      "Toitures-terrasses modernes",
+      "Solutions éco-responsables"
     ],
     "keywords": [
       "couvreur Rhône",
-      "toiture Lyon",
-      "tuiles Beaujolais",
-      "isolation Villefranche"
+      "acoustique Lyon",
+      "terrasse Villefranche",
+      "éco-responsable"
     ]
   },
   {
     "code": "70",
     "name": "Haute-Saône",
     "slug": "haute-saone",
-    "description": "Entre Vosges et Jura, la Haute-Saône cultive ses traditions comtoises. Nos couvreurs à Vesoul, Lure et Gray maîtrisent les toitures comtoises traditionnelles et les couvertures adaptées au climat continental montagnard. L'influence vosgienne et jurassienne nécessite des solutions d'isolation performantes et de résistance aux charges de neige importantes.",
+    "description": "Entre Vosges et Jura, la Haute-Saône subit un climat continental montagnard rigoureux. Nos couvreurs à Vesoul, Lure et Gray maîtrisent l'isolation haute performance contre le froid, la résistance aux fortes charges de neige et la pose de matériaux traditionnels comtois adaptés aux hivers rudes.",
     "specialites": [
-      "Toitures comtoises traditionnelles",
-      "Isolation montagnarde performante",
-      "Résistance aux charges de neige"
+      "Isolation haute performance",
+      "Résistance charges de neige",
+      "Matériaux comtois"
     ],
     "keywords": [
       "couvreur Haute-Saône",
-      "comtois Vesoul",
-      "montagne Lure",
-      "continental Gray"
+      "isolation Vesoul",
+      "neige Lure",
+      "comtois Gray"
     ]
   },
   {
     "code": "71",
     "name": "Saône-et-Loire",
     "slug": "saone-et-loire",
-    "description": "Entre Charolais et Mâconnais, la Saône-et-Loire conjugue élevage et viticulture. Nos couvreurs à Mâcon, Chalon-sur-Saône et Le Creusot maîtrisent les toitures bourguignonnes et les couvertures de fermes d'élevage. Le climat continental et l'activité agricole nécessitent des solutions de ventilation adaptées et d'isolation pour les bâtiments agricoles et viticoles.",
+    "description": "Entre Charolais et Mâconnais, la Saône-et-Loire bénéficie d'un climat continental modéré. Nos couvreurs à Mâcon, Chalon-sur-Saône et Le Creusot maîtrisent la pose de tuiles bourguignonnes, la ventilation de bâtiments agricoles et viticoles, et l'isolation adaptée aux variations saisonnières.",
     "specialites": [
-      "Toitures bourguignonnes traditionnelles",
-      "Couvertures de fermes d'élevage",
-      "Ventilation de bâtiments viticoles"
+      "Pose tuiles bourguignonnes",
+      "Ventilation bâtiments agricoles",
+      "Isolation saisonnière"
     ],
     "keywords": [
       "couvreur Saône-et-Loire",
-      "bourgogne Mâcon",
-      "élevage Chalon",
-      "vignoble Le Creusot"
+      "tuiles Mâcon",
+      "ventilation Chalon",
+      "agricole Le Creusot"
     ]
   },
   {
     "code": "72",
     "name": "Sarthe",
     "slug": "sarthe",
-    "description": "Entre Maine et Perche, la Sarthe cultive ses traditions mancelles et rurales. Nos couvreurs au Mans, La Flèche et Sablé-sur-Sarthe maîtrisent les toitures sarthoises en ardoise et les couvertures rurales traditionnelles. Le climat océanique dégradé et l'habitat rural dispersé nécessitent des matériaux résistants à l'humidité et des techniques d'isolation adaptées.",
+    "description": "Entre Maine et Perche, la Sarthe subit un climat océanique dégradé avec une humidité persistante. Nos couvreurs au Mans, La Flèche et Sablé-sur-Sarthe maîtrisent la pose d'ardoises traditionnelles, l'étanchéité anti-humidité et l'isolation adaptée à l'habitat rural dispersé du Maine.",
     "specialites": [
-      "Ardoises sarthoises traditionnelles",
-      "Couvertures rurales du Maine",
-      "Isolation contre l'humidité océanique"
+      "Pose d'ardoises traditionnelles",
+      "Étanchéité anti-humidité",
+      "Isolation habitat rural"
     ],
     "keywords": [
       "couvreur Sarthe",
       "ardoise Le Mans",
-      "maine La Flèche",
+      "humidité La Flèche",
       "rural Sablé"
     ]
   },
@@ -1227,33 +1227,33 @@
     "code": "73",
     "name": "Savoie",
     "slug": "savoie",
-    "description": "Dans les Alpes savoyardes, ce département affronte des conditions de haute montagne. Nos couvreurs à Chambéry, Aix-les-Bains et Albertville maîtrisent les toitures alpines traditionnelles et les couvertures de stations de montagne. L'enneigement important et l'altitude nécessitent des techniques spécialisées de déneigement et d'isolation haute performance.",
+    "description": "Dans les Alpes savoyardes, ce département affronte des conditions de haute montagne avec un enneigement important. Nos couvreurs à Chambéry, Aix-les-Bains et Albertville maîtrisent les systèmes de déneigement, l'isolation haute performance alpine et l'ancrage renforcé contre les avalanches.",
     "specialites": [
-      "Toitures alpines savoyardes",
-      "Systèmes de déneigement automatique",
-      "Isolation haute performance alpine"
+      "Systèmes de déneigement",
+      "Isolation haute performance alpine",
+      "Ancrage anti-avalanche"
     ],
     "keywords": [
       "couvreur Savoie",
-      "alpes Chambéry",
-      "thermal Aix-les-Bains",
-      "montagne Albertville"
+      "déneigement Chambéry",
+      "alpin Aix-les-Bains",
+      "avalanche Albertville"
     ]
   },
   {
     "code": "74",
     "name": "Haute-Savoie",
     "slug": "haute-savoie",
-    "description": "Entre lac Léman et Mont-Blanc, la Haute-Savoie présente des défis de haute montagne. Nos couvreurs à Annecy, Thonon-les-Bains et Chamonix-Mont-Blanc maîtrisent les toitures de haute altitude et les couvertures résistantes aux conditions extrêmes. L'exposition aux vents de montagne et l'enneigement exceptionnel nécessitent des techniques ultra-spécialisées.",
+    "description": "Entre lac Léman et Mont-Blanc, la Haute-Savoie présente des conditions de très haute montagne extrêmes. Nos couvreurs à Annecy, Thonon-les-Bains et Chamonix-Mont-Blanc maîtrisent les techniques ultra-spécialisées de haute altitude, l'isolation exceptionnelle et les systèmes de sécurité anti-avalanche.",
     "specialites": [
-      "Toitures de très haute altitude",
-      "Résistance aux conditions extrêmes",
-      "Techniques ultra-spécialisées montagne"
+      "Techniques ultra-spécialisées",
+      "Isolation exceptionnelle",
+      "Sécurité anti-avalanche"
     ],
     "keywords": [
       "couvreur Haute-Savoie",
-      "lac Annecy",
-      "léman Thonon",
+      "haute-altitude Annecy",
+      "extrême Thonon",
       "mont-blanc Chamonix"
     ]
   },
@@ -1261,84 +1261,84 @@
     "code": "75",
     "name": "Paris",
     "slug": "paris",
-    "description": "Au cœur de la capitale, Paris conjugue patrimoine haussmannien et architecture contemporaine. Nos couvreurs dans tous les arrondissements maîtrisent les toitures parisiennes traditionnelles en zinc et les couvertures modernes urbaines. La densité urbaine et les contraintes patrimoniales nécessitent des techniques spécialisées et des matériaux nobles respectant l'architecture parisienne.",
+    "description": "Au cœur de la capitale, Paris présente des défis urbains uniques avec un patrimoine haussmannien exceptionnel. Nos couvreurs dans tous les arrondissements maîtrisent la restauration de toitures en zinc, l'isolation acoustique urbaine et l'étanchéité de toitures-terrasses. Les contraintes patrimoniales nécessitent une expertise particulière.",
     "specialites": [
-      "Toitures haussmanniennes en zinc",
-      "Couvertures contemporaines urbaines",
-      "Restauration de patrimoine parisien"
+      "Restauration zinc haussmannien",
+      "Isolation acoustique urbaine",
+      "Étanchéité toitures-terrasses"
     ],
     "keywords": [
       "couvreur Paris",
       "zinc haussmannien",
-      "patrimoine parisien",
-      "urbain moderne"
+      "acoustique urbain",
+      "terrasse patrimoine"
     ]
   },
   {
     "code": "76",
     "name": "Seine-Maritime",
     "slug": "seine-maritime",
-    "description": "Entre côte d'Albâtre et vallée de Seine, la Seine-Maritime conjugue patrimoine maritime et industriel. Nos couvreurs au Havre, Rouen et Dieppe maîtrisent les toitures normandes résistantes aux embruns et les couvertures industrielles portuaires. L'exposition maritime et l'activité portuaire nécessitent des solutions anticorrosion et d'ancrage maritime spécialisé.",
+    "description": "Entre côte d'Albâtre et vallée de Seine, la Seine-Maritime subit les embruns marins et les vents violents de la Manche. Nos couvreurs au Havre, Rouen et Dieppe excellent dans les traitements anticorrosion marine, l'ancrage ultra-renforcé et l'étanchéité adaptée aux activités portuaires industrielles.",
     "specialites": [
-      "Toitures résistantes aux embruns",
-      "Couvertures industrielles portuaires",
-      "Ancrage maritime spécialisé"
+      "Traitement anticorrosion marine",
+      "Ancrage ultra-renforcé",
+      "Étanchéité industrielle portuaire"
     ],
     "keywords": [
       "couvreur Seine-Maritime",
-      "port Le Havre",
-      "patrimoine Rouen",
-      "maritime Dieppe"
+      "anticorrosion Le Havre",
+      "ancrage Rouen",
+      "industriel Dieppe"
     ]
   },
   {
     "code": "77",
     "name": "Seine-et-Marne",
     "slug": "seine-et-marne",
-    "description": "Aux portes de Paris, la Seine-et-Marne allie patrimoine royal et modernité périurbaine. Nos couvreurs à Meaux, Melun et Fontainebleau maîtrisent les toitures franciliennes et la restauration de châteaux royaux. La proximité parisienne et le patrimoine exceptionnel nécessitent des matériaux nobles et des techniques adaptées aux exigences patrimoniales et modernes.",
+    "description": "Aux portes de Paris, la Seine-et-Marne combine patrimoine royal et habitat périurbain moderne. Nos couvreurs à Meaux, Melun et Fontainebleau maîtrisent la restauration de patrimoine historique, les toitures résidentielles modernes et l'isolation thermique et acoustique adaptée à la proximité parisienne.",
     "specialites": [
-      "Restauration de châteaux royaux",
-      "Toitures franciliennes modernes",
-      "Techniques patrimoine-périurbain"
+      "Restauration patrimoine royal",
+      "Toitures résidentielles modernes",
+      "Isolation thermique et acoustique"
     ],
     "keywords": [
       "couvreur Seine-et-Marne",
-      "royal Meaux",
-      "château Melun",
-      "patrimoine Fontainebleau"
+      "patrimoine Meaux",
+      "résidentiel Melun",
+      "royal Fontainebleau"
     ]
   },
   {
     "code": "78",
     "name": "Yvelines",
     "slug": "yvelines",
-    "description": "Entre Versailles et vallée de Seine, les Yvelines cultivent l'élégance royale et résidentielle. Nos couvreurs à Versailles, Saint-Germain-en-Laye et Mantes-la-Jolie maîtrisent les toitures de prestige et la restauration de patrimoine royal. Le prestige des lieux et la proximité parisienne nécessitent des matériaux d'exception et des techniques de haute qualité.",
+    "description": "Entre Versailles et vallée de Seine, les Yvelines cultivent le prestige résidentiel et patrimonial. Nos couvreurs à Versailles, Saint-Germain-en-Laye et Mantes-la-Jolie maîtrisent la restauration de patrimoine exceptionnel, les toitures de prestige et les techniques haut de gamme respectueuses des contraintes architecturales.",
     "specialites": [
-      "Toitures de prestige royal",
-      "Restauration de patrimoine d'exception",
-      "Techniques de haute qualité"
+      "Restauration patrimoine exceptionnel",
+      "Toitures de prestige",
+      "Techniques haut de gamme"
     ],
     "keywords": [
       "couvreur Yvelines",
-      "royal Versailles",
-      "prestige Saint-Germain",
-      "résidentiel Mantes"
+      "prestige Versailles",
+      "patrimoine Saint-Germain",
+      "haut-gamme Mantes"
     ]
   },
   {
     "code": "79",
     "name": "Deux-Sèvres",
     "slug": "deux-sevres",
-    "description": "Entre bocage et plaine, les Deux-Sèvres cultivent leurs traditions poitevines. Nos couvreurs à Niort, Bressuire et Parthenay maîtrisent les toitures poitevines traditionnelles et les couvertures rurales bocagères. Le climat océanique et l'habitat rural dispersé nécessitent des matériaux résistants à l'humidité et des techniques d'isolation adaptées au patrimoine poitevin.",
+    "description": "Entre bocage et plaine poitevine, les Deux-Sèvres subissent un climat océanique avec une humidité persistante. Nos couvreurs à Niort, Bressuire et Parthenay maîtrisent l'étanchéité anti-humidité, la pose de tuiles plates traditionnelles et l'isolation adaptée à l'habitat rural bocager dispersé.",
     "specialites": [
-      "Toitures poitevines traditionnelles",
-      "Couvertures rurales bocagères",
-      "Isolation patrimoine poitevin"
+      "Étanchéité anti-humidité",
+      "Pose tuiles plates",
+      "Isolation habitat rural"
     ],
     "keywords": [
       "couvreur Deux-Sèvres",
-      "poitevin Niort",
-      "bocage Bressuire",
+      "humidité Niort",
+      "tuiles Bressuire",
       "rural Parthenay"
     ]
   },
@@ -1346,16 +1346,16 @@
     "code": "80",
     "name": "Somme",
     "slug": "somme",
-    "description": "Entre baie de Somme et plaines picardes, ce département conjugue patrimoine maritime et agricole. Nos couvreurs à Amiens, Abbeville et Péronne maîtrisent les toitures picardes traditionnelles et les couvertures résistantes aux vents de plaine. L'exposition aux vents marins et continentaux nécessite des solutions d'ancrage adaptées et d'étanchéité renforcée.",
+    "description": "Entre baie de Somme et plaines picardes, ce département subit les vents marins et continentaux. Nos couvreurs à Amiens, Abbeville et Péronne maîtrisent l'ancrage renforcé contre les vents de plaine, l'étanchéité maritime et l'isolation adaptée aux grandes variations thermiques entre littoral et intérieur.",
     "specialites": [
-      "Toitures picardes traditionnelles",
-      "Couvertures résistantes aux vents",
-      "Ancrage adapté aux plaines"
+      "Ancrage anti-vents de plaine",
+      "Étanchéité maritime",
+      "Isolation variations thermiques"
     ],
     "keywords": [
       "couvreur Somme",
-      "picardie Amiens",
-      "baie Abbeville",
+      "ancrage Amiens",
+      "maritime Abbeville",
       "plaine Péronne"
     ]
   },
@@ -1363,33 +1363,33 @@
     "code": "81",
     "name": "Tarn",
     "slug": "tarn",
-    "description": "Entre Albi et les monts de Lacaune, le Tarn cultive son patrimoine cathare et ses traditions. Nos couvreurs à Albi, Castres et Gaillac maîtrisent les toitures albigeoisées en tuiles canal et les couvertures des monts du Tarn. Le climat méditerranéen dégradé et les variations d'altitude nécessitent des solutions adaptées selon l'exposition et la topographie.",
+    "description": "Entre Albi et monts de Lacaune, le Tarn présente des variations d'altitude avec un climat méditerranéen dégradé. Nos couvreurs à Albi, Castres et Gaillac maîtrisent la pose de tuiles canal, l'isolation adaptée aux écarts thermiques et l'étanchéité renforcée contre les orages violents du sud.",
     "specialites": [
-      "Tuiles canal albigeoisées",
-      "Toitures des monts du Tarn",
-      "Adaptation selon l'exposition"
+      "Pose tuiles canal",
+      "Isolation écarts thermiques",
+      "Étanchéité anti-orages"
     ],
     "keywords": [
       "couvreur Tarn",
-      "cathare Albi",
-      "monts Castres",
-      "vignoble Gaillac"
+      "tuiles Albi",
+      "isolation Castres",
+      "orages Gaillac"
     ]
   },
   {
     "code": "82",
     "name": "Tarn-et-Garonne",
     "slug": "tarn-et-garonne",
-    "description": "Entre Quercy et Lomagne, le Tarn-et-Garonne conjugue bastides et vergers. Nos couvreurs à Montauban, Castelsarrasin et Moissac maîtrisent les toitures de bastides et les couvertures agricoles fruitières. Le climat océanique dégradé et l'activité fruitière nécessitent des solutions de ventilation adaptées et d'isolation pour les bâtiments agricoles.",
+    "description": "Entre Quercy et Lomagne, le Tarn-et-Garonne bénéficie d'un climat océanique dégradé avec des étés chauds. Nos couvreurs à Montauban, Castelsarrasin et Moissac maîtrisent la ventilation de combles pour les bâtiments agricoles, l'isolation thermique renforcée et la pose de tuiles canal traditionnelles.",
     "specialites": [
-      "Toitures de bastides médiévales",
-      "Couvertures agricoles fruitières",
-      "Ventilation de bâtiments agricoles"
+      "Ventilation combles agricoles",
+      "Isolation thermique renforcée",
+      "Pose tuiles canal"
     ],
     "keywords": [
       "couvreur Tarn-et-Garonne",
-      "bastides Montauban",
-      "fruitier Castelsarrasin",
+      "ventilation Montauban",
+      "isolation Castelsarrasin",
       "agricole Moissac"
     ]
   },
@@ -1397,84 +1397,84 @@
     "code": "83",
     "name": "Var",
     "slug": "var",
-    "description": "Entre Méditerranée et arrière-pays provençal, le Var conjugue littoral azuréen et villages perchés. Nos couvreurs à Toulon, Fréjus et Draguignan maîtrisent les toitures provençales méditerranéennes et les couvertures résistantes au mistral. L'exposition aux embruns marins et aux vents violents nécessite des solutions d'ancrage renforcé et de protection anticorrosion.",
+    "description": "Entre Méditerranée et arrière-pays provençal, le Var subit le mistral violent et les embruns marins. Nos couvreurs à Toulon, Fréjus et Draguignan excellent dans l'ancrage ultra-renforcé contre le mistral, les traitements anticorrosion marine et l'isolation adaptée aux fortes chaleurs estivales.",
     "specialites": [
-      "Toitures provençales méditerranéennes",
-      "Ancrage renforcé contre le mistral",
-      "Protection anticorrosion marine"
+      "Ancrage ultra-renforcé mistral",
+      "Traitement anticorrosion",
+      "Isolation anti-chaleur"
     ],
     "keywords": [
       "couvreur Var",
-      "méditerranée Toulon",
-      "provence Fréjus",
-      "mistral Draguignan"
+      "mistral Toulon",
+      "anticorrosion Fréjus",
+      "chaleur Draguignan"
     ]
   },
   {
     "code": "84",
     "name": "Vaucluse",
     "slug": "vaucluse",
-    "description": "Entre Rhône et mont Ventoux, le Vaucluse cultive ses traditions provençales et viticoles. Nos couvreurs à Avignon, Carpentras et Orange maîtrisent les toitures provençales traditionnelles et les couvertures de domaines viticoles. Le mistral violent et l'exposition méditerranéenne nécessitent des solutions d'ancrage spécialisé et de protection contre les vents violents.",
+    "description": "Entre Rhône et mont Ventoux, le Vaucluse subit le mistral extrêmement violent et une forte exposition solaire. Nos couvreurs à Avignon, Carpentras et Orange maîtrisent l'ancrage spécialisé contre les vents violents, la ventilation de bâtiments viticoles et l'isolation thermique renforcée contre la chaleur.",
     "specialites": [
-      "Toitures provençales du Vaucluse",
-      "Couvertures de domaines viticoles",
-      "Protection contre le mistral violent"
+      "Ancrage anti-mistral violent",
+      "Ventilation viticole",
+      "Isolation thermique renforcée"
     ],
     "keywords": [
       "couvreur Vaucluse",
-      "provence Avignon",
-      "vignobles Carpentras",
-      "mistral Orange"
+      "mistral Avignon",
+      "viticole Carpentras",
+      "chaleur Orange"
     ]
   },
   {
     "code": "85",
     "name": "Vendée",
     "slug": "vendee",
-    "description": "Entre bocage et littoral atlantique, la Vendée conjugue traditions rurales et tourisme balnéaire. Nos couvreurs à La Roche-sur-Yon, Les Sables-d'Olonne et Fontenay-le-Comte maîtrisent les toitures vendéennes traditionnelles et les couvertures résistantes aux tempêtes atlantiques. L'exposition maritime et les vents océaniques nécessitent des solutions d'ancrage maritime et d'étanchéité renforcée.",
+    "description": "Entre bocage et littoral atlantique, la Vendée subit les tempêtes océaniques et les embruns salés. Nos couvreurs à La Roche-sur-Yon, Les Sables-d'Olonne et Fontenay-le-Comte maîtrisent l'ancrage renforcé contre les tempêtes, les traitements anticorrosion et l'étanchéité maritime adaptée au tourisme balnéaire.",
     "specialites": [
-      "Toitures vendéennes traditionnelles",
-      "Couvertures résistantes aux tempêtes",
-      "Ancrage maritime atlantique"
+      "Ancrage anti-tempêtes",
+      "Traitement anticorrosion",
+      "Étanchéité maritime"
     ],
     "keywords": [
       "couvreur Vendée",
-      "bocage La Roche",
-      "atlantique Les Sables",
-      "tempête Fontenay"
+      "tempête La Roche",
+      "anticorrosion Les Sables",
+      "maritime Fontenay"
     ]
   },
   {
     "code": "86",
     "name": "Vienne",
     "slug": "vienne",
-    "description": "Entre Poitou et Touraine, la Vienne cultive son patrimoine roman et ses traditions poitevines. Nos couvreurs à Poitiers, Châtellerault et Montmorillon maîtrisent les toitures poitevines traditionnelles et la restauration de patrimoine roman. Le climat océanique dégradé et la richesse patrimoniale nécessitent des matériaux durables et des techniques respectueuses du patrimoine historique.",
+    "description": "Entre Poitou et Touraine, la Vienne bénéficie d'un climat océanique dégradé modéré. Nos couvreurs à Poitiers, Châtellerault et Montmorillon maîtrisent la restauration de patrimoine roman, la pose de tuiles plates traditionnelles et l'isolation adaptée aux variations saisonnières du climat continental tempéré.",
     "specialites": [
-      "Toitures poitevines traditionnelles",
-      "Restauration de patrimoine roman",
-      "Techniques respectueuses du patrimoine"
+      "Restauration patrimoine roman",
+      "Pose tuiles plates",
+      "Isolation climat tempéré"
     ],
     "keywords": [
       "couvreur Vienne",
-      "poitou Poitiers",
-      "patrimoine Châtellerault",
-      "roman Montmorillon"
+      "roman Poitiers",
+      "tuiles Châtellerault",
+      "tempéré Montmorillon"
     ]
   },
   {
     "code": "87",
     "name": "Haute-Vienne",
     "slug": "haute-vienne",
-    "description": "Au cœur du Limousin, la Haute-Vienne cultive ses traditions limousines et son savoir-faire artisanal. Nos couvreurs à Limoges, Saint-Yrieix-la-Perche et Bellac maîtrisent les toitures limousines en ardoise et les couvertures rurales traditionnelles. Le climat océanique dégradé et l'habitat rural dispersé nécessitent des matériaux résistants et des techniques d'isolation adaptées.",
+    "description": "Au cœur du Limousin, la Haute-Vienne subit un climat océanique dégradé avec une humidité importante. Nos couvreurs à Limoges, Saint-Yrieix-la-Perche et Bellac maîtrisent la pose d'ardoises limousines, l'étanchéité anti-humidité et l'isolation adaptée à l'habitat rural dispersé des plateaux limousins.",
     "specialites": [
-      "Ardoises limousines traditionnelles",
-      "Couvertures rurales du Limousin",
-      "Savoir-faire artisanal traditionnel"
+      "Pose ardoises limousines",
+      "Étanchéité anti-humidité",
+      "Isolation habitat rural"
     ],
     "keywords": [
       "couvreur Haute-Vienne",
-      "limousin Limoges",
-      "ardoise Saint-Yrieix",
+      "ardoise Limoges",
+      "humidité Saint-Yrieix",
       "rural Bellac"
     ]
   },
@@ -1482,25 +1482,25 @@
     "code": "88",
     "name": "Vosges",
     "slug": "vosges",
-    "description": "Dans le massif vosgien, ce département affronte des conditions de moyenne montagne. Nos couvreurs à Épinal, Saint-Dié-des-Vosges et Gérardmer maîtrisent les toitures vosgiennes traditionnelles et les couvertures de montagne. L'enneigement important et l'exposition aux vents de montagne nécessitent des solutions d'isolation performantes et de résistance aux charges importantes.",
+    "description": "Dans le massif vosgien, ce département affronte des conditions de moyenne montagne avec un enneigement important. Nos couvreurs à Épinal, Saint-Dié-des-Vosges et Gérardmer maîtrisent l'isolation haute performance montagnarde, la résistance aux fortes charges de neige et l'étanchéité adaptée aux précipitations abondantes.",
     "specialites": [
-      "Toitures vosgiennes de montagne",
       "Isolation haute performance",
-      "Résistance aux charges de neige"
+      "Résistance charges de neige",
+      "Étanchéité précipitations"
     ],
     "keywords": [
       "couvreur Vosges",
-      "montagne Épinal",
-      "vosges Saint-Dié",
-      "altitude Gérardmer"
+      "isolation Épinal",
+      "neige Saint-Dié",
+      "précipitations Gérardmer"
     ]
   },
   {
     "code": "89",
     "name": "Yonne",
     "slug": "yonne",
-    "description": "Entre Bourgogne et Île-de-France, l'Yonne cultive ses traditions bourguignonnes et son patrimoine architectural. Nos couvreurs à Auxerre, Sens et Avallon maîtrisent les toitures bourguignonnes traditionnelles et la restauration de patrimoine médiéval. Le climat continental et la richesse patrimoniale nécessitent des matériaux nobles et des techniques traditionnelles préservées.",
-    "specialites": [
+    "description": "Entre Bourgogne et Île-de-France, l'Yonne bénéficie d'un climat continental modéré. Nos couvreurs à Auxerre, Sens et Avallon maîtrisent la restauration de patrimoine médiéval, la pose de tuiles bourguignonnes et l'isolation adaptée aux variations saisonnières du climat continental tempéré.",
+   "specialites": [
       "Toitures bourguignonnes de l'Yonne",
       "Restauration de patrimoine médiéval",
       "Techniques traditionnelles bourguignonnes"
