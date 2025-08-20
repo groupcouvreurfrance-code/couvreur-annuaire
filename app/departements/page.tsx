@@ -283,7 +283,7 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
                     }
 
                     return (
-                        <div id={"departements"} key={range} className="bg-white rounded-xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow duration-300">
+                        <div id={"departements"} key={range} className="bg-white rounded-xl border border-slate-200 hover:shadow-xl transition-shadow duration-300">
                           <div className="bg-gradient-to-r from-amber-600 to-amber-700 text-white px-6 py-4 rounded-t-xl">
                             <div className="flex items-center justify-between">
                               <div>
