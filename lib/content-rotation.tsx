@@ -18,427 +18,270 @@ export function getRotatingContent(communeName: string) {
 function getContentByVariant(variant: string, communeName: string) {
     const contentVariants = {
         variant1: {
-            title: `Travaux de couverture et rénovation de toiture à ${communeName}`,
+            title: `Couvreur à ${communeName} - Tous travaux de toiture`,
             sections: [
                 {
-                    title: "Restaurer votre couverture de toit",
-                    content: `Confiez la restauration de votre toiture à notre entreprise de couvreurs professionnels à ${communeName}. Réparer ou remplacer un revêtement endommagé demande des compétences spécifiques et un savoir-faire technique. Nous intervenons rapidement afin d'éviter que les petits défauts ne se transforment en problèmes majeurs, coûteux et complexes à traiter.`
+                    title: "Couverture et rénovation de toiture",
+                    content: `Spécialiste de la couverture à ${communeName}, nous réalisons tous vos travaux de toiture : pose, rénovation et réparation. Notre équipe intervient sur tous types de matériaux pour assurer l'étanchéité et la solidité de votre toit.`,
+                    image: "couverture-renovation-toiture.jpg"
                 },
                 {
-                    title: "Fixation et pose de charpente",
-                    content: "La charpente est l'ossature essentielle de votre toiture. Sa fixation doit être réalisée avec une précision irréprochable pour garantir la solidité de l'ensemble et assurer une évacuation optimale des eaux pluviales."
+                    title: "Pose de charpente",
+                    content: "La charpente est la structure qui soutient votre toiture. Nous concevons et installons des charpentes en bois traditionnelles ou industrielles, adaptées à votre projet et aux normes en vigueur.",
+                    image: "pose-charpente-bois.jpg"
                 },
                 {
-                    title: "Nettoyage professionnel de toiture",
-                    content: `Les mousses, lichens et dépôts peuvent altérer la performance de vos tuiles. Nos couvreurs à ${communeName} assurent un nettoyage complet et sécurisé pour prolonger la vie de votre couverture.`
+                    title: "Traitement de toiture",
+                    content: `Nous appliquons des traitements préventifs et curatifs pour protéger votre toiture à ${communeName}. Hydrofuge, antimousse, fongicide : ces traitements prolongent la durée de vie de votre couverture.`,
+                    image: "traitement-toiture-antimousse.jpg"
                 },
                 {
-                    title: "Gestion et réparation de fuites",
-                    content: "Une infiltration provenant de la toiture doit être traitée immédiatement. Nous localisons précisément la fuite et effectuons la réparation nécessaire pour stopper toute dégradation."
+                    title: "Nettoyage et démoussage",
+                    content: "Le nettoyage régulier de votre toiture élimine mousses, lichens et salissures. Cette opération préserve l'étanchéité et l'esthétique de votre couverture tout en évitant les infiltrations.",
+                    image: "nettoyage-demoussage-toit.jpg"
                 }
             ]
         },
 
         variant2: {
-            title: `Couvreur à ${communeName} – Rénovation et entretien de toiture`,
+            title: `Travaux de toiture à ${communeName} - Artisan couvreur`,
             sections: [
                 {
-                    title: "Travaux de restauration de toiture",
-                    content: `Notre entreprise de couverture à ${communeName} intervient pour redonner toute sa solidité à votre toit. Avec le temps, les intempéries fragilisent les matériaux et rendent la toiture vulnérable.`
+                    title: "Revêtement de toiture",
+                    content: `Installation et remplacement de tous revêtements de toiture à ${communeName} : tuiles, ardoises, zinc, bac acier. Nous vous conseillons sur le choix du matériau selon votre budget et l'architecture de votre maison.`,
+                    image: "revetement-tuiles-ardoises.jpg"
                 },
                 {
-                    title: "Charpente : fixation et pose soignées",
-                    content: "Élément central de votre toiture, la charpente doit être solidement fixée pour assurer la stabilité de l'ensemble et un bon écoulement des eaux pluviales."
+                    title: "Étanchéité toit-terrasse",
+                    content: "L'étanchéité des toits-terrasses demande une expertise particulière. Nous posons des membranes d'étanchéité adaptées pour créer une protection durable contre les infiltrations d'eau.",
+                    image: "etancheite-toit-terrasse.jpg"
                 },
                 {
-                    title: "Nettoyage et démoussage de toit",
-                    content: `Nos couvreurs à ${communeName} se chargent du nettoyage de vos tuiles, éliminant mousses et lichens. Un entretien régulier préserve l'étanchéité de votre couverture.`
+                    title: "Pose de Velux",
+                    content: "Installation de fenêtres de toit pour apporter lumière naturelle et ventilation. Nous réalisons la découpe, la pose et l'étanchéité autour du Velux pour un résultat parfait.",
+                    image: "pose-velux-fenetre-toit.jpg"
                 },
                 {
-                    title: "Réparation de fuites et infiltrations",
-                    content: "Une fuite de toiture doit être traitée immédiatement. Nos experts localisent l'origine du problème et réalisent les réparations nécessaires."
+                    title: "Isolation de toiture",
+                    content: "L'isolation de la toiture réduit les pertes de chaleur. Nous installons des isolants performants par l'intérieur ou l'extérieur pour améliorer votre confort et réduire vos factures énergétiques.",
+                    image: "isolation-toiture-combles.jpg"
                 }
             ]
         },
 
         variant3: {
-            title: `Réfection de toiture à ${communeName} - Expert en couverture`,
+            title: `Réparation de toiture à ${communeName} - Intervention rapide`,
             sections: [
                 {
-                    title: "Spécialiste de la réfection de toiture",
-                    content: `Notre équipe de couvreurs à ${communeName} maîtrise tous les aspects de la réfection. Ne laissez pas les petits problèmes s'aggraver et devenir coûteux.`
+                    title: "Zinguerie et évacuation des eaux",
+                    content: `En tant que couvreur-zingueur à ${communeName}, nous installons et réparons gouttières, chéneaux et descentes pluviales. Ces éléments sont essentiels pour évacuer l'eau loin de vos fondations.`,
+                    image: "zinguerie-gouttieres-zinc.jpg"
                 },
                 {
-                    title: "Installation d'ardoises naturelles",
-                    content: "L'ardoise reste un matériau prisé alliant élégance et durabilité. Nous vous conseillons sur la pose et l'entretien selon votre région et vos besoins."
+                    title: "Réparation d'infiltrations",
+                    content: "Une fuite de toiture doit être réparée rapidement pour éviter les dégâts. Nous localisons l'origine du problème et effectuons la réparation adaptée : tuiles cassées, joints défaillants, solins détériorés.",
+                    image: "reparation-fuite-toiture.jpg"
                 },
                 {
-                    title: "Entretien sécurisé de toiture",
-                    content: "Grimper sur un toit présente des risques. Nos professionnels se chargent du nettoyage et de l'entretien en toute sécurité pour préserver votre habitation."
+                    title: "Entretien préventif",
+                    content: "Un entretien régulier évite les grosses réparations. Nous proposons des contrats d'entretien incluant inspection, nettoyage et petites réparations pour maintenir votre toiture en bon état.",
+                    image: "entretien-preventif-toit.jpg"
                 },
                 {
-                    title: "Isolation thermique par l'extérieur",
-                    content: "L'isolation extérieure améliore les performances énergétiques. Nous étudions vos besoins et proposons la solution la plus adaptée à votre projet."
+                    title: "Diagnostic de toiture",
+                    content: "Avant tous travaux, nous établissons un diagnostic complet de l'état de votre toiture. Cette expertise nous permet de vous proposer les solutions les plus adaptées à votre situation.",
+                    image: "diagnostic-expertise-toiture.jpg"
                 }
             ]
         },
 
         variant4: {
-            title: `Services de couverture à ${communeName} - Artisan qualifié`,
+            title: `Installation de toiture à ${communeName} - Neuf et rénovation`,
             sections: [
                 {
-                    title: "Maîtrise des techniques traditionnelles",
-                    content: `Notre savoir-faire à ${communeName} s'appuie sur les techniques traditionnelles de couverture, adaptées aux spécificités architecturales locales et aux contraintes climatiques.`
+                    title: "Toiture neuve complète",
+                    content: `Pour vos constructions neuves à ${communeName}, nous réalisons l'ensemble : charpente, isolation, pare-vapeur, couverture et zinguerie. Un projet clé en main respectant les normes actuelles.`,
+                    image: "toiture-neuve-construction.jpg"
                 },
                 {
-                    title: "Rénovation de charpentes anciennes",
-                    content: "Les charpentes anciennes nécessitent une approche particulière. Nous préservons le caractère authentique tout en renforçant la structure selon les normes actuelles."
+                    title: "Rénovation de couverture",
+                    content: "Remplacement partiel ou total de votre couverture ancienne. Nous conservons les éléments sains et remplaçons les parties détériorées pour redonner une seconde vie à votre toit.",
+                    image: "renovation-couverture-ancienne.jpg"
                 },
                 {
-                    title: "Traitement préventif des matériaux",
-                    content: "La prévention reste la meilleure protection. Nous appliquons des traitements adaptés pour protéger vos matériaux contre les intempéries et le vieillissement."
+                    title: "Mise aux normes",
+                    content: "Les réglementations évoluent. Nous mettons votre toiture en conformité avec les normes actuelles d'isolation, de ventilation et de sécurité incendie.",
+                    image: "mise-aux-normes-toiture.jpg"
                 },
                 {
-                    title: "Solutions sur mesure",
-                    content: "Chaque toiture est unique. Nous concevons des solutions personnalisées en fonction de l'architecture, du budget et des contraintes techniques spécifiques."
+                    title: "Surélévation de toiture",
+                    content: "Gagner de l'espace habitable en modifiant la pente ou en créant un étage supplémentaire. Nous étudions la faisabilité et réalisons ces travaux complexes.",
+                    image: "surelevation-toiture-combles.jpg"
                 }
             ]
         },
 
         variant5: {
-            title: `Entreprise de toiture à ${communeName} - Travaux garantis`,
+            title: `Étanchéité toiture à ${communeName} - Protection garantie`,
             sections: [
                 {
-                    title: "Expertise en toitures complexes",
-                    content: `Toitures à forte pente, architecture atypique, contraintes urbanistiques : notre équipe à ${communeName} maîtrise les projets les plus exigeants avec professionnalisme.`
+                    title: "Étanchéité membrane",
+                    content: `Pose de membranes d'étanchéité sur toits-terrasses et toitures plates à ${communeName}. Nous utilisons des matériaux haute performance : EPDM, bitume modifié, résines liquides selon vos besoins.`,
+                    image: "etancheite-membrane-epdm.jpg"
                 },
                 {
-                    title: "Installation de systèmes d'évacuation",
-                    content: "Une évacuation efficace des eaux pluviales protège votre bâtiment. Nous dimensionnons et installons gouttières et descentes selon les règles de l'art."
+                    title: "Isolation thermique",
+                    content: "L'isolation par l'extérieur (sarking) ou par l'intérieur améliore les performances énergétiques. Nous choisissons la technique selon la configuration de votre toiture.",
+                    image: "isolation-thermique-sarking.jpg"
                 },
                 {
-                    title: "Maintenance préventive",
-                    content: "Un entretien régulier évite les réparations coûteuses. Nous proposons des contrats de maintenance adaptés à votre toiture et à votre budget."
+                    title: "Ventilation de toiture",
+                    content: "Une bonne ventilation évite la condensation et préserve la charpente. Installation d'entrées d'air en égout et de sorties en faîtage pour un renouvellement d'air optimal.",
+                    image: "ventilation-toiture-combles.jpg"
                 },
                 {
-                    title: "Conseil en matériaux durables",
-                    content: "Le choix des matériaux influence la longévité de votre toiture. Nous vous orientons vers les solutions les plus durables selon votre environnement."
+                    title: "Écran sous-toiture",
+                    content: "L'écran sous-toiture protège l'isolation et la charpente. Nous posons des écrans HPV (haute perméabilité à la vapeur) pour une protection optimale contre les infiltrations.",
+                    image: "ecran-sous-toiture-hpv.jpg"
                 }
             ]
         },
 
         variant6: {
-            title: `Couvreur zingueur à ${communeName} - Expertise métallique`,
+            title: `Traitement de toiture à ${communeName} - Protection durable`,
             sections: [
                 {
-                    title: "Spécialisation en zinguerie fine",
-                    content: `La zinguerie demande une précision d'orfèvre. Nos artisans à ${communeName} façonnent et posent tous éléments métalliques avec la minutie requise pour une étanchéité parfaite.`
+                    title: "Traitement hydrofuge",
+                    content: `Application de produits hydrofuges sur votre toiture à ${communeName}. Ce traitement protège les matériaux contre l'humidité et prolonge leur durée de vie en évitant l'absorption d'eau.`,
+                    image: "traitement-hydrofuge-toiture.jpg"
                 },
                 {
-                    title: "Restauration de toitures zinc",
-                    content: "Le zinc offre une durabilité exceptionnelle mais nécessite un savoir-faire spécifique. Nous restaurons et modernisons vos couvertures zinc selon les techniques ancestrales."
+                    title: "Traitement antimousse",
+                    content: "Élimination des mousses et lichens puis application d'un traitement préventif. Ce produit empêche la repousse et maintient votre toiture propre plus longtemps.",
+                    image: "traitement-antimousse-toit.jpg"
                 },
                 {
-                    title: "Création d'éléments décoratifs",
-                    content: "Au-delà de la fonction, nous créons des éléments décoratifs en zinc : épis de faîtage, girouettes, habillages de cheminées pour personnaliser votre toiture."
+                    title: "Démoussage professionnel",
+                    content: "Nettoyage complet de la toiture avec des produits adaptés. Nous éliminons toutes les salissures, mousses et dépôts sans endommager les matériaux de couverture.",
+                    image: "demoussage-professionnel-toiture.jpg"
                 },
                 {
-                    title: "Étanchéité haute performance",
-                    content: "Les raccords et joints sont cruciaux pour l'étanchéité. Nous maîtrisons toutes les techniques d'assemblage pour une protection optimale contre les infiltrations."
+                    title: "Protection longue durée",
+                    content: "Nos traitements offrent une protection efficace pendant plusieurs années. Nous adaptons les produits selon le type de couverture et l'exposition de votre toiture.",
+                    image: "protection-toiture-longue-duree.jpg"
                 }
             ]
         },
 
         variant7: {
-            title: `Réparation de toiture à ${communeName} - Intervention rapide`,
+            title: `Zinguerie à ${communeName} - Évacuation des eaux`,
             sections: [
                 {
-                    title: "Diagnostic précis des désordres",
-                    content: `Face à un problème de toiture à ${communeName}, nous établissons un diagnostic complet pour identifier les causes et proposer la solution la plus adaptée et économique.`
+                    title: "Installation de gouttières",
+                    content: `Pose de gouttières en zinc, aluminium ou PVC à ${communeName}. Nous dimensionnons le système selon la surface de votre toit pour une évacuation efficace des eaux pluviales.`,
+                    image: "installation-gouttieres-zinc.jpg"
                 },
                 {
-                    title: "Réparations d'urgence 24h/24",
-                    content: "Tempête, grêle, accident : nous intervenons en urgence pour sécuriser votre toiture et éviter l'aggravation des dégâts en attendant la réparation définitive."
+                    title: "Chéneaux et noues",
+                    content: "Réalisation de chéneaux pour toitures plates et de noues pour l'intersection des pans de toiture. Ces ouvrages en zinc assurent une étanchéité parfaite.",
+                    image: "cheneaux-noues-zinc.jpg"
                 },
                 {
-                    title: "Remise en conformité",
-                    content: "Les normes évoluent. Nous mettons votre toiture aux normes actuelles en matière de sécurité, d'isolation et de performance énergétique."
+                    title: "Habillage de cheminée",
+                    content: "Habillage et étanchéité autour des conduits de cheminée. Nous réalisons les solins et bavettes en zinc pour éviter toute infiltration d'eau.",
+                    image: "habillage-cheminee-zinc.jpg"
                 },
                 {
-                    title: "Garantie décennale",
-                    content: "Tous nos travaux sont couverts par la garantie décennale. Cette protection vous assure la tranquillité d'esprit sur la qualité et la durabilité de nos interventions."
+                    title: "Réparation zinguerie",
+                    content: "Réparation ou remplacement d'éléments de zinguerie détériorés. Nous intervenons rapidement pour maintenir l'évacuation des eaux et éviter les débordements.",
+                    image: "reparation-zinguerie-gouttieres.jpg"
                 }
             ]
         },
 
         variant8: {
-            title: `Installation de toiture à ${communeName} - Neuf et rénovation`,
+            title: `Pose de Velux à ${communeName} - Lumière naturelle`,
             sections: [
                 {
-                    title: "Pose de couvertures neuves",
-                    content: `Pour votre construction neuve à ${communeName}, nous installons tous types de couvertures : tuiles, ardoises, zinc, bac acier selon vos goûts et contraintes budgétaires.`
+                    title: "Installation fenêtre de toit",
+                    content: `Pose de Velux et fenêtres de toit à ${communeName}. Nous créons l'ouverture, installons la fenêtre et réalisons l'étanchéité pour apporter lumière et ventilation à vos combles.`,
+                    image: "pose-velux-fenetre-toit.jpg"
                 },
                 {
-                    title: "Optimisation énergétique",
-                    content: "Une toiture moderne contribue aux performances énergétiques. Nous intégrons isolation, ventilation et étanchéité pour un confort optimal été comme hiver."
+                    title: "Raccordement étanche",
+                    content: "Le raccordement de la fenêtre à la couverture est crucial. Nous utilisons des bavettes d'étanchéité adaptées à chaque type de couverture : tuiles, ardoises, bac acier.",
+                    image: "raccordement-etanche-velux.jpg"
                 },
                 {
-                    title: "Respect des délais",
-                    content: "Nous nous engageons sur des délais réalistes et les respectons. Notre organisation rigoureuse évite les retards et vous permet de planifier sereinement votre projet."
+                    title: "Habillage intérieur",
+                    content: "Finition soignée à l'intérieur avec habillage en placo et isolation périphérique. Nous réalisons un ensemble esthétique et performant thermiquement.",
+                    image: "habillage-interieur-velux.jpg"
                 },
                 {
-                    title: "Finitions soignées",
-                    content: "Les détails font la différence. Nous apportons un soin particulier aux finitions : rives, faîtages, raccords pour un résultat esthétique et durable."
+                    title: "Volets et stores",
+                    content: "Installation d'accessoires : volets roulants électriques, stores occultants ou vénitiens. Ces équipements améliorent le confort et la protection solaire.",
+                    image: "volets-stores-velux.jpg"
                 }
             ]
         },
 
         variant9: {
-            title: `Couverture traditionnelle à ${communeName} - Savoir-faire artisanal`,
+            title: `Charpente toiture à ${communeName} - Structure solide`,
             sections: [
                 {
-                    title: "Préservation du patrimoine bâti",
-                    content: `Les techniques traditionnelles de couverture font partie du patrimoine. À ${communeName}, nous perpétuons ces savoir-faire tout en les adaptant aux exigences contemporaines.`
+                    title: "Charpente traditionnelle",
+                    content: `Conception et réalisation de charpentes en bois massif à ${communeName}. Assemblages traditionnels avec tenons, mortaises et chevilles bois pour une structure authentique et durable.`,
+                    image: "charpente-traditionnelle-bois.jpg"
                 },
                 {
-                    title: "Matériaux authentiques",
-                    content: "Nous sélectionnons des matériaux de qualité respectant l'authenticité de votre bâtiment : tuiles plates, ardoises naturelles, zinc traditionnel."
+                    title: "Charpente industrielle",
+                    content: "Pose de charpentes à fermettes industrielles. Solution économique et rapide à mettre en œuvre, adaptée aux constructions contemporaines et aux grandes portées.",
+                    image: "charpente-industrielle-fermettes.jpg"
                 },
                 {
-                    title: "Formation continue",
-                    content: "Nos équipes se forment régulièrement aux évolutions techniques et réglementaires pour vous offrir des prestations conformes aux standards actuels."
+                    title: "Renforcement structure",
+                    content: "Consolidation de charpentes anciennes par ajout de pièces de renfort. Nous préservons l'existant tout en améliorant la résistance selon les normes actuelles.",
+                    image: "renforcement-charpente-ancienne.jpg"
                 },
                 {
-                    title: "Conseil personnalisé",
-                    content: "Chaque projet mérite une approche personnalisée. Nous vous accompagnons dans vos choix techniques et esthétiques selon vos contraintes et envies."
+                    title: "Traitement du bois",
+                    content: "Application de traitements préventifs et curatifs contre les insectes xylophages et champignons. Protection indispensable pour la longévité de votre charpente.",
+                    image: "traitement-bois-charpente.jpg"
                 }
             ]
         },
 
         variant10: {
-            title: `Étanchéité toiture à ${communeName} - Protection optimale`,
-            sections: [
-                {
-                    title: "Systèmes d'étanchéité modernes",
-                    content: `L'étanchéité évolue avec les technologies. À ${communeName}, nous maîtrisons les systèmes les plus performants : membranes, SEL, végétalisation pour tous types de toitures.`
-                },
-                {
-                    title: "Toitures terrasses accessibles",
-                    content: "Les toitures terrasses offrent un espace de vie supplémentaire. Nous réalisons l'étanchéité permettant un usage sécurisé : terrasse, jardin, parking."
-                },
-                {
-                    title: "Isolation thermique intégrée",
-                    content: "L'étanchéité et l'isolation forment un ensemble cohérent. Nous optimisons ces deux fonctions pour maximiser les performances énergétiques de votre bâtiment."
-                },
-                {
-                    title: "Contrôle qualité rigoureux",
-                    content: "L'étanchéité ne tolère aucun défaut. Nous effectuons des contrôles stricts à chaque étape pour garantir une protection parfaite contre les infiltrations."
-                }
-            ]
-        },
-
-        variant11: {
-            title: `Charpente couverture à ${communeName} - Structure et protection`,
-            sections: [
-                {
-                    title: "Conception de charpentes sur mesure",
-                    content: `Chaque charpente est unique. À ${communeName}, nous concevons et réalisons des structures adaptées à votre architecture, optimisant portées et charges selon les contraintes du site.`
-                },
-                {
-                    title: "Traitement du bois de charpente",
-                    content: "Le bois nécessite une protection adaptée. Nous appliquons les traitements préventifs et curatifs selon l'essence utilisée et l'exposition de la charpente."
-                },
-                {
-                    title: "Renforcement de structures",
-                    content: "Les charpentes anciennes peuvent nécessiter un renforcement. Nous évaluons la structure existante et proposons les solutions de consolidation appropriées."
-                },
-                {
-                    title: "Innovation et tradition",
-                    content: "Nous concilions techniques traditionnelles et innovations modernes pour créer des charpentes alliant authenticité, performance et durabilité."
-                }
-            ]
-        },
-
-        variant12: {
-            title: `Toiture écologique à ${communeName} - Solutions durables`,
-            sections: [
-                {
-                    title: "Matériaux écologiques",
-                    content: `Le choix de matériaux écologiques contribue au respect de l'environnement. À ${communeName}, nous proposons des solutions durables : tuiles recyclées, isolants biosourcés.`
-                },
-                {
-                    title: "Toitures végétalisées",
-                    content: "La végétalisation apporte isolation, biodiversité et gestion des eaux pluviales. Nous concevons des toitures vertes adaptées au climat local et à vos objectifs."
-                },
-                {
-                    title: "Récupération d'eau de pluie",
-                    content: "Valorisez l'eau de pluie avec nos systèmes de récupération intégrés. Nous dimensionnons et installons les équipements selon vos besoins d'usage."
-                },
-                {
-                    title: "Performance énergétique",
-                    content: "Une toiture performante réduit les consommations énergétiques. Nous optimisons isolation, étanchéité et ventilation pour un bâtiment économe."
-                }
-            ]
-        },
-
-        variant13: {
-            title: `Dépannage toiture à ${communeName} - Service d'urgence`,
-            sections: [
-                {
-                    title: "Intervention d'urgence rapide",
-                    content: `Face à une urgence toiture à ${communeName}, nous intervenons rapidement pour limiter les dégâts et sécuriser votre habitation en attendant la réparation définitive.`
-                },
-                {
-                    title: "Bâchage et mise en sécurité",
-                    content: "En cas de dégâts importants, nous installons des bâches de protection étanches pour protéger l'intérieur de votre maison contre les intempéries."
-                },
-                {
-                    title: "Évaluation des dommages",
-                    content: "Nous évaluons l'étendue des dégâts pour établir un plan de réparation prioritaire et vous accompagner dans vos démarches d'assurance."
-                },
-                {
-                    title: "Réparations provisoires",
-                    content: "Nous effectuons les réparations provisoires nécessaires pour maintenir l'étanchéité en attendant les réparations définitives selon vos contraintes de planning."
-                }
-            ]
-        },
-
-        variant14: {
             title: `Isolation toiture à ${communeName} - Confort thermique`,
             sections: [
                 {
-                    title: "Isolation par l'extérieur performante",
-                    content: `L'isolation par l'extérieur préserve l'espace habitable. À ${communeName}, nous maîtrisons les techniques d'isolation continue pour éliminer les ponts thermiques.`
+                    title: "Isolation combles perdus",
+                    content: `Isolation de combles non aménageables à ${communeName} par soufflage ou déroulage d'isolant. Cette intervention simple améliore considérablement les performances énergétiques de votre maison.`,
+                    image: "isolation-combles-perdus-soufflage.jpg"
                 },
                 {
-                    title: "Choix des isolants adaptés",
-                    content: "Chaque isolant a ses propriétés. Nous vous conseillons selon vos objectifs : thermique, acoustique, écologique pour optimiser votre confort et vos économies."
+                    title: "Isolation rampants",
+                    content: "Isolation des rampants de toiture pour combles aménagés. Nous posons l'isolant entre chevrons et sous chevrons pour une isolation continue et performante.",
+                    image: "isolation-rampants-combles.jpg"
                 },
                 {
-                    title: "Ventilation et étanchéité",
-                    content: "Une isolation efficace nécessite une ventilation maîtrisée. Nous concevons des systèmes complets préservant la qualité de l'air intérieur."
+                    title: "Isolation par l'extérieur",
+                    content: "Méthode sarking : isolation posée sur la charpente avant la couverture. Cette technique supprime tous les ponts thermiques et préserve l'espace habitable.",
+                    image: "isolation-exterieur-sarking.jpg"
                 },
                 {
-                    title: "Amélioration énergétique",
-                    content: "L'isolation de toiture peut diviser par deux vos pertes thermiques. Nous vous accompagnons pour optimiser les performances énergétiques de votre logement."
+                    title: "Pare-vapeur étanchéité",
+                    content: "Pose de pare-vapeur côté chauffé pour éviter la condensation dans l'isolant. Élément essentiel pour la durabilité de l'isolation et de la charpente.",
+                    image: "pare-vapeur-etancheite-air.jpg"
                 }
             ]
-        },
-
-        variant15: {
-            title: `Nettoyage toiture à ${communeName} - Entretien préventif`,
-            sections: [
-                {
-                    title: "Démoussage professionnel sécurisé",
-                    content: `Le démoussage préserve l'étanchéité de votre toiture. À ${communeName}, nos équipes interviennent en sécurité pour éliminer mousses, lichens et algues durablement.`
-                },
-                {
-                    title: "Traitement hydrofuge",
-                    content: "Après nettoyage, nous appliquons un traitement hydrofuge pour protéger vos matériaux et retarder la repousse des végétaux parasites."
-                },
-                {
-                    title: "Inspection complète",
-                    content: "Le nettoyage est l'occasion d'inspecter votre toiture. Nous détectons les désordres naissants pour vous permettre d'anticiper les réparations."
-                },
-                {
-                    title: "Planification d'entretien",
-                    content: "Nous vous conseillons sur la fréquence d'entretien adaptée à votre toiture et votre environnement pour préserver sa longévité et son esthétique."
-                }
-            ]
-        },
-
-        variant16: {
-            title: `Gouttières à ${communeName} - Évacuation des eaux`,
-            sections: [
-                {
-                    title: "Installation de gouttières sur mesure",
-                    content: `Une évacuation efficace protège votre bâtiment. À ${communeName}, nous dimensionnons et installons des systèmes de gouttières adaptés à votre toiture et aux précipitations locales.`
-                },
-                {
-                    title: "Matériaux durables",
-                    content: "Zinc, aluminium, cuivre : nous sélectionnons les matériaux selon l'esthétique souhaitée et la durabilité recherchée pour vos gouttières et descentes."
-                },
-                {
-                    title: "Entretien et débouchage",
-                    content: "Des gouttières obstruées causent des débordements. Nous assurons l'entretien régulier et le débouchage pour maintenir l'efficacité de l'évacuation."
-                },
-                {
-                    title: "Réparation et remplacement",
-                    content: "Gouttières déformées ou percées nécessitent une intervention rapide. Nous réparons ou remplaçons les éléments défaillants pour restaurer l'étanchéité."
-                }
-            ]
-        },
-
-        variant17: {
-            title: `Velux fenêtres de toit à ${communeName} - Lumière naturelle`,
-            sections: [
-                {
-                    title: "Pose de fenêtres de toit qualifiée",
-                    content: `Gagner en luminosité améliore le confort de vie. À ${communeName}, nous installons tous types de fenêtres de toit en respectant l'étanchéité et l'isolation de votre couverture.`
-                },
-                {
-                    title: "Choix et dimensionnement",
-                    content: "Taille, matériaux, ouverture : nous vous conseillons sur le choix optimal selon l'orientation, l'usage des pièces et vos contraintes architecturales."
-                },
-                {
-                    title: "Étanchéité renforcée",
-                    content: "L'installation d'une fenêtre de toit nécessite une étanchéité parfaite. Nous maîtrisons les techniques de raccordement pour éviter toute infiltration."
-                },
-                {
-                    title: "Accessoires et automatisation",
-                    content: "Volets, stores, motorisation : nous proposons tous les accessoires pour optimiser confort, sécurité et performance énergétique de vos fenêtres de toit."
-                }
-            ]
-        },
-
-        variant18: {
-            title: `Ardoise toiture à ${communeName} - Élégance naturelle`,
-            sections: [
-                {
-                    title: "Pose d'ardoise traditionnelle",
-                    content: `L'ardoise allie esthétique et longévité exceptionnelle. À ${communeName}, nous maîtrisons la pose traditionnelle et moderne pour valoriser votre patrimoine immobilier.`
-                },
-                {
-                    title: "Sélection des ardoises",
-                    content: "Origine, format, épaisseur : nous sélectionnons les ardoises selon l'architecture de votre bâtiment et les contraintes climatiques régionales."
-                },
-                {
-                    title: "Techniques de fixation",
-                    content: "La fixation conditionne la durabilité. Nous appliquons les techniques éprouvées : crochets, clous selon la pente et l'exposition de votre toiture."
-                },
-                {
-                    title: "Réparation d'ardoises",
-                    content: "Ardoises cassées ou glissées nécessitent un remplacement rapide. Nous intervenons pour maintenir l'étanchéité sans dénaturer l'esthétique de l'ensemble."
-                }
-            ]
-        },
-
-        variant19: {
-            title: `Tuiles toiture à ${communeName} - Tradition et modernité`,
-            sections: [
-                {
-                    title: "Pose de tuiles terre cuite",
-                    content: `Les tuiles terre cuite offrent une large palette esthétique. À ${communeName}, nous posons tous types de tuiles en respectant les traditions locales et les innovations modernes.`
-                },
-                {
-                    title: "Adaptation au climat local",
-                    content: "Forme, couleur, système d'accrochage : nous adaptons le choix des tuiles aux contraintes climatiques et architecturales de votre région."
-                },
-                {
-                    title: "Ventilation sous toiture",
-                    content: "Une ventilation adaptée préserve la charpente et optimise les performances thermiques. Nous intégrons les systèmes de ventilation lors de la pose."
-                },
-                {
-                    title: "Entretien et remplacement",
-                    content: "Tuiles cassées ou déplacées compromettent l'étanchéité. Nous assurons l'entretien régulier et le remplacement des éléments défaillants."
-                }
-            ]
-        },
-
-
+        }
     };
+    const variants = Object.keys(contentVariants);
+    const randomVariant = variants[Math.floor(Math.random() * variants.length)];
+    const content = contentVariants[randomVariant];
 
-    return contentVariants[variant] || contentVariants.variant1;
+    return content || contentVariants.variant1;
 }
 
 // Services professionnels avec plus de variantes géographiques

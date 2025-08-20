@@ -61,8 +61,6 @@ export async function generateMetadata({ params }: CommunePageProps): Promise<Me
     other: {
       "geo.region": "FR",
       "geo.placename": commune.name,
-      "geo.position": "",
-      ICBM: "",
     },
   }
 }
@@ -445,7 +443,6 @@ export default async function CommunePage({ params }: CommunePageProps) {
           )}
 
 
-
           {/* Contenu informatif rotatif */}
           <section className="py-16 bg-white" itemScope itemType="https://schema.org/Service">
             <div className="container mx-auto px-4">
@@ -483,7 +480,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                               className={`absolute top-0 right-0 w-32 h-32 opacity-5 transform rotate-12 translate-x-8 -translate-y-8 ${
                                   isEven ? 'text-slate-400' : 'text-amber-400'
                               }`}>
-                            <IconComponent />
+                            <IconComponent/>
                           </div>
 
                           <div className="relative p-6 md:p-8 lg:p-10">
@@ -493,7 +490,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                                       ? 'bg-slate-200 text-slate-700'
                                       : 'bg-amber-200 text-amber-700'
                               }`}>
-                                <IconComponent />
+                                <IconComponent/>
                               </div>
 
                               <div className="flex-1">
@@ -512,25 +509,6 @@ export default async function CommunePage({ params }: CommunePageProps) {
                                 {section.content}
                               </p>
 
-                              {/* Points clés dynamiques */}
-                              {getKeyPoints(section.title, index).length > 0 && (
-                                  <div className="mt-6 pt-6 border-t border-slate-200/50">
-                                    <h4 className="font-semibold text-slate-800 mb-3 text-sm uppercase tracking-wide">
-                                      Points essentiels :
-                                    </h4>
-                                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                                      {getKeyPoints(section.title, index).map((point, pointIndex) => (
-                                          <li key={pointIndex}
-                                              className="flex items-center gap-2 text-sm text-slate-600">
-                                            <div className={`w-1.5 h-1.5 rounded-full ${
-                                                isEven ? 'bg-slate-400' : 'bg-amber-400'
-                                            }`}></div>
-                                            {point}
-                                          </li>
-                                      ))}
-                                    </ul>
-                                  </div>
-                              )}
 
                               {/* CTA contextuel */}
                               {index === 0 && (
@@ -587,6 +565,43 @@ export default async function CommunePage({ params }: CommunePageProps) {
             </div>
           </section>
 
+          <div className="bg-white rounded-2xl  p-8">
+            <h3 className="font-serif font-bold text-2xl text-center text-slate-900 mb-8">
+              Services de couverture à {commune.name}
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {[
+                `Couvreur ${commune.name}`,
+                `Artisan couvreur ${commune.name}`,
+                `Entreprise de couverture ${commune.name}`,
+                `Travaux de couverture ${commune.name}`,
+                `Travaux de zinguerie ${commune.name}`,
+                `SOS fuite toiture ${commune.name}`,
+                `Rénovation de toiture zinc ${commune.name}`,
+                `Isolation de toiture ${commune.name}`,
+                `Démoussage de toiture ${commune.name}`,
+                `Réparation de toiture zinc ${commune.name}`,
+                `Réfection de toiture zinc ${commune.name}`,
+                `Remplacement d'éléments en zinc ${commune.name}`,
+                `Étanchéité toiture zinc ${commune.name}`,
+                `Pose de couverture zinc ${commune.name}`,
+                `Pose de gouttière en zinc ${commune.name}`,
+                `Remplacement de gouttière zinc ${commune.name}`,
+              ].map((service) => (
+                  <div
+                      key={service}
+                      className="flex items-center gap-3 bg-slate-50 hover:bg-slate-100 transition rounded-lg px-4 py-3 border-1"
+                  >
+                    <div
+                        className="flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-bold">
+                      ✓
+                    </div>
+                    <span className="text-slate-700 font-medium">{service}</span>
+                  </div>
+              ))}
+            </div>
+          </div>
 
 
           {/* Localisation Section - Design épuré */}
@@ -680,7 +695,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                   <div
                       className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg mb-4 mx-auto">
-                    <Shield className="h-6 w-6 text-blue-600"/>
+                      <Shield className="h-6 w-6 text-blue-600"/>
                     </div>
                     <h3 className="font-semibold text-slate-900 mb-2 text-center">Département</h3>
                     <p className="text-slate-600 text-center text-lg font-medium">{commune.department_name}</p>
