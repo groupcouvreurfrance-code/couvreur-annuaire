@@ -133,7 +133,7 @@ export default function MeteoCommune({ nomCommune, departement }: MeteoCommunePr
     }
 
     return (
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div className="bg-white rounded-2xl border-1 overflow-hidden">
             <div className="p-6">
                 <h3 className="text-xl font-semibold text-slate-900 mb-4">
                     Météo à {nomCommune}

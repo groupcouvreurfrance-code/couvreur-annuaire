@@ -618,7 +618,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
                 </div>
 
                 {/* Carte avec bordure moderne */}
-                <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+                <div className="bg-white rounded-2xl  overflow-hidden mb-8">
                   <CarteCommune
                       nomCommune={commune.name}
                       departement={commune.department_name}
