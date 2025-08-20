@@ -352,22 +352,52 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                     <h2 className="font-serif font-bold text-3xl text-slate-900 mb-8 text-center">
                       Prestations
                     </h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {currentDepartmentData.specialites.map((specialite: string, index: number) => (
-                          <div key={index} className="bg-amber-50 rounded-xl p-6">
+                    <div className="bg-white rounded-2xl  p-8">
+                      <h3 className="font-serif font-bold text-2xl text-center text-slate-900 mb-8">
+                        Services de couverture à {department.name}
+                      </h3>
 
-                            <h3 className="font-serif font-bold text-lg text-slate-900 mb-3">
-                              {specialite}
-                            </h3>
-                            <div className="w-12 h-1 bg-amber-600 rounded"></div>
-                          </div>
-                      ))}
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {[
+                          `Couvreur ${department.name}`,
+                          `Artisan couvreur ${department.name}`,
+                          `Entreprise de couverture ${department.name}`,
+                          `Travaux de couverture ${department.name}`,
+                          `Travaux de zinguerie ${department.name}`,
+                          `SOS fuite toiture ${department.name}`,
+                          `Rénovation de toiture  ${department.name}`,
+                          `Isolation de toiture ${department.name}`,
+                          `Démoussage de toiture ${department.name}`,
+                          `Réparation de toiture  ${department.name}`,
+                          `Réfection de toiture  ${department.name}`,
+                          `Remplacement d'éléments en  ${department.name}`,
+                          `Étanchéité toiture  ${department.name}`,
+                          `Pose de couverture  ${department.name}`,
+                          `Pose de gouttière en  ${department.name}`,
+                          `Remplacement de gouttière  ${department.name}`,
+                          `Prestation zingueur  ${department.name}`,
+                          `Traitement charpente  ${department.name}`,
+                          `Pose de fenêtre de toit  ${department.name}`,
+                          `Etanchéité toit et terrasse  ${department.name}`,
+                        ].map((service) => (
+                            <div
+                                key={service}
+                                className="flex items-center gap-3 bg-slate-50 hover:bg-slate-100 transition rounded-lg px-4 py-3 border-1"
+                            >
+                              <div
+                                  className="flex items-center justify-center w-6 h-6 rounded-full bg-amber-500 text-white text-xs font-bold">
+                                ✓
+                              </div>
+                              <span className="text-slate-700 font-medium">{service}</span>
+                            </div>
+                        ))}
+                      </div>
                     </div>
+
                   </div>
                 </div>
               </section>
           )}
-
 
 
           {/* Liste des Communes */}

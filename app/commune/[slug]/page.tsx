@@ -87,6 +87,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
     url: `https://www.couvreur-groupefrance.com/commune/${params.slug}`,
     address: {
       "@type": "PostalAddress",
+      streetAddress: artisan?.address || `${commune.name}, Centre-ville`,
       addressLocality: commune.name,
       postalCode: commune.postalCode,
       addressRegion: commune.department_name,
@@ -589,6 +590,9 @@ export default async function CommunePage({ params }: CommunePageProps) {
                 `Pose de gouttière en  ${commune.name}`,
                 `Remplacement de gouttière  ${commune.name}`,
                 `Prestation zingueur  ${commune.name}`,
+                `Traitement charpente  ${commune.name}`,
+                `Pose de fenêtre de toit  ${commune.name}`,
+                `Etanchéité toit et terrasse  ${commune.name}`,
               ].map((service) => (
                   <div
                       key={service}
