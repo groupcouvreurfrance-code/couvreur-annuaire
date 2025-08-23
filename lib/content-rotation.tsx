@@ -380,6 +380,84 @@ function getContentByVariant(variant: string, communeName: string) {
                 }
             ]
         },
+
+        variant15: {
+            title: `Pose de fenêtres de toit à ${communeName} - Velux et lucarnes`,
+            sections: [
+                {
+                    title: "Étude et conseil personnalisé",
+                    content: `Analyse de la charpente et de la couverture pour définir l'emplacement optimal à ${communeName}. Choix du type d'ouverture adapté et conseils sur la luminosité, ventilation et isolation selon votre projet et le climat local.`,
+                    image: "etude-conseil-fenetre-toit.jpg"
+                },
+                {
+                    title: "Pose de fenêtres de toit Velux",
+                    content: "Création de l'ouverture dans la toiture avec respect de la charpente. Installation de Velux manuels, électriques ou solaires avec raccordements d'étanchéité parfaits pour prévenir toute infiltration.",
+                    image: "pose-velux-fenetre-toit-installation.jpg"
+                },
+                {
+                    title: "Installation de lucarnes traditionnelles",
+                    content: "Fabrication et pose de lucarnes (chien-assis, jacobine, rampante) adaptées au style de votre maison. Charpente et couverture sur mesure pour un apport de lumière naturelle et une valorisation esthétique.",
+                    image: "installation-lucarnes-traditionnelles.jpg"
+                },
+                {
+                    title: "Rénovation et accessoires",
+                    content: "Remplacement d'anciens Velux, mise à niveau des systèmes d'ouverture et amélioration de l'isolation. Pose de volets roulants, stores intérieurs et finitions complètes pour un résultat parfait.",
+                    image: "renovation-accessoires-velux.jpg"
+                }
+            ]
+        },
+
+        variant16: {
+            title: `Peinture et revêtement toiture à ${communeName} - Rénovation esthétique`,
+            sections: [
+                {
+                    title: "Diagnostic et étude de toiture",
+                    content: `Analyse complète de l'état de votre toiture à ${communeName} : tuiles, ardoises, bac acier ou béton. Détermination des zones nécessitant un traitement avec préconisations adaptées à l'exposition et au climat local.`,
+                    image: "diagnostic-etude-peinture-toiture.jpg"
+                },
+                {
+                    title: "Application peinture spécialisée",
+                    content: "Pose de peintures et revêtements spécialisés pour toiture : protection contre l'humidité, UV et mousses. Revêtements acryliques, résine ou hydrofuge coloré adaptés selon le type de matériau de votre couverture.",
+                    image: "application-peinture-revetement-toit.jpg"
+                },
+                {
+                    title: "Rénovation et préparation",
+                    content: "Nettoyage préalable complet pour une adhérence optimale, réparation des éléments endommagés et application de plusieurs couches si nécessaire pour une durabilité maximale de la protection.",
+                    image: "renovation-preparation-toiture.jpg"
+                },
+                {
+                    title: "Protection et finition esthétique",
+                    content: "Traitement hydrofuge ou imperméabilisant pour prolonger la durée de vie de votre couverture. Mise en valeur esthétique avec possibilité de revêtement coloré pour harmoniser avec l'architecture environnante.",
+                    image: "protection-finition-esthetique-toit.jpg"
+                }
+            ]
+        },
+
+        variant17: {
+            title: `Urgences toiture à ${communeName} - Intervention 24h/24`,
+            sections: [
+                {
+                    title: "Diagnostic rapide d'urgence",
+                    content: `Intervention immédiate à ${communeName} pour identifier les dommages : intempéries, chute d'arbres, tuiles cassées, infiltrations. Évaluation de la sécurité pour éviter tout risque supplémentaire sur votre habitation.`,
+                    image: "diagnostic-rapide-urgence-toiture.jpg"
+                },
+                {
+                    title: "Réparation d'urgence immédiate",
+                    content: "Remplacement temporaire ou définitif des éléments endommagés, colmatage des fuites et réparation des infiltrations. Réfection rapide des solins, rives et éléments de zinguerie affectés pour protéger votre logement.",
+                    image: "reparation-urgence-immediate-toit.jpg"
+                },
+                {
+                    title: "Protection provisoire sécurisée",
+                    content: "Pose de bâches ou membranes temporaires pour sécuriser la toiture contre la pluie et les vents. Protection efficace jusqu'à l'intervention définitive pour prévenir les dégâts supplémentaires sur la structure.",
+                    image: "protection-provisoire-bache-toiture.jpg"
+                },
+                {
+                    title: "Suivi et réparation définitive",
+                    content: "Établissement de rapport détaillé pour les assurances et coordination des démarches. Intervention complète pour rétablir l'étanchéité définitive avec conseils pour prévenir de futurs incidents.",
+                    image: "suivi-reparation-definitive-urgence.jpg"
+                }
+            ]
+        }
     };
     const variants = Object.keys(contentVariants);
     const randomVariant = variants[Math.floor(Math.random() * variants.length)];
