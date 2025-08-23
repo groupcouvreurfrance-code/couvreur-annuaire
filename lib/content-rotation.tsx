@@ -353,7 +353,33 @@ function getContentByVariant(variant: string, communeName: string) {
                     image: "traitement-protection-bois-charpente.jpg"
                 }
             ]
-        }
+        },
+
+        variant14: {
+            title: `Étanchéité de toiture à ${communeName} - Toit-terrasse et incliné`,
+            sections: [
+                {
+                    title: "Diagnostic et étude d'étanchéité",
+                    content: `Analyse des points faibles de votre toiture à ${communeName} : infiltrations, fissures, joints défaillants. Vérification complète de la couverture, solins, noues et abergements avec préconisations sur la solution d'étanchéité adaptée.`,
+                    image: "diagnostic-etude-etancheite-toiture.jpg"
+                },
+                {
+                    title: "Étanchéité toit-terrasses",
+                    content: "Pose de membranes bitumineuses ou synthétiques (PVC, EPDM) et application d'étanchéité liquide par résines spécifiques. Possibilité d'aménagement de toitures-terrasses accessibles pour circulation ou jardin.",
+                    image: "etancheite-toit-terrasse-membrane.jpg"
+                },
+                {
+                    title: "Étanchéité toitures inclinées",
+                    content: "Pose et rénovation des solins, faîtages, noues et raccords métalliques. Étanchéité spécialisée autour des fenêtres de toit, cheminées et lucarnes avec mise en place de sous-toitures pare-pluie.",
+                    image: "etancheite-toiture-inclinee-solins.jpg"
+                },
+                {
+                    title: "Réparation et entretien",
+                    content: "Détection et colmatage des fuites, remplacement des éléments d'étanchéité endommagés et application de traitements hydrofuges. Contrôle régulier des joints, membranes et évacuations d'eau.",
+                    image: "reparation-entretien-etancheite.jpg"
+                }
+            ]
+        },
     };
     const variants = Object.keys(contentVariants);
     const randomVariant = variants[Math.floor(Math.random() * variants.length)];
