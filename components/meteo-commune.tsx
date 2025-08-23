@@ -22,21 +22,9 @@ interface MeteoCommuneProps {
 }
 
 async function getMeteoFromCommune(nomCommune: string, departement: string): Promise<MeteoData | null> {
-    let communeNormalisee = nomCommune.trim();
 
-    // Expression régulière pour détecter "Xème arrondissement" à la fin
-    const regexArrondissement = /(\d+)(?:er|ème|e)?\s*arrondissement$/i;
+    console.log(`Recherche météo pour la commune: ${nomCommune}, département: ${departement}`)
 
-    if (regexArrondissement.test(communeNormalisee)) {
-        // Supprimer la partie "arrondissement" et garder seulement le nom de base
-        communeNormalisee = communeNormalisee.replace(regexArrondissement, '').trim();
-
-        // Si le résultat est vide (cas rare), on garde le nom original
-        if (communeNormalisee === '') {
-            communeNormalisee = nomCommune;
-        }
-    }
-    nomCommune = communeNormalisee;
     try {
         // Utilisation de l'API Open-Meteo avec géocoding par nom
         const geoResponse = await fetch(
@@ -106,31 +94,22 @@ export default function MeteoCommune({ nomCommune, departement }: MeteoCommunePr
         const fetchMeteo = async () => {
             try {
                 setLoading(true)
-
                 let communeNormalisee = nomCommune.trim();
 
                 // Expression régulière pour détecter "Xème arrondissement" à la fin
-                const regexArrondissement = /(\d+)(?:er|ème|e)?\s*arrondissement$/i;
-
-                // Expression régulière pour détecter les chiffres seuls à la fin
-                const regexChiffresSeuls = /\s*\d+$/;
+                const regexArrondissement = /(\d+)(?:er|eme|e)?\s*arrondissement$/i;
 
                 if (regexArrondissement.test(communeNormalisee)) {
                     // Supprimer la partie "arrondissement" et garder seulement le nom de base
                     communeNormalisee = communeNormalisee.replace(regexArrondissement, '').trim();
-                }
-                else if (regexChiffresSeuls.test(communeNormalisee)) {
-                    // Supprimer les chiffres seuls à la fin
-                    communeNormalisee = communeNormalisee.replace(regexChiffresSeuls, '').trim();
-                }
 
-                // Si le résultat est vide (cas rare), on garde le nom original
-                if (communeNormalisee === '') {
-                    communeNormalisee = nomCommune;
+                    // Si le résultat est vide (cas rare), on garde le nom original
+                    if (communeNormalisee === '') {
+                        communeNormalisee = nomCommune;
+                    }
                 }
+                nomCommune =communeNormalisee
 
-                // Assigner la valeur normalisée à nomCommune
-                nomCommune = communeNormalisee;
                 const data = await getMeteoFromCommune(nomCommune, departement)
                 if (data) {
                     setMeteo(data)

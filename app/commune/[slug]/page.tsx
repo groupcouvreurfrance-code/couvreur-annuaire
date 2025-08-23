@@ -26,7 +26,8 @@ interface CommunePageProps {
 }
 
 export async function generateMetadata({ params }: CommunePageProps): Promise<Metadata> {
-  const { slug } = await params
+  const param = await params;
+  const { slug } = param;
   const commune = await getCommuneBySlug(slug)
   if (!commune) {
     return {
@@ -56,7 +57,7 @@ export async function generateMetadata({ params }: CommunePageProps): Promise<Me
       locale: "fr_FR",
     },
     alternates: {
-      canonical: `https://www.couvreur-groupefrance.com/commune/${params.slug}`,
+      canonical: `https://www.couvreur-groupefrance.com/commune/${param.slug}`,
     },
     other: {
       "geo.region": "FR",
@@ -66,7 +67,8 @@ export async function generateMetadata({ params }: CommunePageProps): Promise<Me
 }
 
 export default async function CommunePage({ params }: CommunePageProps) {
-  const commune = await getCommuneBySlug(params.slug)
+  const param = await params;
+  const commune = await getCommuneBySlug(param.slug)
 
   if (!commune) {
     notFound()
@@ -83,8 +85,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
     "@type": "LocalBusiness",
     name: artisan ? artisan.companyName : `Service de couverture ${commune.name}`,
     description: `Couvreur professionnel à ${commune.name}  dans le ${commune.department_name}`,
-    "@id": `https://www.couvreur-groupefrance.com/commune/${params.slug}`,
-    url: `https://www.couvreur-groupefrance.com/commune/${params.slug}`,
+    "@id": `https://www.couvreur-groupefrance.com/commune/${param.slug}`,
+    url: `https://www.couvreur-groupefrance.com/commune/${param.slug}`,
     address: {
       "@type": "PostalAddress",
       streetAddress: artisan?.address || `${commune.name}, Centre-ville`,
@@ -227,7 +229,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
         "@type": "ListItem",
         position: 4,
         name: commune.name,
-        item: `https://www.couvreur-groupefrance.com/commune/${params.slug}`,
+        item: `https://www.couvreur-groupefrance.com/commune/${param.slug}`,
       },
     ],
   }
