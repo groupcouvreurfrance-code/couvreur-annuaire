@@ -22,6 +22,21 @@ interface MeteoCommuneProps {
 }
 
 async function getMeteoFromCommune(nomCommune: string, departement: string): Promise<MeteoData | null> {
+    let communeNormalisee = nomCommune.trim();
+
+    // Expression régulière pour détecter "Xème arrondissement" à la fin
+    const regexArrondissement = /(\d+)(?:er|ème|e)?\s*arrondissement$/i;
+
+    if (regexArrondissement.test(communeNormalisee)) {
+        // Supprimer la partie "arrondissement" et garder seulement le nom de base
+        communeNormalisee = communeNormalisee.replace(regexArrondissement, '').trim();
+
+        // Si le résultat est vide (cas rare), on garde le nom original
+        if (communeNormalisee === '') {
+            communeNormalisee = nomCommune;
+        }
+    }
+    nomCommune = communeNormalisee;
     try {
         // Utilisation de l'API Open-Meteo avec géocoding par nom
         const geoResponse = await fetch(
