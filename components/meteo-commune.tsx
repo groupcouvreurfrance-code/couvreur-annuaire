@@ -106,20 +106,30 @@ export default function MeteoCommune({ nomCommune, departement }: MeteoCommunePr
         const fetchMeteo = async () => {
             try {
                 setLoading(true)
+
                 let communeNormalisee = nomCommune.trim();
 
                 // Expression régulière pour détecter "Xème arrondissement" à la fin
                 const regexArrondissement = /(\d+)(?:er|ème|e)?\s*arrondissement$/i;
 
+                // Expression régulière pour détecter les chiffres seuls à la fin
+                const regexChiffresSeuls = /\s*\d+$/;
+
                 if (regexArrondissement.test(communeNormalisee)) {
                     // Supprimer la partie "arrondissement" et garder seulement le nom de base
                     communeNormalisee = communeNormalisee.replace(regexArrondissement, '').trim();
-
-                    // Si le résultat est vide (cas rare), on garde le nom original
-                    if (communeNormalisee === '') {
-                        communeNormalisee = nomCommune;
-                    }
                 }
+                else if (regexChiffresSeuls.test(communeNormalisee)) {
+                    // Supprimer les chiffres seuls à la fin
+                    communeNormalisee = communeNormalisee.replace(regexChiffresSeuls, '').trim();
+                }
+
+                // Si le résultat est vide (cas rare), on garde le nom original
+                if (communeNormalisee === '') {
+                    communeNormalisee = nomCommune;
+                }
+
+                // Assigner la valeur normalisée à nomCommune
                 nomCommune = communeNormalisee;
                 const data = await getMeteoFromCommune(nomCommune, departement)
                 if (data) {
