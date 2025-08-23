@@ -275,6 +275,84 @@ function getContentByVariant(variant: string, communeName: string) {
                     image: "pare-vapeur-etancheite-air.jpg"
                 }
             ]
+        },
+
+        variant11: {
+            title: `Démoussage et traitement toiture à ${communeName} - Protection longue durée`,
+            sections: [
+                {
+                    title: "Inspection et diagnostic toiture",
+                    content: `Vérification complète de l'état de votre toiture à ${communeName} : détection des mousses, lichens et algues, repérage des tuiles endommagées et contrôle des points sensibles avant tout traitement.`,
+                    image: "inspection-diagnostic-toiture.jpg"
+                },
+                {
+                    title: "Nettoyage mécanique professionnel",
+                    content: "Brossage et grattage manuel des mousses et lichens, nettoyage à l'eau basse pression pour préserver les matériaux. Nous utilisons également le nettoyage vapeur pour une solution écologique et efficace.",
+                    image: "nettoyage-mecanique-toiture.jpg"
+                },
+                {
+                    title: "Traitement anti-mousse spécialisé",
+                    content: "Application de produits fongicides et algicides adaptés à votre type de couverture. Ce traitement élimine les racines microscopiques et ralentit considérablement la repousse des végétaux parasites.",
+                    image: "traitement-antimousse-specialise.jpg"
+                },
+                {
+                    title: "Traitement hydrofuge et finitions",
+                    content: "Pulvérisation d'hydrofuge filmogène ou pénétrant après préparation complète de la surface. Protection durable qui laisse respirer le matériau tout en repoussant l'eau et les salissures.",
+                    image: "traitement-hydrofuge-finition.jpg"
+                }
+            ]
+        },
+
+        variant12: {
+            title: `Isolation de toiture à ${communeName} - Performance énergétique`,
+            sections: [
+                {
+                    title: "Diagnostic thermique et conseil",
+                    content: `Évaluation des pertes de chaleur et mesure des déperditions énergétiques à ${communeName}. Nous contrôlons l'état de la charpente et vous conseillons sur la solution d'isolation la plus adaptée à votre projet.`,
+                    image: "diagnostic-thermique-toiture.jpg"
+                },
+                {
+                    title: "Isolation par l'intérieur",
+                    content: "Pose de laine minérale ou végétale entre ou sous les chevrons avec mise en place de pare-vapeur. Solution efficace pour l'isolation des combles aménagés et non-aménagés sans modifier l'aspect extérieur.",
+                    image: "isolation-interieur-chevrons.jpg"
+                },
+                {
+                    title: "Isolation par l'extérieur sarking",
+                    content: "Technique sarking avec panneaux isolants posés sur la charpente avant la couverture. Cette méthode préserve l'espace habitable intérieur et assure une isolation continue sans ponts thermiques.",
+                    image: "isolation-sarking-exterieur.jpg"
+                },
+                {
+                    title: "Étanchéité et ventilation",
+                    content: "Installation de pare-vapeur et système de ventilation adapté pour éviter l'humidité et la condensation. Contrôle des points singuliers et finitions pour garantir l'efficacité durable de l'isolation.",
+                    image: "etancheite-ventilation-isolation.jpg"
+                }
+            ]
+        },
+
+        variant13: {
+            title: `Charpente de toiture à ${communeName} - Étude et rénovation`,
+            sections: [
+                {
+                    title: "Étude et diagnostic charpente",
+                    content: `Analyse complète de l'état de votre charpente à ${communeName} : vérification de la solidité, détection d'humidité, d'insectes xylophages et de champignons. Nous établissons un diagnostic précis avec préconisations adaptées à votre structure.`,
+                    image: "etude-diagnostic-charpente.jpg"
+                },
+                {
+                    title: "Pose de charpente neuve",
+                    content: "Conception et montage de charpentes traditionnelles ou industrielles selon vos besoins. Respect des normes de construction et calculs de charge, avec adaptation possible pour combles aménagés et toitures spécifiques.",
+                    image: "pose-charpente-neuve-montage.jpg"
+                },
+                {
+                    title: "Rénovation et renforcement",
+                    content: "Remplacement ou consolidation des pièces abîmées : pannes, chevrons, solives. Nous renforçons les structures fragilisées et adaptons la charpente aux nouvelles charges ou modifications de toiture.",
+                    image: "renovation-renforcement-charpente.jpg"
+                },
+                {
+                    title: "Traitement et protection du bois",
+                    content: "Traitements curatifs contre insectes xylophages et champignons, puis application de produits préventifs. Protection complète pour assurer la durabilité de votre charpente face à l'humidité et aux attaques biologiques.",
+                    image: "traitement-protection-bois-charpente.jpg"
+                }
+            ]
         }
     };
     const variants = Object.keys(contentVariants);

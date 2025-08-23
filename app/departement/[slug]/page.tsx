@@ -7,7 +7,6 @@ import departmentData from "@/prisma/data/departments-data.json"
 import {
   getDepartmentBySlug,
   getCommunesByDepartment,
-  getDepartmentArtisan,
   getDepartmentArtisanWithLogs
 } from "@/lib/database"
 import { notFound } from "next/navigation"
@@ -34,7 +33,7 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
   const artisan = await getDepartmentArtisanWithLogs(department.id)
 
   return {
-    title: `Couvreur en France (${department.name} - ${department.code}) tel: ${artisan?.phone}`,
+    title: `Couvreur (${department.name} - ${department.code}) tel: ${artisan?.phone}`,
     description: `Trouvez le meilleur couvreur en ${department.name} (${department.code}) pour vos travaux de toiture. ${artisan ? `${artisan.companyName} vous accompagne avec des artisans qualifiés` : "Devis gratuits, artisans qualifiés partout dans le département"}.`,
     keywords: [
       `couvreur ${department.name}`,
