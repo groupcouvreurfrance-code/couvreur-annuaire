@@ -23,7 +23,7 @@ export function Footer() {
               besoin de conseils ou vous souhaitez réserver une intervention en urgence ?
             </p>
             <p className="text-slate-300 mb-6">
-             contactez-nous dès maintenant par téléphone ou par email, et nous vous mettrons en relation avec un
+              contactez-nous dès maintenant par téléphone ou par email, et nous vous mettrons en relation avec un
               et un conseiller vous recontactera rapidement.
             </p>
           </div>
@@ -74,6 +74,28 @@ export function Footer() {
               </div>
 
 
+            </div>
+          </div>
+
+          {/* Section Création de site web */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold mb-6 text-white">Création de site web</h2>
+            <p className="text-slate-300 leading-relaxed mb-4">
+              Vous souhaitez créer votre site web professionnel pour développer votre activité ? Nous proposons des
+              solutions de création de sites internet adaptées pour vous.
+            </p>
+            <div className="space-y-4">
+              <div>
+                <p className="text-white font-medium mb-1">Contactez-nous :</p>
+                <div className="flex flex-col space-y-2">
+                  <a href="tel:+3307 56 83 09 51" className="text-amber-500 hover:text-amber-400 font-medium">
+                    (33) 07 56 83 09 51
+                  </a>
+                  <a href="mailto:groupcouvreurfrance@gmail.com" className="text-amber-500 hover:text-amber-400 font-medium">
+                    groupcouvreurfrance@gmail.com
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
 
