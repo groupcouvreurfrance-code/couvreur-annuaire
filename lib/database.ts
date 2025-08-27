@@ -1,4 +1,3 @@
-
 import {readFileSync} from "fs";
 import {join} from "path";
 import prisma from "@/lib/prisma";
@@ -23,11 +22,19 @@ export interface Commune {
   departmentCode: string
 }
 
-
 export interface ContactRequest {
-  // Ajoutez la structure si nécessaire
   id: number
   // ... autres propriétés
+}
+
+// Types étendus pour les artisans avec infos département
+export type ArtisanWithDepartment = Artisan & {
+  department?: {
+    id: number
+    name: string
+    code: string
+    slug: string
+  }
 }
 
 // Fonctions pour lire dynamiquement les fichiers JSON
@@ -53,8 +60,6 @@ const getCommunes = (): Commune[] => {
   }
 }
 
-
-
 // ===== FONCTIONS POUR LES DÉPARTEMENTS ===== //
 
 export async function getAllDepartments(): Promise<{ departments: Department[], total: number }> {
@@ -72,8 +77,7 @@ export async function getAllDepartments(): Promise<{ departments: Department[], 
 
 export async function getDepartmentBySlug(slug: string): Promise<Department | null> {
   console.log(`🔍 Loading department: ${slug}`)
-  const communes = getCommunes()        // ← Lecture dynamique du fichier JSON
-  const departments = getDepartments()  // ← Lecture dynamique du fichier JSON
+  const departments = getDepartments()
   const department = departments.find(dept => dept.slug === slug) || null
 
   console.log(`✅ Loaded department: ${department?.name || 'not found'} (JSON)`)
@@ -101,8 +105,8 @@ export async function getCommuneBySlug(
     slug: string
 ): Promise<(Commune & { department_name: string; department_slug: string }) | null> {
   console.log(`🔍 Loading commune: ${slug}`)
-  const communes = getCommunes()        // ← Lecture dynamique du fichier JSON
-  const departments = getDepartments()  // ← Lecture dynamique du fichier JSON
+  const communes = getCommunes()
+  const departments = getDepartments()
   const commune = communes.find(c => c.slug === slug)
 
   if (!commune) {
@@ -127,158 +131,45 @@ export async function getCommuneBySlug(
   return result
 }
 
-// ===== FONCTIONS POUR LES ARTISANS ===== //
-export const getDepartmentArtisan = unstable_cache(
-    async (departmentId: number): Promise<Artisan | null> => {
-      console.log(`🔍 [DB] Loading artisan for department ID: ${departmentId} - CACHE MISS`);
+// ===== CACHE GLOBAL DES ARTISANS (LA CLÉ DE L'OPTIMISATION) ===== //
 
-      const artisan = await prisma.artisan.findFirst({
+/**
+ * Cache global de TOUS les artisans actifs et approuvés
+ * Mise en cache pendant 6h, invalidé uniquement par revalidateTag
+ */
+export const getAllActiveArtisans = unstable_cache(
+    async (): Promise<ArtisanWithDepartment[]> => {
+      console.log(`🔍 [DB] Loading ALL active artisans - CACHE MISS`)
+
+      const artisans = await prisma.artisan.findMany({
         where: {
-          departmentId: departmentId,
           status: 'approved',
           active: true
-        }
-      });
-
-      console.log(`✅ [DB] Loaded artisan from database: ${artisan?.companyName || 'none'}`);
-      return artisan;
-    },
-    ['department-artisan'], // clé de cache
-    {
-      revalidate: 6 *60 * 60, // 30 minutes en secondes
-      tags: ['artisan', 'department']
-    }
-);
-
-// Wrapper pour ajouter les logs de cache - AVEC ID dans la clé
-export async function getDepartmentArtisanWithLogs(departmentId: number): Promise<Artisan | null> {
-  console.log(`🔍 [CACHE] Checking cache for department ID: ${departmentId}`);
-
-  // Créer une fonction cachée avec l'ID spécifique
-  const cachedFunction = unstable_cache(
-      async (deptId: number): Promise<Artisan | null> => {
-        console.log(`🔍 [DB] Loading artisan for department ID: ${deptId} - CACHE MISS`);
-
-        const artisan = await prisma.artisan.findFirst({
-          where: {
-            departmentId: deptId,
-            status: 'approved',
-            active: true
-          }
-        });
-
-        console.log(`✅ [DB] Loaded artisan from database: ${artisan?.companyName || 'none'}`);
-        return artisan;
-      },
-      [`department-artisan-${departmentId}`], // clé unique par département
-      {
-        revalidate: 6 *60 * 60,
-        tags: ['artisan', `department-${departmentId}`]
-      }
-  );
-
-  const startTime = Date.now();
-  const artisan = await cachedFunction(departmentId);
-  const duration = Date.now() - startTime;
-
-  if (duration < 10) {
-    console.log(`⚡ [CACHE] Cache HIT for department ${departmentId} - Retrieved in ${duration}ms`);
-  } else {
-    console.log(`🐌 [DB] Database query for department ${departmentId} - Retrieved in ${duration}ms`);
-  }
-
-  return artisan;
-}
-
-// Cache pour les artisans par commune (30 minutes)
-export const getCommuneArtisan = unstable_cache(
-    async (communeId: number): Promise<Artisan | null> => {
-      console.log(`🔍 [DB] Loading artisan for commune ID: ${communeId} - CACHE MISS`);
-
-      const commune = await prisma.commune.findUnique({
-        where: { id: communeId },
+        },
         include: {
           department: {
-            include: {
-              artisans: {
-                where: {
-                  status: 'approved',
-                  active: true
-                },
-                take: 1
-              }
+            select: {
+              id: true,
+              name: true,
+              code: true,
+              slug: true
             }
           }
+        },
+        orderBy: {
+          id: 'asc'
         }
-      });
+      })
 
-      const artisan = commune?.department?.artisans[0] || null;
-      console.log(`✅ [DB] Loaded artisan from database: ${artisan?.companyName || 'none'}`);
-      return artisan;
+      console.log(`✅ [DB] Loaded ${artisans.length} active artisans from database`)
+      return artisans
     },
-    ['commune-artisan'], // clé de cache
+    ['all-active-artisans'], // clé de cache unique
     {
-      revalidate: 6 *60 * 60, // 30 minutes en secondes
-      tags: ['artisan', 'commune']
+      revalidate: 72 * 60 * 60, // 6 heures
+      tags: ['artisans-global']
     }
-);
-
-// Wrapper pour ajouter les logs de cache - AVEC ID dans la clé
-export async function getCommuneArtisanWithLogs(communeId: number): Promise<Artisan | null> {
-  console.log(`🔍 [CACHE] Checking cache for commune ID: ${communeId}`);
-
-  // Créer une fonction cachée avec l'ID spécifique
-  const cachedFunction = unstable_cache(
-      async (commId: number): Promise<Artisan | null> => {
-        console.log(`🔍 [DB] Loading artisan for commune ID: ${commId} - CACHE MISS`);
-
-        const commune = await prisma.commune.findUnique({
-          where: { id: commId },
-          include: {
-            department: {
-              include: {
-                artisans: {
-                  where: {
-                    status: 'approved',
-                    active: true
-                  },
-                  take: 1
-                }
-              }
-            }
-          }
-        });
-
-        const artisan = commune?.department?.artisans[0] || null;
-        console.log(`✅ [DB] Loaded artisan from database: ${artisan?.companyName || 'none'}`);
-        return artisan;
-      },
-      [`commune-artisan-${communeId}`], // clé unique par commune
-      {
-        revalidate: 6 *60 * 60,
-        tags: ['artisan', `commune-${communeId}`]
-      }
-  );
-
-  const startTime = Date.now();
-  const artisan = await cachedFunction(communeId);
-  const duration = Date.now() - startTime;
-
-  if (duration < 10) {
-    console.log(`⚡ [CACHE] Cache HIT for commune ${communeId} - Retrieved in ${duration}ms`);
-  } else {
-    console.log(`🐌 [DB] Database query for commune ${communeId} - Retrieved in ${duration}ms`);
-  }
-
-  return artisan;
-}
-
-// Fonction pour invalider le cache quand un artisan est modifié
-export function invalidateArtisanCache() {
-  revalidateTag('artisan');
-}
-// ===== FONCTIONS ADMIN ===== //
-
+)
 export async function getAllArtisans(
     status?: string,
     page: number = 1,
@@ -308,4 +199,101 @@ export async function getAllArtisans(
   }))
 
   return { artisans, total }
+}
+/**
+ * Wrapper avec logs pour le cache global
+ */
+export async function getAllActiveArtisansWithLogs(): Promise<ArtisanWithDepartment[]> {
+  console.log(`🔍 [CACHE] Checking global artisans cache`)
+
+  const startTime = Date.now()
+  const artisans = await getAllActiveArtisans()
+  const duration = Date.now() - startTime
+
+  if (duration < 10) {
+    console.log(`⚡ [CACHE] Global artisans cache HIT - Retrieved ${artisans.length} artisans in ${duration}ms`)
+  } else {
+    console.log(`🐌 [DB] Global artisans database query - Retrieved ${artisans.length} artisans in ${duration}ms`)
+  }
+
+  return artisans
+}
+
+// ===== FONCTIONS OPTIMISÉES UTILISANT LE CACHE GLOBAL ===== //
+
+/**
+ * Récupère un artisan pour un département en utilisant le cache global
+ */
+export async function getDepartmentArtisan(departmentId: number): Promise<Artisan | null> {
+  console.log(`🔍 [OPTIMIZED] Getting artisan for department ID: ${departmentId} via global cache`)
+
+  const allArtisans = await getAllActiveArtisansWithLogs()
+  const artisan = allArtisans.find(a => a.departmentId === departmentId) || null
+
+  console.log(`✅ [OPTIMIZED] Found artisan for department ${departmentId}: ${artisan?.companyName || 'none'}`)
+  return artisan
+}
+
+/**
+ * Récupère un artisan pour une commune en utilisant le cache global
+ */
+export async function getCommuneArtisan(communeId: number): Promise<Artisan | null> {
+  console.log(`🔍 [OPTIMIZED] Getting artisan for commune ID: ${communeId} via global cache`)
+
+  // D'abord récupérer la commune pour avoir son departmentCode
+  const communes = getCommunes()
+  const commune = communes.find(c => c.id === communeId)
+
+  if (!commune) {
+    console.log(`❌ Commune not found: ${communeId}`)
+    return null
+  }
+
+  // Trouver le département correspondant
+  const departments = getDepartments()
+  const department = departments.find(d => d.code === commune.departmentCode)
+
+  if (!department) {
+    console.log(`❌ Department not found for commune: ${communeId}`)
+    return null
+  }
+
+  // Utiliser le cache global pour trouver l'artisan
+  const allArtisans = await getAllActiveArtisansWithLogs()
+  const artisan = allArtisans.find(a => a.departmentId === department.id) || null
+
+  console.log(`✅ [OPTIMIZED] Found artisan for commune ${communeId} (dept ${department.name}): ${artisan?.companyName || 'none'}`)
+  return artisan
+}
+
+
+export function invalidateGlobalArtisanCache() {
+  console.log(`🔄 [CACHE] Invalidating global artisans cache`)
+  revalidateTag('artisans-global')
+}
+
+/**
+ * Garde l'ancienne fonction pour la compatibilité
+ * @deprecated Utiliser invalidateGlobalArtisanCache() à la place
+ */
+export function invalidateArtisan() {
+  invalidateGlobalArtisanCache()
+}
+
+// ===== FONCTIONS UTILITAIRES ===== //
+
+/**
+ * Vérifier si un département a un artisan (sans faire de requête DB)
+ */
+export async function departmentHasArtisan(departmentId: number): Promise<boolean> {
+  const allArtisans = await getAllActiveArtisansWithLogs()
+  return allArtisans.some(a => a.departmentId === departmentId)
+}
+
+/**
+ * Compter le nombre d'artisans actifs (sans requête DB)
+ */
+export async function getActiveArtisansCount(): Promise<number> {
+  const allArtisans = await getAllActiveArtisansWithLogs()
+  return allArtisans.length
 }

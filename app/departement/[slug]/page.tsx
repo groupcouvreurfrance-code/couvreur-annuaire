@@ -7,7 +7,7 @@ import departmentData from "@/prisma/data/departments-data.json"
 import {
   getDepartmentBySlug,
   getCommunesByDepartment,
-  getDepartmentArtisanWithLogs
+  getDepartmentArtisan
 } from "@/lib/database"
 import { notFound } from "next/navigation"
 import Link from "next/link"
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
     }
   }
 
-  const artisan = await getDepartmentArtisanWithLogs(department.id)
+  const artisan = await getDepartmentArtisan(department.id)
 
   return {
     title: `Couvreur (${department.name} - ${department.code}) tel: ${artisan?.phone}`,
@@ -71,7 +71,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
 
   const [{ communes: allCommunes, total }, artisan] = await Promise.all([
     getCommunesByDepartment(department.code),
-    getDepartmentArtisanWithLogs(department.id),
+    getDepartmentArtisan(department.id),
   ])
 
   // Diviser les communes en tranches de 60

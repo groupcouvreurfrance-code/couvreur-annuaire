@@ -3,7 +3,9 @@
 
 import {revalidatePath, revalidateTag} from 'next/cache'
 import prisma from '@/lib/prisma'
-import {invalidateArtisanCache} from "@/lib/database";
+import {invalidateArtisan} from "@/lib/database";
+
+
 
 
 // ===== ACTIONS ARTISANS ===== //
@@ -32,6 +34,8 @@ export async function updateArtisanStatus(artisanId: number, status: string) {
         revalidatePath('/admin')
         revalidateTag('artisan');
         revalidateTag('department');
+        revalidateTag('artisans-global')
+
 
         console.log(`✅ Artisan ${artisanId} status updated successfully`);
         return { success: true, data: result }
@@ -230,6 +234,7 @@ export async function updateArtisanInfo(artisanId: number, data: {
         revalidatePath('/admin/artisans')
         revalidateTag('artisan');
         revalidateTag('department');
+        revalidateTag('artisans-global')
 
         console.log(`✅ Artisan ${artisanId} info updated successfully`);
         return { success: true, data: result }

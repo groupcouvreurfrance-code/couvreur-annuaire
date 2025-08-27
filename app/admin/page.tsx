@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import ArtisansList  from "@/components/artisans-list"
-import { getAllArtisans } from "@/lib/database"
+import {getAllActiveArtisans, getAllArtisans} from "@/lib/database"
 import { SignOutButton } from "@clerk/nextjs"
 import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react"
 
