@@ -478,60 +478,82 @@ export default async function CommunePage({ params }: CommunePageProps) {
                             itemScope
                             itemType="https://schema.org/Article"
                         >
-                          {/* Décoration visuelle */}
-                          <div
-                              className={`absolute top-0 right-0 w-32 h-32 opacity-5 transform rotate-12 translate-x-8 -translate-y-8 ${
-                                  isEven ? 'text-slate-400' : 'text-amber-400'
-                              }`}>
-                            <IconComponent/>
-                          </div>
+                          {/* Layout avec image et contenu */}
+                          <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-0`}>
 
-                          <div className="relative p-6 md:p-8 lg:p-10">
-                            <div className="flex items-start gap-4 mb-6">
-                              <div className={`flex-shrink-0 p-3 rounded-xl ${
-                                  isEven
-                                      ? 'bg-slate-200 text-slate-700'
-                                      : 'bg-amber-200 text-amber-700'
-                              }`}>
-                                <IconComponent/>
-                              </div>
+                            {/* Section Image */}
+                            <div className="lg:w-1/2">
+                              <div className="relative h-64 lg:h-full overflow-hidden">
+                                <img
+                                    src={section.image}
+                                    alt={section.title}
+                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                    loading="lazy"
+                                />
+                                {/* Overlay gradient pour améliorer la lisibilité */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
 
-                              <div className="flex-1">
-                                <h3 className="font-serif font-bold text-xl lg:text-2xl text-slate-900 mb-2 group-hover:text-amber-700 transition-colors"
-                                    itemProp="headline">
-                                  {section.title}
-                                </h3>
-                                <div className={`w-16 h-0.5 ${
-                                    isEven ? 'bg-slate-400' : 'bg-amber-400'
-                                } rounded-full`}></div>
+                                {/* Badge avec icône flottant sur l'image */}
+                                <div
+                                    className={`absolute top-4 ${isEven ? 'left-4' : 'right-4'} p-3 rounded-xl backdrop-blur-sm ${
+                                        isEven
+                                            ? 'bg-slate-900/20 text-white'
+                                            : 'bg-amber-900/20 text-white'
+                                    }`}>
+                                  <IconComponent size={24}/>
+                                </div>
                               </div>
                             </div>
 
-                            <div className="space-y-4">
-                              <p className="text-slate-700 leading-relaxed text-base lg:text-lg" itemProp="text">
-                                {section.content}
-                              </p>
+                            {/* Section Contenu */}
+                            <div className="lg:w-1/2">
+                              <div className="p-6 md:p-8 lg:p-10 h-full flex flex-col justify-center">
+                                {/* Décoration visuelle */}
+                                <div
+                                    className={`absolute top-4 ${isEven ? 'right-4' : 'left-4'} w-20 h-20 opacity-10 transform rotate-12 ${
+                                        isEven ? 'text-slate-400' : 'text-amber-400'
+                                    } hidden lg:block`}>
+                                  <IconComponent size={80}/>
+                                </div>
 
+                                <div className="relative">
+                                  {/* Titre de la section */}
+                                  <h3 className="font-serif font-bold text-xl lg:text-2xl text-slate-900 mb-4 group-hover:text-amber-700 transition-colors"
+                                      itemProp="headline">
+                                    {section.title}
+                                  </h3>
 
-                              {/* CTA contextuel */}
-                              {index === 0 && (
-                                  <div className="mt-8 p-4 bg-white/60 rounded-xl border border-slate-200/50">
-                                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                                      <div>
-                                        <p className="font-semibold text-slate-800 mb-1">
-                                          Besoin d'un devis personnalisé ?
-                                        </p>
-                                        <p className="text-sm text-slate-600">
-                                          Intervention rapide à {commune.name} et alentours
-                                        </p>
+                                  <div className={`w-16 h-0.5 ${
+                                      isEven ? 'bg-slate-400' : 'bg-amber-400'
+                                  } rounded-full mb-6`}></div>
+
+                                  {/* Contenu de la section */}
+                                  <p className="text-slate-700 leading-relaxed text-base lg:text-lg mb-6"
+                                     itemProp="text">
+                                    {section.content}
+                                  </p>
+
+                                  {/* CTA contextuel pour la première section */}
+                                  {index === 0 && (
+                                      <div className="mt-6 p-4 bg-white/60 rounded-xl border border-slate-200/50">
+                                        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                          <div>
+                                            <p className="font-semibold text-slate-800 mb-1">
+                                              Besoin d'un devis personnalisé ?
+                                            </p>
+                                            <p className="text-sm text-slate-600">
+                                              Intervention rapide à {commune.name} et alentours
+                                            </p>
+                                          </div>
+                                          <button
+                                              className="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors whitespace-nowrap">
+                                            <a href={"#devis"}>Demander un devis</a>
+                                          </button>
+                                        </div>
                                       </div>
-                                      <button
-                                          className="px-6 py-2.5 bg-amber-500 hover:bg-amber-600 text-white font-semibold rounded-lg transition-colors whitespace-nowrap">
-                                        <a href={"#devis"}>Demander un devis</a>
-                                      </button>
-                                    </div>
-                                  </div>
-                              )}
+                                  )}
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </article>

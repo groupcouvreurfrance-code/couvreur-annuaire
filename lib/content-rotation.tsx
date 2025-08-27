@@ -23,22 +23,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Couverture et rénovation de toiture",
                     content: `Spécialiste de la couverture à ${communeName}, nous réalisons tous vos travaux de toiture : pose, rénovation et réparation. Notre équipe intervient sur tous types de matériaux pour assurer l'étanchéité et la solidité de votre toit.`,
-                    image: "couverture-renovation-toiture.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Pose de charpente",
                     content: "La charpente est la structure qui soutient votre toiture. Nous concevons et installons des charpentes en bois traditionnelles ou industrielles, adaptées à votre projet et aux normes en vigueur.",
-                    image: "pose-charpente-bois.jpg"
+                    image: "/images/charpente/charpente-1.jpg"
                 },
                 {
                     title: "Traitement de toiture",
                     content: `Nous appliquons des traitements préventifs et curatifs pour protéger votre toiture à ${communeName}. Hydrofuge, antimousse, fongicide : ces traitements prolongent la durée de vie de votre couverture.`,
-                    image: "traitement-toiture-antimousse.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Nettoyage et démoussage",
                     content: "Le nettoyage régulier de votre toiture élimine mousses, lichens et salissures. Cette opération préserve l'étanchéité et l'esthétique de votre couverture tout en évitant les infiltrations.",
-                    image: "nettoyage-demoussage-toit.jpg"
+                    image: "/images/nettoyage/nettoyage-1.jpg"
                 }
             ]
         },
@@ -49,22 +49,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Revêtement de toiture",
                     content: `Installation et remplacement de tous revêtements de toiture à ${communeName} : tuiles, ardoises, zinc, bac acier. Nous vous conseillons sur le choix du matériau selon votre budget et l'architecture de votre maison.`,
-                    image: "revetement-tuiles-ardoises.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Étanchéité toit-terrasse",
                     content: "L'étanchéité des toits-terrasses demande une expertise particulière. Nous posons des membranes d'étanchéité adaptées pour créer une protection durable contre les infiltrations d'eau.",
-                    image: "etancheite-toit-terrasse.jpg"
+                    image: "/images/couvreur/couvreur-1.jpg"
                 },
                 {
                     title: "Pose de Velux",
                     content: "Installation de fenêtres de toit pour apporter lumière naturelle et ventilation. Nous réalisons la découpe, la pose et l'étanchéité autour du Velux pour un résultat parfait.",
-                    image: "pose-velux-fenetre-toit.jpg"
+                    image: "/images/couvreur/couvreur-2.jpg"
                 },
                 {
                     title: "Isolation de toiture",
                     content: "L'isolation de la toiture réduit les pertes de chaleur. Nous installons des isolants performants par l'intérieur ou l'extérieur pour améliorer votre confort et réduire vos factures énergétiques.",
-                    image: "isolation-toiture-combles.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 }
             ]
         },
@@ -75,22 +75,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Zinguerie et évacuation des eaux",
                     content: `En tant que couvreur-zingueur à ${communeName}, nous installons et réparons gouttières, chéneaux et descentes pluviales. Ces éléments sont essentiels pour évacuer l'eau loin de vos fondations.`,
-                    image: "zinguerie-gouttieres-zinc.jpg"
+                    image: "/images/zinc/zinc-1.jpg"
                 },
                 {
                     title: "Réparation d'infiltrations",
                     content: "Une fuite de toiture doit être réparée rapidement pour éviter les dégâts. Nous localisons l'origine du problème et effectuons la réparation adaptée : tuiles cassées, joints défaillants, solins détériorés.",
-                    image: "reparation-fuite-toiture.jpg"
+                    image: "/images/gouttiere/gouttiere-1.jpg"
                 },
                 {
                     title: "Entretien préventif",
                     content: "Un entretien régulier évite les grosses réparations. Nous proposons des contrats d'entretien incluant inspection, nettoyage et petites réparations pour maintenir votre toiture en bon état.",
-                    image: "entretien-preventif-toit.jpg"
+                    image: "/images/gouttiere/gouttiere-2.jpg"
                 },
                 {
                     title: "Diagnostic de toiture",
                     content: "Avant tous travaux, nous établissons un diagnostic complet de l'état de votre toiture. Cette expertise nous permet de vous proposer les solutions les plus adaptées à votre situation.",
-                    image: "diagnostic-expertise-toiture.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 }
             ]
         },
@@ -101,22 +101,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Toiture neuve complète",
                     content: `Pour vos constructions neuves à ${communeName}, nous réalisons l'ensemble : charpente, isolation, pare-vapeur, couverture et zinguerie. Un projet clé en main respectant les normes actuelles.`,
-                    image: "toiture-neuve-construction.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Rénovation de couverture",
                     content: "Remplacement partiel ou total de votre couverture ancienne. Nous conservons les éléments sains et remplaçons les parties détériorées pour redonner une seconde vie à votre toit.",
-                    image: "renovation-couverture-ancienne.jpg"
+                    image: "/images/couvreur/couvreur-2.jpg"
                 },
                 {
                     title: "Mise aux normes",
                     content: "Les réglementations évoluent. Nous mettons votre toiture en conformité avec les normes actuelles d'isolation, de ventilation et de sécurité incendie.",
-                    image: "mise-aux-normes-toiture.jpg"
+                    image: "/images/couvreur/couvreur-1.jpg"
                 },
                 {
                     title: "Surélévation de toiture",
                     content: "Gagner de l'espace habitable en modifiant la pente ou en créant un étage supplémentaire. Nous étudions la faisabilité et réalisons ces travaux complexes.",
-                    image: "surelevation-toiture-combles.jpg"
+                    image: "/images/charpente/charpente-1.jpg"
                 }
             ]
         },
@@ -127,22 +127,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Étanchéité membrane",
                     content: `Pose de membranes d'étanchéité sur toits-terrasses et toitures plates à ${communeName}. Nous utilisons des matériaux haute performance : EPDM, bitume modifié, résines liquides selon vos besoins.`,
-                    image: "etancheite-membrane-epdm.jpg"
+                    image: "/images/gouttiere-1.jpg/gouttieres-2.jpg"
                 },
                 {
                     title: "Isolation thermique",
                     content: "L'isolation par l'extérieur (sarking) ou par l'intérieur améliore les performances énergétiques. Nous choisissons la technique selon la configuration de votre toiture.",
-                    image: "isolation-thermique-sarking.jpg"
+                    image: "/images/couvreur/couvreur-1.jpg"
                 },
                 {
                     title: "Ventilation de toiture",
                     content: "Une bonne ventilation évite la condensation et préserve la charpente. Installation d'entrées d'air en égout et de sorties en faîtage pour un renouvellement d'air optimal.",
-                    image: "ventilation-toiture-combles.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Écran sous-toiture",
                     content: "L'écran sous-toiture protège l'isolation et la charpente. Nous posons des écrans HPV (haute perméabilité à la vapeur) pour une protection optimale contre les infiltrations.",
-                    image: "ecran-sous-toiture-hpv.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 }
             ]
         },
@@ -153,22 +153,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Traitement hydrofuge",
                     content: `Application de produits hydrofuges sur votre toiture à ${communeName}. Ce traitement protège les matériaux contre l'humidité et prolonge leur durée de vie en évitant l'absorption d'eau.`,
-                    image: "traitement-hydrofuge-toiture.jpg"
+                    image: "/images/nettoyage/nettoyage-2.jpg"
                 },
                 {
                     title: "Traitement antimousse",
                     content: "Élimination des mousses et lichens puis application d'un traitement préventif. Ce produit empêche la repousse et maintient votre toiture propre plus longtemps.",
-                    image: "traitement-antimousse-toit.jpg"
+                    image: "/images/nettoyage/nettoyage-1.jpg"
                 },
                 {
                     title: "Démoussage professionnel",
                     content: "Nettoyage complet de la toiture avec des produits adaptés. Nous éliminons toutes les salissures, mousses et dépôts sans endommager les matériaux de couverture.",
-                    image: "demoussage-professionnel-toiture.jpg"
+                    image: "/images/couvreur/couvreur-2.jpg"
                 },
                 {
                     title: "Protection longue durée",
                     content: "Nos traitements offrent une protection efficace pendant plusieurs années. Nous adaptons les produits selon le type de couverture et l'exposition de votre toiture.",
-                    image: "protection-toiture-longue-duree.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 }
             ]
         },
@@ -179,22 +179,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Installation de gouttières",
                     content: `Pose de gouttières en zinc, aluminium ou PVC à ${communeName}. Nous dimensionnons le système selon la surface de votre toit pour une évacuation efficace des eaux pluviales.`,
-                    image: "installation-gouttieres-zinc.jpg"
+                    image: "/images/gouttiere/gouttiere-1.jpg"
                 },
                 {
                     title: "Chéneaux et noues",
                     content: "Réalisation de chéneaux pour toitures plates et de noues pour l'intersection des pans de toiture. Ces ouvrages en zinc assurent une étanchéité parfaite.",
-                    image: "cheneaux-noues-zinc.jpg"
+                    image: "/images/gouttiere/gouttiere-2.jpg"
                 },
                 {
                     title: "Habillage de cheminée",
                     content: "Habillage et étanchéité autour des conduits de cheminée. Nous réalisons les solins et bavettes en zinc pour éviter toute infiltration d'eau.",
-                    image: "habillage-cheminee-zinc.jpg"
+                    image: "/images/couvreur/couvreur-1.jpg"
                 },
                 {
                     title: "Réparation zinguerie",
                     content: "Réparation ou remplacement d'éléments de zinguerie détériorés. Nous intervenons rapidement pour maintenir l'évacuation des eaux et éviter les débordements.",
-                    image: "reparation-zinguerie-gouttieres.jpg"
+                    image: "/images/zinc/zinc-2.jpg"
                 }
             ]
         },
@@ -205,22 +205,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Installation fenêtre de toit",
                     content: `Pose de Velux et fenêtres de toit à ${communeName}. Nous créons l'ouverture, installons la fenêtre et réalisons l'étanchéité pour apporter lumière et ventilation à vos combles.`,
-                    image: "pose-velux-fenetre-toit.jpg"
+                    image: "/images/couvreur/couvreur-2.jpg"
                 },
                 {
                     title: "Raccordement étanche",
                     content: "Le raccordement de la fenêtre à la couverture est crucial. Nous utilisons des bavettes d'étanchéité adaptées à chaque type de couverture : tuiles, ardoises, bac acier.",
-                    image: "raccordement-etanche-velux.jpg"
+                    image: "/images/couvreur/couvreur-1.jpg"
                 },
                 {
                     title: "Habillage intérieur",
                     content: "Finition soignée à l'intérieur avec habillage en placo et isolation périphérique. Nous réalisons un ensemble esthétique et performant thermiquement.",
-                    image: "habillage-interieur-velux.jpg"
+                    image: "/images/charpente/charpente-1.jpg"
                 },
                 {
                     title: "Volets et stores",
                     content: "Installation d'accessoires : volets roulants électriques, stores occultants ou vénitiens. Ces équipements améliorent le confort et la protection solaire.",
-                    image: "volets-stores-velux.jpg"
+                    image: "/images/couvreur/couvreur-2.jpg"
                 }
             ]
         },
@@ -231,22 +231,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Charpente traditionnelle",
                     content: `Conception et réalisation de charpentes en bois massif à ${communeName}. Assemblages traditionnels avec tenons, mortaises et chevilles bois pour une structure authentique et durable.`,
-                    image: "charpente-traditionnelle-bois.jpg"
+                    image: "/images/charpente/charpente-2.jpg"
                 },
                 {
                     title: "Charpente industrielle",
                     content: "Pose de charpentes à fermettes industrielles. Solution économique et rapide à mettre en œuvre, adaptée aux constructions contemporaines et aux grandes portées.",
-                    image: "charpente-industrielle-fermettes.jpg"
+                    image: "/images/charpente/charpente-3.jpg"
                 },
                 {
                     title: "Renforcement structure",
                     content: "Consolidation de charpentes anciennes par ajout de pièces de renfort. Nous préservons l'existant tout en améliorant la résistance selon les normes actuelles.",
-                    image: "renforcement-charpente-ancienne.jpg"
+                    image: "/images/charpente/charpente-1.jpg"
                 },
                 {
                     title: "Traitement du bois",
                     content: "Application de traitements préventifs et curatifs contre les insectes xylophages et champignons. Protection indispensable pour la longévité de votre charpente.",
-                    image: "traitement-bois-charpente.jpg"
+                    image: "/images/couvreur/couvreur-1.jpg"
                 }
             ]
         },
@@ -257,22 +257,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Isolation combles perdus",
                     content: `Isolation de combles non aménageables à ${communeName} par soufflage ou déroulage d'isolant. Cette intervention simple améliore considérablement les performances énergétiques de votre maison.`,
-                    image: "isolation-combles-perdus-soufflage.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Isolation rampants",
                     content: "Isolation des rampants de toiture pour combles aménagés. Nous posons l'isolant entre chevrons et sous chevrons pour une isolation continue et performante.",
-                    image: "isolation-rampants-combles.jpg"
+                    image: "/images/couvreur/couvreur-2.jpg"
                 },
                 {
                     title: "Isolation par l'extérieur",
                     content: "Méthode sarking : isolation posée sur la charpente avant la couverture. Cette technique supprime tous les ponts thermiques et préserve l'espace habitable.",
-                    image: "isolation-exterieur-sarking.jpg"
+                    image: "/images/couvreur/couvreur-1.jpg"
                 },
                 {
                     title: "Pare-vapeur étanchéité",
                     content: "Pose de pare-vapeur côté chauffé pour éviter la condensation dans l'isolant. Élément essentiel pour la durabilité de l'isolation et de la charpente.",
-                    image: "pare-vapeur-etancheite-air.jpg"
+                    image: "/images/gouttiere/gouttiere-1.jpg"
                 }
             ]
         },
@@ -283,22 +283,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Inspection et diagnostic toiture",
                     content: `Vérification complète de l'état de votre toiture à ${communeName} : détection des mousses, lichens et algues, repérage des tuiles endommagées et contrôle des points sensibles avant tout traitement.`,
-                    image: "inspection-diagnostic-toiture.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Nettoyage mécanique professionnel",
                     content: "Brossage et grattage manuel des mousses et lichens, nettoyage à l'eau basse pression pour préserver les matériaux. Nous utilisons également le nettoyage vapeur pour une solution écologique et efficace.",
-                    image: "nettoyage-mecanique-toiture.jpg"
+                    image: "/images/nettoyage/nettoyage-1.jpg"
                 },
                 {
                     title: "Traitement anti-mousse spécialisé",
                     content: "Application de produits fongicides et algicides adaptés à votre type de couverture. Ce traitement élimine les racines microscopiques et ralentit considérablement la repousse des végétaux parasites.",
-                    image: "traitement-antimousse-specialise.jpg"
+                    image: "/images/nettoyage-2.jpg"
                 },
                 {
                     title: "Traitement hydrofuge et finitions",
                     content: "Pulvérisation d'hydrofuge filmogène ou pénétrant après préparation complète de la surface. Protection durable qui laisse respirer le matériau tout en repoussant l'eau et les salissures.",
-                    image: "traitement-hydrofuge-finition.jpg"
+                    image: "/images/nettoyage/nettoyage-1.jpg"
                 }
             ]
         },
@@ -309,22 +309,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Diagnostic thermique et conseil",
                     content: `Évaluation des pertes de chaleur et mesure des déperditions énergétiques à ${communeName}. Nous contrôlons l'état de la charpente et vous conseillons sur la solution d'isolation la plus adaptée à votre projet.`,
-                    image: "diagnostic-thermique-toiture.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Isolation par l'intérieur",
                     content: "Pose de laine minérale ou végétale entre ou sous les chevrons avec mise en place de pare-vapeur. Solution efficace pour l'isolation des combles aménagés et non-aménagés sans modifier l'aspect extérieur.",
-                    image: "isolation-interieur-chevrons.jpg"
+                    image: "/images/couvreur/couvreur-2.jpg"
                 },
                 {
                     title: "Isolation par l'extérieur sarking",
                     content: "Technique sarking avec panneaux isolants posés sur la charpente avant la couverture. Cette méthode préserve l'espace habitable intérieur et assure une isolation continue sans ponts thermiques.",
-                    image: "isolation-sarking-exterieur.jpg"
+                    image: "/images/couvreur/couvreur-1.jpg"
                 },
                 {
                     title: "Étanchéité et ventilation",
                     content: "Installation de pare-vapeur et système de ventilation adapté pour éviter l'humidité et la condensation. Contrôle des points singuliers et finitions pour garantir l'efficacité durable de l'isolation.",
-                    image: "etancheite-ventilation-isolation.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 }
             ]
         },
@@ -335,22 +335,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Étude et diagnostic charpente",
                     content: `Analyse complète de l'état de votre charpente à ${communeName} : vérification de la solidité, détection d'humidité, d'insectes xylophages et de champignons. Nous établissons un diagnostic précis avec préconisations adaptées à votre structure.`,
-                    image: "etude-diagnostic-charpente.jpg"
+                    image: "/images/charpente/charpente-1.jpg"
                 },
                 {
                     title: "Pose de charpente neuve",
                     content: "Conception et montage de charpentes traditionnelles ou industrielles selon vos besoins. Respect des normes de construction et calculs de charge, avec adaptation possible pour combles aménagés et toitures spécifiques.",
-                    image: "pose-charpente-neuve-montage.jpg"
+                    image: "/images/charpente/charpente-2.jpg"
                 },
                 {
                     title: "Rénovation et renforcement",
                     content: "Remplacement ou consolidation des pièces abîmées : pannes, chevrons, solives. Nous renforçons les structures fragilisées et adaptons la charpente aux nouvelles charges ou modifications de toiture.",
-                    image: "renovation-renforcement-charpente.jpg"
+                    image: "/images/charpente/charpente-3.jpg"
                 },
                 {
                     title: "Traitement et protection du bois",
                     content: "Traitements curatifs contre insectes xylophages et champignons, puis application de produits préventifs. Protection complète pour assurer la durabilité de votre charpente face à l'humidité et aux attaques biologiques.",
-                    image: "traitement-protection-bois-charpente.jpg"
+                    image: "/images/charpente/charpente-1.jpg"
                 }
             ]
         },
@@ -361,22 +361,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Diagnostic et étude d'étanchéité",
                     content: `Analyse des points faibles de votre toiture à ${communeName} : infiltrations, fissures, joints défaillants. Vérification complète de la couverture, solins, noues et abergements avec préconisations sur la solution d'étanchéité adaptée.`,
-                    image: "diagnostic-etude-etancheite-toiture.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Étanchéité toit-terrasses",
                     content: "Pose de membranes bitumineuses ou synthétiques (PVC, EPDM) et application d'étanchéité liquide par résines spécifiques. Possibilité d'aménagement de toitures-terrasses accessibles pour circulation ou jardin.",
-                    image: "etancheite-toit-terrasse-membrane.jpg"
+                    image: "/images/nettoyage/nettoyage-1.jpg"
                 },
                 {
                     title: "Étanchéité toitures inclinées",
                     content: "Pose et rénovation des solins, faîtages, noues et raccords métalliques. Étanchéité spécialisée autour des fenêtres de toit, cheminées et lucarnes avec mise en place de sous-toitures pare-pluie.",
-                    image: "etancheite-toiture-inclinee-solins.jpg"
+                    image: "/images/gouttiere/gouttiere-1.jpg"
                 },
                 {
                     title: "Réparation et entretien",
                     content: "Détection et colmatage des fuites, remplacement des éléments d'étanchéité endommagés et application de traitements hydrofuges. Contrôle régulier des joints, membranes et évacuations d'eau.",
-                    image: "reparation-entretien-etancheite.jpg"
+                    image: "/images/gouttiere/gouttiere-2.jpg"
                 }
             ]
         },
@@ -387,51 +387,51 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Étude et conseil personnalisé",
                     content: `Analyse de la charpente et de la couverture pour définir l'emplacement optimal à ${communeName}. Choix du type d'ouverture adapté et conseils sur la luminosité, ventilation et isolation selon votre projet et le climat local.`,
-                    image: "etude-conseil-fenetre-toit.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Pose de fenêtres de toit Velux",
                     content: "Création de l'ouverture dans la toiture avec respect de la charpente. Installation de Velux manuels, électriques ou solaires avec raccordements d'étanchéité parfaits pour prévenir toute infiltration.",
-                    image: "pose-velux-fenetre-toit-installation.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Installation de lucarnes traditionnelles",
                     content: "Fabrication et pose de lucarnes (chien-assis, jacobine, rampante) adaptées au style de votre maison. Charpente et couverture sur mesure pour un apport de lumière naturelle et une valorisation esthétique.",
-                    image: "installation-lucarnes-traditionnelles.jpg"
+                    image: "/images/charpente/charpente-1.jpg"
                 },
                 {
                     title: "Rénovation et accessoires",
                     content: "Remplacement d'anciens Velux, mise à niveau des systèmes d'ouverture et amélioration de l'isolation. Pose de volets roulants, stores intérieurs et finitions complètes pour un résultat parfait.",
-                    image: "renovation-accessoires-velux.jpg"
+                    image: "/images/couvreur/couvreur-2.jpg"
                 }
             ]
         },
 
-        variant16: {
-            title: `Peinture et revêtement toiture à ${communeName} - Rénovation esthétique`,
-            sections: [
-                {
-                    title: "Diagnostic et étude de toiture",
-                    content: `Analyse complète de l'état de votre toiture à ${communeName} : tuiles, ardoises, bac acier ou béton. Détermination des zones nécessitant un traitement avec préconisations adaptées à l'exposition et au climat local.`,
-                    image: "diagnostic-etude-peinture-toiture.jpg"
-                },
-                {
-                    title: "Application peinture spécialisée",
-                    content: "Pose de peintures et revêtements spécialisés pour toiture : protection contre l'humidité, UV et mousses. Revêtements acryliques, résine ou hydrofuge coloré adaptés selon le type de matériau de votre couverture.",
-                    image: "application-peinture-revetement-toit.jpg"
-                },
-                {
-                    title: "Rénovation et préparation",
-                    content: "Nettoyage préalable complet pour une adhérence optimale, réparation des éléments endommagés et application de plusieurs couches si nécessaire pour une durabilité maximale de la protection.",
-                    image: "renovation-preparation-toiture.jpg"
-                },
-                {
-                    title: "Protection et finition esthétique",
-                    content: "Traitement hydrofuge ou imperméabilisant pour prolonger la durée de vie de votre couverture. Mise en valeur esthétique avec possibilité de revêtement coloré pour harmoniser avec l'architecture environnante.",
-                    image: "protection-finition-esthetique-toit.jpg"
-                }
-            ]
-        },
+        // variant16: {
+        //     title: `Peinture et revêtement toiture à ${communeName} - Rénovation esthétique`,
+        //     sections: [
+        //         {
+        //             title: "Diagnostic et étude de toiture",
+        //             content: `Analyse complète de l'état de votre toiture à ${communeName} : tuiles, ardoises, bac acier ou béton. Détermination des zones nécessitant un traitement avec préconisations adaptées à l'exposition et au climat local.`,
+        //             image: "diagnostic-etude-peinture-toiture.jpg"
+        //         },
+        //         {
+        //             title: "Application peinture spécialisée",
+        //             content: "Pose de peintures et revêtements spécialisés pour toiture : protection contre l'humidité, UV et mousses. Revêtements acryliques, résine ou hydrofuge coloré adaptés selon le type de matériau de votre couverture.",
+        //             image: "application-peinture-revetement-toit.jpg"
+        //         },
+        //         {
+        //             title: "Rénovation et préparation",
+        //             content: "Nettoyage préalable complet pour une adhérence optimale, réparation des éléments endommagés et application de plusieurs couches si nécessaire pour une durabilité maximale de la protection.",
+        //             image: "renovation-preparation-toiture.jpg"
+        //         },
+        //         {
+        //             title: "Protection et finition esthétique",
+        //             content: "Traitement hydrofuge ou imperméabilisant pour prolonger la durée de vie de votre couverture. Mise en valeur esthétique avec possibilité de revêtement coloré pour harmoniser avec l'architecture environnante.",
+        //             image: "protection-finition-esthetique-toit.jpg"
+        //         }
+        //     ]
+        // },
 
         variant17: {
             title: `Urgences toiture à ${communeName} - Intervention 24h/24`,
@@ -439,22 +439,22 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Diagnostic rapide d'urgence",
                     content: `Intervention immédiate à ${communeName} pour identifier les dommages : intempéries, chute d'arbres, tuiles cassées, infiltrations. Évaluation de la sécurité pour éviter tout risque supplémentaire sur votre habitation.`,
-                    image: "diagnostic-rapide-urgence-toiture.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 },
                 {
                     title: "Réparation d'urgence immédiate",
                     content: "Remplacement temporaire ou définitif des éléments endommagés, colmatage des fuites et réparation des infiltrations. Réfection rapide des solins, rives et éléments de zinguerie affectés pour protéger votre logement.",
-                    image: "reparation-urgence-immediate-toit.jpg"
+                    image: "/images/gouttiere/gouttiere-1.jpg"
                 },
                 {
                     title: "Protection provisoire sécurisée",
                     content: "Pose de bâches ou membranes temporaires pour sécuriser la toiture contre la pluie et les vents. Protection efficace jusqu'à l'intervention définitive pour prévenir les dégâts supplémentaires sur la structure.",
-                    image: "protection-provisoire-bache-toiture.jpg"
+                    image: "/images/gouttiere/gouttiere-2.jpg"
                 },
                 {
                     title: "Suivi et réparation définitive",
                     content: "Établissement de rapport détaillé pour les assurances et coordination des démarches. Intervention complète pour rétablir l'étanchéité définitive avec conseils pour prévenir de futurs incidents.",
-                    image: "suivi-reparation-definitive-urgence.jpg"
+                    image: "/images/toiture/toiture.jpg"
                 }
             ]
         }

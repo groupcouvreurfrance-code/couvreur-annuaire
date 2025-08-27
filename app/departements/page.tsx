@@ -393,39 +393,126 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
                 </div>
 
                 {/* Section services */}
-                <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl p-8">
-                  <h3 className="font-serif font-bold text-2xl text-slate-900 mb-6 text-center">
-                    Services de couverture dans tous les départements
-                  </h3>
+                <div className="bg-gradient-to-br from-amber-50 to-amber-100 rounded-2xl overflow-hidden">
+                  {/* Section image en haut */}
+                  <div className="relative h-64 md:h-56 lg:h-64">
+                    <img
+                        src="/images/couvreur/couvreur-1.jpg"
+                        alt="Services de couverture - Couvreur professionnel"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                    />
+                    {/* Overlay léger pour améliorer le contraste */}
+                    <div className="absolute inset-0 bg-black/20"></div>
+                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div>
-                      <h4 className="font-bold text-lg text-slate-900 mb-3">Toiture neuve</h4>
-                      <ul className="space-y-2 text-slate-700">
-                        <li>• Pose de toiture complète</li>
-                        <li>• Charpente traditionnelle</li>
-                        <li>• Étanchéité</li>
-                      </ul>
+                  {/* Titre et description sous l'image */}
+                  <div className="p-8 pb-6">
+                    <div className="text-center mb-8">
+                      <h3 className="font-serif font-bold text-2xl lg:text-3xl text-slate-900 mb-3">
+                        Services de couverture dans tous les départements
+                      </h3>
+                      <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-orange-500 mx-auto rounded-full mb-4"></div>
+                      <p className="text-slate-600 max-w-2xl mx-auto">
+                        Notre expertise au service de votre toiture : de la construction neuve aux réparations d'urgence
+                      </p>
                     </div>
 
-                    <div>
-                      <h4 className="font-bold text-lg text-slate-900 mb-3">Rénovation</h4>
-                      <ul className="space-y-2 text-slate-700">
-                        <li>• Réfection de toiture</li>
-                        <li>• Remplacement de tuiles</li>
-                        <li>• Traitement anti-mousse</li>
-                        <li>• Nettoyage de toiture</li>
-                      </ul>
+                    {/* Grille des services */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div className="bg-white/50 rounded-xl p-6 hover:bg-white/70 transition-colors group">
+                        <div className="flex items-center mb-4">
+                          <div className="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center mr-3 group-hover:bg-amber-600 transition-colors">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                            </svg>
+                          </div>
+                          <h4 className="font-bold text-lg text-slate-900 group-hover:text-amber-700 transition-colors">Toiture neuve</h4>
+                        </div>
+                        <ul className="space-y-2 text-slate-700">
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Pose de toiture complète
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Charpente traditionnelle
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Étanchéité
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div className="bg-white/50 rounded-xl p-6 hover:bg-white/70 transition-colors group">
+                        <div className="flex items-center mb-4">
+                          <div className="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center mr-3 group-hover:bg-amber-600 transition-colors">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+                            </svg>
+                          </div>
+                          <h4 className="font-bold text-lg text-slate-900 group-hover:text-amber-700 transition-colors">Rénovation</h4>
+                        </div>
+                        <ul className="space-y-2 text-slate-700">
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Réfection de toiture
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Remplacement de tuiles
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Traitement anti-mousse
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Nettoyage de toiture
+                          </li>
+                        </ul>
+                      </div>
+
+                      <div className="bg-white/50 rounded-xl p-6 hover:bg-white/70 transition-colors group">
+                        <div className="flex items-center mb-4">
+                          <div className="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center mr-3 group-hover:bg-red-600 transition-colors">
+                            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                            </svg>
+                          </div>
+                          <h4 className="font-bold text-lg text-slate-900 group-hover:text-red-700 transition-colors">Urgences</h4>
+                        </div>
+                        <ul className="space-y-2 text-slate-700">
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Réparation de fuite
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Bâchage d'urgence
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Dépannage rapide
+                          </li>
+                          <li className="flex items-center">
+                            <span className="w-1.5 h-1.5 bg-red-500 rounded-full mr-3 flex-shrink-0"></span>
+                            Intervention 7j/7
+                          </li>
+                        </ul>
+                      </div>
                     </div>
 
-                    <div>
-                      <h4 className="font-bold text-lg text-slate-900 mb-3">Urgences</h4>
-                      <ul className="space-y-2 text-slate-700">
-                        <li>• Réparation de fuite</li>
-                        <li>• Bâchage d'urgence</li>
-                        <li>• Dépannage rapide</li>
-                        <li>• Intervention 7j/7</li>
-                      </ul>
+                    {/* Section CTA en bas */}
+                    <div className="mt-8 text-center">
+                      <p className="text-slate-600 mb-4 text-lg">
+                        Intervention rapide sur toute la région
+                      </p>
+
                     </div>
                   </div>
                 </div>
@@ -506,7 +593,7 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
                       href="#departements"
                       className="inline-flex items-center bg-white text-amber-700 hover:bg-amber-50 px-8 py-4 text-lg font-semibold rounded-lg transition-colors"
                   >
-                    <MapPin className="h-5 w-5 mr-2" />
+                    <MapPin className="h-5 w-5 mr-2"/>
                     Choisir mon département
                   </a>
                   <a

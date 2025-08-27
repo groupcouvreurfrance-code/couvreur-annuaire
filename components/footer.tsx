@@ -111,6 +111,50 @@ export function Footer() {
             </a>
           </div>
 
+          {/* Mentions légales */}
+          {/* Mentions légales */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-bold mb-6 text-white">Mentions légales</h2>
+            <div className="text-slate-300 space-y-4 text-sm">
+
+              <div>
+                <p className="text-white font-medium mb-2">Éditeur du site :</p>
+                <p>M. JOE BOCCADIFUOCO</p> {/* tu peux mettre juste ton nom complet ici */}
+                <p>Adresse : 11 rue avenue de Toulouse, 34000 Montpellier</p>
+                <p>Email : groupcouvreurfrance@gmail.com</p>
+                <p>Tél : (33) 07 56 83 09 51</p>
+              </div>
+
+              <div>
+                <p className="text-white font-medium mb-2">Directeur de la publication :</p>
+                <p>M. JOE BOCCADIFUOCO</p>
+              </div>
+
+              <div>
+                <p className="text-white font-medium mb-2">Hébergement :</p>
+                <p>Vercel Inc.</p>
+                <p>340 S Lemon Ave #4133</p>
+                <p>Walnut, CA 91789, États-Unis</p>
+                <p>Site : <a href="https://vercel.com" className="text-amber-500 hover:text-amber-400">https://vercel.com</a></p>
+              </div>
+
+              <div>
+                <p className="text-white font-medium mb-2">Propriété intellectuelle :</p>
+                <p>L’ensemble des contenus présents sur ce site (textes, images, logo, etc.) sont protégés par le droit d’auteur.
+                  Toute reproduction, même partielle, est interdite sans l’accord préalable de l’éditeur.</p>
+              </div>
+
+              <div>
+                <p className="text-white font-medium mb-2">Données personnelles :</p>
+                <p>Ce site ne collecte aucune donnée personnelle autre que celles transmises volontairement via l’email de contact.
+                  Conformément à la loi Informatique et Libertés, vous disposez d’un droit d’accès, de suppression
+                  de vos données en nous contactant à l’adresse suivante : groupcouvreurfrance@gmail.com.</p>
+              </div>
+
+            </div>
+          </div>
+
+
           {/* Bas de footer */}
           <div className="border-t border-slate-800 pt-8">
             <div className="flex flex-col space-y-6">
@@ -118,7 +162,6 @@ export function Footer() {
               <div className="text-center">
                 <p className="text-slate-400 text-sm">Copyright © 2025 couvreur-groupefrance - Tous droits réservés</p>
               </div>
-
             </div>
           </div>
         </div>
