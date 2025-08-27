@@ -166,7 +166,7 @@ export const getAllActiveArtisans = unstable_cache(
     },
     ['all-active-artisans'], // clé de cache unique
     {
-      revalidate: 72 * 60 * 60, // 6 heures
+      revalidate: 240 * 60 * 60, // 6 heures
       tags: ['artisans-global']
     }
 )
