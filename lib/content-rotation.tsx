@@ -127,7 +127,7 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Étanchéité membrane",
                     content: `Pose de membranes d'étanchéité sur toits-terrasses et toitures plates à ${communeName}. Nous utilisons des matériaux haute performance : EPDM, bitume modifié, résines liquides selon vos besoins.`,
-                    image: "/images/gouttiere-1.jpg/gouttieres-2.jpg"
+                    image: "/images/gouttiere/gouttiere-1.jpg"
                 },
                 {
                     title: "Isolation thermique",
