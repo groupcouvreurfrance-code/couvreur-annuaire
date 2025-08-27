@@ -145,7 +145,7 @@ export const getDepartmentArtisan = unstable_cache(
     },
     ['department-artisan'], // clé de cache
     {
-      revalidate: 30 * 60, // 30 minutes en secondes
+      revalidate: 6 *60 * 60, // 30 minutes en secondes
       tags: ['artisan', 'department']
     }
 );
@@ -172,7 +172,7 @@ export async function getDepartmentArtisanWithLogs(departmentId: number): Promis
       },
       [`department-artisan-${departmentId}`], // clé unique par département
       {
-        revalidate: 30 * 60,
+        revalidate: 6 *60 * 60,
         tags: ['artisan', `department-${departmentId}`]
       }
   );
@@ -218,7 +218,7 @@ export const getCommuneArtisan = unstable_cache(
     },
     ['commune-artisan'], // clé de cache
     {
-      revalidate: 30 * 60, // 30 minutes en secondes
+      revalidate: 6 *60 * 60, // 30 minutes en secondes
       tags: ['artisan', 'commune']
     }
 );
@@ -255,7 +255,7 @@ export async function getCommuneArtisanWithLogs(communeId: number): Promise<Arti
       },
       [`commune-artisan-${communeId}`], // clé unique par commune
       {
-        revalidate: 30 * 60,
+        revalidate: 6 *60 * 60,
         tags: ['artisan', `commune-${communeId}`]
       }
   );
