@@ -14,7 +14,7 @@ export default  function HomePage() {
                 __html: JSON.stringify({
                     "@context": "http://schema.org",
                     "@type": "LocalBusiness",
-                    "name": "Couvreur france",
+                    "name": "Couvreur france ",
                     "image": "https://www.couvreur-groupefrance.com/og-image.png",
                     "telephone": "07 56 83 09 51",
                     "email": "groupcouvreurfrance@gmail.com",
