@@ -246,7 +246,7 @@ async function main() {
       featured: Math.random() < 0.1, // 10% de chance d'être featured
       rating: parseFloat((Math.random() * 2 + 3).toFixed(1)), // Entre 3.0 et 5.0
       reviewCount: getRandomNumber(0, 50),
-      active: Math.random() < 0.95, // 95% de chance d'être actif
+      active: true,
     }
 
     artisans.push(artisan)
