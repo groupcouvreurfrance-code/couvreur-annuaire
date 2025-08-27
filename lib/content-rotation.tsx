@@ -132,7 +132,7 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Isolation thermique",
                     content: "L'isolation par l'extérieur (sarking) ou par l'intérieur améliore les performances énergétiques. Nous choisissons la technique selon la configuration de votre toiture.",
-                    image: "/images/couvreur/couvreur-1.jpg"
+                    image: "/images/isolation/isolation-1.jpg"
                 },
                 {
                     title: "Ventilation de toiture",
@@ -215,7 +215,7 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Habillage intérieur",
                     content: "Finition soignée à l'intérieur avec habillage en placo et isolation périphérique. Nous réalisons un ensemble esthétique et performant thermiquement.",
-                    image: "/images/charpente/charpente-1.jpg"
+                    image: "/images/isolation/isolation-1.jpg"
                 },
                 {
                     title: "Volets et stores",
@@ -257,12 +257,12 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Isolation combles perdus",
                     content: `Isolation de combles non aménageables à ${communeName} par soufflage ou déroulage d'isolant. Cette intervention simple améliore considérablement les performances énergétiques de votre maison.`,
-                    image: "/images/toiture/toiture.jpg"
+                    image: "/images/isolation/isolation-1.jpg"
                 },
                 {
                     title: "Isolation rampants",
                     content: "Isolation des rampants de toiture pour combles aménagés. Nous posons l'isolant entre chevrons et sous chevrons pour une isolation continue et performante.",
-                    image: "/images/couvreur/couvreur-2.jpg"
+                    image: "/images/isolation/isolation-2.jpg"
                 },
                 {
                     title: "Isolation par l'extérieur",
@@ -309,12 +309,12 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Diagnostic thermique et conseil",
                     content: `Évaluation des pertes de chaleur et mesure des déperditions énergétiques à ${communeName}. Nous contrôlons l'état de la charpente et vous conseillons sur la solution d'isolation la plus adaptée à votre projet.`,
-                    image: "/images/toiture/toiture.jpg"
+                    image: "/images/isolation/isolation-1.jpg"
                 },
                 {
                     title: "Isolation par l'intérieur",
                     content: "Pose de laine minérale ou végétale entre ou sous les chevrons avec mise en place de pare-vapeur. Solution efficace pour l'isolation des combles aménagés et non-aménagés sans modifier l'aspect extérieur.",
-                    image: "/images/couvreur/couvreur-2.jpg"
+                    image: "/images/isolation/isolation-2.jpg"
                 },
                 {
                     title: "Isolation par l'extérieur sarking",
@@ -392,7 +392,7 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Pose de fenêtres de toit Velux",
                     content: "Création de l'ouverture dans la toiture avec respect de la charpente. Installation de Velux manuels, électriques ou solaires avec raccordements d'étanchéité parfaits pour prévenir toute infiltration.",
-                    image: "/images/toiture/toiture.jpg"
+                    image: "/images/isolation/isolation-1.jpg"
                 },
                 {
                     title: "Installation de lucarnes traditionnelles",
@@ -402,7 +402,7 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Rénovation et accessoires",
                     content: "Remplacement d'anciens Velux, mise à niveau des systèmes d'ouverture et amélioration de l'isolation. Pose de volets roulants, stores intérieurs et finitions complètes pour un résultat parfait.",
-                    image: "/images/couvreur/couvreur-2.jpg"
+                    image: "/images/isolation/isolation-2.jpg"
                 }
             ]
         },
