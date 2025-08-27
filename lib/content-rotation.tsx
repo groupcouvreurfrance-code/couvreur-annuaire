@@ -630,7 +630,7 @@ export function getKeyPoints(sectionTitle, index) {
     'charpente': ['Bois traité', 'Calculs de charge', 'Normes DTU'],
     'nettoyage': ['Produits écologiques', 'Sécurité renforcée', 'Traitement longue durée'],
     'fuite': ['Intervention 24h/24', 'Détection précise', 'Réparation durable'],
-    'isolation': ['Économies d\'énergie', 'Confort thermique', 'Pose certifiée'],
+    'isolation': ['Économies d\'énergie ', 'Confort thermique', 'Pose certifiée'],
     'urgence': ['Disponibilité immédiate', 'Bâchage sécurisé', 'Devis transparent'],
     'default': ['Savoir-faire artisanal', 'Matériaux de qualité', 'Service personnalisé']
   };
