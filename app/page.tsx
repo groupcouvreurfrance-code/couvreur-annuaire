@@ -4,6 +4,7 @@ import { Footer } from "@/components/footer"
 import {CouvreurServicesSection} from "@/components/couvreur-services-section";
 import {CouvreurAdvantagesSection} from "@/components/couvreur-avantages-section";
 import {CouvreurHeroSection} from "@/components/hero-section";
+import FAQ from "@/components/faq-section";
 
 export default  function HomePage() {
 
@@ -33,6 +34,7 @@ export default  function HomePage() {
                 <DepartmentsPreview/>
                 <CouvreurAdvantagesSection />
                 <CouvreurServicesSection />
+                <FAQ/>
 
             </main>
             <Footer />

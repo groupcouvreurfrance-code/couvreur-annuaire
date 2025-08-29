@@ -33,7 +33,7 @@ export default function CollapsibleLegalSection() {
                 <div className="text-slate-300 space-y-4 text-sm">
                     <div>
                         <p className="text-white font-medium mb-2">Éditeur du site :</p>
-                        <p>M. JOE BOCCADIFUOCO</p>
+                        <p>BJ Conception</p>
                         <p>Adresse : 11 rue avenue de Toulouse, 34000 Montpellier</p>
                         <p>Email : groupcouvreurfrance@gmail.com</p>
                         <p>Tél : (33) 07 56 83 09 51</p>
@@ -41,7 +41,7 @@ export default function CollapsibleLegalSection() {
 
                     <div>
                         <p className="text-white font-medium mb-2">Directeur de la publication :</p>
-                        <p>M. JOE BOCCADIFUOCO</p>
+                        <p>BJ Conception</p>
                     </div>
 
                     <div>
