@@ -1,10 +1,10 @@
 "use client"
-import { useState } from 'react';
-import { ChevronDown, ChevronUp, Home, Shield, Droplets, Thermometer, Euro, AlertTriangle, MapPin } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ChevronDown, ChevronUp, Home, Shield, Droplets, Thermometer, Euro, AlertTriangle, MapPin, RefreshCw } from 'lucide-react';
 
 const FAQ = () => {
     const [openItems, setOpenItems] = useState(new Set());
-    const [activeCategory, setActiveCategory] = useState("Entretien et réparation");
+    const [activeCategory, setActiveCategory] = useState("");
 
     const faqData = {
         "Entretien et réparation": {
@@ -184,6 +184,24 @@ const FAQ = () => {
         }
     };
 
+    // Fonction pour sélectionner une catégorie aléatoire
+    const getRandomCategory = () => {
+        const categories = Object.keys(faqData);
+        return categories[Math.floor(Math.random() * categories.length)];
+    };
+
+    // Fonction pour générer une nouvelle catégorie aléatoire
+    const generateNewCategory = () => {
+        const newCategory = getRandomCategory();
+        setActiveCategory(newCategory);
+        setOpenItems(new Set()); // Fermer tous les items ouverts
+    };
+
+    // Sélectionner une catégorie aléatoire au chargement
+    useEffect(() => {
+        setActiveCategory(getRandomCategory());
+    }, []);
+
     const toggleItem = (index) => {
         const itemId = `${activeCategory}-${index}`;
         const newOpenItems = new Set(openItems);
@@ -197,10 +215,17 @@ const FAQ = () => {
         setOpenItems(newOpenItems);
     };
 
-    const changeCategory = (category) => {
-        setActiveCategory(category);
-        setOpenItems(new Set()); // Close all items when changing category
-    };
+    // Si la catégorie n'est pas encore définie, afficher un loader
+    if (!activeCategory) {
+        return (
+            <div className="min-h-screen bg-white flex items-center justify-center">
+                <div className="text-center">
+                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-500 mx-auto mb-4"></div>
+                    <p className="text-slate-600">Chargement des FAQ...</p>
+                </div>
+            </div>
+        );
+    }
 
     const currentData = faqData[activeCategory];
     const questions = currentData.questions;
@@ -215,29 +240,10 @@ const FAQ = () => {
                     </h1>
                     <p className="text-base md:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed px-4">
                         Découvrez tout ce que vous devez savoir sur les travaux de couverture.
-                        Naviguez entre les différentes catégories pour trouver les réponses à vos questions.
                     </p>
                 </div>
 
-                {/* Category Navigation */}
-                <div className="mb-6 md:mb-8">
-                    <div className="flex flex-wrap justify-center gap-2 mb-6">
-                        {Object.entries(faqData).map(([category, data]) => (
-                            <button
-                                key={category}
-                                onClick={() => changeCategory(category)}
-                                className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-300 ${
-                                    activeCategory === category
-                                        ? 'bg-amber-500 text-white'
-                                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                                }`}
-                            >
-                                {data.icon}
-                                <span className="hidden sm:inline">{category}</span>
-                            </button>
-                        ))}
-                    </div>
-                </div>
+
 
                 {/* Active Category FAQ */}
                 <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
@@ -297,11 +303,6 @@ const FAQ = () => {
                     </div>
                 </div>
 
-                {/* Footer */}
-                <div className="mt-8 md:mt-12 text-center text-slate-500 text-sm">
-                    <p>💡 Cliquez sur les boutons de navigation pour explorer chaque catégorie.</p>
-                    <p className="mt-2">Toutes les réponses à vos questions sur la couverture !</p>
-                </div>
             </div>
         </div>
     );

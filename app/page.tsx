@@ -34,7 +34,7 @@ export default  function HomePage() {
                 <DepartmentsPreview/>
                 <CouvreurAdvantagesSection />
                 <CouvreurServicesSection />
-                <FAQ/>
+
 
             </main>
             <Footer />

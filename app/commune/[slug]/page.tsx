@@ -18,6 +18,7 @@ import {
   getSectionIcon
 } from "@/lib/content-rotation";
 import MeteoCommune from "@/components/meteo-commune";
+import FAQ from "@/components/faq-section";
 
 interface CommunePageProps {
   params: {
@@ -768,6 +769,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
               </div>
             </div>
           </section>
+          <FAQ/>
 
         </main>
         <Footer/>
