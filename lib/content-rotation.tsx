@@ -293,7 +293,7 @@ function getContentByVariant(variant: string, communeName: string) {
                 {
                     title: "Traitement anti-mousse spécialisé",
                     content: "Application de produits fongicides et algicides adaptés à votre type de couverture. Ce traitement élimine les racines microscopiques et ralentit considérablement la repousse des végétaux parasites.",
-                    image: "/images/nettoyage-2.jpg"
+                    image: "/images/nettoyage/nettoyage-2.jpg"
                 },
                 {
                     title: "Traitement hydrofuge et finitions",
