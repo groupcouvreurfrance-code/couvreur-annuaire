@@ -746,6 +746,8 @@ export default async function CommunePage({ params }: CommunePageProps) {
             </div>
           </section>
 
+
+          <FAQ/>
           {/* CTA Section pour les artisans */}
           <section className="py-20 bg-gradient-to-r from-amber-600 via-amber-700 to-amber-800">
             <div className="container mx-auto px-4 text-center">
@@ -769,7 +771,6 @@ export default async function CommunePage({ params }: CommunePageProps) {
               </div>
             </div>
           </section>
-          <FAQ/>
 
         </main>
         <Footer/>
