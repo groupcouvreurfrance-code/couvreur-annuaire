@@ -11,7 +11,7 @@ export default clerkMiddleware(
             const { userId } = await auth()
 
             // Si l'utilisateur n'est pas autorisé, rediriger
-            if (!userId || userId !== ALLOWED_USER_ID) {
+            if (!userId || (userId !== ALLOWED_USER_ID)) {
                 // La session sera automatiquement gérée par Clerk lors de la redirection
                 return Response.redirect(new URL('/sign-out', req.url))
             }
