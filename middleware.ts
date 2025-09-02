@@ -8,15 +8,12 @@ export default clerkMiddleware(
         const ALLOWED_USER_ID = process.env.CLERK_ID
 
         if (isProtectedRoute(req)) {
-            try {
-                await auth.protect()
-                const { userId } = await auth()
+            await auth.protect()
+            const { userId } = await auth()
 
-                if (!userId || (userId !== ALLOWED_USER_ID)) {
-                    return NextResponse.redirect(new URL('/sign-out', req.url))
-                }
-            } catch (error) {
-
+            // Si l'utilisateur n'est pas autorisé, rediriger
+            if (!userId || userId !== ALLOWED_USER_ID) {
+                // La session sera automatiquement gérée par Clerk lors de la redirection
                 return NextResponse.redirect(new URL('/sign-out', req.url))
             }
         }
