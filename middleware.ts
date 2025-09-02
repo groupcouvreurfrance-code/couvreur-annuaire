@@ -1,4 +1,5 @@
 import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server'
+import {NextResponse} from "next/server";
 
 const isProtectedRoute = createRouteMatcher(['/admin'])
 
@@ -7,13 +8,16 @@ export default clerkMiddleware(
         const ALLOWED_USER_ID = process.env.CLERK_ID
 
         if (isProtectedRoute(req)) {
-            await auth.protect()
-            const { userId } = await auth()
+            try {
+                await auth.protect()
+                const { userId } = await auth()
 
-            // Si l'utilisateur n'est pas autorisé, rediriger
-            if (!userId || (userId !== ALLOWED_USER_ID)) {
-                // La session sera automatiquement gérée par Clerk lors de la redirection
-                return Response.redirect(new URL('/sign-out', req.url))
+                if (!userId || (userId !== ALLOWED_USER_ID)) {
+                    return NextResponse.redirect(new URL('/sign-out', req.url))
+                }
+            } catch (error) {
+                console.error('Auth error:', error)
+                return NextResponse.redirect(new URL('/sign-out', req.url))
             }
         }
     },
