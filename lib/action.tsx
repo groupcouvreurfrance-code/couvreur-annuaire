@@ -33,6 +33,7 @@ export async function updateArtisanStatus(artisanId: number, status: string) {
         // 🔄 Revalidate admin pages
         revalidatePath('/admin')
         revalidateTag('artisan');
+        revalidateTag('artisans');
         revalidateTag('department');
         revalidateTag('artisans-global')
 
@@ -233,6 +234,7 @@ export async function updateArtisanInfo(artisanId: number, data: {
         revalidatePath('/admin')
         revalidatePath('/admin/artisans')
         revalidateTag('artisan');
+        revalidateTag('artisans');
         revalidateTag('department');
         revalidateTag('artisans-global')
 

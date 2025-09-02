@@ -170,36 +170,46 @@ export const getAllActiveArtisans = unstable_cache(
       tags: ['artisans-global']
     }
 )
-export async function getAllArtisans(
-    status?: string,
-    page: number = 1,
-    perPage: number = 10
-): Promise<{ artisans: (Artisan & { department_name?: string })[], total: number }> {
-  const skip = (page - 1) * perPage
-  const [rawArtisans, total] = await Promise.all([
-    prisma.artisan.findMany({
-      where: status ? { status } : undefined,
-      include: {
-        department: true
-      },
-      orderBy: {
-        id: 'asc'
-      },
-      skip,
-      take: perPage
-    }),
-    prisma.artisan.count({
-      where: status ? { status } : undefined
-    })
-  ])
+export const getAllArtisans = unstable_cache(
+    async (
+        status?: string,
+        page: number = 1,
+        perPage: number = 10
+    ): Promise<{ artisans: (Artisan & { department_name?: string })[], total: number }> => {
+      const skip = (page - 1) * perPage
 
-  const artisans = rawArtisans.map(artisan => ({
-    ...artisan,
-    department_name: artisan.department?.name
-  }))
+      const [rawArtisans, total] = await Promise.all([
+        prisma.artisan.findMany({
+          where: status ? { status } : undefined,
+          include: {
+            department: true
+          },
+          orderBy: {
+            id: "asc"
+          },
+          skip,
+          take: perPage
+        }),
+        prisma.artisan.count({
+          where: status ? { status } : undefined
+        })
+      ])
 
-  return { artisans, total }
-}
+      // on ajoute department_name directement
+      const artisans = rawArtisans.map(a => ({
+        ...a,
+        department_name: a.department?.name
+      }))
+
+      return { artisans, total }
+    },
+    // clé du cache → tu peux mettre une clé unique + args
+    ["getAllArtisans"],
+    {
+      revalidate: 8760 * 60 * 60, // durée en secondes avant revalidation
+      tags: ["artisans"] // utile pour invalider plus tard avec revalidateTag("artisans")
+    }
+)
 /**
  * Wrapper avec logs pour le cache global
  */
