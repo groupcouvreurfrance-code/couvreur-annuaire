@@ -16,7 +16,7 @@ export default clerkMiddleware(
                     return NextResponse.redirect(new URL('/sign-out', req.url))
                 }
             } catch (error) {
-                console.error('Auth error:', error)
+
                 return NextResponse.redirect(new URL('/sign-out', req.url))
             }
         }
