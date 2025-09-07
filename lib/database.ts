@@ -39,24 +39,46 @@ export type ArtisanWithDepartment = Artisan & {
 
 // Fonctions pour lire dynamiquement les fichiers JSON
 const getDataPath = (filename: string) => join(process.cwd(), 'public', 'data', filename);
+let departmentsCache: Department[] | null = null;
+let communesCache: Commune[] | null = null;
 
 const getDepartments = (): Department[] => {
+  if (departmentsCache !== null) {
+    console.log('⚡ Returning departments from memory cache')
+    return departmentsCache;
+  }
+
+  // 📁 SINON, CHARGER UNE SEULE FOIS
   try {
-    const data = readFileSync(getDataPath('departments.json'), 'utf8')
-    return JSON.parse(data)
+    console.log('🔄 Loading departments.json into memory cache');
+    const data = readFileSync(getDataPath('departments.json'), 'utf8');
+    departmentsCache = JSON.parse(data); // ⚡ MISE EN CACHE
+    console.log(`✅ Cached ${departmentsCache.length} departments`);
+    return departmentsCache;
   } catch (error) {
-    console.error('Error reading departments.json:', error)
-    return []
+    console.error('Error reading departments.json:', error);
+    departmentsCache = [];
+    return [];
   }
 }
 
 const getCommunes = (): Commune[] => {
+  if (communesCache !== null) {
+    console.log('⚡ Returning communes from memory cache')
+    return communesCache;
+  }
+
+  // 📁 SINON, CHARGER UNE SEULE FOIS
   try {
-    const data = readFileSync(getDataPath('communes.json'), 'utf8')
-    return JSON.parse(data)
+    console.log('🔄 Loading communes.json into memory cache');
+    const data = readFileSync(getDataPath('communes.json'), 'utf8');
+    communesCache = JSON.parse(data); // ⚡ MISE EN CACHE
+    console.log(`✅ Cached ${communesCache.length} communes`);
+    return communesCache;
   } catch (error) {
-    console.error('Error reading communes.json:', error)
-    return []
+    console.error('Error reading communes.json:', error);
+    communesCache = [];
+    return [];
   }
 }
 
@@ -306,4 +328,9 @@ export async function departmentHasArtisan(departmentId: number): Promise<boolea
 export async function getActiveArtisansCount(): Promise<number> {
   const allArtisans = await getAllActiveArtisansWithLogs()
   return allArtisans.length
+}
+export function clearStaticCache() {
+  console.log('🧹 Clearing static JSON cache');
+  departmentsCache = null;
+  communesCache = null;
 }
