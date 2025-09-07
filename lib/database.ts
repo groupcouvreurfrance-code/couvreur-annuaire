@@ -38,7 +38,7 @@ export type ArtisanWithDepartment = Artisan & {
 }
 
 // Fonctions pour lire dynamiquement les fichiers JSON
-const getDataPath = (filename: string) => join(process.cwd(), 'prisma/data', filename)
+const getDataPath = (filename: string) => join(process.cwd(), 'public', 'data', filename);
 
 const getDepartments = (): Department[] => {
   try {

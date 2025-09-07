@@ -3,7 +3,7 @@ import { Footer } from "@/components/footer"
 import { ArtisanCard } from "@/components/artisan-card"
 import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
-import departmentData from "@/prisma/data/departments-data.json"
+import departmentData from "../../../public/data/departments-data.json"
 import {
   getDepartmentBySlug,
   getCommunesByDepartment,
