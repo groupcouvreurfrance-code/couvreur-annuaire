@@ -25,7 +25,6 @@ export const metadata: Metadata = {
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.creator }],
   creator: siteConfig.creator,
-  themeColor: siteConfig.themeColor,
 
   // Configuration des icônes (favicon)
   icons: {

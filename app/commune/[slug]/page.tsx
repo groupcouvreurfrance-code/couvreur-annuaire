@@ -6,7 +6,7 @@ import {getCommuneBySlug,  getCommuneArtisan} from "@/lib/database"
 import { notFound } from "next/navigation"
 import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award,  } from "lucide-react"
 import Link from "next/link"
-import type { Metadata } from "next"
+import type {Metadata, Viewport} from "next"
 import CarteCommune from "@/components/carte-commune"
 import {
   getConclusionText,
@@ -25,6 +25,7 @@ interface CommunePageProps {
     slug: string
   }
 }
+
 
 export async function generateMetadata({ params }: CommunePageProps): Promise<Metadata> {
   const param = await params;
