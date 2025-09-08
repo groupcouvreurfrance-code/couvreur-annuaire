@@ -2,7 +2,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ArtisanCard } from "@/components/artisan-card"
 import { ContactForm } from "@/components/contact-form"
-import {getCommuneBySlug,  getCommuneArtisan} from "@/lib/database"
+import {getCommuneBySlug, getCommuneArtisan} from "@/lib/database"
 import { notFound } from "next/navigation"
 import { MapPin, ArrowLeft, Phone, Mail, Star, Shield, Clock, Award,  } from "lucide-react"
 import Link from "next/link"
@@ -25,6 +25,8 @@ interface CommunePageProps {
     slug: string
   }
 }
+export const dynamic = "force-static"; // page forcée statique
+export const revalidate = 31536000; // ISR 365j
 
 
 export async function generateMetadata({ params }: CommunePageProps): Promise<Metadata> {
@@ -80,43 +82,6 @@ export default async function CommunePage({ params }: CommunePageProps) {
 
   // Contenu rotatif basé sur la première lettre de la commune
   const rotatingContent = getRotatingContent(commune.name)
-
-  // LocalBusiness schema with improved structure
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    name: artisan ? artisan.companyName : `Service de couverture ${commune.name}`,
-    description: `Couvreur professionnel à ${commune.name}  dans le ${commune.department_name}`,
-    "@id": `https://www.couvreur-groupefrance.com/commune/${param.slug}`,
-    url: `https://www.couvreur-groupefrance.com/commune/${param.slug}`,
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: artisan?.address || `${commune.name}, Centre-ville`,
-      addressLocality: commune.name,
-      postalCode: commune.postalCode,
-      addressRegion: commune.department_name,
-      addressCountry: "FR",
-    },
-    areaServed: {
-      "@type": "City",
-      name: commune.name,
-      containedInPlace: {
-        "@type": "State",
-        name: commune.department_name
-      }
-    },
-    serviceType: "Couverture et toiture",
-    priceRange: "€€",
-    // Add artisan-specific fields if available
-    ...(artisan && {
-      telephone: artisan.phone,
-      email: artisan.email,
-      url: artisan.website,
-      image: artisan.profileImage,
-      openingHours: "Mo-Fr 08:00-18:00",
-    }),
-  }
-
   // Person Schema pour mettre en évidence l'artisan
   const personJsonLd = artisan ? {
     "@context": "https://schema.org",
@@ -204,37 +169,6 @@ export default async function CommunePage({ params }: CommunePageProps) {
     ]
   }
 
-  // Separate BreadcrumbList schema
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Accueil",
-        item: "https://www.couvreur-groupefrance.com",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Départements",
-        item: "https://www.couvreur-groupefrance.com/departements",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: commune.department_name,
-        item: `https://www.couvreur-groupefrance.com/departement/${commune.department_slug}`,
-      },
-      {
-        "@type": "ListItem",
-        position: 4,
-        name: commune.name,
-        item: `https://www.couvreur-groupefrance.com/commune/${param.slug}`,
-      },
-    ],
-  }
 
   // Separate Service schema for better SEO
   const serviceJsonLd = {
@@ -777,14 +711,7 @@ export default async function CommunePage({ params }: CommunePageProps) {
         <Footer/>
 
         {/* Fixed JSON-LD scripts - separate for better validation */}
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
-        />
-        <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{__html: JSON.stringify(breadcrumbJsonLd)}}
-        />
+
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{__html: JSON.stringify(serviceJsonLd)}}

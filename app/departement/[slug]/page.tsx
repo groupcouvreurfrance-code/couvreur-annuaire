@@ -18,7 +18,8 @@ interface DepartmentPageProps {
     slug: string
   }
 }
-
+export const dynamic = "force-static"; // page forcée statique
+export const revalidate = 31536000; // ISR 365j
 export async function generateMetadata({ params }: DepartmentPageProps): Promise<Metadata> {
 
   const param = await params;

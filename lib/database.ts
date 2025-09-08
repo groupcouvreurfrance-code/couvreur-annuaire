@@ -209,7 +209,7 @@ export async function getAllActiveArtisansWithLogs(): Promise<ArtisanWithDepartm
 /**
  * Récupère un artisan pour un département en utilisant le cache global
  */
-export async function getDepartmentArtisan(departmentId: number): Promise<Artisan | null> {
+export async function _getDepartmentArtisan(departmentId: number): Promise<Artisan | null> {
   console.log(`🔍 [OPTIMIZED] Getting artisan for department ID: ${departmentId} via global cache`)
 
   const allArtisans = await getAllActiveArtisansWithLogs()
@@ -219,10 +219,16 @@ export async function getDepartmentArtisan(departmentId: number): Promise<Artisa
   return artisan
 }
 
+export const getDepartmentArtisan = unstable_cache(
+    _getDepartmentArtisan,
+    ["department-artisan"], // clé de cache globale
+    { tags: ["departments"], revalidate: 8760 * 60 * 60 } // 1 jour ou via revalidateTag
+);
+
 /**
  * Récupère un artisan pour une commune en utilisant le cache global
  */
-export async function getCommuneArtisan(communeId: number): Promise<Artisan | null> {
+export async function _getCommuneArtisan(communeId: number): Promise<Artisan | null> {
   console.log(`🔍 [OPTIMIZED] Getting artisan for commune ID: ${communeId} via global cache`)
 
   // D'abord récupérer la commune pour avoir son departmentCode
@@ -250,7 +256,11 @@ export async function getCommuneArtisan(communeId: number): Promise<Artisan | nu
   console.log(`✅ [OPTIMIZED] Found artisan for commune ${communeId} (dept ${department.name}): ${artisan?.companyName || 'none'}`)
   return artisan
 }
-
+export const getCommuneArtisan = unstable_cache(
+    _getCommuneArtisan,
+    ["commune-artisan"], // clé de cache globale
+    { tags: ["communes"], revalidate: 8760 * 60 * 60 } // 1 jour ou via revalidateTag
+);
 
 export function invalidateGlobalArtisanCache() {
   console.log(`🔄 [CACHE] Invalidating global artisans cache`)
