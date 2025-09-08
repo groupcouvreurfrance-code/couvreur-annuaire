@@ -1,4 +1,3 @@
-// next.config.ts
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
@@ -17,6 +16,26 @@ const nextConfig: NextConfig = {
                     {
                         key: 'X-Robots-Tag',
                         value: 'index, follow', // Forcer l'indexation par Google
+                    },
+                ],
+            },
+            {
+                // Appliquer spécifiquement aux pages de l'annuaire
+                source: '/commune/:slug*',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value: 's-maxage=31536000, stale-while-revalidate', // 1 an, aligné avec revalidate
+                    },
+                ],
+            },
+            {
+                // Appliquer spécifiquement aux pages de l'annuaire
+                source: '/departement/:slug*',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value: 's-maxage=31536000, stale-while-revalidate', // 1 an, aligné avec revalidate
                     },
                 ],
             },
