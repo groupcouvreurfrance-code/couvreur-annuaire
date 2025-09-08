@@ -5,7 +5,6 @@ import { ContactForm } from "@/components/contact-form"
 import { Button } from "@/components/ui/button"
 import departmentData from "../../../public/data/departments-data.json"
 import {
-  getDepartmentBySlug,
   getCommunesByDepartment,
   getDepartmentArtisan
 } from "@/lib/database"
@@ -21,8 +20,11 @@ interface DepartmentPageProps {
 }
 
 export async function generateMetadata({ params }: DepartmentPageProps): Promise<Metadata> {
-  const { slug } = await params
-  const department = await getDepartmentBySlug(slug)
+
+  const param = await params;
+  const department = departmentData.find(
+      (dept: any) =>  dept.slug === param.slug
+  );
 
   if (!department) {
     return {
@@ -30,7 +32,7 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
     }
   }
 
-  const artisan = await getDepartmentArtisan(department.id)
+  const artisan = await getDepartmentArtisan(parseInt(department.code, 10))
 
   return {
     title: `Couvreur (${department.name} - ${department.code}) tel: ${artisan?.phone}`,
@@ -58,20 +60,17 @@ export async function generateMetadata({ params }: DepartmentPageProps): Promise
 
 export default async function DepartmentPage({ params }: DepartmentPageProps) {
   const param = await params;
-  const department = await getDepartmentBySlug(param.slug)
-
+  const department = departmentData.find(
+      (dept: any) =>  dept.slug === param.slug
+  );
   if (!department) {
-    notFound()
+    return notFound()
   }
 
-  // Trouve les données spécifiques au département actuel
-  const currentDepartmentData = departmentData.find(
-      (dept: any) => dept.code === department.code || dept.slug === department.slug
-  );
 
   const [{ communes: allCommunes, total }, artisan] = await Promise.all([
     getCommunesByDepartment(department.code),
-    getDepartmentArtisan(department.id),
+    getDepartmentArtisan(parseInt(department.code, 10)),
   ])
 
   // Diviser les communes en tranches de 60
@@ -334,7 +333,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
           )}
 
           {/* Section expertise spécifique - utilise les données du département actuel */}
-          {currentDepartmentData && (
+          {department && (
               <section className="py-16 bg-white">
                 <div className="container mx-auto px-4">
                   <div className="max-w-4xl mx-auto">
@@ -344,7 +343,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
 
                     <div className="bg-slate-50 rounded-xl p-6 md:p-8 mb-8">
                       <p className="text-slate-700 leading-relaxed text-lg">
-                        {currentDepartmentData.description}
+                        {department.description}
                       </p>
                     </div>
 

@@ -1,10 +1,9 @@
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { getAllDepartments } from "@/lib/database"
 import Link from "next/link"
 import {Metadata} from "next";
 import { MapPin, ArrowRight, Building, Users, Shield, Star } from "lucide-react"
-
+import departmentsData from "../../public/data/departments-data.json"
 interface DepartementsPageProps {
   searchParams: { page?: string }
 }
@@ -92,7 +91,8 @@ export const metadata: Metadata = {
 
 export default async function DepartementsPage({ searchParams }: DepartementsPageProps) {
   // On récupère TOUS les départements d'un coup (pas de pagination)
-  const { departments: allDepartments, total } = await getAllDepartments()
+  const allDepartments = departmentsData // ou departmentsData selon la structure de votre JSON
+  const total = allDepartments.length
 
   // Grouper les départements par tranche
   const groupDepartmentsByRange = (depts: any[]) => {
@@ -308,7 +308,7 @@ export default async function DepartementsPage({ searchParams }: DepartementsPag
                           <div  className="p-4">
                             <div className="grid grid-cols-1 gap-1">
                               {groupedDepartments[range].map((dept) => (
-                                  <Link key={dept.id} href={`/departement/${dept.slug}`}>
+                                  <Link key={dept.code} href={`/departement/${dept.slug}`}>
                                     <div className="flex items-center justify-between px-3 py-2 md:px-4 md:py-3 hover:bg-amber-50 rounded-lg transition-all duration-200 group cursor-pointer border border-transparent hover:border-amber-200">
                                       <div className="flex items-center space-x-2 md:space-x-3 min-w-0 flex-1">
                                         <span className="flex-shrink-0 w-8 h-6 md:w-10 md:h-7 bg-amber-100 rounded text-amber-700 font-mono text-xs md:text-sm font-bold flex items-center justify-center group-hover:bg-amber-200 transition-colors">
