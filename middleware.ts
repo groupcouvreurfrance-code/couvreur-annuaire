@@ -6,7 +6,12 @@ const isProtectedRoute = createRouteMatcher(['/admin'])
 export default clerkMiddleware(
     async (auth, req) => {
         const ALLOWED_USER_ID = process.env.CLERK_ID
+        const userAgent = req.headers.get("user-agent") || "";
 
+        // 🚫 Bloquer GPTBot
+        if (userAgent.includes("GPTBot")) {
+            return new NextResponse("Blocked for GPTBot", { status: 403 });
+        }
         if (isProtectedRoute(req)) {
             await auth.protect()
             const { userId } = await auth()
@@ -27,5 +32,9 @@ export default clerkMiddleware(
 )
 
 export const config = {
-    matcher: ['/admin/:path*']
+    matcher: [
+        '/admin/:path*',
+        '/departement/:path*',
+        '/commune/:path*'
+    ]
 }
