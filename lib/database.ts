@@ -141,7 +141,7 @@ export const getAllActiveArtisans = unstable_cache(
     },
     ['all-active-artisans'], // clé de cache unique
     {
-      revalidate: 8760 * 60 * 60, // 6 heures
+      revalidate: 8760 * 60 * 60,
       tags: ['artisans-global']
     }
 )
@@ -222,7 +222,7 @@ export async function _getDepartmentArtisan(departmentId: number): Promise<Artis
 export const getDepartmentArtisan = unstable_cache(
     _getDepartmentArtisan,
     ["department-artisan"], // clé de cache globale
-    { tags: ["departments"], revalidate: 8760 * 60 * 60 } // 1 jour ou via revalidateTag
+    { tags: ["departments"], revalidate: 8760 * 60 * 60 }
 );
 
 /**

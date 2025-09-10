@@ -34,7 +34,5 @@ export default clerkMiddleware(
 export const config = {
     matcher: [
         '/admin/:path*',
-        '/departement/:path*',
-        '/commune/:path*'
     ]
 }
