@@ -41,6 +41,26 @@ const nextConfig: NextConfig = {
             },
         ];
     },
+    async rewrites() {
+        return {
+            beforeFiles: [
+                // Block GPTBot
+                {
+                    source: '/(.*)',
+                    has: [
+                        {
+                            type: 'header',
+                            key: 'user-agent',
+                            value: '(?i).*GPTBot.*',
+                        },
+                    ],
+                    destination: '/403',
+                },
+            ],
+            afterFiles: [],
+            fallback: [],
+        };
+    },
 };
 
 export default nextConfig;
