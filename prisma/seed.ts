@@ -1,4 +1,5 @@
 import { PrismaClient } from '../lib/generated/prisma'
+import * as XLSX from 'xlsx'
 
 const slugify = (text: string): string => {
   return text
@@ -188,76 +189,136 @@ function getCityForDepartment(departmentCode: string): string {
 }
 
 async function main() {
-  console.log('Début du seeding des artisans...')
-
-  // Supprimer les anciens artisans
-  console.log('Suppression des anciens artisans...')
-  await prisma.artisan.deleteMany({})
-
-  // Réinitialiser la séquence d'ID des artisans pour repartir à 1
   try {
-    await prisma.$executeRaw`SELECT setval(pg_get_serial_sequence('Artisan', 'id'), 1, false)`
-    console.log('Séquence des IDs artisans réinitialisée à 1')
+    console.log('Début du seeding des artisans...')
+
+    // Lire le fichier Excel
+    const workbook = XLSX.readFile('public/data/artisans.xlsx')
+    const sheetName = workbook.SheetNames[0]
+    const worksheet = workbook.Sheets[sheetName]
+    const artisansData = XLSX.utils.sheet_to_json(worksheet)
+
+    console.log(`Importation de ${artisansData.length} artisans...`)
+
+    // Supprimer les anciens artisans si la table existe
+    console.log('Suppression des anciens artisans...')
+    try {
+      await prisma.artisan.deleteMany({})
+    } catch (error: any) {
+      if (error.code === 'P2021') {
+        console.log('Table artisans n\'existe pas encore, création des données...')
+      } else {
+        throw error
+      }
+    }
+
+    // Réinitialiser la séquence d'ID des artisans pour repartir à 1
+    try {
+      await prisma.$executeRaw`SELECT setval(pg_get_serial_sequence('artisans', 'id'), 1, false)`
+      console.log('Séquence des IDs artisans réinitialisée à 1')
+    } catch (error) {
+      console.log('Note: Impossible de réinitialiser la séquence des IDs (normal si table vide ou inexistante)')
+    }
+
+    // S'assurer que les départements existent
+    console.log('Création des départements si nécessaire...')
+    try {
+      await prisma.department.createMany({
+        data: departments,
+        skipDuplicates: true,
+      })
+    } catch (error) {
+      console.log('Départements déjà existants ou erreur lors de la création')
+    }
+
+    console.log('Premier enregistrement:', artisansData[0])
+
+    // Préparer les données des artisans pour l'import en masse
+    const artisansToCreate = artisansData
+      .filter((artisan: any) => {
+        const hasRequiredFields = artisan.company_name && artisan.department_id
+        if (!hasRequiredFields) {
+          console.warn(`Artisan ignoré: ${artisan.company_name || 'Sans nom'} - Département ID: ${artisan.department_id}`)
+        }
+        return hasRequiredFields
+      })
+      .map((artisan: any) => {
+        // Parse services et certifications si elles sont des chaînes JSON
+        let services = []
+        if (typeof artisan.services === 'string') {
+          try {
+            services = JSON.parse(artisan.services)
+          } catch {
+            services = artisan.services.split(',').map((s: string) => s.trim()).filter((s: string) => s)
+          }
+        } else if (Array.isArray(artisan.services)) {
+          services = artisan.services
+        }
+
+        let certifications = []
+        if (typeof artisan.certifications === 'string') {
+          try {
+            certifications = JSON.parse(artisan.certifications)
+          } catch {
+            certifications = artisan.certifications.split(',').map((c: string) => c.trim()).filter((c: string) => c)
+          }
+        } else if (Array.isArray(artisan.certifications)) {
+          certifications = artisan.certifications
+        }
+
+        // Convertir les valeurs booléennes depuis les chaînes
+        const parseBoolean = (value: any): boolean => {
+          if (typeof value === 'boolean') return value
+          if (typeof value === 'string') {
+            return value.toLowerCase() === 'true' || value === '1'
+          }
+          return Boolean(value)
+        }
+
+        const data = {
+          companyName: artisan.company_name,
+          contactName: artisan.contact_name || artisan.company_name,
+          email: artisan.email || 'groupcouvreurfrance@gmail.com',
+          phone: artisan.phone || '07 56 83 09 51',
+          address: artisan.address || `Adresse ${artisan.company_name}`,
+          postalCode: artisan.postal_code || null,
+          city: artisan.city || null,
+          departmentId: parseInt(artisan.department_id) + 188, // Ajuster l'ID: Excel (1-95) -> DB (189-283)
+          website: artisan.website || null,
+          description: artisan.description || null,
+          services: services,
+          yearsExperience: artisan.years_experience ? parseInt(artisan.years_experience) : null,
+          certifications: certifications,
+          insuranceValid: parseBoolean(artisan.insurance_valid),
+          siret: artisan.siret || null,
+          status: artisan.status || 'approved',
+          featured: parseBoolean(artisan.featured),
+          rating: artisan.rating ? parseFloat(artisan.rating.toString()) : 0,
+          reviewCount: artisan.review_count ? parseInt(artisan.review_count) : 0,
+          active: parseBoolean(artisan.active),
+        }
+        return data
+      })
+
+    console.log('Premier enregistrement transformé:', artisansToCreate[0])
+    console.log(`Préparation de ${artisansToCreate.length} artisans pour l'import...`)
+
+    // Import des artisans
+    if (artisansToCreate.length > 0) {
+      const result = await prisma.artisan.createMany({
+        data: artisansToCreate,
+        skipDuplicates: true,
+      })
+      console.log(`${result.count} artisans créés avec succès`)
+    } else {
+      console.log('Aucun artisan valide trouvé pour l\'import')
+    }
   } catch (error) {
-    console.log('Note: Impossible de réinitialiser la séquence des IDs (normal si table vide)')
+    console.error('Erreur lors de l\'importation:', error)
+    throw error
+  } finally {
+    await prisma.$disconnect()
   }
-
-  // 1. Récupérer les départements existants pour avoir les IDs
-  console.log('Récupération des départements existants...')
-  const existingDepartments = await prisma.department.findMany()
-  const departmentMap = new Map(existingDepartments.map(d => [d.code, d.id]))
-  console.log(`${existingDepartments.length} départements trouvés dans la base`)
-
-  // 2. Créer les artisans
-  console.log('Création des artisans...')
-  const artisans = []
-
-  // Créer un artisan pour chaque département dans la liste (en utilisant les IDs de la base)
-  for (const departmentData of departments) {
-    const departmentId = departmentMap.get(departmentData.code)
-    if (!departmentId) {
-      console.error(`Département ${departmentData.code} non trouvé dans la base`)
-      continue
-    }
-
-    const city = getCityForDepartment(departmentData.code)
-    const postalCode = generatePostalCode(departmentData.code)
-    const selectedServices = getRandomElement(services)
-    const selectedCertifications = getRandomElement(certifications)
-    const yearsExp = getRandomNumber(2, 25)
-
-    const artisan = {
-      companyName: `Couvreur ${departmentData.code} `,
-      contactName: `Contact Couvreur ${departmentData.code}`,
-      email: 'groupcouvreurfrance@gmail.com',
-      phone: '07 56 83 09 51',
-      address: `${getRandomNumber(1, 999)} Rue de la Toiture`,
-      postalCode: postalCode,
-      city: city,
-      departmentId: departmentId,
-      website: `https://couvreur${departmentData.code}.fr`,
-      description: getRandomElement(descriptions),
-      services: selectedServices,
-      yearsExperience: yearsExp,
-      certifications: selectedCertifications,
-      insuranceValid: true,
-      siret: generateSiret(),
-      status: getRandomElement(['pending', 'approved', 'approved', 'approved']), // Plus d'approuvés
-      featured: Math.random() < 0.1, // 10% de chance d'être featured
-      rating: parseFloat((Math.random() * 2 + 3).toFixed(1)), // Entre 3.0 et 5.0
-      reviewCount: getRandomNumber(0, 50),
-      active: true,
-    }
-
-    artisans.push(artisan)
-  }
-
-  // Insertion des artisans en masse
-  const result = await prisma.artisan.createMany({
-    data: artisans
-  })
-
-  console.log(`Seeding terminé ! ${result.count} artisans créés (un par département) avec IDs commençant à 1.`)
 }
 
 main()

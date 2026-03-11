@@ -25,9 +25,21 @@ interface CommunePageProps {
     slug: string
   }
 }
+import communesData from "../../../../public/data/communes.json"
+
 export const dynamic = "force-static"; // page forcée statique
 export const revalidate = 31536000; // ISR 365j
 
+export async function generateStaticParams() {
+  // On pré-génère uniquement un nombre limité de communes pour éviter 
+  // d'exploser le temps de build et les ressources Vercel.
+  // 500 est un bon équilibre.
+  const topCommunes = communesData.slice(0, 500);
+
+  return topCommunes.map((commune: any) => ({
+    slug: commune.slug,
+  }));
+}
 
 export async function generateMetadata({ params }: CommunePageProps): Promise<Metadata> {
   const param = await params;
