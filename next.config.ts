@@ -61,6 +61,10 @@ const nextConfig: NextConfig = {
             fallback: [],
         };
     },
+    experimental: {
+        workerThreads: false,
+        cpus: 1
+    }
 };
 
 export default nextConfig;
