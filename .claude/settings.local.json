@@ -3,7 +3,9 @@
     "allow": [
       "Bash(rtk rm:*)",
       "Bash(rtk pnpm:*)",
-      "Bash(rtk ls:*)"
+      "Bash(rtk ls:*)",
+      "Bash(node -e \"const d = require\\(''./public/data/communes.json''\\); console.log\\(''Total:'', d.length\\); console.log\\(''Keys:'', Object.keys\\(d[0]\\)\\)\")",
+      "Bash(node -e \":*)"
     ]
   }
 }

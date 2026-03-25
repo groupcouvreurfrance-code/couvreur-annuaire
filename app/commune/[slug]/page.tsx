@@ -32,7 +32,14 @@ export const revalidate = 31536000; // ISR 365j
 export const dynamicParams = false; // 404 pour les slugs non pré-générés (évite les ISR writes)
 
 export async function generateStaticParams() {
-  return (communesData as any[]).map((commune: any) => ({
+  // 50 communes par département = ~4750 pages (limite disque Vercel free tier)
+  const byDept: Record<string, any[]> = {};
+  for (const commune of communesData as any[]) {
+    const dept = commune.departmentCode;
+    if (!byDept[dept]) byDept[dept] = [];
+    if (byDept[dept].length < 50) byDept[dept].push(commune);
+  }
+  return Object.values(byDept).flat().map((commune: any) => ({
     slug: commune.slug,
   }));
 }
