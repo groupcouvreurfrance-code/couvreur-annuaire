@@ -1,20 +1,9 @@
-import communesData from "../../public/data/communes.json"
+import { getSelectedCommuneParams } from "@/lib/selected-communes"
 import {NextResponse} from "next/server";
-
-// Même logique que generateStaticParams : 50 communes par département
-function getSelectedCommunes() {
-    const byDept: Record<string, any[]> = {};
-    for (const commune of communesData as any[]) {
-        const dept = commune.departmentCode;
-        if (!byDept[dept]) byDept[dept] = [];
-        if (byDept[dept].length < 50) byDept[dept].push(commune);
-    }
-    return Object.values(byDept).flat();
-}
 
 export async function GET() {
     const baseUrl = 'https://www.couvreur-groupefrance.com'
-    const communes = getSelectedCommunes();
+    const communes = getSelectedCommuneParams();
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

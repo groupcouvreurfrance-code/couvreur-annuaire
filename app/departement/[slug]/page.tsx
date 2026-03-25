@@ -12,6 +12,7 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import type { Metadata } from "next"
 import { MapPin, ChevronRight, Users, Building, ArrowLeft } from "lucide-react"
+import { getSelectedCommuneSlugs } from "@/lib/selected-communes"
 
 interface DepartmentPageProps {
   params: {
@@ -82,6 +83,10 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
     getDepartmentArtisan(parseInt(department.code, 10)),
   ])
 
+  // Filtrer pour ne garder que les communes qui ont une page statique
+  const selectedSlugs = getSelectedCommuneSlugs();
+  const communes = allCommunes.filter((c: any) => selectedSlugs.has(c.slug));
+
   // Diviser les communes en tranches de 60
   const createCommuneChunks = (communes: any[], chunkSize: number = 60) => {
     const chunks: any[][] = []
@@ -94,7 +99,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
     return chunks
   }
 
-  const communeChunks = createCommuneChunks(allCommunes, 60)
+  const communeChunks = createCommuneChunks(communes, 60)
 
   // JSON-LD optimisé
   const jsonLd = {
@@ -419,7 +424,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                 </p>
               </div>
 
-              {allCommunes.length > 0 ? (
+              {communes.length > 0 ? (
                   <div className="max-w-6xl mx-auto space-y-8">
                     {communeChunks.map((chunk, index) => {
                       const firstCommune = chunk[0]?.name || ""
