@@ -3,8 +3,6 @@ import { NextResponse } from 'next/server'
 export async function GET() {
     const baseUrl = 'https://www.couvreur-groupefrance.com'
 
-    // Google recommande max 50k URLs par sitemap
-    // On fait 4 sitemaps de ~9k communes chacun
     const sitemapIndex = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
@@ -19,21 +17,12 @@ export async function GET() {
     <loc>${baseUrl}/sitemap-communes-1.xml</loc>
     <lastmod>${new Date().toISOString()}</lastmod>
   </sitemap>
-  <sitemap>
-    <loc>${baseUrl}/sitemap-communes-2.xml</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>${baseUrl}/sitemap-communes-3.xml</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>${baseUrl}/sitemap-communes-4.xml</loc>
-    <lastmod>${new Date().toISOString()}</lastmod>
-  </sitemap>
 </sitemapindex>`
 
     return new NextResponse(sitemapIndex, {
-        headers: { 'Content-Type': 'application/xml' }
+        headers: {
+            'Content-Type': 'application/xml',
+            'Cache-Control': 's-maxage=86400, stale-while-revalidate=3600'
+        }
     })
 }

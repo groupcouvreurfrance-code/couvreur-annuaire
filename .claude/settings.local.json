@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(rtk rm:*)",
+      "Bash(rtk pnpm:*)",
+      "Bash(rtk ls:*)"
+    ]
+  }
+}

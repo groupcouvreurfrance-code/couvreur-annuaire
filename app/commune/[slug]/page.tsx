@@ -27,16 +27,12 @@ interface CommunePageProps {
 }
 import communesData from "../../../public/data/communes.json"
 
-export const dynamic = "force-static"; // page forcée statique
+export const dynamic = "force-static";
 export const revalidate = 31536000; // ISR 365j
+export const dynamicParams = false; // 404 pour les slugs non pré-générés (évite les ISR writes)
 
 export async function generateStaticParams() {
-  // On pré-génère uniquement un nombre limité de communes pour éviter 
-  // d'exploser le temps de build et les ressources Vercel.
-  // 500 est un bon équilibre.
-  const topCommunes = (communesData as any[]).slice(0, 500);
-
-  return topCommunes.map((commune: any) => ({
+  return (communesData as any[]).map((commune: any) => ({
     slug: commune.slug,
   }));
 }

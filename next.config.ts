@@ -44,14 +44,14 @@ const nextConfig: NextConfig = {
     async rewrites() {
         return {
             beforeFiles: [
-                // Block GPTBot
+                // Bloquer tous les bots AI qui consomment des ressources sans valeur SEO
                 {
                     source: '/(.*)',
                     has: [
                         {
                             type: 'header',
                             key: 'user-agent',
-                            value: '(?i).*GPTBot.*',
+                            value: '(?i).*(GPTBot|ChatGPT-User|CCBot|meta-externalagent|anthropic-ai|ClaudeBot|PerplexityBot|oai-searchbot|Bytespider|Applebot-Extended|Baiduspider).*',
                         },
                     ],
                     destination: '/403',

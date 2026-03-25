@@ -18,8 +18,9 @@ interface DepartmentPageProps {
     slug: string
   }
 }
-export const dynamic = "force-static"; // page forcée statique
+export const dynamic = "force-static";
 export const revalidate = 31536000; // ISR 365j
+export const dynamicParams = false; // 404 pour les slugs non pré-générés (évite les ISR writes)
 
 export async function generateStaticParams() {
   return departmentData.map((dept: any) => ({

@@ -4,58 +4,67 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: "*",
-        allow: "/",
-        disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 2, // 2 secondes entre chaque requête pour tous
-      },
-      {
         userAgent: "Googlebot",
         allow: "/",
         disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 1, // Plus rapide pour Google
       },
       {
-        userAgent: "gptbot",
+        userAgent: "Bingbot",
         allow: "/",
         disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 120, // 120 secondes - il a abusé !
+        crawlDelay: 2,
+      },
+      // Bloquer tous les bots AI - aucune valeur SEO, consomment des ressources
+      {
+        userAgent: "GPTBot",
+        disallow: ["/"],
       },
       {
         userAgent: "ChatGPT-User",
-        allow: "/",
-        disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 30,
+        disallow: ["/"],
       },
       {
         userAgent: "CCBot",
-        allow: "/",
-        disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 30,
+        disallow: ["/"],
       },
       {
         userAgent: "meta-externalagent",
-        allow: "/",
-        disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 45, // Meta AI aussi
+        disallow: ["/"],
       },
       {
         userAgent: "anthropic-ai",
-        allow: "/",
-        disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 30,
+        disallow: ["/"],
       },
       {
         userAgent: "PerplexityBot",
-        allow: "/",
-        disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 20,
+        disallow: ["/"],
       },
       {
         userAgent: "oai-searchbot",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "Bytespider",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "ClaudeBot",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "Applebot-Extended",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "Baiduspider",
+        disallow: ["/"],
+      },
+      // Tous les autres bots : accès limité
+      {
+        userAgent: "*",
         allow: "/",
         disallow: ["/admin/", "/api/", "/_next/", "/private/"],
-        crawlDelay: 60, // OpenAI SearchBot aussi
+        crawlDelay: 5,
       },
     ],
     sitemap: "https://www.couvreur-groupefrance.com/sitemap.xml",
