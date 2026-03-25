@@ -244,19 +244,6 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                   } du département {department.name}.
                 </p>
 
-                {/* Stats */}
-                <div className="grid grid-cols-2 gap-4 max-w-md mx-auto mb-6">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                    <div className="text-2xl font-bold text-white mb-1">{total}</div>
-                    <div className="text-amber-100 text-xs">Communes</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
-                    <div className="text-2xl font-bold text-white mb-1">
-                      {artisan ? artisan.yearsExperience || "10+" : "10+"}
-                    </div>
-                    <div className="text-amber-100 text-xs">Années</div>
-                  </div>
-                </div>
 
                 {artisan && (
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -420,7 +407,7 @@ export default async function DepartmentPage({ params }: DepartmentPageProps) {
                   Communes du {department.name}
                 </h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                  {artisan ? `${artisan.companyName} intervient` : "Service disponible"} dans les {total} communes
+                  {artisan ? `${artisan.companyName} intervient` : "Service disponible"} dans les {communes.length} communes
                 </p>
               </div>
 
